@@ -1,5 +1,5 @@
 {
-  "name": "theach",
+  "name": "command.ts",
   "version": "1.0.0",
   "description": "A modern discord.js command framework making use of experimental TypeScript decorators",
   "main": "build/lib.js",

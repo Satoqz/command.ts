@@ -39,7 +39,7 @@ export default class Theach extends DJS.Client {
 
 				const args = message.content.split(" ");
 
-				const command = this.commands.find((command: RegisteredCommand) => command.name == args[0] && command.prefixless);
+				const command = this.commands.find((command: RegisteredCommand) => command.aliases.includes(args[0]) && command.prefixless);
 
 				if(!command) return;
 
@@ -50,7 +50,7 @@ export default class Theach extends DJS.Client {
 
 				const args = message.content.replace(usedPrefix, "").split(" ");
 			
-				const command = this.commands.find((command: RegisteredCommand) => command.name == args[0] && !command.onlyPrefixless);
+				const command = this.commands.find((command: RegisteredCommand) => command.aliases.includes(args[0]) && !command.onlyPrefixless);
 
 				if(!command) return;
 

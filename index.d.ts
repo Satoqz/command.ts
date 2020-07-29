@@ -21,13 +21,15 @@ export function Command(client: Client, options?: commandOptions): Function;
 export function reload(path: string): void;
 
 export interface commandOptions {
-	dmOnly?: boolean,
+	guildOnly?: boolean,
 	prefixless?: boolean,
-	onlyPrefixless?: boolean
+	onlyPrefixless?: boolean,
+	aliases?: string[]
 }
 
 export interface registeredCommandOptions {
 	execute: Function,
+	aliases: string[],
 	group: string,
 	name: string,
 	prefixless: boolean,

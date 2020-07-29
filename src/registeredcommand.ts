@@ -9,13 +9,14 @@ export default class RegisteredCommand {
 		this.name = options.name;
 		this.prefixless = options.prefixless;
 		this.onlyPrefixless = options.onlyPrefixless;
+		this.aliases = options.aliases;
 		
 	}
 
 	public execute: Function;
 	public group: string;
 	public name: string;
-	public source: string;
+	public aliases: string[];
 	public prefixless: boolean;
 	public onlyPrefixless: boolean;
 

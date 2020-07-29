@@ -19,6 +19,7 @@ export default function Command(client: Theach, options?: commandOptions): Funct
 		client.commands.push(new RegisteredCommand({
 			group: parent.constructor.name,
 			name: name,
+			aliases: hasOptions && options.aliases ? options.aliases.concat([name]) : [name],
 			execute: executor.value,
 			prefixless: hasOptions && options.prefixless ? options.prefixless : false,
 			onlyPrefixless : hasOptions && options.onlyPrefixless ? options.onlyPrefixless : false
