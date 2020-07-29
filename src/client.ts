@@ -2,7 +2,7 @@ import * as DJS from "discord.js";
 import RegisteredCommand from "./registeredcommand";
 import { clientOptions } from "../index";
 
-export default class Theach extends DJS.Client {
+export default class Client extends DJS.Client {
 
 	constructor(options: clientOptions) {
 		super();
