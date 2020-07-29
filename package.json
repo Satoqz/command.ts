@@ -1,0 +1,28 @@
+{
+  "name": "theach",
+  "version": "1.0.0",
+  "description": "A modern discord.js command framework making use of experimental TypeScript decorators",
+  "main": "build/lib.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "satoqz",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "htps://github.com/Satoqz/command.ts"
+  },
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  },
+  "devDependencies": {
+	"@types/node": "^14.0.26",
+	"@types/ws": "^7.2.6",
+    "eslint": "^7.5.0",
+    "eslint-config-typescript-satoqz": "0.0.4",
+    "typescript": "^3.9.7"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-typescript-satoqz"
+  }
+}

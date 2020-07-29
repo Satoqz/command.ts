@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "sourceMap": false,
+		"outDir": "build",
+		"target": "ES2020",
+		"baseUrl": ".",
+		"esModuleInterop": true,
+        "paths": {
+            "*": ["node_modules/*"]
+        }
+    },
+    "include": [
+      "src/**/*"
+    ]
+}
