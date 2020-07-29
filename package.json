@@ -1,6 +1,6 @@
 {
   "name": "command.ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modern discord.js command framework making use of experimental TypeScript decorators",
   "main": "build/lib.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "htps://github.com/Satoqz/command.ts"
+    "url": "htps://github.com/Satoqz/command.ts.git"
   },
   "dependencies": {
     "discord.js": "^12.2.0"
