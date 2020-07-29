@@ -6,7 +6,7 @@
 
 ### This framework makes use of experimental TypeScript decorators which allow the following syntax:
 
-<pre><code>@Command(client)
+<pre><code>@client.command()
 public ping(message, args) {
 	message.reply("pong");
 }</code></pre>
@@ -29,7 +29,7 @@ public ping(message, args) {
 
 ### Why not just use:
 
-<pre><code>@Command(client, {
+<pre><code>@client.command({
 	aliases: ["ping2", "pingpong"]
 })
 public ping(message, args) {
@@ -68,14 +68,12 @@ An array of the client's specified prefixes
 
 ## Command
 
-<pre><code>import { Command } from "command.ts";
-
-// Your commands must be wrapped in a class because we are using decorators.
+<pre><code>// Your commands must be wrapped in a class because we are using decorators.
 // The class name is used as the group name of the commands you define in it.
 
 class MyCommands {
 
-	@Command(client, commandOptions)
+	@client.command(optional: commandOptions)
 	public ping(message, args) {
 
 	}

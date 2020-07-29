@@ -14,9 +14,8 @@ export class Client extends DJS.Client {
 	public token: string;
 	public prefixes: string[];
 	public commands: RegisteredCommand[];
+	public command(options?: commandOptions): Function;
 }
-
-export function Command(client: Client, options?: commandOptions): Function;
 
 export function reload(path: string): void;
 
