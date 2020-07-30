@@ -40,6 +40,7 @@ export class Context
 	 * Reply to the message
 	 * @param options Message content, e.g. string
 	 * @param tag Tag the author of the message, default false
+	 * @returns Message sent
 	 */
 	public reply(
 		options?:
@@ -55,12 +56,14 @@ export class Context
 	/**
 	 * Get users or bots avatar
 	 * @param me true for bot/client; false or undefined for author of message
+	 * @returns Returns URL as string
 	 */
-	
 	public av(me?: boolean): string;
+
 	/**
 	 * React to a message
 	 * @param emoji The emoji you want to react with, e.g. "☕"
+	 * @returns Returns reaction
 	 */
 	public react(emoji: DJS.EmojiIdentifierResolvable): Promise<DJS.Message | DJS.Message[]>
 }
