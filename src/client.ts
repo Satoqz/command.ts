@@ -3,9 +3,10 @@ import fs from "fs";
 import RegisteredCommand from "./registeredcommand";
 import { clientOptions, commandOptions } from "../index";
 
-export default class Client extends DJS.Client {
-
-	constructor(options: clientOptions) {
+export default class Client extends DJS.Client
+{
+	constructor(options: clientOptions)
+	{
 		super();
 		if(options.ownerId) this.ownerId = options.ownerId;
 		if(options.prefixes) this.prefixes = options.prefixes;
@@ -17,7 +18,7 @@ export default class Client extends DJS.Client {
 
 	public noDM: boolean = true;
 
-	public ownerId: string;
+	public ownerId?: string;
 
 	public prefixes: string[] = ["!"];
 
@@ -27,40 +28,41 @@ export default class Client extends DJS.Client {
 
 	public commands: RegisteredCommand[] = [];
 
-	private register() {
-		this.on("message", (message: DJS.Message) => {
-
+	private register()
+	{
+		this.on("message", (message: DJS.Message) =>
+		{
 			if(this.noDM && message.channel.type == "dm") return;
 			
 			let hasPrefix = false;
 			let usedPrefix = "";
-
-			this.prefixes.forEach((prefix: string) => {
-				if(message.content.startsWith(prefix)) {
+			
+			this.prefixes.forEach((prefix: string) =>
+			{
+				if(message.content.startsWith(prefix))
+				{
 					hasPrefix = true;
 					usedPrefix = prefix;
 				}
 			});
 
-			if(!hasPrefix) {
-
+			if(!hasPrefix)
+			{
 				const args = message.content.split(" ");
-
 				const command = this.commands.find((command: RegisteredCommand) => command.aliases.includes(args[0]) && command.prefixless);
-
+				
 				if(!command) return;
-
+				
 				command.execute(message, args);
 			}
 
-			else {
-
+			else
+			{
 				const args = message.content.replace(usedPrefix, "").split(" ");
-			
 				const command = this.commands.find((command: RegisteredCommand) => command.aliases.includes(args[0]) && !command.onlyPrefixless);
-
+				
 				if(!command) return;
-
+				
 				command.execute(message, args);
 			}
 		});
@@ -68,22 +70,24 @@ export default class Client extends DJS.Client {
 		this.login(this.token);
 	}
 
-	public autoImport(dir: string) {
+	public autoImport(dir: string)
+	{
 		const files = fs.readdirSync(dir);
 
-		files.forEach((filename: string) => {
+		files.forEach((filename: string) =>
+		{
 			console.log("Autoimporting " + dir + filename);
 			require(dir + filename);
 		});
 	}
 
-	public command(options?: commandOptions): Function {
-
+	public command(options?: commandOptions): Function
+	{
 		const client: Client = this;
 		
-		return function(parent: Object, name: string, executor: PropertyDescriptor) {
-			
-			const duplicateCommand: RegisteredCommand = client.commands.find((command: RegisteredCommand) => command.name == name);
+		return function(parent: Object, name: string, executor: PropertyDescriptor)
+		{
+			const duplicateCommand: RegisteredCommand | undefined = client.commands.find((command: RegisteredCommand) => command.name == name);
 
 			if(duplicateCommand) client.commands.splice(client.commands.indexOf(duplicateCommand), 1);
 
@@ -91,66 +95,60 @@ export default class Client extends DJS.Client {
 
 			if(!alreadyPushedGroup) client.commandGroups.push(parent.constructor.name);
 
-			const hasOptions = options ? true : false;
+			const hasOptions: boolean = options ? true : false;
 
 			client.commands.push(new RegisteredCommand({
 				group: parent.constructor.name,
 				name: name,
-				description: hasOptions && options.description ? options.description : undefined,
-				usage: hasOptions && options.usage ? options.usage : undefined,
-				aliases: hasOptions && options.aliases ? options.aliases.concat([name]) : [name],
+				description: hasOptions && options?.description ? options.description : undefined,
+				usage: hasOptions && options?.usage ? options.usage : undefined,
+				aliases: hasOptions && options?.aliases ? options.aliases.concat([name]) : [name],
 				execute: executor.value,
-				prefixless: hasOptions && options.prefixless ? options.prefixless : false,
-				onlyPrefixless : hasOptions && options.onlyPrefixless ? options.onlyPrefixless : false
+				prefixless: hasOptions && options?.prefixless ? options.prefixless : false,
+				onlyPrefixless : hasOptions && options?.onlyPrefixless ? options.onlyPrefixless : false
 			}));
-
 		};
 	}
 
-	public permission(permission: DJS.PermissionString | DJS.PermissionString[]) {
-
+	public permission(permission: DJS.PermissionString | DJS.PermissionString[])
+	{
 		const client = this;
 
-		return function(parent: Object, name: string | symbol, executor: PropertyDescriptor) {
-
+		return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
+		{
 			const original = executor.value;
-	
-			executor.value = function(message: DJS.Message, args: string[]) {
-
-				if(message.channel.type == "dm") return original.apply(this, [message, args]);
-
-				else if(message.guild.member(client.user).hasPermission(permission)) {
-
+			
+			executor.value = function(message: DJS.Message, args: string[])
+			{
+				if(message.channel.type == "dm")
 					return original.apply(this, [message, args]);
-
-				}
+				
+				else if(message.guild!.member(client.user!)!.hasPermission(permission))
+					return original.apply(this, [message, args]);
 
 				else return null;
 			};
-	
 			return executor;
 		};
 	}
-	public owner() {
 
+	public owner()
+	{
 		const client = this;
 
-		return function(parent: Object, name: string | symbol, executor: PropertyDescriptor) {
-
+		return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
+		{
 			const original = executor.value;
-	
-			executor.value = function(message: DJS.Message, args: string[]) {
-
+			
+			executor.value = function(message: DJS.Message, args: string[])
+			{
 				if(!client.ownerId) {
 					console.log("INFO: To use the client#owner decorator, please provide your discord id as ownerId when initializing the client!");
 					return null;
 				}
 
-				if(message.author.id == client.ownerId) {
-
+				if(message.author.id == client.ownerId)
 					return original.apply(this, [message, args]);
-
-				}
 
 				else return null;
 			};

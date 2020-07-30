@@ -1,13 +1,15 @@
 import * as DJS from "discord.js";
 
-export class RegisteredCommand {
+export class RegisteredCommand
+{
 	constructor(name: string)
 	public execute: Function;
 	public name: string;
 	public group: string;
 }
 
-export class Client extends DJS.Client {
+export class Client extends DJS.Client
+{
 	constructor(options: clientOptions)
 	public group(constructorFunction: Function): void;
 	public commandGroups: string[];
@@ -25,7 +27,9 @@ export function reload(path: string): Promise<{message: string}>;
 export function permission(permission: DJS.PermissionString | DJS.PermissionString[]): Function;
 
 export function noDM(): Function;
-export interface commandOptions {
+
+export interface commandOptions
+{
 	prefixless?: boolean,
 	onlyPrefixless?: boolean,
 	aliases?: string[],
@@ -33,7 +37,8 @@ export interface commandOptions {
 	usage?: string | undefined
 }
 
-export interface registeredCommandOptions {
+export interface registeredCommandOptions
+{
 	execute: Function,
 	group: string,
 	name: string,
@@ -44,7 +49,8 @@ export interface registeredCommandOptions {
 	usage: string | undefined
 }	
 
-export interface clientOptions {
+export interface clientOptions
+{
 	prefixes?: string[],
 	ownerId?: string,
 	noDM?: boolean,

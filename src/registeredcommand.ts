@@ -1,16 +1,15 @@
 import { registeredCommandOptions } from "../index";
 
-export default class RegisteredCommand {
-
-	constructor(options: registeredCommandOptions) {
-
+export default class RegisteredCommand
+{
+	constructor(options: registeredCommandOptions)
+	{
 		this.execute = options.execute;
 		this.group = options.group;
 		this.name = options.name;
 		this.prefixless = options.prefixless;
 		this.onlyPrefixless = options.onlyPrefixless;
 		this.aliases = options.aliases;
-		
 	}
 
 	public execute: Function;
@@ -19,5 +18,4 @@ export default class RegisteredCommand {
 	public aliases: string[];
 	public prefixless: boolean;
 	public onlyPrefixless: boolean;
-
 }
