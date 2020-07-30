@@ -22,6 +22,31 @@ export class Client extends DJS.Client
 	public autoImport(dir: string): void;
 }
 
+export class CommandContext
+{
+	constructor(message: DJS.Message, args?: string[]);
+
+	public me: DJS.ClientUser;
+
+	public args?: string[];
+	public originalMessage: DJS.Message;
+	
+	public text?: string;
+	public author?: DJS.User;
+	public publishedByBot: boolean;
+	public createdAt: Date;
+	public reply(
+		options?:
+		| DJS.MessageOptions
+		| DJS.MessageAdditions
+		| DJS.APIMessage
+		| (DJS.MessageOptions & { split?: false })
+		| DJS.MessageAdditions
+		| DJS.APIMessage
+		| DJS.StringResolvable,
+		tag?: boolean): Promise<DJS.Message>;
+}
+
 export function reload(path: string): Promise<{message: string}>;
 
 export function permission(permission: DJS.PermissionString | DJS.PermissionString[]): Function;

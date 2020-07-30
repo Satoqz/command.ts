@@ -2,6 +2,7 @@ import * as DJS from "discord.js";
 import fs from "fs";
 import RegisteredCommand from "./registeredcommand";
 import { clientOptions, commandOptions } from "../index";
+import { commandHandler } from "./commandhandler";
 
 export default class Client extends DJS.Client
 {
@@ -17,55 +18,15 @@ export default class Client extends DJS.Client
 	}
 
 	public noDM: boolean = true;
-
 	public ownerId?: string;
-
 	public prefixes: string[] = ["!"];
-
 	public token: string = "";
-
 	public commandGroups: string[] = [];
-
 	public commands: RegisteredCommand[] = [];
 
 	private register()
 	{
-		this.on("message", (message: DJS.Message) =>
-		{
-			if(this.noDM && message.channel.type == "dm") return;
-			
-			let hasPrefix = false;
-			let usedPrefix = "";
-			
-			this.prefixes.forEach((prefix: string) =>
-			{
-				if(message.content.startsWith(prefix))
-				{
-					hasPrefix = true;
-					usedPrefix = prefix;
-				}
-			});
-
-			if(!hasPrefix)
-			{
-				const args = message.content.split(" ");
-				const command = this.commands.find((command: RegisteredCommand) => command.aliases.includes(args[0]) && command.prefixless);
-				
-				if(!command) return;
-				
-				command.execute(message, args);
-			}
-
-			else
-			{
-				const args = message.content.replace(usedPrefix, "").split(" ");
-				const command = this.commands.find((command: RegisteredCommand) => command.aliases.includes(args[0]) && !command.onlyPrefixless);
-				
-				if(!command) return;
-				
-				command.execute(message, args);
-			}
-		});
+		this.on("message", (message: DJS.Message) => commandHandler(this, message));
 
 		this.login(this.token);
 	}
@@ -123,7 +84,7 @@ export default class Client extends DJS.Client
 			
 			executor.value = function(message: DJS.Message, args: string[])
 			{
-				if(message.channel.type == "dm")
+				if(message.channel!.type == "dm")
 					return original.apply(this, [message, args]);
 				
 				else if(message.guild!.member(client.user!)!.hasPermission(permission))
