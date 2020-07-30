@@ -14,6 +14,7 @@ class PingPongCommands
 	})
 	ping(context: Context)
 	{
+		// Reply. You can pass true as an additional argument to tag the author
 		context.reply("pong");
 	}
 }

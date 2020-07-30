@@ -1,10 +1,10 @@
 import * as DJS from "discord.js";
 import fs from "fs";
-import RegisteredCommand from "./models/registeredCommand";
+import { RegisteredCommand } from "./interfaces/registeredCommand";
 import { commandHandler } from "./commandHandler";
 import CommandContext from "./commandContext";
-import { clientOptions } from "./models/clientOptions";
-import { commandOptions } from "./models/commandOptions";
+import { clientOptions } from "./interfaces/clientOptions";
+import { commandOptions } from "./interfaces/commandOptions";
 
 export default class Client extends DJS.Client
 {
@@ -63,7 +63,7 @@ export default class Client extends DJS.Client
 
 			const hasOptions: boolean = options ? true : false;
 
-			client.commands.push(new RegisteredCommand({
+			client.commands.push({
 				group: parent.constructor.name,
 				name: name,
 				description: hasOptions && options?.description ? options.description : undefined,
@@ -72,7 +72,7 @@ export default class Client extends DJS.Client
 				execute: executor.value,
 				prefixless: hasOptions && options?.prefixless ? options.prefixless : false,
 				onlyPrefixless : hasOptions && options?.onlyPrefixless ? options.onlyPrefixless : false
-			}));
+			});
 		};
 	}
 

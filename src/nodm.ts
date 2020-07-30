@@ -12,7 +12,6 @@ export default function noDM()
 
 			else return original.apply(this, [message, args]);
 		};
-		
 		return executor;
 	};
 }
