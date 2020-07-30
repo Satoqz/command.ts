@@ -47,7 +47,7 @@ export class CommandContext
 	
 	/**
 	 * 
-	 * @param emoji The emoji you want to react with, e.g. "☕"/
+	 * @param emoji The emoji you want to react with, e.g. "☕"
 	 */
 	public react(emoji: DJS.EmojiIdentifierResolvable)
 		: Promise<DJS.MessageReaction>
