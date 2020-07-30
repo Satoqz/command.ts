@@ -28,7 +28,7 @@ export class Client extends DJS.Client
 
 	private register()
 	{
-		this.on("message", (message: DJS.Message) => commandHandler(this, message));
+		this.on("message", async (message: DJS.Message) => commandHandler(this, message));
 
 		this.login(this.token);
 	}
@@ -51,7 +51,7 @@ export class Client extends DJS.Client
 	{
 		const client: Client = this;
 		
-		return function(parent: Object, name: string, executor: PropertyDescriptor)
+		return async function(parent: Object, name: string, executor: PropertyDescriptor)
 		{
 			const duplicateCommand: RegisteredCommand | undefined = client.commands.find((command: RegisteredCommand) => command.name == name);
 
@@ -80,7 +80,7 @@ export class Client extends DJS.Client
 	{
 		const client = this;
 
-		return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
+		return async function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
 		{
 			const original = executor.value;
 			

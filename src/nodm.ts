@@ -6,7 +6,7 @@ export function noDM()
 	{
 		const original = executor.value;
 
-		executor.value = function(message: Message, args: string[])
+		executor.value = async function(message: Message, args: string[])
 		{
 			if(message.channel.type == "dm") return null;
 
