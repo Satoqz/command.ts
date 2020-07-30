@@ -63,136 +63,127 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#commandts" id="commandts" style="color: inherit; text-decoration: none;">
-					<h1>command.ts</h1>
-				</a>
-				<a href="#this-is-an-unofficial-command-framework-for-discordjs" id="this-is-an-unofficial-command-framework-for-discordjs" style="color: inherit; text-decoration: none;">
-					<h3>This is an unofficial command framework for <a href="https://github.com/discordjs/discordjs">discord.js</a></h3>
-				</a>
-				<a href="#so-what39s-special-about-this" id="so-what39s-special-about-this" style="color: inherit; text-decoration: none;">
-					<h2>So what&#39;s special about this?</h2>
-				</a>
-				<a href="#this-framework-makes-use-of-experimental-typescript-decorators-which-allow-the-following-syntax" id="this-framework-makes-use-of-experimental-typescript-decorators-which-allow-the-following-syntax" style="color: inherit; text-decoration: none;">
-					<h3>This framework makes use of experimental TypeScript decorators which allow the following syntax:</h3>
-				</a>
-				<pre><code>@client.command()
-public ping(message, args) {
-    message.reply("pong");
-}</code></pre>
-				<a href="#much-simpler-than" id="much-simpler-than" style="color: inherit; text-decoration: none;">
-					<h3>Much simpler than...</h3>
-				</a>
-				<pre><code>client.on("message", message => {
-    if(message.content.startsWith(prefix)) {
-        const args = message.content.split(" ");
-        switch(args[0]) {
-            case "ping" {
-                message.reply("pong");
-            }
-        }
-    }
-});
-</code></pre>
-				<a href="#right-also-imagine-setting-an-alias-using-the-above-code-what-a-chaos" id="right-also-imagine-setting-an-alias-using-the-above-code-what-a-chaos" style="color: inherit; text-decoration: none;">
-					<h3>...right? Also, imagine setting an alias using the above code.. what a chaos</h3>
-				</a>
-				<a href="#why-not-just-use" id="why-not-just-use" style="color: inherit; text-decoration: none;">
-					<h3>Why not just use:</h3>
-				</a>
-				<pre><code>@client.command({
-    aliases: ["ping2", "pingpong"]
-})
-public ping(message, args) {
-    message.reply("pong");
-}</code></pre>
-				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
-					<h1>Documentation</h1>
-				</a>
-				<a href="#client" id="client" style="color: inherit; text-decoration: none;">
-					<h2>Client</h2>
-				</a>
-				<pre><code>import { Client } from "command.ts";
-
-const client = new Client({
-    token: &ltYOUR_CLIENT_TOKEN_HERE&gt,
-
-    // optional, default is "!"
-    prefixes: ["!", "?"]
-});
-
-// No login function is required!
-
-export default client;
-
-// You should export the client object to declare commands in other files.
-</code></pre>
-				<a href="#clientcommands" id="clientcommands" style="color: inherit; text-decoration: none;">
-					<h3>Client.commands:</h3>
-				</a>
-				<p>An array of all registered commands</p>
-				<a href="#clientcommandgroups" id="clientcommandgroups" style="color: inherit; text-decoration: none;">
-					<h3>Client.commandGroups</h3>
-				</a>
-				<p>An array with the names of all registered command groups</p>
-				<a href="#clientprefixes" id="clientprefixes" style="color: inherit; text-decoration: none;">
-					<h3>Client.prefixes</h3>
-				</a>
-				<p>An array of the client&#39;s specified prefixes</p>
-				<a href="#command" id="command" style="color: inherit; text-decoration: none;">
-					<h2>Command</h2>
-				</a>
-				<pre><code>// Your commands must be wrapped in a class because we are using decorators.
-// The class name is used as the group name of the commands you define in it.
-
-class MyCommands {
-
-    @client.command(optional: commandOptions)
-    public ping(message, args) {
-
-    }
-
-}
-</code></pre>
-				<a href="#commandoptions" id="commandoptions" style="color: inherit; text-decoration: none;">
-					<h2>commandOptions</h2>
-				</a>
-				<a href="#commandoptionsaliases-optional" id="commandoptionsaliases-optional" style="color: inherit; text-decoration: none;">
-					<h3>commandOptions.aliases (optional)</h3>
-				</a>
-				<p>An array of the aliases that you want to add to the command.<br>
-				Keep in mind that every command will have the name of its function as a default trigger</p>
-				<a href="#commandoptionsguildonly-optional" id="commandoptionsguildonly-optional" style="color: inherit; text-decoration: none;">
-					<h3>commandOptions.guildOnly (optional)</h3>
-				</a>
-				<p>boolean to determine if a command can only be executed in a guild.</p>
-				<a href="#commandoptionsprefixless-optional" id="commandoptionsprefixless-optional" style="color: inherit; text-decoration: none;">
-					<h3>commandOptions.prefixless (optional)</h3>
-				</a>
-				<p>boolean, if true the command will be triggered even if a message does not use one of the client&#39;s prefixes</p>
-				<a href="#commandoptionsonlyprefixless-optional" id="commandoptionsonlyprefixless-optional" style="color: inherit; text-decoration: none;">
-					<h3>commandOptions.onlyPrefixless (optional)</h3>
-				</a>
-				<p>boolean, if true the command can only be triggered if there is no prefix in a message</p>
-				<a href="#reload" id="reload" style="color: inherit; text-decoration: none;">
-					<h2>reload</h2>
-				</a>
-				<p><code>reload</code> is a function that deletes the cache of a loaded source file and then imports it again.<br>It should be used to reload/change commands without restarting the whole process.<br>
-					<code>reload</code> takes one argument, which is the full path of the file you want to reload.<br>
-					If you&#39;re not using ts-node, you must pass in the transpiled <code>.js</code> file that you wish to reload<br>
-				It is made sure that you do not load a command twice and that newly loaded commands will replace the old ones</p>
-				<a href="#disclaimer" id="disclaimer" style="color: inherit; text-decoration: none;">
-					<h2>Disclaimer:</h2>
-				</a>
-				<a href="#this-is-still-in-early-development-expect-frequent-and-sudden-breaking-changes" id="this-is-still-in-early-development-expect-frequent-and-sudden-breaking-changes" style="color: inherit; text-decoration: none;">
-					<h3>This is still in early development. Expect frequent and sudden breaking changes.</h3>
-				</a>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class"><a href="classes/client.html" class="tsd-kind-icon">Client</a></li>
+								<li class="tsd-kind-class tsd-is-external"><a href="classes/commandcontext.html" class="tsd-kind-icon">Command<wbr>Context</a></li>
+								<li class="tsd-kind-class tsd-is-external"><a href="classes/registeredcommand.html" class="tsd-kind-icon">Registered<wbr>Command</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#commandhandler" class="tsd-kind-icon">command<wbr>Handler</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#nodm" class="tsd-kind-icon">noDM</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#permission" class="tsd-kind-icon">permission</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#reload" class="tsd-kind-icon">reload</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-external">
+					<a name="commandhandler" class="tsd-anchor"></a>
+					<h3>command<wbr>Handler</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">command<wbr>Handler<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><a href="classes/client.html" class="tsd-signature-type">Client</a>, message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/commandHandler.ts:6</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>client: <a href="classes/client.html" class="tsd-signature-type">Client</a></h5>
+								</li>
+								<li>
+									<h5>message: <span class="tsd-signature-type">Message</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="nodm" class="tsd-anchor"></a>
+					<h3>noDM</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">noDM<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/23e3c06/src/nodm.ts#L3">src/nodm.ts:3</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="permission" class="tsd-anchor"></a>
+					<h3>permission</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">permission<span class="tsd-signature-symbol">(</span>permission<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PermissionString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">PermissionString</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/23e3c06/src/permission.ts#L4">src/permission.ts:4</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>permission: <span class="tsd-signature-type">PermissionString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">PermissionString</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="reload" class="tsd-anchor"></a>
+					<h3>reload</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">reload<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/23e3c06/src/reload.ts#L1">src/reload.ts:1</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>path: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
+					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 				</ul>
