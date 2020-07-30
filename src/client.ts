@@ -1,9 +1,9 @@
 import * as DJS from "discord.js";
 import fs from "fs";
-import RegisteredCommand from "./registeredcommand";
+import RegisteredCommand from "./registeredCommand";
 import { clientOptions, commandOptions } from "../index";
-import { commandHandler } from "./commandhandler";
-import CommandContext from "./commandcontext";
+import { commandHandler } from "./commandHandler";
+import CommandContext from "./commandContext";
 
 export default class Client extends DJS.Client
 {

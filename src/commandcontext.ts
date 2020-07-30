@@ -49,17 +49,19 @@ export default class CommandContext
 		return this.msg.channel.send(options);
 	}
 
-	public av(me?: boolean): string | undefined {
-		if(me) {
-			if(me == true) {
-				return this.me.displayAvatarURL();
-			}
-		}
-		return this.author?.displayAvatarURL();
+	/**
+	 * Get users or bots avatar
+	 * @param me true for bot/client; false or undefined for author of message
+	 */
+	public av(me?: boolean): string
+	{
+		if (me == true) 
+			return this.me.displayAvatarURL();
+		else return this.author?.displayAvatarURL()!;
 	}
 	
 	/**
-	 * 
+	 * React to a message
 	 * @param emoji The emoji you want to react with, e.g. "☕"
 	 */
 	public react(emoji: DJS.EmojiIdentifierResolvable)

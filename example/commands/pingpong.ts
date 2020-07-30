@@ -1,6 +1,6 @@
 import client from "../index";
 import { Message } from "discord.js";
-import { permission, CommandContext } from "command.ts";
+import { permission, Context } from "command.ts";
 
 // VS Code might suggest removing this class, but it's fine :)
 class PingPongCommands {
@@ -13,7 +13,7 @@ class PingPongCommands {
 		description: "play pingpong with the bot",
 		usage: client.prefixes.join() + "ping"
 	})
-	ping(context: CommandContext)
+	ping(context: Context)
 	{
 		context.reply("pong");
 	}
@@ -23,10 +23,10 @@ class PingPongCommands {
 	// Specifing permissions is allowed using an array of strings or a single string
 	@client.permission("SEND_MESSAGES")
 	// To check permissions of the user who invoked this command you can use "@permission", same syntax
-	// @permission(["ADMINISTRATOR", "MANAGE_CHANNELS"])
-	hello(context: CommandContext)
+	@permission(["ADMINISTRATOR", "MANAGE_CHANNELS"])
+	hello(context: Context)
 	{
-		context.reply(`Hello ${context.author?.username!}`);
+		context.reply(`Hello ${context.author?.username!}\n${context.av()}`);
 		context.react("☕");
 	}
 

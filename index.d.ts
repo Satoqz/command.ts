@@ -35,6 +35,12 @@ export class Context
 	public author?: DJS.User;
 	public publishedByBot: boolean;
 	public createdAt: Date;
+
+	/**
+	 * Reply to the message
+	 * @param options Message content, e.g. string
+	 * @param tag Tag the author of the message, default false
+	 */
 	public reply(
 		options?:
 		| DJS.MessageOptions
@@ -45,7 +51,17 @@ export class Context
 		| DJS.APIMessage
 		| DJS.StringResolvable,
 		tag?: boolean): Promise<DJS.Message>;
+	
+	/**
+	 * Get users or bots avatar
+	 * @param me true for bot/client; false or undefined for author of message
+	 */
+	
 	public av(me?: boolean): string;
+	/**
+	 * React to a message
+	 * @param emoji The emoji you want to react with, e.g. "☕"
+	 */
 	public react(emoji: DJS.EmojiIdentifierResolvable): Promise<DJS.Message | DJS.Message[]>
 }
 
