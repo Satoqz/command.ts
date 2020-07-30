@@ -22,6 +22,49 @@ export class Client extends DJS.Client
 	public autoImport(dir: string): void;
 }
 
+export class Context
+{
+	constructor(message: DJS.Message, args?: string[]);
+
+	public me: DJS.ClientUser;
+
+	public args?: string[];
+	public originalMessage: DJS.Message;
+	
+	public text?: string;
+	public author?: DJS.User;
+	public publishedByBot: boolean;
+	public createdAt: Date;
+
+	/**
+	 * Reply to the message
+	 * @param options Message content, e.g. string
+	 * @param tag Tag the author of the message, default false
+	 */
+	public reply(
+		options?:
+		| DJS.MessageOptions
+		| DJS.MessageAdditions
+		| DJS.APIMessage
+		| (DJS.MessageOptions & { split?: false })
+		| DJS.MessageAdditions
+		| DJS.APIMessage
+		| DJS.StringResolvable,
+		tag?: boolean): Promise<DJS.Message>;
+	
+	/**
+	 * Get users or bots avatar
+	 * @param me true for bot/client; false or undefined for author of message
+	 */
+	
+	public av(me?: boolean): string;
+	/**
+	 * React to a message
+	 * @param emoji The emoji you want to react with, e.g. "☕"
+	 */
+	public react(emoji: DJS.EmojiIdentifierResolvable): Promise<DJS.Message | DJS.Message[]>
+}
+
 export function reload(path: string): Promise<{message: string}>;
 
 export function permission(permission: DJS.PermissionString | DJS.PermissionString[]): Function;

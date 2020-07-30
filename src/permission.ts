@@ -1,4 +1,5 @@
 import { Message, PermissionString } from "discord.js";
+import CommandContext from "./commandContext";
 
 export default function permission(permission: PermissionString | PermissionString[])
 {
@@ -6,13 +7,13 @@ export default function permission(permission: PermissionString | PermissionStri
 	{
 		const original = executor.value;
 
-		executor.value = function(message: Message, args: string[])
+		executor.value = function(context: CommandContext)
 		{
-			if(message.channel.type == "dm")
-				return original.apply(this, [message, args]);
+			if(context.msg.channel.type == "dm")
+				return original.apply(this, [context]);
 			
-			else if(message.guild!.member(message.author!)!.hasPermission(permission))
-				return original.apply(this, [message, args]);
+			else if(context.msg.guild!.member(context.msg.author!)!.hasPermission(permission))
+				return original.apply(this, [context]);
 			
 			else return null;
 		};
