@@ -1,0 +1,25 @@
+{
+	"name": "command-example",
+	"version": "1.1.1",
+	"license": "MIT",
+	"maintainers": [
+		"satoqz",
+		"C0ffeeCode"
+	],
+	"homepage": "https://satoqz.github.io/command.ts",
+	"main": "./index.ts",
+	"scripts": {
+		"start": "ts-node ./index.ts"
+	},
+	"dependencies": {
+		"command.ts": "file:../"
+	},
+	"devDependencies": {
+		"eslint": "^7.5.0",
+		"eslint-config-typescript-satoqz": "0.0.4",
+		"typescript": "^3.9.7"
+	},
+	"eslintConfig": {
+		"extends": "eslint-config-typescript-satoqz"
+	}
+}
