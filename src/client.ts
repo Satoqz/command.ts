@@ -2,11 +2,11 @@ import * as DJS from "discord.js";
 import fs from "fs";
 import { RegisteredCommand } from "./interfaces/registeredCommand";
 import { commandHandler } from "./commandHandler";
-import CommandContext from "./commandContext";
+import { CommandContext } from "./commandContext";
 import { clientOptions } from "./interfaces/clientOptions";
 import { commandOptions } from "./interfaces/commandOptions";
 
-export default class Client extends DJS.Client
+export class Client extends DJS.Client
 {
 	constructor(options: clientOptions)
 	{

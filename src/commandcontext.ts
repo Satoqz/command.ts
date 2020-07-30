@@ -1,6 +1,6 @@
 import * as DJS from "discord.js";
 
-export default class CommandContext
+export class CommandContext
 {
 	constructor(message: DJS.Message, args?: string[]) 
 	{

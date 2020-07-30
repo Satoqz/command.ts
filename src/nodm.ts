@@ -1,6 +1,6 @@
 import { Message } from "discord.js";
 
-export default function noDM()
+export function noDM()
 {
 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
 	{

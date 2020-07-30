@@ -1,7 +1,7 @@
 import { Message, PermissionString } from "discord.js";
-import CommandContext from "./commandContext";
+import { CommandContext } from "./commandContext";
 
-export default function permission(permission: PermissionString | PermissionString[])
+export function permission(permission: PermissionString | PermissionString[])
 {
 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
 	{

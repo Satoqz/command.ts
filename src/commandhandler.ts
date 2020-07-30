@@ -1,7 +1,7 @@
 import { Message } from "discord.js";
-import Client from "./client";
+import { Client } from "./client";
 import { RegisteredCommand } from "./interfaces/registeredCommand";
-import CommandContext from "./commandContext";
+import { CommandContext } from "./commandContext";
 
 export function commandHandler(client: Client, message: Message)
 {
