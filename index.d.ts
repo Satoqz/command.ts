@@ -22,7 +22,7 @@ export class Client extends DJS.Client
 	public autoImport(dir: string): void;
 }
 
-export class CommandContext
+export class Context
 {
 	constructor(message: DJS.Message, args?: string[]);
 
@@ -45,6 +45,7 @@ export class CommandContext
 		| DJS.APIMessage
 		| DJS.StringResolvable,
 		tag?: boolean): Promise<DJS.Message>;
+	public av(me?: boolean): string;
 	public react(emoji: DJS.EmojiIdentifierResolvable): Promise<DJS.Message | DJS.Message[]>
 }
 

@@ -1,5 +1,5 @@
 import { Message, PermissionString } from "discord.js";
-import { CommandContext } from "./commandcontext";
+import CommandContext from "./commandcontext";
 
 export default function permission(permission: PermissionString | PermissionString[])
 {

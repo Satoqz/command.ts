@@ -3,7 +3,7 @@ import fs from "fs";
 import RegisteredCommand from "./registeredcommand";
 import { clientOptions, commandOptions } from "../index";
 import { commandHandler } from "./commandhandler";
-import { CommandContext } from "./commandcontext";
+import CommandContext from "./commandcontext";
 
 export default class Client extends DJS.Client
 {

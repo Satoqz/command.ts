@@ -1,6 +1,6 @@
 import * as DJS from "discord.js";
 
-export class CommandContext
+export default class CommandContext
 {
 	constructor(message: DJS.Message, args?: string[]) 
 	{
@@ -36,8 +36,21 @@ export class CommandContext
 		| DJS.StringResolvable,
 		tag?: boolean): Promise<DJS.Message>
 	{
-		if (tag || tag == undefined) return this.msg.channel.send(options);
-		else return this.msg.reply(options);
+		if (tag) {
+			if(tag == true) {
+				return this.msg.reply(options);
+			}
+		}
+		return this.msg.channel.send(options);
+	}
+
+	public av(me?: boolean): string | undefined {
+		if(me) {
+			if(me == true) {
+				return this.me.displayAvatarURL();
+			}
+		}
+		return this.author?.displayAvatarURL();
 	}
 	
 	public react(emoji: DJS.EmojiIdentifierResolvable)
