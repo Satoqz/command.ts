@@ -221,12 +221,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/commandContext.ts:56</li>
+									<li>Defined in src/commandContext.ts:58</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get users or bots avatar</p>
+									<p>Get users or bots avatar URL</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -234,11 +234,12 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> me: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>true for bot/client; false or undefined for author of message</p>
+										<p>True for bot/client; false or undefined for author of message</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>Returns URL as string</p>
 						</li>
 					</ul>
 				</section>
@@ -252,7 +253,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/commandContext.ts:67</li>
+									<li>Defined in src/commandContext.ts:70</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -270,6 +271,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MessageReaction</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Returns reaction</p>
 						</li>
 					</ul>
 				</section>
@@ -283,7 +285,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/commandContext.ts:33</li>
+									<li>Defined in src/commandContext.ts:34</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -307,6 +309,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Message sent</p>
 						</li>
 					</ul>
 				</section>
@@ -367,13 +370,22 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-is-external">
-						<a href="registeredcommand.html" class="tsd-kind-icon">Registered<wbr>Command</a>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/registeredcommand.html" class="tsd-kind-icon">Registered<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/clientoptions.html" class="tsd-kind-icon">client<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/commandoptions.html" class="tsd-kind-icon">command<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/registeredcommandoptions.html" class="tsd-kind-icon">registered<wbr>Command<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-external">
 						<a href="../globals.html#commandhandler" class="tsd-kind-icon">command<wbr>Handler</a>
 					</li>
-					<li class=" tsd-kind-function">
+					<li class=" tsd-kind-function tsd-is-external">
 						<a href="../globals.html#nodm" class="tsd-kind-icon">noDM</a>
 					</li>
 					<li class=" tsd-kind-function">
