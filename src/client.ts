@@ -1,10 +1,10 @@
 import * as DJS from "discord.js";
 import { readdirSync } from "fs";
-import { RegisteredCommand } from "./registeredCommand";
 import { commandHandler } from "./commandHandler";
 import { CommandContext } from "./commandContext";
 import { clientOptions } from "./interfaces/clientOptions";
 import { commandOptions } from "./interfaces/commandOptions";
+import { RegisteredCommand } from "./interfaces/registeredCommand";
 
 export class Client extends DJS.Client
 {
