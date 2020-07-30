@@ -19,7 +19,7 @@ export class Client extends DJS.Client {
 	public owner(): Function;
 }
 
-export function reload(path: string): void;
+export function reload(path: string): Promise<{message: string}>;
 
 export function permission(permission: DJS.PermissionString | DJS.PermissionString[]): Function;
 

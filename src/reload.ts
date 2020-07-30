@@ -1,6 +1,17 @@
-export default function reload(path: string) {
+export default function reload(path: string): Promise<{message: string}> {
 
-	delete require.cache[require.resolve(path)];
+	return new Promise((resolve, reject) => {
 
-	require(path);
+		try {
+
+			delete require.cache[require.resolve(path)];
+
+			require(path);
+			resolve();
+
+		} catch {
+			reject({"message":(`${path} does not exist or is not a valid source file`)});
+		}
+
+	});
 }
