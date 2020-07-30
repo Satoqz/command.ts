@@ -5,6 +5,7 @@ import { CommandContext } from "./commandContext";
 
 export async function commandHandler(client: Client, message: Message)
 {
+	
 	if(client.noDM && message.channel.type == "dm") return;
 	
 	let hasPrefix = false;

@@ -8,23 +8,23 @@ import { RegisteredCommand } from "./interfaces/registeredCommand";
 
 export class Client extends DJS.Client
 {
-	constructor(options: clientOptions)
-	{
-		super();
-		if(options.ownerId) this.ownerId = options.ownerId;
-		if(options.prefixes) this.prefixes = options.prefixes;
-		if(options.noDM) this.noDM = options.noDM;
-		this.token = options.token;
-
-		this.register();
-	}
-
 	public noDM: boolean = true;
 	public ownerId?: string;
 	public prefixes: string[] = ["!"];
 	public token: string = "";
 	public commandGroups: string[] = [];
 	public commands: RegisteredCommand[] = [];
+
+	constructor(options: clientOptions)
+	{
+		super();
+		if(options.ownerId) this.ownerId = options.ownerId;
+		if(options.prefixes) this.prefixes = options.prefixes;
+		if(options.noDM != undefined) this.noDM = options.noDM;
+		this.token = options.token;
+
+		this.register();
+	}
 
 	private register()
 	{

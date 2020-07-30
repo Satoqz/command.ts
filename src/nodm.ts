@@ -1,4 +1,4 @@
-import { Message } from "discord.js";
+import { CommandContext } from "./commandcontext";
 
 export function noDM()
 {
@@ -6,11 +6,11 @@ export function noDM()
 	{
 		const original = executor.value;
 
-		executor.value = async function(message: Message, args: string[])
+		executor.value = async function(context: CommandContext)
 		{
-			if(message.channel.type == "dm") return null;
+			if(context.msg.channel.type == "dm") return null;
 
-			else return original.apply(this, [message, args]);
+			else return original.apply(this, [context]);
 		};
 		return executor;
 	};
