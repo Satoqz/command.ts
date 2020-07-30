@@ -1,5 +1,5 @@
 import * as DJS from "discord.js";
-import fs from "fs";
+import { readdirSync } from "fs";
 import RegisteredCommand from "./registeredCommand";
 import { clientOptions, commandOptions } from "../index";
 import { commandHandler } from "./commandHandler";
@@ -34,7 +34,7 @@ export default class Client extends DJS.Client
 
 	public autoImport(dir: string)
 	{
-		const files = fs.readdirSync(dir);
+		const files = readdirSync(dir);
 
 		files.forEach((filename: string) =>
 		{

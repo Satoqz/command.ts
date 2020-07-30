@@ -22,7 +22,8 @@
 	],
 	"main": "build/lib.js",
 	"scripts": {
-		"build": "tsc"
+		"build": "tsc",
+		"docgen": "typedoc --out ./docs ./src"
 	},
 	"dependencies": {
 		"discord.js": "^12.2.0"
