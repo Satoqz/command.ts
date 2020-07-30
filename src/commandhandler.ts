@@ -36,7 +36,7 @@ export async function commandHandler(client: Client, message: Message)
 		
 		if(!command) return;
 
-		context.args.splice(1, context.args.length);
+		context.args = context.args.slice(1, context.args.length);
 		
 		command.execute(context);
 	}
@@ -46,7 +46,7 @@ export async function commandHandler(client: Client, message: Message)
 		
 		if(!command) return;
 
-		context.args.splice(1, context.args.length);
+		context.args = context.args.slice(1, context.args.length);
 		
 		command.execute(context);
 	}
