@@ -7,7 +7,7 @@ export function permission(permission: PermissionString | PermissionString[])
 	{
 		const original = executor.value;
 		
-		executor.value = function(context: CommandContext)
+		executor.value = async function(context: CommandContext)
 		{
 			if(context.msg.channel.type == "dm")
 				return original.apply(this, [context]);

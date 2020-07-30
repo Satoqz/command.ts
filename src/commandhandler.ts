@@ -3,7 +3,7 @@ import { Client } from "./client";
 import { RegisteredCommand } from "./interfaces/registeredCommand";
 import { CommandContext } from "./commandContext";
 
-export function commandHandler(client: Client, message: Message)
+export async function commandHandler(client: Client, message: Message)
 {
 	if(client.noDM && message.channel.type == "dm") return;
 	
