@@ -15,27 +15,37 @@ export class Client extends DJS.Client {
 	public prefixes: string[];
 	public commands: RegisteredCommand[];
 	public command(options?: commandOptions): Function;
+	public permission(permission: DJS.PermissionString | DJS.PermissionString[]): Function;
+	public owner(): Function;
 }
 
 export function reload(path: string): void;
 
+export function permission(permission: DJS.PermissionString | DJS.PermissionString[]): Function;
+
+export function noDM(): Function;
 export interface commandOptions {
-	guildOnly?: boolean,
 	prefixless?: boolean,
 	onlyPrefixless?: boolean,
-	aliases?: string[]
+	aliases?: string[],
+	description?: string | undefined,
+	usage?: string | undefined
 }
 
 export interface registeredCommandOptions {
 	execute: Function,
-	aliases: string[],
 	group: string,
 	name: string,
 	prefixless: boolean,
-	onlyPrefixless: boolean
-}
+	onlyPrefixless: boolean,
+	aliases: string[],
+	description: string | undefined,
+	usage: string | undefined
+}	
 
 export interface clientOptions {
 	prefixes?: string[],
+	ownerId?: string,
+	noDM?: boolean,
 	token: string
 }
