@@ -1,11 +1,12 @@
 import * as DJS from "discord.js";
 import { readdirSync } from "fs";
-import RegisteredCommand from "./registeredCommand";
-import { clientOptions, commandOptions } from "../index";
+import { RegisteredCommand } from "./registeredCommand";
 import { commandHandler } from "./commandHandler";
-import CommandContext from "./commandContext";
+import { CommandContext } from "./commandContext";
+import { clientOptions } from "./interfaces/clientOptions";
+import { commandOptions } from "./interfaces/commandOptions";
 
-export default class Client extends DJS.Client
+export class Client extends DJS.Client
 {
 	constructor(options: clientOptions)
 	{
@@ -62,7 +63,7 @@ export default class Client extends DJS.Client
 
 			const hasOptions: boolean = options ? true : false;
 
-			client.commands.push(new RegisteredCommand({
+			client.commands.push({
 				group: parent.constructor.name,
 				name: name,
 				description: hasOptions && options?.description ? options.description : undefined,
@@ -71,7 +72,7 @@ export default class Client extends DJS.Client
 				execute: executor.value,
 				prefixless: hasOptions && options?.prefixless ? options.prefixless : false,
 				onlyPrefixless : hasOptions && options?.onlyPrefixless ? options.onlyPrefixless : false
-			}));
+			});
 		};
 	}
 

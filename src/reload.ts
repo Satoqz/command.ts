@@ -1,4 +1,5 @@
-export default function reload(path: string): Promise<{message: string}>
+
+export function reload(path: string): Promise<{message: string}>
 {
 	return new Promise((resolve, reject) =>
 	{

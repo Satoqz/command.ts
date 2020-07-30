@@ -20,7 +20,8 @@
 		"typescript",
 		"commando"
 	],
-	"main": "build/lib.js",
+	"main": "./build/lib.js",
+	"typings": "./build/lib.d.ts",
 	"scripts": {
 		"build": "tsc",
 		"docgen": "typedoc --out .\\docs\\ .\\src\\ --mode file"
