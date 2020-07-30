@@ -1,4 +1,4 @@
-import { CommandContext } from "./commandcontext";
+import { commandContext } from "./interfaces/commandContext";
 
 export function noDM()
 {
@@ -6,9 +6,9 @@ export function noDM()
 	{
 		const original = executor.value;
 
-		executor.value = async function(context: CommandContext)
+		executor.value = async function(context: commandContext)
 		{
-			if(context.msg.channel.type == "dm") return null;
+			if(context.channel.type == "dm") return null;
 
 			else return original.apply(this, [context]);
 		};

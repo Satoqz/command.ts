@@ -1,7 +1,7 @@
-import { Message } from "discord.js";
+import { Message, MessageAdditions, MessageOptions, MessageEmbed, MessageAttachment } from "discord.js";
 import { Client } from "./client";
 import { RegisteredCommand } from "./interfaces/registeredCommand";
-import { CommandContext } from "./commandContext";
+import { commandContext, StringResolvable } from "./interfaces/commandContext";
 
 export async function commandHandler(client: Client, message: Message)
 {
@@ -20,22 +20,34 @@ export async function commandHandler(client: Client, message: Message)
 		}
 	});
 
+	const context = message as commandContext;
+		
+	context.args = context.content.replace(usedPrefix, "").split(" ");
+	context.send = (
+		content: StringResolvable,
+		options?: MessageEmbed | MessageAttachment | (MessageEmbed | MessageAttachment)[] | undefined,
+	) => {
+		return context.channel.send(content, options);
+	};
+
 	if(!hasPrefix)
 	{
-		const args = message.content.split(" ");
-		const command = client.commands.find((command: RegisteredCommand) => command.aliases.includes(args[0]) && command.prefixless);
+		const command = client.commands.find((command: RegisteredCommand) => command.aliases.includes(context.args[0]) && command.prefixless);
 		
 		if(!command) return;
+
+		context.args.splice(1, context.args.length);
 		
-		command.execute(new CommandContext(message, args.slice(1, args.length)));
+		command.execute(context);
 	}
 	else
 	{
-		const args = message.content.replace(usedPrefix, "").split(" ");
-		const command = client.commands.find((command: RegisteredCommand) => command.aliases.includes(args[0]) && !command.onlyPrefixless);
+		const command = client.commands.find((command: RegisteredCommand) => command.aliases.includes(context.args[0]) && !command.onlyPrefixless);
 		
 		if(!command) return;
+
+		context.args.splice(1, context.args.length);
 		
-		command.execute(new CommandContext(message, args.slice(1, args.length)));
+		command.execute(context);
 	}
 }

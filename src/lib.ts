@@ -2,7 +2,7 @@ import { Client } from "./client";
 import { reload } from "./reload";
 import { permission } from "./permission";
 import { noDM } from "./noDm";
-import { CommandContext } from "./commandContext";
+import { commandContext } from "./interfaces/commandContext";
 
 export {
 	Client,
@@ -10,5 +10,5 @@ export {
 	noDM,
 	permission,
 	permission as userPermission,
-	CommandContext as Context
+	commandContext as Context
 };

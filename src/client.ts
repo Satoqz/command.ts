@@ -1,7 +1,7 @@
 import * as DJS from "discord.js";
 import { readdirSync } from "fs";
 import { commandHandler } from "./commandHandler";
-import { CommandContext } from "./commandContext";
+import { commandContext } from "./interfaces/commandContext";
 import { clientOptions } from "./interfaces/clientOptions";
 import { commandOptions } from "./interfaces/commandOptions";
 import { RegisteredCommand } from "./interfaces/registeredCommand";
@@ -84,12 +84,12 @@ export class Client extends DJS.Client
 		{
 			const original = executor.value;
 			
-			executor.value = function(context: CommandContext)
+			executor.value = function(context: commandContext)
 			{
-				if(context.msg.channel!.type == "dm")
+				if(context.channel!.type == "dm")
 					return original.apply(this, [context]);
 				
-				else if(context.msg.guild!.member(client.user!)!.hasPermission(permission))
+				else if(context.guild!.member(client.user!)!.hasPermission(permission))
 					return original.apply(this, [context]);
 
 				else return null;
@@ -106,14 +106,14 @@ export class Client extends DJS.Client
 		{
 			const original = executor.value;
 			
-			executor.value = function(context: CommandContext)
+			executor.value = function(context: commandContext)
 			{
 				if(!client.ownerId) {
 					console.log("INFO: To use the client#owner decorator, please provide your discord id as ownerId when initializing the client!");
 					return null;
 				}
 
-				if(context.msg.author.id == client.ownerId)
+				if(context.author.id == client.ownerId)
 					return original.apply(this, [context]);
 
 				else return null;
