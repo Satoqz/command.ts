@@ -26,7 +26,8 @@ class PingPongCommands {
 	// @permission(["ADMINISTRATOR", "MANAGE_CHANNELS"])
 	hello(context: CommandContext)
 	{
-		context.reply("pong");
+		context.reply(`Hello ${context.author?.username!}`);
+		context.react("☕");
 	}
 
 }

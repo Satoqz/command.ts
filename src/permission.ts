@@ -9,10 +9,10 @@ export default function permission(permission: PermissionString | PermissionStri
 
 		executor.value = function(context: CommandContext)
 		{
-			if(context.originalMessage.channel.type == "dm")
+			if(context.msg.channel.type == "dm")
 				return original.apply(this, [context]);
 			
-			else if(context.originalMessage.guild!.member(context.originalMessage.author!)!.hasPermission(permission))
+			else if(context.msg.guild!.member(context.msg.author!)!.hasPermission(permission))
 				return original.apply(this, [context]);
 			
 			else return null;

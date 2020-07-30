@@ -7,9 +7,10 @@ export class CommandContext
 		this.me = message.client.user!;
 		
 		this.args = args;
-		this.originalMessage = message;
+		this.msg = message;
 
 		this.text = message.content;
+		this.author = message.author;
 		this.publishedByBot = message.author.bot;
 		this.createdAt = message.createdAt;
 	}
@@ -17,7 +18,7 @@ export class CommandContext
 	public me!: DJS.ClientUser;
 
 	public readonly args?: string[];
-	public readonly originalMessage!: DJS.Message;
+	public readonly msg!: DJS.Message;
 	
 	public readonly text?: string;
 	public readonly author?: DJS.User;
@@ -35,7 +36,13 @@ export class CommandContext
 		| DJS.StringResolvable,
 		tag?: boolean): Promise<DJS.Message>
 	{
-		if (tag || tag == undefined) return this.originalMessage.channel.send(options);
-		else return this.originalMessage.reply(options);
+		if (tag || tag == undefined) return this.msg.channel.send(options);
+		else return this.msg.reply(options);
+	}
+	
+	public react(emoji: DJS.EmojiIdentifierResolvable)
+		: Promise<DJS.MessageReaction>
+	{
+		return this.msg.react(emoji);
 	}
 }

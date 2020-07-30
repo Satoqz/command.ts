@@ -45,6 +45,7 @@ export class CommandContext
 		| DJS.APIMessage
 		| DJS.StringResolvable,
 		tag?: boolean): Promise<DJS.Message>;
+	public react(emoji: DJS.EmojiIdentifierResolvable): Promise<DJS.Message | DJS.Message[]>
 }
 
 export function reload(path: string): Promise<{message: string}>;

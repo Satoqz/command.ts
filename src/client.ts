@@ -85,10 +85,10 @@ export default class Client extends DJS.Client
 			
 			executor.value = function(context: CommandContext)
 			{
-				if(context.originalMessage.channel!.type == "dm")
+				if(context.msg.channel!.type == "dm")
 					return original.apply(this, [context]);
 				
-				else if(context.originalMessage.guild!.member(client.user!)!.hasPermission(permission))
+				else if(context.msg.guild!.member(client.user!)!.hasPermission(permission))
 					return original.apply(this, [context]);
 
 				else return null;
@@ -112,7 +112,7 @@ export default class Client extends DJS.Client
 					return null;
 				}
 
-				if(context.originalMessage.author.id == client.ownerId)
+				if(context.msg.author.id == client.ownerId)
 					return original.apply(this, [context]);
 
 				else return null;
