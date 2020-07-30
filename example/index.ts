@@ -11,7 +11,7 @@ config({ path: "./.env" });
 
 // Initialize a new client/bot instance 
 const client = new Client({
-	token: process.env.BotToken,	// When you use dotenv
+	token: process.env.BotToken!,	// When you use dotenv
 	prefixes: ["?", "!"]	// Prefixes for your bot, you can specify multiple, also something like "mybot "
 });
 
