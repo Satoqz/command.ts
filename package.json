@@ -23,7 +23,7 @@
 	"main": "build/lib.js",
 	"scripts": {
 		"build": "tsc",
-		"docgen": "typedoc --out ./docs ./src"
+		"docgen": "typedoc --out .\\docs\\ .\\src\\ --mode file"
 	},
 	"dependencies": {
 		"discord.js": "^12.2.0"

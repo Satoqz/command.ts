@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>command.ts</title>
-	<meta name="description" content="Documentation for command.ts">
+	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -68,19 +68,115 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Modules</h3>
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-module"><a href="modules/_src_client_.html" class="tsd-kind-icon">&quot;src/client&quot;</a></li>
-								<li class="tsd-kind-module tsd-is-external"><a href="modules/_src_commandcontext_.html" class="tsd-kind-icon">&quot;src/command<wbr>Context&quot;</a></li>
-								<li class="tsd-kind-module tsd-is-external"><a href="modules/_src_commandhandler_.html" class="tsd-kind-icon">&quot;src/command<wbr>Handler&quot;</a></li>
-								<li class="tsd-kind-module"><a href="modules/_src_lib_.html" class="tsd-kind-icon">&quot;src/lib&quot;</a></li>
-								<li class="tsd-kind-module"><a href="modules/_src_nodm_.html" class="tsd-kind-icon">&quot;src/nodm&quot;</a></li>
-								<li class="tsd-kind-module"><a href="modules/_src_permission_.html" class="tsd-kind-icon">&quot;src/permission&quot;</a></li>
-								<li class="tsd-kind-module tsd-is-external"><a href="modules/_src_registeredcommand_.html" class="tsd-kind-icon">&quot;src/registered<wbr>Command&quot;</a></li>
-								<li class="tsd-kind-module"><a href="modules/_src_reload_.html" class="tsd-kind-icon">&quot;src/reload&quot;</a></li>
+								<li class="tsd-kind-class"><a href="classes/client.html" class="tsd-kind-icon">Client</a></li>
+								<li class="tsd-kind-class tsd-is-external"><a href="classes/commandcontext.html" class="tsd-kind-icon">Command<wbr>Context</a></li>
+								<li class="tsd-kind-class tsd-is-external"><a href="classes/registeredcommand.html" class="tsd-kind-icon">Registered<wbr>Command</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#commandhandler" class="tsd-kind-icon">command<wbr>Handler</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#nodm" class="tsd-kind-icon">noDM</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#permission" class="tsd-kind-icon">permission</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#reload" class="tsd-kind-icon">reload</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-is-external">
+					<a name="commandhandler" class="tsd-anchor"></a>
+					<h3>command<wbr>Handler</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">command<wbr>Handler<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><a href="classes/client.html" class="tsd-signature-type">Client</a>, message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/commandHandler.ts:6</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>client: <a href="classes/client.html" class="tsd-signature-type">Client</a></h5>
+								</li>
+								<li>
+									<h5>message: <span class="tsd-signature-type">Message</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="nodm" class="tsd-anchor"></a>
+					<h3>noDM</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">noDM<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/23e3c06/src/nodm.ts#L3">src/nodm.ts:3</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="permission" class="tsd-anchor"></a>
+					<h3>permission</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">permission<span class="tsd-signature-symbol">(</span>permission<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PermissionString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">PermissionString</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/23e3c06/src/permission.ts#L4">src/permission.ts:4</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>permission: <span class="tsd-signature-type">PermissionString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">PermissionString</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="reload" class="tsd-anchor"></a>
+					<h3>reload</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">reload<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/23e3c06/src/reload.ts#L1">src/reload.ts:1</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>path: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -90,37 +186,31 @@
 					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
-					<li class="label tsd-is-external">
-						<span>Internals</span>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_src_client_.html">&quot;src/client&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_src_nodm_.html">&quot;src/nodm&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_src_permission_.html">&quot;src/permission&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_src_reload_.html">&quot;src/reload&quot;</a>
-					</li>
-					<li class="label tsd-is-external">
-						<span>Externals</span>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_src_commandcontext_.html">&quot;src/command<wbr>Context&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_src_commandhandler_.html">&quot;src/command<wbr>Handler&quot;</a>
-					</li>
-					<li class=" tsd-kind-module tsd-is-external">
-						<a href="modules/_src_registeredcommand_.html">&quot;src/registered<wbr>Command&quot;</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/client.html" class="tsd-kind-icon">Client</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-external">
+						<a href="classes/commandcontext.html" class="tsd-kind-icon">Command<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-external">
+						<a href="classes/registeredcommand.html" class="tsd-kind-icon">Registered<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-external">
+						<a href="globals.html#commandhandler" class="tsd-kind-icon">command<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#nodm" class="tsd-kind-icon">noDM</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#permission" class="tsd-kind-icon">permission</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#reload" class="tsd-kind-icon">reload</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -131,10 +221,57 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
@@ -144,5 +281,6 @@
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
