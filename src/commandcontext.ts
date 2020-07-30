@@ -5,10 +5,10 @@ export class CommandContext
 	constructor(message: DJS.Message, args?: string[]) 
 	{
 		this.me = message.client.user!;
-		
+		this.reactions = message.reactions;
 		this.args = args;
 		this.msg = message;
-
+		this.channel = message.channel;
 		this.text = message.content;
 		this.author = message.author;
 		this.publishedByBot = message.author.bot;
@@ -17,9 +17,10 @@ export class CommandContext
 
 	public me!: DJS.ClientUser;
 
+	public readonly reactions: DJS.ReactionManager;
 	public readonly args?: string[];
 	public readonly msg!: DJS.Message;
-	
+	public readonly channel: DJS.TextChannel | DJS.DMChannel | DJS.NewsChannel;
 	public readonly text?: string;
 	public readonly author?: DJS.User;
 	public readonly publishedByBot: boolean = false;
