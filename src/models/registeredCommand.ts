@@ -1,4 +1,4 @@
-import { registeredCommandOptions } from "../index";
+import { registeredCommandOptions } from "./registeredCommandOptions";
 
 export default class RegisteredCommand
 {
@@ -11,7 +11,7 @@ export default class RegisteredCommand
 		this.onlyPrefixless = options.onlyPrefixless;
 		this.aliases = options.aliases;
 	}
-
+	
 	public execute: Function;
 	public group: string;
 	public name: string;
