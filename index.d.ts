@@ -17,6 +17,7 @@ export class Client extends DJS.Client {
 	public command(options?: commandOptions): Function;
 	public permission(permission: DJS.PermissionString | DJS.PermissionString[]): Function;
 	public owner(): Function;
+	public autoImport(dir: string): void;
 }
 
 export function reload(path: string): Promise<{message: string}>;
@@ -47,5 +48,6 @@ export interface clientOptions {
 	prefixes?: string[],
 	ownerId?: string,
 	noDM?: boolean,
+	autoImport?: string,
 	token: string
 }

@@ -1,4 +1,5 @@
 import * as DJS from "discord.js";
+import fs from "fs";
 import RegisteredCommand from "./registeredcommand";
 import { clientOptions, commandOptions } from "../index";
 
@@ -63,7 +64,17 @@ export default class Client extends DJS.Client {
 				command.execute(message, args);
 			}
 		});
+
 		this.login(this.token);
+	}
+
+	public autoImport(dir: string) {
+		const files = fs.readdirSync(dir);
+
+		files.forEach((filename: string) => {
+			console.log("Autoimporting " + dir + filename);
+			require(dir + filename);
+		});
 	}
 
 	public command(options?: commandOptions): Function {
