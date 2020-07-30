@@ -25,6 +25,11 @@ export class CommandContext
 	public readonly publishedByBot: boolean = false;
 	public readonly createdAt!: Date;
 
+	/**
+	 * Reply to the message
+	 * @param options Message content, e.g. string
+	 * @param tag Tag the author of the message, default false
+	 */
 	public reply(
 		options:
 		| DJS.MessageOptions
@@ -40,6 +45,10 @@ export class CommandContext
 		else return this.msg.reply(options);
 	}
 	
+	/**
+	 * 
+	 * @param emoji The emoji you want to react with, e.g. "☕"/
+	 */
 	public react(emoji: DJS.EmojiIdentifierResolvable)
 		: Promise<DJS.MessageReaction>
 	{
