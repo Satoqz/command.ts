@@ -76,8 +76,11 @@ export default class Client extends DJS.Client
 
 		files.forEach((filename: string) =>
 		{
-			console.log("Autoimporting " + dir + filename);
-			require(dir + filename);
+			if (filename.endsWith(".ts") || filename.endsWith(".js"))
+			{
+				console.log("Autoimporting " + dir + filename);
+				require(dir + filename);
+			}
 		});
 	}
 
