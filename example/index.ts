@@ -1,5 +1,6 @@
 // Import from the libary
 import { Client } from "command.ts";
+import { join } from "path";
 
 //#region Load config
 // Load config from your ".env" file, remember to gitignore it
@@ -18,7 +19,7 @@ const client = new Client({
 export default client;
 
 // This automatically imports all files/commands in the commands folder
-client.autoImport("./commands/");
+client.autoImport(join(__dirname, "/commands/"));
 
 // If you want, you can load/import files/commands like this, too
 // Also, you can mix this kind of importing with the automatic one
