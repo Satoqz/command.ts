@@ -2,6 +2,8 @@
 /src
 /docs
 /example
+CNAME
+typedoc.json
 tsconfig.json
 .gitignore
 .editorconfig
