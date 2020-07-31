@@ -7,11 +7,11 @@ import { registeredCommand } from "./interfaces/registeredCommand";
 import { loggerOptions } from "./interfaces/loggerOptions";
 import { Logger } from "./logger";
 import { logUrgencyType } from "./interfaces/logType";
+import { prefixes, setDefaultPrefix } from "./storage/prefixes";
 
 export class Client extends DJS.Client
 {
-	public ownerId?: string;
-	public prefixes: string[] = ["!"];
+	// public ownerId?: string;
 	public commandGroups: string[] = [];
 	public commands: registeredCommand[] = [];
 	public loggers: Logger[] = [];
@@ -19,8 +19,9 @@ export class Client extends DJS.Client
 	constructor(options: clientOptions)
 	{
 		super();
-		if(options.ownerId) this.ownerId = options.ownerId;
-		if(options.prefixes) this.prefixes = options.prefixes;
+
+		// if(options.ownerId) this.ownerId = options.ownerId;
+		setDefaultPrefix(options.defaultPrefix ?? "!");
 		
 		this.register();
 	}
@@ -54,32 +55,32 @@ export class Client extends DJS.Client
 		});
 	}
 
-	/**
-	 * @deprecated
-	 */
-	public owner()
-	{
-		const client = this;
+	// /**
+	//  * @deprecated
+	//  */
+	// public owner()
+	// {
+	// 	const client = this;
 		
-		return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
-		{
-			const original = executor.value;
+	// 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
+	// 	{
+	// 		const original = executor.value;
 			
-			executor.value = function(context: commandContext)
-			{
-				if(!client.ownerId) {
-					console.log("INFO: To use the client#owner decorator, please provide your discord id as ownerId when initializing the client!");
-					return null;
-				}
+	// 		executor.value = function(context: commandContext)
+	// 		{
+	// 			if(!client.ownerId) {
+	// 				console.log("INFO: To use the client#owner decorator, please provide your discord id as ownerId when initializing the client!");
+	// 				return null;
+	// 			}
 				
-				if(context.author.id == client.ownerId)
-					return original.apply(this, [context]);
+	// 			if(context.author.id == client.ownerId)
+	// 				return original.apply(this, [context]);
 				
-				else return null;
-			};
-			return executor;
-		};
-	}
+	// 			else return null;
+	// 		};
+	// 		return executor;
+	// 	};
+	// }
 	
 	/**
 	 * Adds a logger service to your bot/client
@@ -99,5 +100,10 @@ export class Client extends DJS.Client
 	{
 		this.loggers.forEach((logger: Logger) =>
 			logger.log(message, type, this));
+	}
+	
+	public setPrefixForGuild(guildId: string, prefix: string)
+	{
+		prefixes[guildId] = (prefix);
 	}
 }

@@ -5,6 +5,7 @@ import { commandContext, StringResolvable } from "./interfaces/commandContext";
 import { commands } from "./storage/commands";
 import { convertCommandArgs } from "./helpers/convertArgs";
 import { split } from "./helpers/split";
+import { prefixes, defaultPrefix } from "./storage/prefixes";
 
 /**
  * This is executed every time a command is called
@@ -17,20 +18,20 @@ export async function commandHandler(client: Client, message: Message)
 	let hasPrefix = false;
 	let usedPrefix = "";
 	
-	client.prefixes.forEach((prefix: string) =>
+	if (!prefixes[message.guild!.id])
+		prefixes[message.guild!.id] = defaultPrefix;
+	
+	if(message.content.startsWith(prefixes[message.guild!.id]))
 	{
-		if(message.content.startsWith(prefix))
-		{
-			hasPrefix = true;
-			usedPrefix = prefix;
-		}
-	});
+		hasPrefix = true;
+		usedPrefix = prefixes[message.guild!.id];
+	}
 	
 	context.args = split(context.content.replace(usedPrefix, ""));
 	context.send = (
 		content: StringResolvable,
-		options?: MessageEmbed | MessageAttachment | (MessageEmbed | MessageAttachment)[] | undefined,
-	) => {
+		options?: MessageEmbed | MessageAttachment | (MessageEmbed | MessageAttachment)[] | undefined) =>
+	{
 		return context.channel.send(content, options);
 	};
 	

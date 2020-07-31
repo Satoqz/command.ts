@@ -1,6 +1,6 @@
 
 export interface clientOptions
 {
-	prefixes?: string[],
+	defaultPrefix?: string,
 	ownerId?: string,
 }

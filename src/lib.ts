@@ -1,13 +1,14 @@
 import { Client } from "./client";
 import { reload } from "./reload";
-import { PermissionCheck } from "./decorators/permissionCheck";
-import { guildonly } from "./decorators/guildonly";
-import { commandContext } from "./interfaces/commandContext";
-import { commands, commandGroups } from "./storage/commands";
-import { command } from "./decorators/command";
 import { check } from "./decorators/check";
+import { command } from "./decorators/command";
+import { guildonly } from "./decorators/guildonly";
 import { RoleCheck } from "./decorators/roleCheck";
 import { params } from "./decorators/paramDecorators";
+import { PermissionCheck } from "./decorators/permissionCheck";
+import { commandContext } from "./interfaces/commandContext";
+import { prefixes } from "./storage/prefixes";
+import { commands, commandGroups } from "./storage/commands";
 
 export {
 	Client,
@@ -22,4 +23,5 @@ export {
 	reload,
 	guildonly,
 	check,
+	prefixes
 };

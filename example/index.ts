@@ -11,7 +11,7 @@ config({ path: "./.env" });
 
 // Initialize a new client/bot instance 
 const client = new Client({	// When you use dotenv
-	prefixes: ["?", "!"]	// Prefixes for your bot, specify as many as you want to. Default is "!".
+	defaultPrefix: "!"	// Prefixes for your bot, specify as many as you want to. Default is "!".
 });
 
 // This automatically imports all files/commands in the commands folder
