@@ -6,7 +6,7 @@ import { clientOptions } from "./interfaces/clientOptions";
 import { registeredCommand } from "./interfaces/registeredCommand";
 import { loggerOptions } from "./interfaces/loggerOptions";
 import { Logger } from "./logger";
-import { logType } from "./interfaces/logType";
+import { logUrgencyType } from "./interfaces/logType";
 
 export class Client extends DJS.Client
 {
@@ -14,6 +14,7 @@ export class Client extends DJS.Client
 	public prefixes: string[] = ["!"];
 	public commandGroups: string[] = [];
 	public commands: registeredCommand[] = [];
+	public loggers: Logger[] = [];
 	
 	constructor(options: clientOptions)
 	{
@@ -24,6 +25,9 @@ export class Client extends DJS.Client
 		this.register();
 	}
 	
+	/**
+	 * Set up standard event handlers
+	 */
 	private register()
 	{
 		this.on("message", async (message: DJS.Message) => commandHandler(this, message));
@@ -32,6 +36,10 @@ export class Client extends DJS.Client
 		this.on("rateLimit", (data: DJS.RateLimitData) => this.log(JSON.stringify(data, null, 1), "error"));
 	}
 	
+	/**
+	 * Automatically imports all commands/files inside a specified directory
+	 * @param dir Directory, e.g. path.join(__dirname, "/commands/")
+	 */
 	public autoImport(dir: string)
 	{
 		const files = readdirSync(dir);
@@ -73,16 +81,23 @@ export class Client extends DJS.Client
 		};
 	}
 	
+	/**
+	 * Adds a logger service to your bot/client
+	 * @param options Logs can be sent to DMs, channels, and the console
+	 */
 	public addLogger(options: loggerOptions)
 	{
 		this.loggers.push(new Logger(options));
 	}
 	
-	public log(message: string, type: logType)
+	/**
+	 * Allows you to log a message to registered loggers
+	 * @param message message
+	 * @param type Urgency
+	 */
+	public log(message: string, type: logUrgencyType)
 	{
 		this.loggers.forEach((logger: Logger) =>
 			logger.log(message, type, this));
 	}
-	
-	public loggers: Logger[] = [];
 }

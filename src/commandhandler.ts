@@ -5,8 +5,14 @@ import { commandContext, StringResolvable } from "./interfaces/commandContext";
 import { commands } from "./storage/commands";
 import { convertCommandArgs } from "./helpers/convertArgs";
 
+/**
+ * This is executed every time a command is called
+ * @param client The client to be used
+ * @param message The mesage recived
+ */
 export async function commandHandler(client: Client, message: Message)
 {
+	const context = message as commandContext;
 	let hasPrefix = false;
 	let usedPrefix = "";
 	
@@ -18,8 +24,6 @@ export async function commandHandler(client: Client, message: Message)
 			usedPrefix = prefix;
 		}
 	});
-	
-	const context = message as commandContext;
 	
 	context.args = context.content.replace(usedPrefix, "").split(" ");
 	context.send = (

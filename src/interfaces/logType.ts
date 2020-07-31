@@ -1,2 +1,4 @@
 
-export type logType = "error" | "info";
+
+
+export type logUrgencyType = "error" | "info";
