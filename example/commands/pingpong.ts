@@ -1,4 +1,4 @@
-import { Context, command, permission } from "command.ts";
+import { Context, command, permission, roleChecking } from "command.ts";
 
 // VS Code might suggest removing this class, but it's fine :)
 class PingPongCommands
@@ -21,7 +21,7 @@ class PingPongCommands
 	@command({
 		prefixRequired: "require"
 	})
-	@permission.client("MANAGE_GUILD", (ctx: Context) => ctx.send("Lacking permission"))
+	@roleChecking.user("714932298121740308")
 	pong(ctx: Context)
 	{
 		ctx.send("ping");
