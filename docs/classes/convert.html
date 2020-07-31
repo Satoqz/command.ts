@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>clientOptions | command.ts</title>
+	<title>Convert | command.ts</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="clientoptions.html">clientOptions</a>
+					<a href="convert.html">Convert</a>
 				</li>
 			</ul>
-			<h1>Interface clientOptions</h1>
+			<h1>Class Convert</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">clientOptions</span>
+						<span class="target">Convert</span>
 					</li>
 				</ul>
 			</section>
@@ -79,36 +79,95 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientoptions.html#ownerid" class="tsd-kind-icon">owner<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientoptions.html#prefixes" class="tsd-kind-icon">prefixes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="convert.html#tochannel" class="tsd-kind-icon">to<wbr>Channel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="convert.html#tomember" class="tsd-kind-icon">to<wbr>Member</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="convert.html#touser" class="tsd-kind-icon">to<wbr>User</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="ownerid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> owner<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">owner<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/71e49f0/src/interfaces/clientOptions.ts#L5">src/interfaces/clientOptions.ts:5</a></li>
-						</ul>
-					</aside>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="tochannel" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>Channel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Channel<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, guild<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Guild</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/71e49f0/src/helpers/discordConverters.ts#L29">src/helpers/discordConverters.ts:29</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>guild: <span class="tsd-signature-type">Guild</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+						</li>
+					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="prefixes" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> prefixes</h3>
-					<div class="tsd-signature tsd-kind-icon">prefixes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/71e49f0/src/interfaces/clientOptions.ts#L4">src/interfaces/clientOptions.ts:4</a></li>
-						</ul>
-					</aside>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="tomember" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>Member</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Member<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, guild<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Guild</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GuildMember</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/71e49f0/src/helpers/discordConverters.ts#L17">src/helpers/discordConverters.ts:17</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>guild: <span class="tsd-signature-type">Guild</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GuildMember</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="touser" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>User</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>User<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, client<span class="tsd-signature-symbol">: </span><a href="client.html" class="tsd-signature-type">Client</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">User</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/71e49f0/src/helpers/discordConverters.ts#L7">src/helpers/discordConverters.ts:7</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>client: <a href="client.html" class="tsd-signature-type">Client</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">User</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -123,52 +182,55 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="../classes/client.html" class="tsd-kind-icon">Client</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/convert.html" class="tsd-kind-icon">Convert</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/logger.html" class="tsd-kind-icon">Logger</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/permissioncheck.html" class="tsd-kind-icon">Permission<wbr>Check</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/rolecheck.html" class="tsd-kind-icon">Role<wbr>Check</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/params.html" class="tsd-kind-icon">params</a>
+						<a href="client.html" class="tsd-kind-icon">Client</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="clientoptions.html" class="tsd-kind-icon">client<wbr>Options</a>
+					<li class="current tsd-kind-class">
+						<a href="convert.html" class="tsd-kind-icon">Convert</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="clientoptions.html#ownerid" class="tsd-kind-icon">owner<wbr>Id</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="convert.html#tochannel" class="tsd-kind-icon">to<wbr>Channel</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="clientoptions.html#prefixes" class="tsd-kind-icon">prefixes</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="convert.html#tomember" class="tsd-kind-icon">to<wbr>Member</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="convert.html#touser" class="tsd-kind-icon">to<wbr>User</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="commandcontext.html" class="tsd-kind-icon">command<wbr>Context</a>
+					<li class=" tsd-kind-class">
+						<a href="logger.html" class="tsd-kind-icon">Logger</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="permissioncheck.html" class="tsd-kind-icon">Permission<wbr>Check</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="rolecheck.html" class="tsd-kind-icon">Role<wbr>Check</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="params.html" class="tsd-kind-icon">params</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="commandoptions.html" class="tsd-kind-icon">command<wbr>Options</a>
+						<a href="../interfaces/clientoptions.html" class="tsd-kind-icon">client<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="loggeroptions.html" class="tsd-kind-icon">logger<wbr>Options</a>
+						<a href="../interfaces/commandcontext.html" class="tsd-kind-icon">command<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="registeredcommand.html" class="tsd-kind-icon">registered<wbr>Command</a>
+						<a href="../interfaces/commandoptions.html" class="tsd-kind-icon">command<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="registeredcommandoptions.html" class="tsd-kind-icon">registered<wbr>Command<wbr>Options</a>
+						<a href="../interfaces/loggeroptions.html" class="tsd-kind-icon">logger<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/registeredcommand.html" class="tsd-kind-icon">registered<wbr>Command</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/registeredcommandoptions.html" class="tsd-kind-icon">registered<wbr>Command<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#stringresolvable" class="tsd-kind-icon">String<wbr>Resolvable</a>
