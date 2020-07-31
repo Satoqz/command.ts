@@ -7,6 +7,7 @@ import { commands, commandGroups } from "./storage/commands";
 import { command } from "./decorators/command";
 import { check } from "./decorators/check";
 import { RoleChecking } from "./decorators/roleChecking";
+import { params } from "./decorators/paramDecorators";
 
 export {
 	Client,
@@ -16,6 +17,8 @@ export {
 	commands,
 	commandGroups,
 	command,
+	params,
+	params as p,
 	reload,
 	guildonly,
 	check,
