@@ -1,4 +1,5 @@
 import { commandContext } from "../interfaces/commandContext";
+import { commandArg } from "../interfaces/registeredCommand";
 
 /**
  * Allows to check your own specific conditions
@@ -10,10 +11,10 @@ export function check(checkFunction: Function): Function
 	{
 		const original = executor.value;
 		
-		executor.value = async function(context: commandContext)
+		executor.value = async function(context: commandContext, ...args: commandArg[])
 		{
 			if(checkFunction(context))
-				return original.apply(this, [context]);
+				return original.apply(this, [context, ...args]);
 			else return null;
 		};
 		

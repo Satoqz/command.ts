@@ -38,6 +38,8 @@ export async function commandHandler(client: Client, message: Message)
 		command.aliases!.includes(String(context.args[0])) && command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
 	
 	if(!command) return;
+
+	context.args = context.args.slice(1, context.args.length);
 	
-	command.execute(...convertCommandArgs(context, command, context.args));	// dont ask why, it works
+	command.execute(context, ...convertCommandArgs(context, command, context.args));	// dont ask why, it works
 }
