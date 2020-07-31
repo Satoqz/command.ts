@@ -1,4 +1,4 @@
-import { commandContext } from "./interfaces/commandContext";
+import { commandContext } from "../interfaces/commandContext";
 
 export function check(checkFunction: Function)
 {

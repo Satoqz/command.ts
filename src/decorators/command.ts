@@ -1,10 +1,9 @@
-import { commandOptions } from "./interfaces/commandOptions";
-import { registeredCommand } from "./interfaces/registeredCommand";
-import { commands, commandGroups } from "./storage/commands";
+import { commandOptions } from "../interfaces/commandOptions";
+import { registeredCommand } from "../interfaces/registeredCommand";
+import { commands, commandGroups } from "../storage/commands";
 
 export function command(options?: commandOptions): Function
 {
-	
 	return async function(parent: Object, name: string, executor: PropertyDescriptor)
 	{
 		const duplicateCommand: registeredCommand | undefined = commands.find((command: registeredCommand) => command.name == name);

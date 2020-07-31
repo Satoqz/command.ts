@@ -1,3 +1,4 @@
+
 export interface clientOptions
 {
 	prefixes?: string[],
