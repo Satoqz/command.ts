@@ -6,7 +6,7 @@
 	"author": "satoqz",
 	"maintainers": ["satoqz", "C0ffeeCode"],
 	"bugs": {"url": "https://github.com/Satoqz/command.ts/issues"},
-	"homepage": "https://satoqz.github.io/command.ts",
+	"homepage": "https://command.js.org",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Satoqz/command.ts.git"
