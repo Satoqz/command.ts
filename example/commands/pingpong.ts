@@ -21,7 +21,7 @@ class PingPongCommands
 	@command({
 		prefixRequired: "require"
 	})
-	@permission.client("MANAGE_GUILD")
+	@permission.user("MANAGE_GUILD")
 	pong(ctx: Context)
 	{
 		// Send a message back. This is a shortcut to "ctx.channel.send"
