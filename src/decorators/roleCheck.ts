@@ -1,6 +1,7 @@
 import * as DJS from "discord.js";
 import { commandContext } from "../interfaces/commandContext";
 import { isArray } from "util";
+import { commandArg } from "../interfaces/registeredCommand";
 
 export class RoleCheck
 {
@@ -55,7 +56,7 @@ function roleCheckHelper(
 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor): PropertyDescriptor
 	{
 		const original = executor.value;
-		executor.value = function(context: commandContext)
+		executor.value = function(context: commandContext, ...args: commandArg[])
 		{
 			const user = who == "client"
 				? context.client.user!
@@ -81,7 +82,7 @@ function roleCheckHelper(
 				});
 				if (fail) return null;
 			}
-			return original.apply(this, [context]);;
+			return original.apply(this, [context, ...args]);
 		};
 		return executor;
 	};

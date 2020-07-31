@@ -1,4 +1,5 @@
 import { commandContext } from "../interfaces/commandContext";
+import { commandArg } from "../interfaces/registeredCommand";
 
 // TODO
 export function guildonly()
@@ -10,11 +11,11 @@ export function guildonly()
 	{
 		const original = executor.value;
 		
-		executor.value = async function(context: commandContext)
+		executor.value = async function(context: commandContext, ...args: commandArg[])
 		{
 			if(context.channel.type == "dm") return null;
 			
-			else return original.apply(this, [context]);
+			else return original.apply(this, [context, ...args]);
 		};
 		return executor;
 	};

@@ -1,5 +1,6 @@
 import * as DJS from "discord.js";
 import { commandContext } from "../interfaces/commandContext";
+import { commandArg } from "../interfaces/registeredCommand";
 
 export class PermissionCheck
 {
@@ -48,7 +49,7 @@ function permissionCheckHelper(
 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor): PropertyDescriptor
 	{
 		const original = executor.value;
-		executor.value = function(context: commandContext)
+		executor.value = function(context: commandContext, ...args: commandArg[])
 		{
 			const user =  who == "client"
 				? context.client.user!
@@ -61,7 +62,7 @@ function permissionCheckHelper(
 				lackingPermissionAction(context);
 			
 			return allowed
-				? original.apply(this, [context])
+				? original.apply(this, [context, ...args])
 				: null;
 		};
 		return executor;

@@ -43,7 +43,7 @@ function setArgumentType(name: string, index: number, type: argType)
 		if(command)
 		{
 			clearInterval(interval);
-			command.argsTypes[index] = type;
+			command.argsTypes[index - 1] = type;
 		}
 	}, 0);
 }

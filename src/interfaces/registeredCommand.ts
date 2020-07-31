@@ -1,5 +1,4 @@
 import { commandOptions } from "./commandOptions";
-import { commandContext } from "./commandContext";
 
 export interface registeredCommand extends commandOptions
 {
@@ -10,5 +9,5 @@ export interface registeredCommand extends commandOptions
 	argsTypes: argType[]
 }
 
-export type commandArg = string | number | boolean | commandContext | undefined;
-export type argType = "string" | "number" | "boolean" | "context";
+export type commandArg = string | number | boolean | undefined;
+export type argType = "string" | "number" | "boolean";

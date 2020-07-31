@@ -24,9 +24,6 @@ export function convertCommandArgs(context: commandContext, command: registeredC
 			break;
 		case "string":
 			break;
-		case "context":
-			args[index] = context;
-			break;
 		}
 	});
 	return args;

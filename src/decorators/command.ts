@@ -29,7 +29,7 @@ export function command(options?: commandOptions): Function
 			aliases: hasOptions && options?.aliases ? options.aliases.concat([name]) : [name],
 			execute: executor.value,
 			prefixRequired: options?.prefixRequired ?? "require",
-			argsTypes: ["context"]
+			argsTypes: []
 		});
 	};
 }
