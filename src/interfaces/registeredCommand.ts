@@ -1,4 +1,5 @@
 import { commandOptions } from "./commandOptions";
+import { User, GuildMember, TextChannel } from "discord.js";
 
 export interface registeredCommand extends commandOptions
 {
@@ -9,5 +10,5 @@ export interface registeredCommand extends commandOptions
 	argsTypes: argType[]
 }
 
-export type commandArg = string | number | boolean | undefined;
-export type argType = "string" | "number" | "boolean";
+export type commandArg = string | number | boolean | User | GuildMember | TextChannel | undefined;
+export type argType = "string" | "number" | "boolean" | "user" | "guildmember" | "textchannel";

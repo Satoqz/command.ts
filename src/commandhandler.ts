@@ -27,6 +27,7 @@ export async function commandHandler(client: Client, message: Message)
 	});
 	
 	context.args = split(context.content.replace(usedPrefix, ""));
+	context.c = client;
 	context.send = (
 		content: StringResolvable,
 		options?: MessageEmbed | MessageAttachment | (MessageEmbed | MessageAttachment)[] | undefined,

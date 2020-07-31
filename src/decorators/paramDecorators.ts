@@ -29,6 +29,19 @@ export class params
 	{
 		setArgumentType(name, index, "string");
 	}
+
+	public static GuildMember(target: Object, name: string, index: number)
+	{
+		setArgumentType(name, index, "guildmember");
+	}
+	public static User(target: Object, name: string, index: number)
+	{
+		setArgumentType(name, index, "user");
+	}
+	public static TextChannel(target: Object, name: string, index: number)
+	{
+		setArgumentType(name, index, "textchannel");
+	}
 }
 
 /**
