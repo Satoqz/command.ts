@@ -1,7 +1,8 @@
-import { Message, MessageAdditions, MessageOptions, MessageEmbed, MessageAttachment } from "discord.js";
+import { Message, MessageEmbed, MessageAttachment } from "discord.js";
 import { Client } from "./client";
-import { RegisteredCommand } from "./interfaces/registeredCommand";
+import { registeredCommand } from "./interfaces/registeredCommand";
 import { commandContext, StringResolvable } from "./interfaces/commandContext";
+import { commands } from "./storage/commands";
 
 export async function commandHandler(client: Client, message: Message)
 {
@@ -32,7 +33,7 @@ export async function commandHandler(client: Client, message: Message)
 
 	if(!hasPrefix)
 	{
-		const command = client.commands.find((command: RegisteredCommand) => command.aliases.includes(context.args[0]) && command.prefixless);
+		const command = commands.find((command: registeredCommand) => command.aliases.includes(context.args[0]) && command.prefixless);
 		
 		if(!command) return;
 
@@ -42,7 +43,7 @@ export async function commandHandler(client: Client, message: Message)
 	}
 	else
 	{
-		const command = client.commands.find((command: RegisteredCommand) => command.aliases.includes(context.args[0]) && !command.onlyPrefixless);
+		const command = commands.find((command: registeredCommand) => command.aliases.includes(context.args[0]) && !command.onlyPrefixless);
 		
 		if(!command) return;
 
