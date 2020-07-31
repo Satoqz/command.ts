@@ -17,14 +17,15 @@ export async function commandHandler(client: Client, message: Message)
 	const context = message as commandContext;
 	let hasPrefix = false;
 	let usedPrefix = "";
+	const guildId = message.guild?.id ?? "dms";
 	
-	if (!prefixes[message.guild!.id])
-		prefixes[message.guild!.id] = defaultPrefix;
+	if (!prefixes[guildId])
+		prefixes[guildId] = defaultPrefix;
 	
-	if(message.content.startsWith(prefixes[message.guild!.id]))
+	if(message.content.startsWith(prefixes[guildId]))
 	{
 		hasPrefix = true;
-		usedPrefix = prefixes[message.guild!.id];
+		usedPrefix = prefixes[guildId];
 	}
 	
 	context.args = split(context.content.replace(usedPrefix, ""));

@@ -23,7 +23,7 @@ class PingPongCommands
 	})
 	setPrefix(ctx: Context, @p.string pref: string)
 	{
-		prefixes[ctx.guild.id] = "-";
+		prefixes[ctx.guild?.id ?? "dms"] = "-";
 	}
 	
 	@command({
@@ -31,6 +31,6 @@ class PingPongCommands
 	})
 	getPrefix(ctx: Context, @p.string pref: string)
 	{
-		ctx.send(prefixes[ctx.guild.id]);
+		ctx.send(prefixes[ctx.guild?.id ?? "dms"]);
 	}
 }
