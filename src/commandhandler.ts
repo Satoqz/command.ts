@@ -4,6 +4,7 @@ import { registeredCommand, commandArg } from "./interfaces/registeredCommand";
 import { commandContext, StringResolvable } from "./interfaces/commandContext";
 import { commands } from "./storage/commands";
 import { convertCommandArgs } from "./helpers/convertArgs";
+import { split } from "./helpers/split";
 
 /**
  * This is executed every time a command is called
@@ -25,7 +26,7 @@ export async function commandHandler(client: Client, message: Message)
 		}
 	});
 	
-	context.args = context.content.replace(usedPrefix, "").split(" ");
+	context.args = split(context.content.replace(usedPrefix, ""));
 	context.send = (
 		content: StringResolvable,
 		options?: MessageEmbed | MessageAttachment | (MessageEmbed | MessageAttachment)[] | undefined,
