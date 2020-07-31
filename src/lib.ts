@@ -11,7 +11,7 @@ import { params } from "./decorators/paramDecorators";
 
 export {
 	Client,
-	RoleChecking as roleChecking,
+	RoleChecking as rolecheck,
 	Permission as permission,
 	commandContext as Context,
 	commands,
