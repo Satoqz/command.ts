@@ -1,5 +1,4 @@
-
-export interface RegisteredCommand
+export interface registeredCommand
 {
 	execute: Function,
 	group: string,
