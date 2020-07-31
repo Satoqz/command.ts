@@ -10,7 +10,7 @@ config({ path: "./.env" });
 //#endregion
 
 // Initialize a new client/bot instance 
-const client = new Client({// When you use dotenv
+const client = new Client({	// When you use dotenv
 	prefixes: ["?", "!"]	// Prefixes for your bot, specify as many as you want to. Default is "!".
 });
 
@@ -23,4 +23,3 @@ client.autoImport(join(__dirname, "/commands/"));
 
 // lastly, have your bot connect to discord using your api token
 client.login(process.env.TOKEN);
-

@@ -4,8 +4,8 @@ import { permission } from "./permission";
 import { guildonly } from "./guildonly";
 import { commandContext } from "./interfaces/commandContext";
 import { commands, commandGroups } from "./storage/commands";
-import { command } from "./command";
-import { check } from "./check";
+import { command } from "./decorators/command";
+import { check } from "./decorators/check";
 
 export {
 	Client,

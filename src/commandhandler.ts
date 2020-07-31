@@ -6,7 +6,6 @@ import { commands } from "./storage/commands";
 
 export async function commandHandler(client: Client, message: Message)
 {
-		
 	let hasPrefix = false;
 	let usedPrefix = "";
 	
@@ -18,9 +17,9 @@ export async function commandHandler(client: Client, message: Message)
 			usedPrefix = prefix;
 		}
 	});
-
+	
 	const context = message as commandContext;
-		
+	
 	context.args = context.content.replace(usedPrefix, "").split(" ");
 	context.send = (
 		content: StringResolvable,
@@ -29,24 +28,12 @@ export async function commandHandler(client: Client, message: Message)
 		return context.channel.send(content, options);
 	};
 
-	if(!hasPrefix)
-	{
-		const command = commands.find((command: registeredCommand) => command.aliases.includes(context.args[0]) && command.prefixless);
-		
-		if(!command) return;
+	const command = commands.find((command: registeredCommand) =>
+		command.aliases!.includes(context.args[0]) && command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
 
-		context.args = context.args.slice(1, context.args.length);
-		
-		command.execute(context);
-	}
-	else
-	{
-		const command = commands.find((command: registeredCommand) => command.aliases.includes(context.args[0]) && !command.onlyPrefixless);
-		
-		if(!command) return;
-
-		context.args = context.args.slice(1, context.args.length);
-		
-		command.execute(context);
-	}
+	if(!command) return;
+	
+	context.args = context.args.slice(1, context.args.length);
+	
+	command.execute(context);
 }

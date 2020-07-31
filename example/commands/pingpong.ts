@@ -7,9 +7,10 @@ class PingPongCommands
 	// The default name is the functions name
 	// You can pass additional options like you can see here
 	@command({
-		aliases: ["pingpong"], // command function name will always be the default alias
+		aliases: ["pingpong"],	// command function name will always be the default alias
 		description: "play pingpong with the bot",
-		usage: "prefix + ping"
+		usage: "prefix + ping",
+		prefixRequired: "notallowed"
 	})
 	ping(ctx: Context)
 	{

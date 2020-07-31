@@ -1,10 +1,9 @@
-import { commandOptions } from "./interfaces/commandOptions";
-import { registeredCommand } from "./interfaces/registeredCommand";
-import { commands, commandGroups } from "./storage/commands";
+import { commandOptions } from "../interfaces/commandOptions";
+import { registeredCommand } from "../interfaces/registeredCommand";
+import { commands, commandGroups } from "../storage/commands";
 
 export function command(options?: commandOptions): Function
 {
-	
 	return async function(parent: Object, name: string, executor: PropertyDescriptor)
 	{
 		const duplicateCommand: registeredCommand | undefined = commands.find((command: registeredCommand) => command.name == name);
@@ -24,8 +23,7 @@ export function command(options?: commandOptions): Function
 			usage: hasOptions && options?.usage ? options.usage : undefined,
 			aliases: hasOptions && options?.aliases ? options.aliases.concat([name]) : [name],
 			execute: executor.value,
-			prefixless: hasOptions && options?.prefixless ? options.prefixless : false,
-			onlyPrefixless : hasOptions && options?.onlyPrefixless ? options.onlyPrefixless : false
+			prefixRequired: options?.prefixRequired ?? "require"
 		});
 	};
 }
