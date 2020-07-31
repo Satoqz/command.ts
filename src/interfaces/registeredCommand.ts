@@ -11,5 +11,4 @@ export interface registeredCommand extends commandOptions
 }
 
 export type commandArg = string | number | boolean | commandContext | undefined;
-
 export type argType = "string" | "number" | "boolean" | "context";

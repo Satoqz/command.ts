@@ -1,3 +1,4 @@
+
 export interface commandOptions
 {
 	prefixRequired?: "optional" | "require" | "notallowed",

@@ -1,7 +1,7 @@
 import * as DJS from "discord.js";
 import { commandContext } from "../interfaces/commandContext";
 
-export class Permission
+export class PermissionCheck
 {
 	/**
 	 * Check for clients/bots permissions

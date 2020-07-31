@@ -1,24 +1,24 @@
 import { Client } from "./client";
 import { reload } from "./reload";
-import { Permission } from "./decorators/permission";
-import { guildonly } from "./guildonly";
+import { PermissionCheck } from "./decorators/permissionCheck";
+import { guildonly } from "./decorators/guildonly";
 import { commandContext } from "./interfaces/commandContext";
 import { commands, commandGroups } from "./storage/commands";
 import { command } from "./decorators/command";
 import { check } from "./decorators/check";
-import { RoleChecking } from "./decorators/roleChecking";
+import { RoleCheck } from "./decorators/roleCheck";
 import { params } from "./decorators/paramDecorators";
 
 export {
 	Client,
-	RoleChecking as rolecheck,
-	Permission as permission,
+	params,
+	params as p,
+	RoleCheck as roleCheck,
+	PermissionCheck as permission,
 	commandContext as Context,
 	commands,
 	commandGroups,
 	command,
-	params,
-	params as p,
 	reload,
 	guildonly,
 	check,
