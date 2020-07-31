@@ -6,9 +6,7 @@ import { commands } from "./storage/commands";
 
 export async function commandHandler(client: Client, message: Message)
 {
-	
-	if(client.noDM && message.channel.type == "dm") return;
-	
+		
 	let hasPrefix = false;
 	let usedPrefix = "";
 	

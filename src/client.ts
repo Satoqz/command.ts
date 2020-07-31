@@ -7,7 +7,6 @@ import { registeredCommand } from "./interfaces/registeredCommand";
 
 export class Client extends DJS.Client
 {
-	public noDM: boolean = true;
 	public ownerId?: string;
 	public prefixes: string[] = ["!"];
 	public commandGroups: string[] = [];
@@ -18,7 +17,6 @@ export class Client extends DJS.Client
 		super();
 		if(options.ownerId) this.ownerId = options.ownerId;
 		if(options.prefixes) this.prefixes = options.prefixes;
-		if(options.noDM != undefined) this.noDM = options.noDM;
 
 		this.register();
 	}
