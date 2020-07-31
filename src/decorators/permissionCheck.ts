@@ -13,7 +13,7 @@ export class PermissionCheck
 		lackingPermissionAction?: Function
 	): Function
 	{
-		return funcc("client", permission, lackingPermissionAction);
+		return permissionCheckHelper("client", permission, lackingPermissionAction);
 	}
 	
 	/**
@@ -26,7 +26,7 @@ export class PermissionCheck
 		lackingPermissionAction?: Function
 	): Function
 	{
-		return funcc("user", permission, lackingPermissionAction);
+		return permissionCheckHelper("user", permission, lackingPermissionAction);
 	}
 }
 
@@ -37,7 +37,7 @@ export class PermissionCheck
  * @param permission Which permissions are to be verified
  * @param lackingPermissionAction [obsolete] Action on lacking permission
  */
-function funcc(
+function permissionCheckHelper(
 	who: "client" | "user",
 	permission: DJS.PermissionString | DJS.PermissionString[],
 	lackingPermissionAction?: Function) : Function

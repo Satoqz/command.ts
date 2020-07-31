@@ -12,7 +12,7 @@ export class RoleCheck
 		lackingPermissionAction?: Function
 	): Function
 	{
-		return funcc("client", roles);
+		return roleCheckHelper("client", roles);
 	}
 
 	public static user(
@@ -23,7 +23,7 @@ export class RoleCheck
 		lackingPermissionAction?: Function
 	): Function
 	{
-		return funcc("user", roles);
+		return roleCheckHelper("user", roles);
 	}
 }
 
@@ -33,7 +33,7 @@ export class RoleCheck
  * @param who Whose permissions to check?
  * @param roles ID(s) or role object(s) of roles to be verified
  */
-function funcc(
+function roleCheckHelper(
 	who: "client" | "user",
 	roles:
 		| DJS.Role
