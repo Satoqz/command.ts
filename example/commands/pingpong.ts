@@ -1,4 +1,4 @@
-import { Context, command } from "command.ts";
+import { Context, command, permission } from "command.ts";
 
 // VS Code might suggest removing this class, but it's fine :)
 class PingPongCommands
@@ -10,9 +10,19 @@ class PingPongCommands
 		aliases: ["pingpong"],	// command function name will always be the default alias
 		description: "play pingpong with the bot",
 		usage: "prefix + ping",
-		prefixRequired: "notallowed"
+		prefixRequired: "require"
 	})
 	ping(ctx: Context)
+	{
+		// Send a message back. This is a shortcut to "ctx.channel.send"
+		ctx.send("pong");
+	}
+
+	@command({
+		prefixRequired: "require"
+	})
+	@permission.client("MANAGE_GUILD")
+	pong(ctx: Context)
 	{
 		// Send a message back. This is a shortcut to "ctx.channel.send"
 		ctx.send("pong");

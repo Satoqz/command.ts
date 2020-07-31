@@ -40,28 +40,9 @@ export class Client extends DJS.Client
 		});
 	}
 
-	public permission(permission: DJS.PermissionString | DJS.PermissionString[])
-	{
-		const client = this;
-		
-		return async function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
-		{
-			const original = executor.value;
-			
-			executor.value = function(context: commandContext)
-			{
-				if(context.channel!.type == "dm")
-					return original.apply(this, [context]);
-				
-				else if(context.guild!.member(client.user!)!.hasPermission(permission))
-					return original.apply(this, [context]);
-				
-				else return null;
-			};
-			return executor;
-		};
-	}
-	
+	/**
+	 * @deprecated
+	 */
 	public owner()
 	{
 		const client = this;
@@ -82,7 +63,6 @@ export class Client extends DJS.Client
 				
 				else return null;
 			};
-			
 			return executor;
 		};
 	}
