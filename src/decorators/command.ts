@@ -2,6 +2,11 @@ import { commandOptions } from "../interfaces/commandOptions";
 import { registeredCommand } from "../interfaces/registeredCommand";
 import { commands, commandGroups } from "../storage/commands";
 
+
+/**
+ * Declare a class member to be a command
+ * @param options options (aliases, description, prefixRequired)
+ */
 export function command(options?: commandOptions): Function
 {
 	return async function(parent: Object, name: string, executor: PropertyDescriptor)

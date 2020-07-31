@@ -1,7 +1,11 @@
 import { commandContext } from "../interfaces/commandContext";
 
+// TODO
 export function guildonly()
 {
+	/**
+	 * Declare a command to be only used in a guild
+	 */
 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
 	{
 		const original = executor.value;

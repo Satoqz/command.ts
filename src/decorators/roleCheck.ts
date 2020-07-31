@@ -4,6 +4,11 @@ import { isArray } from "util";
 
 export class RoleCheck
 {
+	/**
+	 * Check for clients/bots permissions
+	 * @param roles ID(s) or role object(s) of roles to be verified
+	 * @returns Forwarded decorator
+	 */
 	public static client(
 		roles:
 			| DJS.Role
@@ -14,7 +19,12 @@ export class RoleCheck
 	{
 		return roleCheckHelper("client", roles);
 	}
-
+	
+	/**
+	 * Check for users permissions
+	 * @param roles ID(s) or role object(s) of roles to be verified
+	 * @returns Forwarded decorator
+	 */
 	public static user(
 		roles:
 			| DJS.Role
@@ -29,9 +39,10 @@ export class RoleCheck
 
 /**
  * Check for permissions
- * Not for direct use
+ * This is a helper, not for direct use
  * @param who Whose permissions to check?
  * @param roles ID(s) or role object(s) of roles to be verified
+ * @returns Decorator
  */
 function roleCheckHelper(
 	who: "client" | "user",

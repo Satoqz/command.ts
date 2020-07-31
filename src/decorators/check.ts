@@ -1,8 +1,12 @@
 import { commandContext } from "../interfaces/commandContext";
 
-export function check(checkFunction: Function)
+/**
+ * Allows to check your own specific conditions
+ * @param checkFunction a custom checking function, passes commandContext as an argument
+ */
+export function check(checkFunction: Function): Function
 {
-	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
+	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor): PropertyDescriptor
 	{
 		const original = executor.value;
 		

@@ -7,6 +7,7 @@ export class PermissionCheck
 	 * Check for clients/bots permissions
 	 * @param permission Which permissions are to be verified
 	 * @param lackingPermissionAction [obsolete] Action on lacking permission
+	 * @returns Forwarded decorator
 	 */
 	public static client(
 		permission: DJS.PermissionString | DJS.PermissionString[],
@@ -20,6 +21,7 @@ export class PermissionCheck
 	 * Check for users/authors permissions
 	 * @param permission Which permissions are to be verified
 	 * @param lackingPermissionAction [obsolete] Action on lacking permission
+	 * @returns Forwarded decorator
 	 */
 	public static user(
 		permission: DJS.PermissionString | DJS.PermissionString[],
@@ -36,6 +38,7 @@ export class PermissionCheck
  * @param who Whose permissions to check?
  * @param permission Which permissions are to be verified
  * @param lackingPermissionAction [obsolete] Action on lacking permission
+ * @returns Decorator
  */
 function permissionCheckHelper(
 	who: "client" | "user",

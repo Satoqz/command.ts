@@ -1,18 +1,24 @@
 import { loggerOptions } from "./interfaces/loggerOptions";
-import { logType } from "./interfaces/logType";
+import { logUrgencyType } from "./interfaces/logType";
 import { Client } from "./client";
 import { MessageEmbed, TextChannel, User } from "discord.js";
 
 export class Logger
 {
+	public options: loggerOptions;
+
 	constructor(options: loggerOptions)
 	{
 		this.options = options;
 	}
 	
-	public options: loggerOptions;
-	
-	public log(message: string, type: logType, client: Client)
+	/**
+	 * Sends a log message to the specified outputs
+	 * @param message The message
+	 * @param type The urgency
+	 * @param client The client instance
+	 */
+	public log(message: string, type: logUrgencyType, client: Client)
 	{
 		if(this.options.toConsole == true)
 		{
