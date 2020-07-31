@@ -4,8 +4,13 @@
 	"description": "A modern discord.js command framework making use of experimental TypeScript decorators",
 	"license": "MIT",
 	"author": "satoqz",
-	"maintainers": ["satoqz", "C0ffeeCode"],
-	"bugs": {"url": "https://github.com/Satoqz/command.ts/issues"},
+	"maintainers": [
+		"satoqz",
+		"C0ffeeCode"
+	],
+	"bugs": {
+		"url": "https://github.com/Satoqz/command.ts/issues"
+	},
 	"homepage": "https://command.js.org",
 	"repository": {
 		"type": "git",
