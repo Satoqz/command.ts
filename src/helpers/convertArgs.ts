@@ -1,6 +1,6 @@
 import { commandContext } from "../interfaces/commandContext";
 import { registeredCommand, commandArg } from "../interfaces/registeredCommand";
-
+import { Convert } from "./discordConverters";
 /**
  * Transforms arguments from strings to their real type
  * @param context The context to be passed to the command
@@ -23,6 +23,15 @@ export function convertCommandArgs(context: commandContext, command: registeredC
 			args[index] = bool;
 			break;
 		case "string":
+			break;
+		case "user":
+			args[index] = Convert.toUser(args[index] as string, context.c);
+			break;
+		case "guildmember":
+			args[index] = Convert.toMember(args[index] as string, context.guild);
+			break;
+		case "textchannel":
+			args[index] = Convert.toChannel(args[index] as string, context.guild);
 			break;
 		}
 	});

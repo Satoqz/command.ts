@@ -8,6 +8,7 @@ import { command } from "./decorators/command";
 import { check } from "./decorators/check";
 import { RoleCheck } from "./decorators/roleCheck";
 import { params } from "./decorators/paramDecorators";
+import { Convert } from "./helpers/discordConverters";
 
 export {
 	Client,
@@ -22,4 +23,5 @@ export {
 	reload,
 	guildonly,
 	check,
+	Convert
 };
