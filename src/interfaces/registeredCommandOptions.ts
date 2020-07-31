@@ -7,6 +7,6 @@ export interface registeredCommandOptions
 	prefixless: boolean,
 	onlyPrefixless: boolean,
 	aliases: string[],
-	description: string | undefined,
-	usage: string | undefined
+	description?: string,
+	usage?: string
 }

@@ -2,7 +2,7 @@ import * as DJS from "discord.js";
 import { commandContext } from "../interfaces/commandContext";
 import { isArray } from "util";
 
-export class RoleChecking
+export class RoleCheck
 {
 	public static client(
 		roles:

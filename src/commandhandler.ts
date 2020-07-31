@@ -3,7 +3,7 @@ import { Client } from "./client";
 import { registeredCommand, commandArg } from "./interfaces/registeredCommand";
 import { commandContext, StringResolvable } from "./interfaces/commandContext";
 import { commands } from "./storage/commands";
-import { convertCommandArgs } from "./util/convertArgs";
+import { convertCommandArgs } from "./helpers/convertArgs";
 
 export async function commandHandler(client: Client, message: Message)
 {
@@ -28,11 +28,11 @@ export async function commandHandler(client: Client, message: Message)
 	) => {
 		return context.channel.send(content, options);
 	};
-
+	
 	const command = commands.find((command: registeredCommand) =>
 		command.aliases!.includes(String(context.args[0])) && command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
-
+	
 	if(!command) return;
 	
-	command.execute(...convertCommandArgs(context, command, context.args)); // dont ask why, it works
+	command.execute(...convertCommandArgs(context, command, context.args));	// dont ask why, it works
 }

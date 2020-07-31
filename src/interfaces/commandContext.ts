@@ -4,11 +4,16 @@ import { commandArg } from "./registeredCommand";
 
 export type StringResolvable = string | string[] | any;
 
-export interface commandContext extends Message {
+export interface commandContext extends Message
+{
 	args: commandArg[],
 	me: ClientUser,
 	send(
 		content: StringResolvable,
-		options?: MessageEmbed | MessageAttachment | (MessageEmbed | MessageAttachment)[] | MessageOptions | undefined,
+		options?:
+			| MessageEmbed
+			| MessageAttachment
+			| MessageOptions
+			| (MessageEmbed | MessageAttachment)[],
 	): Promise<Message>;
 }

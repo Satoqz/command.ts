@@ -3,8 +3,8 @@ import { registeredCommand, commandArg } from "../interfaces/registeredCommand";
 
 export function convertCommandArgs(context: commandContext, command: registeredCommand, args: commandArg[]): commandArg[]
 {
-	command.argsTypes.forEach((type: commandArg, index: number) => {
-
+	command.argsTypes.forEach((type: commandArg, index: number) =>
+	{
 		switch(type)
 		{
 		case "number":
@@ -21,8 +21,7 @@ export function convertCommandArgs(context: commandContext, command: registeredC
 			args[index] = context;
 			break;
 		}
-			
 	});
-
+	
 	return args;
 }

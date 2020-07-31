@@ -10,7 +10,6 @@ export function check(checkFunction: Function)
 		{
 			if(checkFunction(context))
 				return original.apply(this, [context]);
-			
 			else return null;
 		};
 		
