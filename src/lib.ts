@@ -13,7 +13,7 @@ export {
 	Client,
 	params,
 	params as p,
-	RoleCheck as rolecheck,
+	RoleCheck as roleCheck,
 	PermissionCheck as permission,
 	commandContext as Context,
 	commands,

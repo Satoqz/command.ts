@@ -1,4 +1,4 @@
-import { Context, command, permission, roleChecking } from "command.ts";
+import { Context, command, permission, roleCheck } from "command.ts";
 
 // VS Code might suggest removing this class, but it's fine :)
 class PingPongCommands
@@ -21,7 +21,7 @@ class PingPongCommands
 	@command({
 		prefixRequired: "require"
 	})
-	@roleChecking.user("714932298121740308")
+	@roleCheck.user("714932298121740308")
 	pong(ctx: Context)
 	{
 		ctx.send("ping");
