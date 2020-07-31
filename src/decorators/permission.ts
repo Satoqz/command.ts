@@ -3,18 +3,44 @@ import { commandContext } from "../interfaces/commandContext";
 
 export class Permission
 {
-	public static client(permission: DJS.PermissionString | DJS.PermissionString[]): Function
+	/**
+	 * Check for clients/bots permissions
+	 * @param permission Which permissions are to be verified
+	 * @param lackingPermissionAction [obsolete] Action on lacking permission
+	 */
+	public static client(
+		permission: DJS.PermissionString | DJS.PermissionString[],
+		lackingPermissionAction?: Function
+	): Function
 	{
-		return funcc("client", permission);
+		return funcc("client", permission, lackingPermissionAction);
 	}
 	
-	public static user(permission: DJS.PermissionString | DJS.PermissionString[]): Function
+	/**
+	 * Check for users/authors permissions
+	 * @param permission Which permissions are to be verified
+	 * @param lackingPermissionAction [obsolete] Action on lacking permission
+	 */
+	public static user(
+		permission: DJS.PermissionString | DJS.PermissionString[],
+		lackingPermissionAction?: Function
+	): Function
 	{
-		return funcc("user", permission);
+		return funcc("user", permission, lackingPermissionAction);
 	}
 }
 
-function funcc(who: "client" | "user", permission: DJS.PermissionString | DJS.PermissionString[])
+/**
+ * Check for permissions
+ * Not for direct use
+ * @param who Whose permissions to check?
+ * @param permission Which permissions are to be verified
+ * @param lackingPermissionAction [obsolete] Action on lacking permission
+ */
+function funcc(
+	who: "client" | "user",
+	permission: DJS.PermissionString | DJS.PermissionString[],
+	lackingPermissionAction?: Function) : Function
 {
 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor): PropertyDescriptor
 	{
@@ -24,7 +50,14 @@ function funcc(who: "client" | "user", permission: DJS.PermissionString | DJS.Pe
 			const user =  who == "client"
 				? context.client.user!
 				: context.author!;
-			return context.channel.type == "dm" || context.guild!.member(user)!.hasPermission(permission)
+			
+			const allowed = context.channel.type == "dm"
+				|| context.guild!.member(user)!.hasPermission(permission);
+			
+			if (!allowed && lackingPermissionAction != undefined)
+				lackingPermissionAction(context);
+			
+			return allowed
 				? original.apply(this, [context])
 				: null;
 		};
