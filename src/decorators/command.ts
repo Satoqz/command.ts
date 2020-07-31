@@ -23,8 +23,7 @@ export function command(options?: commandOptions): Function
 			usage: hasOptions && options?.usage ? options.usage : undefined,
 			aliases: hasOptions && options?.aliases ? options.aliases.concat([name]) : [name],
 			execute: executor.value,
-			prefixless: hasOptions && options?.prefixless ? options.prefixless : false,
-			onlyPrefixless : hasOptions && options?.onlyPrefixless ? options.onlyPrefixless : false
+			prefixRequired: options?.prefixRequired ?? "require"
 		});
 	};
 }

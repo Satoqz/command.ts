@@ -1,12 +1,9 @@
+import { commandOptions } from "./commandOptions";
 
-export interface registeredCommand
+export interface registeredCommand extends commandOptions
 {
 	execute: Function,
 	group: string,
 	name: string,
-	aliases: string[],
-	prefixless: boolean,
-	onlyPrefixless: boolean,
-	description?: string,
-	usage?: string
+	prefixRequired: "optional" | "require" | "notallowed",
 }

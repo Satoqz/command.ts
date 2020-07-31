@@ -28,10 +28,9 @@ export async function commandHandler(client: Client, message: Message)
 		return context.channel.send(content, options);
 	};
 
-	const command = !hasPrefix ?
-		commands.find((command: registeredCommand) => command.aliases.includes(context.args[0]) && !command.onlyPrefixless) :
-		commands.find((command: registeredCommand) => command.aliases.includes(context.args[0]) && command.prefixless);
-	
+	const command = commands.find((command: registeredCommand) =>
+		command.aliases!.includes(context.args[0]) && command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
+
 	if(!command) return;
 	
 	context.args = context.args.slice(1, context.args.length);

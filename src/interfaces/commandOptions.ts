@@ -1,9 +1,8 @@
 
 export interface commandOptions
 {
-	prefixless?: boolean,
-	onlyPrefixless?: boolean,
+	prefixRequired?: "optional" | "require" | "notallowed",
 	aliases?: string[],
-	description?: string | undefined,
-	usage?: string | undefined
+	description?: string,
+	usage?: string
 }
