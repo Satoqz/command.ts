@@ -1,7 +1,7 @@
 
 /**
  * Reloads all files
- * This takes mind so a command will not be loaded more than once
+ * This ensures that a command will not be loaded more than once
  * @param path Path to be reloaded
  */
 export function reload(path: string): Promise<{message: string}>
