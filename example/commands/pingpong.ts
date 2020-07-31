@@ -1,20 +1,19 @@
-import client from "../index";
-import { Context } from "command.ts";
+import { Context, command } from "command.ts";
 
 // VS Code might suggest removing this class, but it's fine :)
 class PingPongCommands
 {
-	// Use "@client.command()" to declare this a command
+	// Use "@command()" to declare a command function
 	// The default name is the functions name
 	// You can pass additional options like you can see here
-	@client.command({
-		aliases: ["ping"],
+	@command({
+		aliases: ["pingpong"], // command function name will always be the default alias
 		description: "play pingpong with the bot",
-		usage: client.prefixes.join() + "ping"
+		usage: "prefix + ping"
 	})
-	ping(context: Context)
+	ping(ctx: Context)
 	{
-		// Reply. You can pass true as an additional argument to tag the author
-		context.reply("pong");
+		// Send a message back. This is a shortcut to "ctx.channel.send"
+		ctx.send("pong");
 	}
 }

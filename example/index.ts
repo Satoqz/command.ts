@@ -10,17 +10,17 @@ config({ path: "./.env" });
 //#endregion
 
 // Initialize a new client/bot instance 
-const client = new Client({
-	token: process.env.BotToken!,	// When you use dotenv
-	prefixes: ["?", "!"]	// Prefixes for your bot, you can specify multiple, also something like "mybot "
+const client = new Client({// When you use dotenv
+	prefixes: ["?", "!"]	// Prefixes for your bot, specify as many as you want to. Default is "!".
 });
-
-// Useful to access client other commands
-export default client;
 
 // This automatically imports all files/commands in the commands folder
 client.autoImport(join(__dirname, "/commands/"));
 
-// If you want, you can load/import files/commands like this, too
-// Also, you can mix this kind of importing with the automatic one
+// If you want to, you can load/import files/commands like this, too
+// Also, you can mix normal imports with the automatic one
 // import "./commands/pingpong";
+
+// lastly, have your bot connect to discord using your api token
+client.login(process.env.TOKEN);
+
