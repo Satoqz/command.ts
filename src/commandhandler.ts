@@ -1,8 +1,9 @@
 import { Message, MessageEmbed, MessageAttachment } from "discord.js";
 import { Client } from "./client";
-import { registeredCommand } from "./interfaces/registeredCommand";
+import { registeredCommand, commandArg } from "./interfaces/registeredCommand";
 import { commandContext, StringResolvable } from "./interfaces/commandContext";
 import { commands } from "./storage/commands";
+import { convertCommandArgs } from "./util/convertArgs";
 
 export async function commandHandler(client: Client, message: Message)
 {
@@ -29,11 +30,9 @@ export async function commandHandler(client: Client, message: Message)
 	};
 
 	const command = commands.find((command: registeredCommand) =>
-		command.aliases!.includes(context.args[0]) && command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
+		command.aliases!.includes(String(context.args[0])) && command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
 
 	if(!command) return;
 	
-	context.args = context.args.slice(1, context.args.length);
-	
-	command.execute(context);
+	command.execute(...convertCommandArgs(context, command, context.args)); // dont ask why, it works
 }
