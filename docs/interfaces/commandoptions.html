@@ -71,6 +71,11 @@
 				<ul class="tsd-hierarchy">
 					<li>
 						<span class="target">commandOptions</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="registeredcommand.html" class="tsd-signature-type">registeredCommand</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -83,8 +88,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandoptions.html#aliases" class="tsd-kind-icon">aliases</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandoptions.html#description" class="tsd-kind-icon">description</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandoptions.html#onlyprefixless" class="tsd-kind-icon">only<wbr>Prefixless</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandoptions.html#prefixless" class="tsd-kind-icon">prefixless</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandoptions.html#prefixrequired" class="tsd-kind-icon">prefix<wbr>Required</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandoptions.html#usage" class="tsd-kind-icon">usage</a></li>
 							</ul>
 						</section>
@@ -99,47 +103,37 @@
 					<div class="tsd-signature tsd-kind-icon">aliases<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/94e64b1/src/interfaces/commandOptions.ts#L6">src/interfaces/commandOptions.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/interfaces/commandOptions.ts#L5">src/interfaces/commandOptions.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="description" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> description</h3>
-					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/94e64b1/src/interfaces/commandOptions.ts#L7">src/interfaces/commandOptions.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/interfaces/commandOptions.ts#L6">src/interfaces/commandOptions.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="onlyprefixless" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> only<wbr>Prefixless</h3>
-					<div class="tsd-signature tsd-kind-icon">only<wbr>Prefixless<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<a name="prefixrequired" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> prefix<wbr>Required</h3>
+					<div class="tsd-signature tsd-kind-icon">prefix<wbr>Required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"optional"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"require"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"notallowed"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/94e64b1/src/interfaces/commandOptions.ts#L5">src/interfaces/commandOptions.ts:5</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="prefixless" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> prefixless</h3>
-					<div class="tsd-signature tsd-kind-icon">prefixless<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/94e64b1/src/interfaces/commandOptions.ts#L4">src/interfaces/commandOptions.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/interfaces/commandOptions.ts#L4">src/interfaces/commandOptions.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="usage" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> usage</h3>
-					<div class="tsd-signature tsd-kind-icon">usage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<div class="tsd-signature tsd-kind-icon">usage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/94e64b1/src/interfaces/commandOptions.ts#L8">src/interfaces/commandOptions.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/interfaces/commandOptions.ts#L7">src/interfaces/commandOptions.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -157,6 +151,12 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
 						<a href="../classes/client.html" class="tsd-kind-icon">Client</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/logger.html" class="tsd-kind-icon">Logger</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/permission.html" class="tsd-kind-icon">Permission</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="clientoptions.html" class="tsd-kind-icon">client<wbr>Options</a>
@@ -176,10 +176,7 @@
 								<a href="commandoptions.html#description" class="tsd-kind-icon">description</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="commandoptions.html#onlyprefixless" class="tsd-kind-icon">only<wbr>Prefixless</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="commandoptions.html#prefixless" class="tsd-kind-icon">prefixless</a>
+								<a href="commandoptions.html#prefixrequired" class="tsd-kind-icon">prefix<wbr>Required</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="commandoptions.html#usage" class="tsd-kind-icon">usage</a>
@@ -189,6 +186,9 @@
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface">
+						<a href="loggeroptions.html" class="tsd-kind-icon">logger<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="registeredcommand.html" class="tsd-kind-icon">registered<wbr>Command</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -196,6 +196,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#stringresolvable" class="tsd-kind-icon">String<wbr>Resolvable</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#logtype" class="tsd-kind-icon">log<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#commandgroups" class="tsd-kind-icon">command<wbr>Groups</a>
@@ -214,9 +217,6 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#guildonly" class="tsd-kind-icon">guildonly</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#permission" class="tsd-kind-icon">permission</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#reload" class="tsd-kind-icon">reload</a>
