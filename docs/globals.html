@@ -73,6 +73,8 @@
 								<li class="tsd-kind-class"><a href="classes/client.html" class="tsd-kind-icon">Client</a></li>
 								<li class="tsd-kind-class"><a href="classes/logger.html" class="tsd-kind-icon">Logger</a></li>
 								<li class="tsd-kind-class"><a href="classes/permission.html" class="tsd-kind-icon">Permission</a></li>
+								<li class="tsd-kind-class"><a href="classes/rolechecking.html" class="tsd-kind-icon">Role<wbr>Checking</a></li>
+								<li class="tsd-kind-class"><a href="classes/params.html" class="tsd-kind-icon">params</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -90,6 +92,8 @@
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias"><a href="globals.html#stringresolvable" class="tsd-kind-icon">String<wbr>Resolvable</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#argtype" class="tsd-kind-icon">arg<wbr>Type</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#commandarg" class="tsd-kind-icon">command<wbr>Arg</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#logtype" class="tsd-kind-icon">log<wbr>Type</a></li>
 							</ul>
 						</section>
@@ -106,8 +110,11 @@
 								<li class="tsd-kind-function"><a href="globals.html#check" class="tsd-kind-icon">check</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#command" class="tsd-kind-icon">command</a></li>
 								<li class="tsd-kind-function tsd-is-external"><a href="globals.html#commandhandler" class="tsd-kind-icon">command<wbr>Handler</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#convertcommandargs" class="tsd-kind-icon">convert<wbr>Command<wbr>Args</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#funcc" class="tsd-kind-icon">funcc</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#guildonly" class="tsd-kind-icon">guildonly</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#reload" class="tsd-kind-icon">reload</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#setargumenttype" class="tsd-kind-icon">set<wbr>Argument<wbr>Type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -121,7 +128,27 @@
 					<div class="tsd-signature tsd-kind-icon">String<wbr>Resolvable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/interfaces/commandContext.ts#L4">src/interfaces/commandContext.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/interfaces/commandContext.ts#L5">src/interfaces/commandContext.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="argtype" class="tsd-anchor"></a>
+					<h3>arg<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">arg<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"string"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"number"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"boolean"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"context"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/interfaces/registeredCommand.ts#L15">src/interfaces/registeredCommand.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="commandarg" class="tsd-anchor"></a>
+					<h3>command<wbr>Arg</h3>
+					<div class="tsd-signature tsd-kind-icon">command<wbr>Arg<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><a href="interfaces/commandcontext.html" class="tsd-signature-type">commandContext</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/interfaces/registeredCommand.ts#L13">src/interfaces/registeredCommand.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -131,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">log<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"error"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"info"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/interfaces/logType.ts#L1">src/interfaces/logType.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/interfaces/logType.ts#L1">src/interfaces/logType.ts:1</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -144,7 +171,7 @@
 					<div class="tsd-signature tsd-kind-icon">command<wbr>Groups<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/storage/commands.ts#L5">src/storage/commands.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/storage/commands.ts#L5">src/storage/commands.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -154,7 +181,7 @@
 					<div class="tsd-signature tsd-kind-icon">commands<span class="tsd-signature-symbol">:</span> <a href="interfaces/registeredcommand.html" class="tsd-signature-type">registeredCommand</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/storage/commands.ts#L3">src/storage/commands.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/storage/commands.ts#L3">src/storage/commands.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -171,7 +198,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/decorators/check.ts#L3">src/decorators/check.ts:3</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/decorators/check.ts#L3">src/decorators/check.ts:3</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -194,7 +221,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/decorators/command.ts#L5">src/decorators/command.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/decorators/command.ts#L5">src/decorators/command.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -217,7 +244,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/commandHandler.ts:7</li>
+									<li>Defined in src/commandHandler.ts:8</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -234,6 +261,81 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="convertcommandargs" class="tsd-anchor"></a>
+					<h3>convert<wbr>Command<wbr>Args</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">convert<wbr>Command<wbr>Args<span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><a href="interfaces/commandcontext.html" class="tsd-signature-type">commandContext</a>, command<span class="tsd-signature-symbol">: </span><a href="interfaces/registeredcommand.html" class="tsd-signature-type">registeredCommand</a>, args<span class="tsd-signature-symbol">: </span><a href="globals.html#commandarg" class="tsd-signature-type">commandArg</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#commandarg" class="tsd-signature-type">commandArg</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/util/convertArgs.ts#L4">src/util/convertArgs.ts:4</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>context: <a href="interfaces/commandcontext.html" class="tsd-signature-type">commandContext</a></h5>
+								</li>
+								<li>
+									<h5>command: <a href="interfaces/registeredcommand.html" class="tsd-signature-type">registeredCommand</a></h5>
+								</li>
+								<li>
+									<h5>args: <a href="globals.html#commandarg" class="tsd-signature-type">commandArg</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="globals.html#commandarg" class="tsd-signature-type">commandArg</a><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="funcc" class="tsd-anchor"></a>
+					<h3>funcc</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">funcc<span class="tsd-signature-symbol">(</span>who<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"client"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"user"</span>, permission<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DJS.PermissionString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DJS.PermissionString</span><span class="tsd-signature-symbol">[]</span>, lackingPermissionAction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/decorators/permission.ts#L40">src/decorators/permission.ts:40</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check for permissions
+									Not for direct use</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>who: <span class="tsd-signature-type">"client"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"user"</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Whose permissions to check?</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>permission: <span class="tsd-signature-type">DJS.PermissionString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DJS.PermissionString</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Which permissions are to be verified</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> lackingPermissionAction: <span class="tsd-signature-type">Function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Action on lacking permission</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Function</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="guildonly" class="tsd-anchor"></a>
 					<h3>guildonly</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -243,7 +345,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/guildonly.ts#L3">src/guildonly.ts:3</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/guildonly.ts#L3">src/guildonly.ts:3</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
@@ -260,7 +362,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/0655e82/src/reload.ts#L2">src/reload.ts:2</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/reload.ts#L2">src/reload.ts:2</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -270,6 +372,35 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="setargumenttype" class="tsd-anchor"></a>
+					<h3>set<wbr>Argument<wbr>Type</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Argument<wbr>Type<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><a href="globals.html#argtype" class="tsd-signature-type">argType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/df3af02/src/decorators/paramDecorators.ts#L22">src/decorators/paramDecorators.ts:22</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>type: <a href="globals.html#argtype" class="tsd-signature-type">argType</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -294,6 +425,12 @@
 					<li class=" tsd-kind-class">
 						<a href="classes/permission.html" class="tsd-kind-icon">Permission</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/rolechecking.html" class="tsd-kind-icon">Role<wbr>Checking</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/params.html" class="tsd-kind-icon">params</a>
+					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/clientoptions.html" class="tsd-kind-icon">client<wbr>Options</a>
 					</li>
@@ -316,6 +453,12 @@
 						<a href="globals.html#stringresolvable" class="tsd-kind-icon">String<wbr>Resolvable</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#argtype" class="tsd-kind-icon">arg<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#commandarg" class="tsd-kind-icon">command<wbr>Arg</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#logtype" class="tsd-kind-icon">log<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-variable">
@@ -334,10 +477,19 @@
 						<a href="globals.html#commandhandler" class="tsd-kind-icon">command<wbr>Handler</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#convertcommandargs" class="tsd-kind-icon">convert<wbr>Command<wbr>Args</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#funcc" class="tsd-kind-icon">funcc</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#guildonly" class="tsd-kind-icon">guildonly</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#reload" class="tsd-kind-icon">reload</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#setargumenttype" class="tsd-kind-icon">set<wbr>Argument<wbr>Type</a>
 					</li>
 				</ul>
 			</nav>
