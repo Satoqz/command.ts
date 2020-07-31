@@ -3,7 +3,7 @@ import { readdirSync } from "fs";
 import { commandHandler } from "./commandHandler";
 import { commandContext } from "./interfaces/commandContext";
 import { clientOptions } from "./interfaces/clientOptions";
-import { registeredCommand } from "./interfaces/registeredCommand";
+import { registeredCommand, commandArg } from "./interfaces/registeredCommand";
 import { loggerOptions } from "./interfaces/loggerOptions";
 import { Logger } from "./logger";
 import { logUrgencyType } from "./interfaces/logType";
@@ -65,7 +65,7 @@ export class Client extends DJS.Client
 		{
 			const original = executor.value;
 			
-			executor.value = function(context: commandContext)
+			executor.value = function(context: commandContext, ...args: commandArg[])
 			{
 				if(!client.ownerId) {
 					console.log("INFO: To use the client#owner decorator, please provide your discord id as ownerId when initializing the client!");
@@ -73,7 +73,7 @@ export class Client extends DJS.Client
 				}
 				
 				if(context.author.id == client.ownerId)
-					return original.apply(this, [context]);
+					return original.apply(this, [context, ...args]);
 				
 				else return null;
 			};
