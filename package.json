@@ -1,6 +1,6 @@
 {
 	"name": "command.ts",
-	"version": "1.4.8",
+	"version": "1.4.9",
 	"description": "A modern discord.js command framework making use of experimental TypeScript decorators",
 	"license": "MIT",
 	"author": "satoqz",
@@ -32,8 +32,7 @@
 		"docgen": "typedoc --out ./docs/ ./src/lib.ts --mode library --excludeNotExported --excludePrivate --stripInternal --hideGenerator"
 	},
 	"dependencies": {
-		"discord.js": "^12.2.0",
-		"typedoc-theme-dark": "0.0.5"
+		"discord.js": "^12.2.0"
 	},
 	"devDependencies": {
 		"@types/node": "^14.0.27",

@@ -66,125 +66,152 @@
 					<h1>command.ts</h1>
 				</a>
 				<a href="#this-is-an-unofficial-command-framework-for-discordjs" id="this-is-an-unofficial-command-framework-for-discordjs" style="color: inherit; text-decoration: none;">
-					<h3>This is an unofficial command framework for <a href="https://github.com/discordjs/discordjs">discord.js</a></h3>
+					<h3>This is an unofficial command framework for <a href="https://discord.js.org">discord.js</a></h3>
 				</a>
-				<a href="#so-what39s-special-about-this" id="so-what39s-special-about-this" style="color: inherit; text-decoration: none;">
-					<h2>So what&#39;s special about this?</h2>
+				<a href="#if-you-see-this-and-your39e-on-github-you-will-find-the-official-documentation-here" id="if-you-see-this-and-your39e-on-github-you-will-find-the-official-documentation-here" style="color: inherit; text-decoration: none;">
+					<h4>If you see this and your&#39;e on GitHub, you will find the official documentation <a href="https://command.js.org">here</a>.</h4>
 				</a>
-				<a href="#this-framework-makes-use-of-experimental-typescript-decorators-which-allow-the-following-syntax" id="this-framework-makes-use-of-experimental-typescript-decorators-which-allow-the-following-syntax" style="color: inherit; text-decoration: none;">
-					<h3>This framework makes use of experimental TypeScript decorators which allow the following syntax:</h3>
+				<a href="#if-you39re-not-on-github-you-might-want-to-check-out-the-framework39s-repository-here" id="if-you39re-not-on-github-you-might-want-to-check-out-the-framework39s-repository-here" style="color: inherit; text-decoration: none;">
+					<h4>If you&#39;re not on GitHub, you might want to check out the framework&#39;s repository <a href="https://github.com/Satoqz/command.ts">here</a>.</h4>
 				</a>
-				<pre><code>@client.command()
-public ping(message, args) {
-    message.reply("pong");
+				<a href="#guide" id="guide" style="color: inherit; text-decoration: none;">
+					<h1>Guide</h1>
+				</a>
+				<a href="#let39s-provide-you-with-some-basic-info-and-examples-to-get-you-started-with-commandts" id="let39s-provide-you-with-some-basic-info-and-examples-to-get-you-started-with-commandts" style="color: inherit; text-decoration: none;">
+					<h3>Let&#39;s provide you with some basic info and examples to get you started with command.ts</h3>
+				</a>
+				<a href="#first-off-you-should-make-sure-that-you-have-installed-all-the-necessary-packages-to-properly-set-up-your-project" id="first-off-you-should-make-sure-that-you-have-installed-all-the-necessary-packages-to-properly-set-up-your-project" style="color: inherit; text-decoration: none;">
+					<h3>First off, you should make sure that you have installed all the necessary packages to properly set up your project</h3>
+				</a>
+				<a href="#the-main-packages" id="the-main-packages" style="color: inherit; text-decoration: none;">
+					<h3>The main packages:</h3>
+				</a>
+				<pre><code>npm <span class="hljs-keyword">install</span> <span class="hljs-keyword">command</span>.ts discord.js</code></pre>
+				<a href="#typescript-related-and-other-packages-for-development" id="typescript-related-and-other-packages-for-development" style="color: inherit; text-decoration: none;">
+					<h3>TypeScript related and other packages for development</h3>
+				</a>
+				<pre><code>npm install -D typescript @types/<span class="hljs-keyword">node</span> <span class="hljs-title">ts-node</span> dotenv</code></pre>
+				<a href="#we-highly-recommend-using-ts-node-but-you-might-aswell-manually-compile-your-typescript" id="we-highly-recommend-using-ts-node-but-you-might-aswell-manually-compile-your-typescript" style="color: inherit; text-decoration: none;">
+					<h3>We highly recommend using ts-node, but you might aswell manually compile your typescript</h3>
+				</a>
+				<a href="#let39s-get-to-the-code" id="let39s-get-to-the-code" style="color: inherit; text-decoration: none;">
+					<h3>Let&#39;s get to the code</h3>
+				</a>
+				<a href="#first-let39s-import-everything-we-need-from-the-library-to-make-a-basic-bot-and-initialize-a-client" id="first-let39s-import-everything-we-need-from-the-library-to-make-a-basic-bot-and-initialize-a-client" style="color: inherit; text-decoration: none;">
+					<h3>First, let&#39;s import everything we need from the library to make a basic bot and initialize a client:</h3>
+				</a>
+				<pre><code>import { Client, command, Context } <span class="hljs-keyword">from</span> <span class="hljs-string">"command.ts"</span>;
+
+const<span class="hljs-built_in"> client </span>= new Client();</code></pre>
+				<a href="#next-let39s-set-up-a-basic-ping-command" id="next-let39s-set-up-a-basic-ping-command" style="color: inherit; text-decoration: none;">
+					<h3>Next, let&#39;s set up a basic ping command:</h3>
+				</a>
+				<a href="#create-a-class-do-contain-your-command" id="create-a-class-do-contain-your-command" style="color: inherit; text-decoration: none;">
+					<h4>Create a class do contain your command:</h4>
+				</a>
+				<pre><code><span class="hljs-keyword">class</span> <span class="hljs-symbol">MyCommands</span> {
+
 }</code></pre>
-				<a href="#much-simpler-than" id="much-simpler-than" style="color: inherit; text-decoration: none;">
-					<h3>Much simpler than...</h3>
+				<a href="#the-class-name-will-be-the-group-name-of-your-command-commands-must-be-wrapped-in-a-class-to-make-use-of-decorators-as-we-will-see-in-the-next-step" id="the-class-name-will-be-the-group-name-of-your-command-commands-must-be-wrapped-in-a-class-to-make-use-of-decorators-as-we-will-see-in-the-next-step" style="color: inherit; text-decoration: none;">
+					<h4>The class name will be the group name of your command. Commands must be wrapped in a class to make use of decorators, as we will see in the next step.</h4>
 				</a>
-				<pre><code>client.on("message", message => {
-    if(message.content.startsWith(prefix)) {
-        const args = message.content.split(" ");
-        switch(args[0]) {
-            case "ping" {
-                message.reply("pong");
-            }
-        }
+				<a href="#create-the-command-function" id="create-the-command-function" style="color: inherit; text-decoration: none;">
+					<h3>Create the command function</h3>
+				</a>
+				<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCommands</span> {</span>
+    <span class="hljs-meta">@command</span>()
+    ping(<span class="hljs-string">ctx:</span> Context) {
+        ctx.send(<span class="hljs-string">"pong"</span>);
     }
-});
-</code></pre>
-				<a href="#right-also-imagine-setting-an-alias-using-the-above-code-what-a-chaos" id="right-also-imagine-setting-an-alias-using-the-above-code-what-a-chaos" style="color: inherit; text-decoration: none;">
-					<h3>...right? Also, imagine setting an alias using the above code.. what a chaos</h3>
-				</a>
-				<a href="#why-not-just-use" id="why-not-just-use" style="color: inherit; text-decoration: none;">
-					<h3>Why not just use:</h3>
-				</a>
-				<pre><code>@client.command({
-    aliases: ["ping2", "pingpong"]
-})
-public ping(message, args) {
-    message.reply("pong");
 }</code></pre>
-				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
-					<h1>Documentation</h1>
+				<a href="#let39s-take-a-look-at-what-is-happening-here" id="let39s-take-a-look-at-what-is-happening-here" style="color: inherit; text-decoration: none;">
+					<h3>Let&#39;s take a look at what is happening here:</h3>
 				</a>
-				<a href="#client" id="client" style="color: inherit; text-decoration: none;">
-					<h2>Client</h2>
+				<ul>
+					<li>The <code>@command()</code> decorator will register your function as a command</li>
+					<li><code>ctx</code> is an argument that will be passed to every command. It contains the usual <code>Message</code> class from <code>discord.js</code> including useful shortcuts like <code>ctx.send()</code> which is an alias to <code>message.channel.send()</code></li>
+				</ul>
+				<a href="#the-last-step-to-set-up-the-ping-command-is-logging-into-discord-with-your-api-token-this-works-the-same-is-in-discordjs" id="the-last-step-to-set-up-the-ping-command-is-logging-into-discord-with-your-api-token-this-works-the-same-is-in-discordjs" style="color: inherit; text-decoration: none;">
+					<h3>The last step to set up the ping command is logging into discord with your <a href="https://discord.com/developers">api token</a>. This works the same is in <code>discord.js</code>.</h3>
 				</a>
-				<pre><code>import { Client } from "command.ts";
-
-const client = new Client({
-    token: &ltYOUR_CLIENT_TOKEN_HERE&gt,
-
-    // optional, default is "!"
-    prefixes: ["!", "?"]
-});
-
-// No login function is required!
-
-export default client;
-
-// You should export the client object to declare commands in other files.
-</code></pre>
-				<a href="#clientcommands" id="clientcommands" style="color: inherit; text-decoration: none;">
-					<h3>Client.commands:</h3>
+				<pre><code>client.login(<span class="hljs-string">"&lt;YOUR_TOKEN_HERE&gt;"</span>)<span class="hljs-comment">;</span></code></pre>
+				<a href="#to-avoid-having-to-put-your-token-into-your-code-you-should-setup-an-external-file-to-load-it-from-if-you-use-git-you-should-probably-add-that-file-to-your-gitignore-libraries-like-dotenv-can-be-very-useful-here" id="to-avoid-having-to-put-your-token-into-your-code-you-should-setup-an-external-file-to-load-it-from-if-you-use-git-you-should-probably-add-that-file-to-your-gitignore-libraries-like-dotenv-can-be-very-useful-here" style="color: inherit; text-decoration: none;">
+					<h3>To avoid having to put your token into your code, you should setup an external file to load it from. If you use git, you should probably add that file to your <code>.gitignore</code>. Libraries like <a href="https://www.npmjs.com/package/dotenv">dotenv</a> can be very useful here.</h3>
 				</a>
-				<p>An array of all registered commands</p>
-				<a href="#clientcommandgroups" id="clientcommandgroups" style="color: inherit; text-decoration: none;">
-					<h3>Client.commandGroups</h3>
+				<a href="#if-you-now-run-your-code-and-send-ping-in-a-channel-that-the-bot-has-access-to-it-should-respond-with-pong" id="if-you-now-run-your-code-and-send-ping-in-a-channel-that-the-bot-has-access-to-it-should-respond-with-pong" style="color: inherit; text-decoration: none;">
+					<h3>If you now run your code and send <code>!ping</code> in a channel that the bot has access to, it should respond with <code>pong</code>.</h3>
 				</a>
-				<p>An array with the names of all registered command groups</p>
-				<a href="#clientprefixes" id="clientprefixes" style="color: inherit; text-decoration: none;">
-					<h3>Client.prefixes</h3>
+				<a href="#how-to-change-the-command-prefix" id="how-to-change-the-command-prefix" style="color: inherit; text-decoration: none;">
+					<h2>How to change the command prefix:</h2>
 				</a>
-				<p>An array of the client&#39;s specified prefixes</p>
-				<a href="#command" id="command" style="color: inherit; text-decoration: none;">
-					<h2>Command</h2>
+				<pre><code>const<span class="hljs-built_in"> client </span>= new Client({
+    prefixes = [<span class="hljs-string">"!"</span>, <span class="hljs-string">"?"</span>]
+});</code></pre>
+				<a href="#or" id="or" style="color: inherit; text-decoration: none;">
+					<h4>or</h4>
 				</a>
-				<pre><code>// Your commands must be wrapped in a class because we are using decorators.
-// The class name is used as the group name of the commands you define in it.
+				<pre><code><span class="hljs-attr">client.prefixes</span> = [<span class="hljs-string">"!"</span>, <span class="hljs-string">"?"</span>]<span class="hljs-comment">;</span></code></pre>
+				<a href="#use-other-decorators" id="use-other-decorators" style="color: inherit; text-decoration: none;">
+					<h2>Use other decorators</h2>
+				</a>
+				<a href="#there-are-plenty-of-other-decorators-available-than-can-stack-with-the-command-decorator-just-make-sure-that-the-command-decorator-stays-at-the-top-let39s-use-the-guildonly-decorator-as-an-example" id="there-are-plenty-of-other-decorators-available-than-can-stack-with-the-command-decorator-just-make-sure-that-the-command-decorator-stays-at-the-top-let39s-use-the-guildonly-decorator-as-an-example" style="color: inherit; text-decoration: none;">
+					<h3>There are plenty of other decorators available than can stack with the <code>@command()</code> decorator. Just make sure that the <code>@command()</code> decorator stays at the top. Let&#39;s use the <code>guildonly()</code> decorator as an example:</h3>
+				</a>
+				<pre><code><span class="hljs-variable">@command</span>()
+<span class="hljs-variable">@guildonly</span>()
+ping(<span class="hljs-attribute">ctx</span>: Context) {
+    <span class="hljs-selector-tag">ctx</span><span class="hljs-selector-class">.send</span>(<span class="hljs-string">"pong"</span>);
+}</code></pre>
+				<a href="#now-the-bot-will-only-respond-if-the-the-ping-command-was-sent-in-a-guildserver-and-ignore-dms" id="now-the-bot-will-only-respond-if-the-the-ping-command-was-sent-in-a-guildserver-and-ignore-dms" style="color: inherit; text-decoration: none;">
+					<h3>Now, the bot will only respond if the the ping command was sent in a guild/server and ignore dms.</h3>
+				</a>
+				<a href="#request-argument-types" id="request-argument-types" style="color: inherit; text-decoration: none;">
+					<h2>Request argument types</h2>
+				</a>
+				<a href="#to-make-your-life-easier-you-can-request-converted-argument-types-in-your-command-definition-here39s-a-full-example" id="to-make-your-life-easier-you-can-request-converted-argument-types-in-your-command-definition-here39s-a-full-example" style="color: inherit; text-decoration: none;">
+					<h3>To make your life easier, you can request converted argument types in your command definition. Here&#39;s a full example:</h3>
+				</a>
+				<pre><code>import { Client, Context, <span class="hljs-keyword">params</span>, command } from <span class="hljs-string">"command.ts"</span>;
+import { <span class="hljs-keyword">User</span> <span class="hljs-title">} from</span> <span class="hljs-string">"discord.js"</span>;
 
-class MyCommands {
+// declare client etc
 
-    @client.command(optional: commandOptions)
-    public ping(message, args) {
+class CommandsWithCustomAguments {
 
+    username(ctx: Context, @<span class="hljs-keyword">params</span>.<span class="hljs-keyword">User</span> <span class="hljs-title">user</span>: User) {
+        ctx.send(user.username);
     }
 
-}
-</code></pre>
-				<a href="#commandoptions" id="commandoptions" style="color: inherit; text-decoration: none;">
-					<h2>commandOptions</h2>
+    square(ctx: Context, @<span class="hljs-keyword">params</span>.<span class="hljs-keyword">number</span> base: <span class="hljs-keyword">number</span>) {
+        ctx.send(Math.pow(base, <span class="hljs-number">2</span>))
+    }
+}</code></pre>
+				<a href="#as-you-can-see-we39ve-declarated-2-commands-let39s-check-their-output" id="as-you-can-see-we39ve-declarated-2-commands-let39s-check-their-output" style="color: inherit; text-decoration: none;">
+					<h3>As you can see, we&#39;ve declarated 2 commands. Let&#39;s check their output:</h3>
 				</a>
-				<a href="#commandoptionsaliases-optional" id="commandoptionsaliases-optional" style="color: inherit; text-decoration: none;">
-					<h3>commandOptions.aliases (optional)</h3>
+				<pre><code>!username coffee
+<span class="hljs-meta">&gt;&gt;</span>&gt; Coffee</code></pre>
+				<a href="#this-does-not-look-like-much-but-under-the-hood-the-client-looked-for-a-user-who-can-somehow-be-parsed-having-the-information-quotcoffeequot-it-found-the-user-quotcoffeequot-whose-lowercase-name-is-quotcoffeequot-and-returned-the-resolved-user-class-that-we-could-then-get-the-username-property-from-this-also-works-with-mentioning-the-user-or-just-sending-their-discord-id" id="this-does-not-look-like-much-but-under-the-hood-the-client-looked-for-a-user-who-can-somehow-be-parsed-having-the-information-quotcoffeequot-it-found-the-user-quotcoffeequot-whose-lowercase-name-is-quotcoffeequot-and-returned-the-resolved-user-class-that-we-could-then-get-the-username-property-from-this-also-works-with-mentioning-the-user-or-just-sending-their-discord-id" style="color: inherit; text-decoration: none;">
+					<h3>This does not look like much, but under the hood the client looked for a user who can somehow be parsed having the information &quot;coffee&quot;. It found the user &quot;Coffee&quot; whose lowercase name is &quot;coffee&quot; and returned the resolved User class that we could then get the username property from. This also works with mentioning the user or just sending their discord ID.</h3>
 				</a>
-				<p>An array of the aliases that you want to add to the command.<br>
-				Keep in mind that every command will have the name of its function as a default trigger</p>
-				<a href="#commandoptionsguildonly-optional" id="commandoptionsguildonly-optional" style="color: inherit; text-decoration: none;">
-					<h3>commandOptions.guildOnly (optional)</h3>
+				<a href="#let39s-see-how-the-second-command-works" id="let39s-see-how-the-second-command-works" style="color: inherit; text-decoration: none;">
+					<h3>Let&#39;s see how the second command works:</h3>
 				</a>
-				<p>boolean to determine if a command can only be executed in a guild.</p>
-				<a href="#commandoptionsprefixless-optional" id="commandoptionsprefixless-optional" style="color: inherit; text-decoration: none;">
-					<h3>commandOptions.prefixless (optional)</h3>
+				<pre><code><span class="hljs-type">!square</span> <span class="hljs-number">8</span>
+<span class="hljs-string">&gt;&gt;&gt;</span> <span class="hljs-number">64</span></code></pre>
+				<a href="#because-we-got-the-input-quot8quot-passed-as-a-number-instead-of-a-string-we-were-able-to-instantly-square-it-without-any-typeconversion" id="because-we-got-the-input-quot8quot-passed-as-a-number-instead-of-a-string-we-were-able-to-instantly-square-it-without-any-typeconversion" style="color: inherit; text-decoration: none;">
+					<h3>Because we got the input &quot;8&quot; passed as a number instead of a string, we were able to instantly square it without any typeconversion.</h3>
 				</a>
-				<p>boolean, if true the command will be triggered even if a message does not use one of the client&#39;s prefixes</p>
-				<a href="#commandoptionsonlyprefixless-optional" id="commandoptionsonlyprefixless-optional" style="color: inherit; text-decoration: none;">
-					<h3>commandOptions.onlyPrefixless (optional)</h3>
+				<a href="#let39s-break-down-the-syntax-of-these-parameter-annotations" id="let39s-break-down-the-syntax-of-these-parameter-annotations" style="color: inherit; text-decoration: none;">
+					<h3>Let&#39;s break down the syntax of these parameter annotations:</h3>
 				</a>
-				<p>boolean, if true the command can only be triggered if there is no prefix in a message</p>
-				<a href="#reload" id="reload" style="color: inherit; text-decoration: none;">
-					<h2>reload</h2>
-				</a>
-				<p><code>reload</code> is a function that deletes the cache of a loaded source file and then imports it again.<br>It should be used to reload/change commands without restarting the whole process.<br>
-					<code>reload</code> takes one argument, which is the full path of the file you want to reload.<br>
-					If you&#39;re not using ts-node, you must pass in the transpiled <code>.js</code> file that you wish to reload<br>
-				It is made sure that you do not load a command twice and that newly loaded commands will replace the old ones</p>
-				<a href="#disclaimer" id="disclaimer" style="color: inherit; text-decoration: none;">
-					<h2>Disclaimer:</h2>
-				</a>
-				<a href="#this-is-still-in-early-development-expect-frequent-and-sudden-breaking-changes" id="this-is-still-in-early-development-expect-frequent-and-sudden-breaking-changes" style="color: inherit; text-decoration: none;">
-					<h3>This is still in early development. Expect frequent and sudden breaking changes.</h3>
-				</a>
+				<pre><code>square(<span class="hljs-symbol">ctx:</span> Context, @params.number <span class="hljs-symbol">base:</span> number)
+       ^^^             ^^^^^^^^^^^^^^       ^^^^^^
+        |                    |             <span class="hljs-regexp">//</span> The classic TypeScript <span class="hljs-keyword">type</span> <span class="hljs-keyword">annotation</span>
+        |                    |
+           |    <span class="hljs-regexp">//</span> The <span class="hljs-keyword">annotation</span> <span class="hljs-title">that</span> <span class="hljs-title">tells</span> <span class="hljs-title">the</span> <span class="hljs-title">command</span> <span class="hljs-title">handler</span> <span class="hljs-title">what</span> <span class="hljs-title">type</span> <span class="hljs-title">to</span> <span class="hljs-title">pass</span>
+        |
+<span class="hljs-regexp">//</span> The evocation context that will always be passed<span class="hljs-string">'</span></code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
