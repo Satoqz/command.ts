@@ -9,6 +9,7 @@ import { PermissionCheck } from "./decorators/permissionCheck";
 import { commandContext } from "./interfaces/commandContext";
 import { prefixes } from "./storage/prefixes";
 import { commands, commandGroups } from "./storage/commands";
+import { fileProv, providerBase } from "./database/fileProv";
 
 export {
 	Client,
@@ -23,5 +24,7 @@ export {
 	reload,
 	guildonly,
 	check,
-	prefixes
+	prefixes,
+	fileProv,
+	providerBase
 };

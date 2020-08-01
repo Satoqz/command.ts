@@ -1,6 +1,7 @@
 // Import from the libary
 import { Client } from "command.ts";
 import { join } from "path";
+import { fileProv } from "command.ts";
 
 //#region Load config
 // Load config from your ".env" file, remember to gitignore it
@@ -8,6 +9,13 @@ import { join } from "path";
 import { config } from "dotenv";
 config({ path: "./.env" });
 //#endregion
+
+let a = new fileProv(__dirname + "\\testtt");
+a.createContainer("test");
+a.setDocument("test", "", {
+	help: ":("
+});
+a.saveChanges();
 
 // Initialize a new client/bot instance 
 const client = new Client({	// When you use dotenv

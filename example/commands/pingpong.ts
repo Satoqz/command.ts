@@ -17,20 +17,4 @@ class PingPongCommands
 		// Send a message back. This is a shortcut to "ctx.channel.send"
 		ctx.send("pong");
 	}
-	
-	@command({
-		prefixRequired: "optional"
-	})
-	setPrefix(ctx: Context, @p.string pref: string)
-	{
-		prefixes[ctx.guild?.id ?? "dms"] = "-";
-	}
-	
-	@command({
-		prefixRequired: "optional"
-	})
-	getPrefix(ctx: Context, @p.string pref: string)
-	{
-		ctx.send(prefixes[ctx.guild?.id ?? "dms"]);
-	}
 }
