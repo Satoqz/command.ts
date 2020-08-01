@@ -2,7 +2,7 @@
 
 ### This is an unofficial command framework for [discord.js](https://discord.js.org)
 
-#### If you see this and your'e on GitHub, you will find the official documentation [here](https://command.js.org).
+#### If you see this and you're on GitHub, you will find the official documentation [here](https://command.js.org).
 #### If you're not on GitHub, you might want to check out the framework's repository [here](https://github.com/Satoqz/command.ts).
 
 
