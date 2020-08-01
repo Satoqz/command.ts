@@ -2,8 +2,13 @@ import { commandContext } from "../interfaces/commandContext";
 import { commandArg } from "../interfaces/registeredCommand";
 
 /**
- * Allows to check your own specific conditions
- * @param checkFunction a custom checking function, passes commandContext as an argument
+ * Allows you to make your own custom check function for a {@link command}<br><br>
+ * Example:
+ * ```
+ * @command()
+ * @check((ctx: Context) => ctx.guild.id == "527932145273143306")
+ * ```
+ * @param checkFunction a custom checking function, can take Context as an argument
  */
 export function check(checkFunction: Function): Function
 {

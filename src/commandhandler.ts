@@ -10,6 +10,7 @@ import { split } from "./helpers/split";
  * This is executed every time a command is called
  * @param client The client to be used
  * @param message The mesage recived
+ * @internal
  */
 export async function commandHandler(client: Client, message: Message)
 {

@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param input string to be splitted
+ * @internal 
+ */
 export function split(input: string)
 {
 	let output = input.match(/\w+|"[^"]+"/g), i: number | undefined = output?.length;

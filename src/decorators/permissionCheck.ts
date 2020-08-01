@@ -2,6 +2,9 @@ import * as DJS from "discord.js";
 import { commandContext } from "../interfaces/commandContext";
 import { commandArg } from "../interfaces/registeredCommand";
 
+/**
+ * @alias permission
+ */
 export class PermissionCheck
 {
 	/**
@@ -40,6 +43,7 @@ export class PermissionCheck
  * @param permission Which permissions are to be verified
  * @param lackingPermissionAction [obsolete] Action on lacking permission
  * @returns Decorator
+ * @internal
  */
 function permissionCheckHelper(
 	who: "client" | "user",
