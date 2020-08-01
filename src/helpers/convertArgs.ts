@@ -33,6 +33,9 @@ export function convertCommandArgs(context: commandContext, command: registeredC
 		case "textchannel":
 			args[index] = Convert.toChannel(args[index] as string, context.guild);
 			break;
+		case "role":
+			args[index] = Convert.toRole(args[index] as string, context.guild);
+			break;
 		}
 	});
 	return args;

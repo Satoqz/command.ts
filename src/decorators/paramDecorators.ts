@@ -42,6 +42,10 @@ export class params
 	{
 		setArgumentType(name, index, "textchannel");
 	}
+	public static Role(target: Object, name: string, index: number)
+	{
+		setArgumentType(name, index, "role");
+	}
 }
 
 /**
