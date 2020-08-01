@@ -1,4 +1,4 @@
-import { TextChannel, User, GuildMember, Guild, Channel, GuildChannel } from "discord.js";
+import { TextChannel, User, GuildMember, Guild, Channel, GuildChannel, Role } from "discord.js";
 import { Client } from "../client";
 import { isNull } from "util";
 
@@ -36,5 +36,14 @@ export class Convert
 		if(!channel) channel = guild.channels.cache.find((channel: GuildChannel) => channel.name.toLowerCase() == input);
 
 		return channel as TextChannel;
+	}
+	public static toRole(input: string, guild: Guild | null): Role | undefined
+	{
+		if(isNull(guild)) return undefined;
+
+		input = input.toLowerCase();
+
+		let role: Role | undefined = guild.roles.cache.get(input.replace(/\!\<\>\@\&/, ""));
+		if(!role) role = guild.roles.cache.find((role: Role) => role.name.toLowerCase() == input);
 	}
 }
