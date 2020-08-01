@@ -92,12 +92,9 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Decorators Functions</h3>
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="globals.html#check" class="tsd-kind-icon">check</a></li>
-							</ul>
-							<h3>Other Functions</h3>
-							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="globals.html#command" class="tsd-kind-icon">command</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#guildonly" class="tsd-kind-icon">guildonly</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#reload" class="tsd-kind-icon">reload</a></li>
@@ -114,9 +111,15 @@
 					<div class="tsd-signature tsd-kind-icon">command<wbr>Groups<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/87a9482/src/storage/commands.ts#L5">src/storage/commands.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/a54e576/src/storage/commands.ts#L13">src/storage/commands.ts:13</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This is a central collection of all registered command Groups.<br>
+							This can help you split e.g. a help command into groups</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="commands" class="tsd-anchor"></a>
@@ -124,13 +127,19 @@
 					<div class="tsd-signature tsd-kind-icon">commands<span class="tsd-signature-symbol">:</span> <a href="interfaces/registeredcommand.html" class="tsd-signature-type">registeredCommand</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/87a9482/src/storage/commands.ts#L3">src/storage/commands.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/a54e576/src/storage/commands.ts#L7">src/storage/commands.ts:7</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This is a central collection of all registered commands.<br>
+							This could be used to make a dynamic help command</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Decorators Functions</h2>
+				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="check" class="tsd-anchor"></a>
 					<h3>check</h3>
@@ -141,12 +150,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/87a9482/src/decorators/check.ts#L9">src/decorators/check.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/a54e576/src/decorators/check.ts#L13">src/decorators/check.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Allows to check your own specific conditions</p>
+									<p>Allows you to make your own custom check function for a <a href="globals.html#command">command</a><br><br>
+									Example:</p>
+									<pre><code><span class="hljs-variable">@command</span>()
+<span class="hljs-variable">@check</span>((<span class="hljs-attribute">ctx</span>: Context) =&gt; ctx.guild.id == <span class="hljs-string">"527932145273143306"</span>)</code></pre>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -154,7 +166,7 @@
 								<li>
 									<h5>checkFunction: <span class="tsd-signature-type">Function</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>a custom checking function, passes commandContext as an argument</p>
+										<p>a custom checking function, can take Context as an argument</p>
 									</div>
 								</li>
 							</ul>
@@ -162,9 +174,6 @@
 						</li>
 					</ul>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Other Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="command" class="tsd-anchor"></a>
 					<h3>command</h3>
@@ -175,12 +184,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/87a9482/src/decorators/command.ts#L10">src/decorators/command.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/a54e576/src/decorators/command.ts#L19">src/decorators/command.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Declare a class member to be a command</p>
+									<p>Use this method decorator to declare a class method a command</p>
+									<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCommands</span> {</span>
+        <span class="hljs-meta">@command</span>()
+        ping(<span class="hljs-string">ctx:</span> Context) {
+             ctx.send(<span class="hljs-string">"pong"</span>);
+        }
+}</code></pre><p>Using this decorator will automatically register your command function in <a href="classes/client.html#commands">commands</a></p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -188,7 +203,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="interfaces/commandoptions.html" class="tsd-signature-type">commandOptions</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>options (aliases, description, prefixRequired)</p>
+										<p>Here you can declare some metadata like the description or usage of your command</p>
 									</div>
 								</li>
 							</ul>
@@ -200,16 +215,24 @@
 					<a name="guildonly" class="tsd-anchor"></a>
 					<h3>guildonly</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">guildonly<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">guildonly<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/87a9482/src/decorators/guildonly.ts#L5">src/decorators/guildonly.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/a54e576/src/decorators/guildonly.ts#L13">src/decorators/guildonly.ts:13</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Declares a <a href="globals.html#command">command</a> as guild-only<br><br>
+									Example:</p>
+									<pre><code><span class="hljs-variable">@command</span>()
+<span class="hljs-variable">@guildonly</span>()</code></pre><p>This can be extremely useful when your command depends on guild functionality and you want to avoid errors caused by direct messages.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Function</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -223,13 +246,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/87a9482/src/reload.ts#L7">src/reload.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/a54e576/src/reload.ts#L8">src/reload.ts:8</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Reloads all files
-									This ensures that a command will not be loaded more than once</p>
+									<p>Under the hood this function will delete an already imported/required file from the cache and reimport it.<br>
+										It is ensured that registered commands that are part of a reloaded file file replace the old commands.<br>
+									If the file you are trying to reload is not found, a friendly promise rejection with an error message will be sent back.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -237,7 +261,7 @@
 								<li>
 									<h5>path: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Path to be reloaded</p>
+										<p>Path to be reloaded. Optimally, you should be using <code>path.join</code></p>
 									</div>
 								</li>
 							</ul>

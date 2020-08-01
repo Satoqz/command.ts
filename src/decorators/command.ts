@@ -4,8 +4,17 @@ import { commands, commandGroups } from "../storage/commands";
 
 
 /**
- * Declare a class member to be a command
- * @param options options (aliases, description, prefixRequired)
+ * Use this method decorator to declare a class method a command
+ * ```
+ * class MyCommands {
+ * 		@command()
+ * 		ping(ctx: Context) {
+ * 	 		ctx.send("pong");
+ * 		}
+ * }
+ * ```
+ * Using this decorator will automatically register your command function in {@link commands}
+ * @param options Here you can declare some metadata like the description or usage of your command
  */
 export function command(options?: commandOptions): Function
 {
