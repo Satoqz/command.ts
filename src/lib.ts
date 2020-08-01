@@ -9,6 +9,9 @@ import { check } from "./decorators/check";
 import { RoleCheck } from "./decorators/roleCheck";
 import { params } from "./decorators/paramDecorators";
 import { Convert } from "./helpers/discordConverters";
+import { clientOptions } from "./interfaces/clientOptions";
+import { commandOptions } from "./interfaces/commandOptions";
+import { registeredCommand } from "./interfaces/registeredCommand";
 
 export {
 	Client,
@@ -23,5 +26,8 @@ export {
 	reload,
 	guildonly,
 	check,
-	Convert
+	Convert,
+	clientOptions,
+	commandOptions,
+	registeredCommand
 };

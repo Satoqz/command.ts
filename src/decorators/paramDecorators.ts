@@ -50,6 +50,7 @@ export class params
 
 /**
  * Tells a command which type to expect on a specific index
+ * @internal
  */
 function setArgumentType(name: string, index: number, type: argType)
 {

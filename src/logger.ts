@@ -3,6 +3,9 @@ import { logUrgencyType } from "./interfaces/logType";
 import { Client } from "./client";
 import { MessageEmbed, TextChannel, User } from "discord.js";
 
+/**
+ * @internal
+ */
 export class Logger
 {
 	public options: loggerOptions;

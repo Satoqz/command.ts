@@ -27,6 +27,7 @@ export class Client extends DJS.Client
 	
 	/**
 	 * Set up standard event handlers
+	 * @internal
 	 */
 	private register()
 	{
@@ -55,7 +56,7 @@ export class Client extends DJS.Client
 	}
 
 	/**
-	 * @deprecated
+	 *@category Decorators
 	 */
 	public owner()
 	{

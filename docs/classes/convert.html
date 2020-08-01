@@ -40,8 +40,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -83,6 +81,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="convert.html#tochannel" class="tsd-kind-icon">to<wbr>Channel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="convert.html#tomember" class="tsd-kind-icon">to<wbr>Member</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="convert.html#torole" class="tsd-kind-icon">to<wbr>Role</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="convert.html#touser" class="tsd-kind-icon">to<wbr>User</a></li>
 							</ul>
 						</section>
@@ -101,7 +100,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/71e49f0/src/helpers/discordConverters.ts#L29">src/helpers/discordConverters.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/87a9482/src/helpers/discordConverters.ts#L29">src/helpers/discordConverters.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -127,7 +126,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/71e49f0/src/helpers/discordConverters.ts#L17">src/helpers/discordConverters.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/87a9482/src/helpers/discordConverters.ts#L17">src/helpers/discordConverters.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -144,6 +143,32 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="torole" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>Role</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Role<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, guild<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Guild</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Role</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/87a9482/src/helpers/discordConverters.ts#L40">src/helpers/discordConverters.ts:40</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>guild: <span class="tsd-signature-type">Guild</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Role</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="touser" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> to<wbr>User</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
@@ -153,7 +178,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/71e49f0/src/helpers/discordConverters.ts#L7">src/helpers/discordConverters.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/87a9482/src/helpers/discordConverters.ts#L7">src/helpers/discordConverters.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -196,15 +221,15 @@
 								<a href="convert.html#tomember" class="tsd-kind-icon">to<wbr>Member</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="convert.html#torole" class="tsd-kind-icon">to<wbr>Role</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="convert.html#touser" class="tsd-kind-icon">to<wbr>User</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="logger.html" class="tsd-kind-icon">Logger</a>
-					</li>
 					<li class=" tsd-kind-class">
 						<a href="permissioncheck.html" class="tsd-kind-icon">Permission<wbr>Check</a>
 					</li>
@@ -224,25 +249,7 @@
 						<a href="../interfaces/commandoptions.html" class="tsd-kind-icon">command<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/loggeroptions.html" class="tsd-kind-icon">logger<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="../interfaces/registeredcommand.html" class="tsd-kind-icon">registered<wbr>Command</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/registeredcommandoptions.html" class="tsd-kind-icon">registered<wbr>Command<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#stringresolvable" class="tsd-kind-icon">String<wbr>Resolvable</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#argtype" class="tsd-kind-icon">arg<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#commandarg" class="tsd-kind-icon">command<wbr>Arg</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#logurgencytype" class="tsd-kind-icon">log<wbr>Urgency<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#commandgroups" class="tsd-kind-icon">command<wbr>Groups</a>
@@ -256,36 +263,18 @@
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#command" class="tsd-kind-icon">command</a>
 					</li>
-					<li class=" tsd-kind-function tsd-is-external">
-						<a href="../globals.html#commandhandler" class="tsd-kind-icon">command<wbr>Handler</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#convertcommandargs" class="tsd-kind-icon">convert<wbr>Command<wbr>Args</a>
-					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#guildonly" class="tsd-kind-icon">guildonly</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../globals.html#permissioncheckhelper" class="tsd-kind-icon">permission<wbr>Check<wbr>Helper</a>
-					</li>
-					<li class=" tsd-kind-function">
 						<a href="../globals.html#reload" class="tsd-kind-icon">reload</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#rolecheckhelper" class="tsd-kind-icon">role<wbr>Check<wbr>Helper</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#setargumenttype" class="tsd-kind-icon">set<wbr>Argument<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#split" class="tsd-kind-icon">split</a>
 					</li>
 				</ul>
 			</nav>
 		</div>
 	</div>
 </div>
-<footer class="with-border-bottom">
+<footer>
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
@@ -345,9 +334,6 @@
 		</div>
 	</div>
 </footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
 <script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>

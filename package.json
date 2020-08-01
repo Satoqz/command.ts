@@ -29,10 +29,11 @@
 	"typings": "./build/lib.d.ts",
 	"scripts": {
 		"build": "tsc",
-		"docgen": "typedoc --out .\\docs\\ .\\src\\ --mode file"
+		"docgen": "typedoc --out ./docs/ ./src/lib.ts --mode library --excludeNotExported --excludePrivate --stripInternal --hideGenerator"
 	},
 	"dependencies": {
-		"discord.js": "^12.2.0"
+		"discord.js": "^12.2.0",
+		"typedoc-theme-dark": "0.0.5"
 	},
 	"devDependencies": {
 		"@types/node": "^14.0.27",

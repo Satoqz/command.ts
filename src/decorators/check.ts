@@ -4,6 +4,7 @@ import { commandArg } from "../interfaces/registeredCommand";
 /**
  * Allows to check your own specific conditions
  * @param checkFunction a custom checking function, passes commandContext as an argument
+ * @category Decorators
  */
 export function check(checkFunction: Function): Function
 {

@@ -3,6 +3,9 @@ import { commandContext } from "../interfaces/commandContext";
 import { isArray } from "util";
 import { commandArg } from "../interfaces/registeredCommand";
 
+/**
+ * @alias roleCheck
+ */
 export class RoleCheck
 {
 	/**
@@ -44,6 +47,7 @@ export class RoleCheck
  * @param who Whose permissions to check?
  * @param roles ID(s) or role object(s) of roles to be verified
  * @returns Decorator
+ * @internal
  */
 function roleCheckHelper(
 	who: "client" | "user",

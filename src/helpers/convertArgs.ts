@@ -7,6 +7,7 @@ import { Convert } from "./discordConverters";
  * @param command The registered Command, to check the wanted arguments
  * @param args The arguments specified by the user
  * @returns The transformed command arguments
+ * @internal
  */
 export function convertCommandArgs(context: commandContext, command: registeredCommand, args: commandArg[]): commandArg[]
 {

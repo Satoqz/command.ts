@@ -3,8 +3,14 @@ import { MessageOptions } from "child_process";
 import { commandArg } from "./registeredCommand";
 import { Client } from "../client";
 
+/**
+ * @internal
+ */
 export type StringResolvable = string | string[] | any;
 
+/**
+ * @alias Context
+ */
 export interface commandContext extends Message
 {
 	args: commandArg[],
