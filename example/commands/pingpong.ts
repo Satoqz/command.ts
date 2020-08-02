@@ -1,4 +1,4 @@
-import { Context, command, permission, roleCheck, prefixes, p } from "command.ts";
+import { Context, command, permission, roleCheck, p } from "command.ts";
 
 // VS Code might suggest removing this class, but it's fine :)
 class PingPongCommands
@@ -16,5 +16,24 @@ class PingPongCommands
 	{
 		// Send a message back. This is a shortcut to "ctx.channel.send"
 		ctx.send("pong");
+	}
+
+	@command({
+		prefixRequired: "optional"
+	})
+	get(ctx: Context)
+	{
+		// Send a message back. This is a shortcut to "ctx.channel.send"
+		ctx.send("prefix " + ctx.dbContext.getDocumentById<string>("PrefixConfig", ctx.guild?.id ?? "dms"));
+	}
+
+	@command({
+		prefixRequired: "optional"
+	})
+	set(ctx: Context)
+	{
+		// Send a message back. This is a shortcut to "ctx.channel.send"
+		ctx.dbContext.setDocument("PrefixConfig", ctx.guild?.id ?? "dms", "-");
+		ctx.dbContext.saveChanges();
 	}
 }

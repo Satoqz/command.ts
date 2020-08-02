@@ -7,7 +7,8 @@ import { registeredCommand } from "./interfaces/registeredCommand";
 import { loggerOptions } from "./interfaces/loggerOptions";
 import { Logger } from "./logger";
 import { logUrgencyType } from "./interfaces/logType";
-import { prefixes, setDefaultPrefix } from "./storage/prefixes";
+import { baseProv } from "./database/baseProv";
+import { inMemProv } from "./database/inMemProv";
 
 export class Client extends DJS.Client
 {
@@ -15,15 +16,23 @@ export class Client extends DJS.Client
 	public commandGroups: string[] = [];
 	public commands: registeredCommand[] = [];
 	public loggers: Logger[] = [];
+	public dbContext: baseProv;
 	
 	constructor(options: clientOptions)
 	{
 		super();
 
 		// if(options.ownerId) this.ownerId = options.ownerId;
-		setDefaultPrefix(options.defaultPrefix ?? "!");
+		this.dbContext = options.database ?? new inMemProv;
 		
+		this.prepareDb(options.defaultPrefix);
 		this.register();
+	}
+
+	private prepareDb(pref?: string)
+	{
+		this.dbContext.createContainer("PrefixConfig");
+		this.dbContext.setDocument("PrefixConfig", "defaultPrefix", pref ?? "!");
 	}
 	
 	/**
@@ -104,6 +113,8 @@ export class Client extends DJS.Client
 	
 	public setPrefixForGuild(guildId: string, prefix: string)
 	{
-		prefixes[guildId] = (prefix);
+		this.dbContext.setDocument("Command", guildId, {
+			prefix: prefix
+		});
 	}
 }

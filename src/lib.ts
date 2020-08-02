@@ -7,9 +7,10 @@ import { RoleCheck } from "./decorators/roleCheck";
 import { params } from "./decorators/paramDecorators";
 import { PermissionCheck } from "./decorators/permissionCheck";
 import { commandContext } from "./interfaces/commandContext";
-import { prefixes } from "./storage/prefixes";
 import { commands, commandGroups } from "./storage/commands";
-import { fileProv, providerBase } from "./database/fileProv";
+import { fileProv } from "./database/fileProv";
+import { baseProv } from "./database/baseProv";
+import { inMemProv } from "./database/inMemProv";
 
 export {
 	Client,
@@ -24,7 +25,7 @@ export {
 	reload,
 	guildonly,
 	check,
-	prefixes,
-	fileProv,
-	providerBase
+	baseProv,
+	inMemProv,
+	fileProv
 };

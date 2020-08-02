@@ -7,19 +7,19 @@ import { fileProv } from "command.ts";
 // Load config from your ".env" file, remember to gitignore it
 // This is fine for development, for production you should consider to use another method to get your token
 import { config } from "dotenv";
+import { baseProv } from "../build/database/baseProv";
 config({ path: "./.env" });
 //#endregion
 
-let a = new fileProv(__dirname + "\\testtt");
+let a: baseProv = new fileProv(__dirname + "\\testtt");
 a.createContainer("test");
-a.setDocument("test", "", {
-	help: ":("
-});
+a.setDocument("test", "", ":(");
 a.saveChanges();
 
 // Initialize a new client/bot instance 
 const client = new Client({	// When you use dotenv
-	defaultPrefix: "!"	// Prefixes for your bot, specify as many as you want to. Default is "!".
+	defaultPrefix: "!",	// Prefixes for your bot, specify as many as you want to. Default is "!".
+	database: a
 });
 
 // This automatically imports all files/commands in the commands folder

@@ -5,7 +5,6 @@ import { commandContext, StringResolvable } from "./interfaces/commandContext";
 import { commands } from "./storage/commands";
 import { convertCommandArgs } from "./helpers/convertArgs";
 import { split } from "./helpers/split";
-import { prefixes, defaultPrefix } from "./storage/prefixes";
 
 /**
  * This is executed every time a command is called
@@ -18,14 +17,16 @@ export async function commandHandler(client: Client, message: Message)
 	let hasPrefix = false;
 	let usedPrefix = "";
 	const guildId = message.guild?.id ?? "dms";
-	
-	if (!prefixes[guildId])
-		prefixes[guildId] = defaultPrefix;
-	
-	if(message.content.startsWith(prefixes[guildId]))
+	context.dbContext = client.dbContext;
+	if (!client.dbContext.getDocumentById<string>("PrefixConfig", guildId))
+		client.dbContext.setDocument("PrefixConfig", guildId,
+			client.dbContext.getDocumentById<string>("PrefixConfig", "defaultPrefix")!);
+
+	if (message.content.match(RegExp("/^" + client.dbContext.getDocumentById<string>("PrefixConfig", guildId)! +"/gm")))
+	//if (message.content.startsWith(client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!))
 	{
 		hasPrefix = true;
-		usedPrefix = prefixes[guildId];
+		usedPrefix = client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!;
 	}
 	
 	context.args = split(context.content.replace(usedPrefix, ""));
