@@ -13,7 +13,6 @@ import { join } from "path";
 
 export class Client extends DJS.Client
 {
-	// public ownerId?: string;
 	public commandGroups: string[] = [];
 	public commands: registeredCommand[] = [];
 	public loggers: Logger[] = [];
@@ -23,17 +22,16 @@ export class Client extends DJS.Client
 	{
 		super();
 
-		// if(options.ownerId) this.ownerId = options.ownerId;
 		this.dbContext = options.database ?? new inMemProv;
 		
-		this.prepareDb(options.defaultPrefix);
-		this.register();
-	}
-
-	private prepareDb(pref?: string)
-	{
 		this.dbContext.createContainer("PrefixConfig");
-		this.dbContext.setDocument("PrefixConfig", "defaultPrefix", pref ?? "!");
+		this.dbContext.setDocument("PrefixConfig", "defaultPrefix", options.defaultPrefix ?? "!");
+		if (options.ownerId)
+		{
+			this.dbContext.createContainer("Config");
+			this.dbContext.setDocument("Config", "clientOwnerId", options.ownerId!);
+		}
+		this.register();
 	}
 	
 	/**
@@ -65,32 +63,33 @@ export class Client extends DJS.Client
 		});
 	}
 
-	// /**
-	//  * @deprecated
-	//  */
-	// public owner()
-	// {
-	// 	const client = this;
-		
-	// 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
-	// 	{
-	// 		const original = executor.value;
+	/**
+	 * Only allows one specific person (client/bot-wide) to use this command
+	 * Great for private bots
+	 */
+	public owner()
+	{
+		const ownerId = this.dbContext.getDocumentById<string>("Config", "clientOwnerId");
+		return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
+		{
+			const original = executor.value;
 			
-	// 		executor.value = function(context: commandContext)
-	// 		{
-	// 			if(!client.ownerId) {
-	// 				console.log("INFO: To use the client#owner decorator, please provide your discord id as ownerId when initializing the client!");
-	// 				return null;
-	// 			}
+			executor.value = function(context: commandContext)
+			{
+				if(!ownerId)
+				{
+					console.log("INFO: To use the client#owner decorator, please provide your discord id as ownerId when initializing the client!");
+					return null;
+				}
 				
-	// 			if(context.author.id == client.ownerId)
-	// 				return original.apply(this, [context]);
+				if(context.author.id == ownerId)
+					return original.apply(this, [context]);
 				
-	// 			else return null;
-	// 		};
-	// 		return executor;
-	// 	};
-	// }
+				else return null;
+			};
+			return executor;
+		};
+	}
 	
 	/**
 	 * Adds a logger service to your bot/client
