@@ -18,12 +18,13 @@ export async function commandHandler(client: Client, message: Message)
 	let usedPrefix = "";
 	const guildId = message.guild?.id ?? "dms";
 	context.dbContext = client.dbContext;
+	
 	if (!client.dbContext.getDocumentById<string>("PrefixConfig", guildId))
 		client.dbContext.setDocument("PrefixConfig", guildId,
 			client.dbContext.getDocumentById<string>("PrefixConfig", "defaultPrefix")!);
-
-	if (message.content.match(RegExp("/^" + client.dbContext.getDocumentById<string>("PrefixConfig", guildId)! +"/gm")))
-	//if (message.content.startsWith(client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!))
+	
+	console.log(client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!);
+	if (message.content.startsWith(client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!))
 	{
 		hasPrefix = true;
 		usedPrefix = client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!;

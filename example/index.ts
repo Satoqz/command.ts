@@ -12,9 +12,6 @@ config({ path: "./.env" });
 //#endregion
 
 let a: baseProv = new fileProv(__dirname + "\\testtt");
-a.createContainer("test");
-a.setDocument("test", "", ":(");
-a.saveChanges();
 
 // Initialize a new client/bot instance 
 const client = new Client({	// When you use dotenv
