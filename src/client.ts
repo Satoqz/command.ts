@@ -9,6 +9,7 @@ import { Logger } from "./logger";
 import { logUrgencyType } from "./interfaces/logType";
 import { baseProv } from "./database/baseProv";
 import { inMemProv } from "./database/inMemProv";
+import { join } from "path";
 
 export class Client extends DJS.Client
 {
@@ -58,8 +59,8 @@ export class Client extends DJS.Client
 		{
 			if (filename.endsWith(".ts") || filename.endsWith(".js"))
 			{
-				console.log("Autoimporting " + dir + filename);
-				require(dir + filename);
+				console.log("Autoimporting " + join(dir, filename));
+				require(join(dir, filename));
 			}
 		});
 	}

@@ -11,16 +11,16 @@ import { baseProv } from "../build/database/baseProv";
 config({ path: "./.env" });
 //#endregion
 
-let a: baseProv = new fileProv(__dirname + "\\testtt");
+let dbProvider: baseProv = new fileProv(join(__dirname, "cfg.json"));
 
 // Initialize a new client/bot instance 
 const client = new Client({	// When you use dotenv
 	defaultPrefix: "!",	// Prefixes for your bot, specify as many as you want to. Default is "!".
-	database: a
+	database: dbProvider
 });
 
 // This automatically imports all files/commands in the commands folder
-client.autoImport(join(__dirname, "/commands/"));
+client.autoImport(join(__dirname, "commands"));
 
 // If you want to, you can load/import files/commands like this, too
 // Also, you can mix normal imports with the automatic one
