@@ -18,13 +18,15 @@ export async function commandHandler(client: Client, message: Message)
 	let usedPrefix = "";
 	const guildId = message.guild?.id ?? "dms";
 	context.dbContext = client.dbContext;
-	
-	if (!client.dbContext.getDocumentById<string>("PrefixConfig", guildId))
-		client.dbContext.setDocument("PrefixConfig", guildId,
-			client.dbContext.getDocumentById<string>("PrefixConfig", "defaultPrefix")!);
+	const guildPref = client.dbContext.getDocumentById<string>("PrefixConfig", guildId)
+		?? client.dbContext.getDocumentById<string>("PrefixConfig", "defaultPrefix")!;
+
+	// if (!client.dbContext.getDocumentById<string>("PrefixConfig", guildId))
+	// 	client.dbContext.setDocument("PrefixConfig", guildId,
+	// 		client.dbContext.getDocumentById<string>("PrefixConfig", "defaultPrefix")!);
 	
 	console.log(client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!);
-	if (message.content.startsWith(client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!))
+	if (message.content.startsWith(guildPref))
 	{
 		hasPrefix = true;
 		usedPrefix = client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!;
