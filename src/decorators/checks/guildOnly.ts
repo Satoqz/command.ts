@@ -18,7 +18,7 @@ export function guildOnly(): Function
 
 		executor.value = async function(context: commandContext, ...args: commandArg[])
 		{
-			if(context.channel.type == "dm") return null;
+			if (context.channel.type == "dm") return null;
 
 			else return original.apply(this, [context, ...args]);
 		};

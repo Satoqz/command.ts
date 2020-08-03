@@ -12,7 +12,8 @@
 		"experimentalDecorators": true,
 		"paths": {
 			"*": ["node_modules/*"]
-		}
+		},
+		"newLine": "lf"
 	},
 	"include": [
 		"src/**/*"

@@ -18,7 +18,7 @@ export function check(checkFunction: Function): Function
 
 		executor.value = async function(context: commandContext, ...args: commandArg[])
 		{
-			if(checkFunction(context))
+			if (checkFunction(context))
 				return original.apply(this, [context, ...args]);
 			else return null;
 		};

@@ -18,29 +18,30 @@ export async function commandHandler(client: Client, message: Message)
 	let hasPrefix = false;
 	let usedPrefix = "";
 
-	client.prefixes.forEach((prefix: string) =>
+	// If there is no guild, it is probably a DM channel
+	const guildId = message.guild?.id ?? "dms";
+	context.dbContext = client.dbContext;
+	const guildPref = client.dbContext.getDocumentById<string>("PrefixConfig", guildId)
+		?? client.dbContext.getDocumentById<string>("PrefixConfig", "defaultPrefix")!;
+
+	console.log(client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!);
+	if (message.content.startsWith(guildPref))
 	{
-		if(message.content.startsWith(prefix))
-		{
-			hasPrefix = true;
-			usedPrefix = prefix;
-		}
-	});
+		hasPrefix = true;
+		usedPrefix = client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!;
+	}
 
 	context.args = split(context.content.replace(usedPrefix, ""));
 	context.c = client;
 	context.send = (
 		content: StringResolvable,
-		options?: MessageEmbed | MessageAttachment | (MessageEmbed | MessageAttachment)[] | undefined,
-	) =>
-	{
-		return context.channel.send(content, options);
-	};
+		options?: MessageEmbed | MessageAttachment | (MessageEmbed | MessageAttachment)[] | undefined
+	) => context.channel.send(content, options);
 
 	const command = commands.find((command: registeredCommand) =>
 		command.aliases!.includes(String(context.args[0])) && command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
 
-	if(!command) return;
+	if (!command) return;
 
 	context.args = context.args.slice(1, context.args.length);
 

@@ -79,8 +79,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientoptions.html#database" class="tsd-kind-icon">database</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientoptions.html#defaultprefix" class="tsd-kind-icon">default<wbr>Prefix</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientoptions.html#ownerid" class="tsd-kind-icon">owner<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="clientoptions.html#prefixes" class="tsd-kind-icon">prefixes</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,22 +90,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="database" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> database</h3>
+					<div class="tsd-signature tsd-kind-icon">database<span class="tsd-signature-symbol">:</span> <a href="../classes/baseprov.html" class="tsd-signature-type">baseProv</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/interfaces/clientOptions.ts#L7">src/interfaces/clientOptions.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="defaultprefix" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> default<wbr>Prefix</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/interfaces/clientOptions.ts#L5">src/interfaces/clientOptions.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="ownerid" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> owner<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">owner<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/interfaces/clientOptions.ts#L5">src/interfaces/clientOptions.ts:5</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="prefixes" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> prefixes</h3>
-					<div class="tsd-signature tsd-kind-icon">prefixes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/interfaces/clientOptions.ts#L4">src/interfaces/clientOptions.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/interfaces/clientOptions.ts#L6">src/interfaces/clientOptions.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -133,6 +144,15 @@
 						<a href="../classes/rolecheck.html" class="tsd-kind-icon">Role<wbr>Check</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="../classes/baseprov.html" class="tsd-kind-icon">base<wbr>Prov</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/fileprov.html" class="tsd-kind-icon">file<wbr>Prov</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/inmemprov.html" class="tsd-kind-icon">in<wbr>Mem<wbr>Prov</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="../classes/params.html" class="tsd-kind-icon">params</a>
 					</li>
 				</ul>
@@ -141,10 +161,13 @@
 						<a href="clientoptions.html" class="tsd-kind-icon">client<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="clientoptions.html#ownerid" class="tsd-kind-icon">owner<wbr>Id</a>
+								<a href="clientoptions.html#database" class="tsd-kind-icon">database</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="clientoptions.html#prefixes" class="tsd-kind-icon">prefixes</a>
+								<a href="clientoptions.html#defaultprefix" class="tsd-kind-icon">default<wbr>Prefix</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="clientoptions.html#ownerid" class="tsd-kind-icon">owner<wbr>Id</a>
 							</li>
 						</ul>
 					</li>
@@ -172,7 +195,7 @@
 						<a href="../globals.html#command" class="tsd-kind-icon">command</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../globals.html#guildonly" class="tsd-kind-icon">guildonly</a>
+						<a href="../globals.html#guildonly" class="tsd-kind-icon">guild<wbr>Only</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#reload" class="tsd-kind-icon">reload</a>

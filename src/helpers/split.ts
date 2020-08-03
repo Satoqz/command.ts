@@ -7,9 +7,9 @@ export function split(input: string)
 {
 	const output = input.match(/\w+|"[^"]+"/g);
 	let i: number | undefined = output?.length;
-	if(i)
+	if (i)
 	{
-		while(i--)
+		while (i--)
 		{
 			output![i] = output![i].replace(/"/g, "");
 		}

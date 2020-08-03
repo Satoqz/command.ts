@@ -66,25 +66,25 @@ function roleCheckHelper(
 				? context.client.user!
 				: context.author!;
 
-			if(context.channel.type != "dm")
+			if (context.channel.type != "dm")
 			{
 				let fail: boolean = false;
 
-				if(!isArray(roles))
+				if (!isArray(roles))
 					roles = [roles];
 
 				roles.forEach(i =>
 				{
-					if(typeof(i) == "object")
+					if (typeof(i) == "object")
 						i = i.id;
 
-					if(!context.guild!.member(user)!.roles.cache.has(i))
+					if (!context.guild!.member(user)!.roles.cache.has(i))
 					{
 						fail = true;
 						return null;
 					}
 				});
-				if(fail) return null;
+				if (fail) return null;
 			}
 			return original.apply(this, [context, ...args]);
 		};

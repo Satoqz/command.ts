@@ -93,12 +93,11 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="client.html#channels" class="tsd-kind-icon">channels</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="client.html#commandgroups" class="tsd-kind-icon">command<wbr>Groups</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="client.html#commands" class="tsd-kind-icon">commands</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="client.html#dbcontext" class="tsd-kind-icon">db<wbr>Context</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="client.html#emojis" class="tsd-kind-icon">emojis</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="client.html#guilds" class="tsd-kind-icon">guilds</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="client.html#loggers" class="tsd-kind-icon">loggers</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="client.html#options" class="tsd-kind-icon">options</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="client.html#ownerid" class="tsd-kind-icon">owner<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="client.html#prefixes" class="tsd-kind-icon">prefixes</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="client.html#readyat" class="tsd-kind-icon">ready<wbr>At</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="client.html#readytimestamp" class="tsd-kind-icon">ready<wbr>Timestamp</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="client.html#shard" class="tsd-kind-icon">shard</a></li>
@@ -148,6 +147,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#setimmediate" class="tsd-kind-icon">set<wbr>Immediate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#setinterval" class="tsd-kind-icon">set<wbr>Interval</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="client.html#setprefixforguild" class="tsd-kind-icon">set<wbr>Prefix<wbr>For<wbr>Guild</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#settimeout" class="tsd-kind-icon">set<wbr>Timeout</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="client.html#sweepmessages" class="tsd-kind-icon">sweep<wbr>Messages</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="client.html#tojson" class="tsd-kind-icon">toJSON</a></li>
@@ -169,7 +169,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Client.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/client.ts#L17">src/client.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/client.ts#L19">src/client.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -202,7 +202,7 @@
 					<div class="tsd-signature tsd-kind-icon">command<wbr>Groups<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/client.ts#L15">src/client.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/client.ts#L16">src/client.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -212,7 +212,17 @@
 					<div class="tsd-signature tsd-kind-icon">commands<span class="tsd-signature-symbol">:</span> <a href="../interfaces/registeredcommand.html" class="tsd-signature-type">registeredCommand</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/client.ts#L16">src/client.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/client.ts#L17">src/client.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="dbcontext" class="tsd-anchor"></a>
+					<h3>db<wbr>Context</h3>
+					<div class="tsd-signature tsd-kind-icon">db<wbr>Context<span class="tsd-signature-symbol">:</span> <a href="baseprov.html" class="tsd-signature-type">baseProv</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/client.ts#L19">src/client.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -244,7 +254,7 @@
 					<div class="tsd-signature tsd-kind-icon">loggers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Logger</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/client.ts#L17">src/client.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/client.ts#L18">src/client.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -256,26 +266,6 @@
 						<p>Inherited from <a href="client.html">Client</a>.<a href="client.html#options">options</a></p>
 						<ul>
 							<li>Defined in node_modules/discord.js/typings/index.d.ts:100</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="ownerid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> owner<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">owner<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/client.ts#L13">src/client.ts:13</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="prefixes" class="tsd-anchor"></a>
-					<h3>prefixes</h3>
-					<div class="tsd-signature tsd-kind-icon">prefixes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [&quot;!&quot;]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/client.ts#L14">src/client.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -391,10 +381,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/client.ts#L61">src/client.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/client.ts#L72">src/client.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Only allows one specific person (client/bot-wide) to use this command
+									Great for private bots</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
 						</li>
@@ -458,7 +452,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/client.ts#L89">src/client.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/client.ts#L99">src/client.ts:99</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -489,7 +483,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/client.ts#L44">src/client.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/client.ts#L53">src/client.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -864,7 +858,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/client.ts#L99">src/client.ts:99</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/client.ts#L109">src/client.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1364,6 +1358,32 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setprefixforguild" class="tsd-anchor"></a>
+					<h3>set<wbr>Prefix<wbr>For<wbr>Guild</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Prefix<wbr>For<wbr>Guild<span class="tsd-signature-symbol">(</span>guildId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, prefix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/client.ts#L115">src/client.ts:115</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>guildId: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>prefix: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="settimeout" class="tsd-anchor"></a>
 					<h3>set<wbr>Timeout</h3>
@@ -1484,6 +1504,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="client.html#commands" class="tsd-kind-icon">commands</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="client.html#dbcontext" class="tsd-kind-icon">db<wbr>Context</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="client.html#emojis" class="tsd-kind-icon">emojis</a>
 							</li>
@@ -1495,12 +1518,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="client.html#options" class="tsd-kind-icon">options</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="client.html#ownerid" class="tsd-kind-icon">owner<wbr>Id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="client.html#prefixes" class="tsd-kind-icon">prefixes</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="client.html#readyat" class="tsd-kind-icon">ready<wbr>At</a>
@@ -1625,6 +1642,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="client.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="client.html#setprefixforguild" class="tsd-kind-icon">set<wbr>Prefix<wbr>For<wbr>Guild</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="client.html#settimeout" class="tsd-kind-icon">set<wbr>Timeout</a>
 							</li>
@@ -1646,6 +1666,15 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="rolecheck.html" class="tsd-kind-icon">Role<wbr>Check</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="baseprov.html" class="tsd-kind-icon">base<wbr>Prov</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="fileprov.html" class="tsd-kind-icon">file<wbr>Prov</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="inmemprov.html" class="tsd-kind-icon">in<wbr>Mem<wbr>Prov</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="params.html" class="tsd-kind-icon">params</a>
@@ -1675,7 +1704,7 @@
 						<a href="../globals.html#command" class="tsd-kind-icon">command</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../globals.html#guildonly" class="tsd-kind-icon">guildonly</a>
+						<a href="../globals.html#guildonly" class="tsd-kind-icon">guild<wbr>Only</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#reload" class="tsd-kind-icon">reload</a>

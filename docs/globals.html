@@ -72,6 +72,9 @@
 								<li class="tsd-kind-class"><a href="classes/convert.html" class="tsd-kind-icon">Convert</a></li>
 								<li class="tsd-kind-class"><a href="classes/permissioncheck.html" class="tsd-kind-icon">Permission<wbr>Check</a></li>
 								<li class="tsd-kind-class"><a href="classes/rolecheck.html" class="tsd-kind-icon">Role<wbr>Check</a></li>
+								<li class="tsd-kind-class"><a href="classes/baseprov.html" class="tsd-kind-icon">base<wbr>Prov</a></li>
+								<li class="tsd-kind-class"><a href="classes/fileprov.html" class="tsd-kind-icon">file<wbr>Prov</a></li>
+								<li class="tsd-kind-class"><a href="classes/inmemprov.html" class="tsd-kind-icon">in<wbr>Mem<wbr>Prov</a></li>
 								<li class="tsd-kind-class"><a href="classes/params.html" class="tsd-kind-icon">params</a></li>
 							</ul>
 						</section>
@@ -96,7 +99,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="globals.html#check" class="tsd-kind-icon">check</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#command" class="tsd-kind-icon">command</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#guildonly" class="tsd-kind-icon">guildonly</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#guildonly" class="tsd-kind-icon">guild<wbr>Only</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#reload" class="tsd-kind-icon">reload</a></li>
 							</ul>
 						</section>
@@ -111,7 +114,7 @@
 					<div class="tsd-signature tsd-kind-icon">command<wbr>Groups<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/storage/commands.ts#L13">src/storage/commands.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/storage/commands.ts#L13">src/storage/commands.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -127,7 +130,7 @@
 					<div class="tsd-signature tsd-kind-icon">commands<span class="tsd-signature-symbol">:</span> <a href="interfaces/registeredcommand.html" class="tsd-signature-type">registeredCommand</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/storage/commands.ts#L7">src/storage/commands.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/storage/commands.ts#L7">src/storage/commands.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -150,7 +153,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/decorators/check.ts#L13">src/decorators/check.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/decorators/checks/check.ts#L13">src/decorators/checks/check.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -184,7 +187,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/decorators/command.ts#L19">src/decorators/command.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/decorators/command.ts#L19">src/decorators/command.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -213,15 +216,15 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="guildonly" class="tsd-anchor"></a>
-					<h3>guildonly</h3>
+					<h3>guild<wbr>Only</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">guildonly<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></li>
+						<li class="tsd-signature tsd-kind-icon">guild<wbr>Only<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/decorators/guildonly.ts#L13">src/decorators/guildonly.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/decorators/checks/guildOnly.ts#L13">src/decorators/checks/guildOnly.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -246,7 +249,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/885b755/src/reload.ts#L8">src/reload.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f0f3ed8/src/reload.ts#L8">src/reload.ts:8</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -294,6 +297,15 @@
 						<a href="classes/rolecheck.html" class="tsd-kind-icon">Role<wbr>Check</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/baseprov.html" class="tsd-kind-icon">base<wbr>Prov</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/fileprov.html" class="tsd-kind-icon">file<wbr>Prov</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/inmemprov.html" class="tsd-kind-icon">in<wbr>Mem<wbr>Prov</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/params.html" class="tsd-kind-icon">params</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -321,7 +333,7 @@
 						<a href="globals.html#command" class="tsd-kind-icon">command</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#guildonly" class="tsd-kind-icon">guildonly</a>
+						<a href="globals.html#guildonly" class="tsd-kind-icon">guild<wbr>Only</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#reload" class="tsd-kind-icon">reload</a>

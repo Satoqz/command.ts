@@ -78,7 +78,7 @@ function setArgumentType(name: string, index: number, type: argType)
 	{
 		const command: registeredCommand | undefined = commands.find((command: registeredCommand) => command.name == name);
 
-		if(command)
+		if (command)
 		{
 			clearInterval(interval);
 			command.argsTypes[index - 1] = type;

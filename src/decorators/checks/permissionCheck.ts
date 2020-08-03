@@ -62,7 +62,7 @@ function permissionCheckHelper(
 			const allowed = context.channel.type == "dm"
 				|| context.guild!.member(user)!.hasPermission(permission);
 
-			if(!allowed && lackingPermissionAction != undefined)
+			if (!allowed && lackingPermissionAction != undefined)
 				lackingPermissionAction(context);
 
 			return allowed
