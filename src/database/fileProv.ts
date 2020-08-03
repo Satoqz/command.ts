@@ -11,14 +11,14 @@ export class fileProv extends inMemProv
 	}
 
 	private filePath: string;
-	
+
 	public saveChanges(): Promise<void>
 	{
 		let hasError: NodeJS.ErrnoException | null = null;
 		writeFile(this.filePath, JSON.stringify(this.database), err => hasError = err);
 		if (hasError == null)
 			return Promise.resolve();
-		else 
+		else
 			return Promise.reject(hasError);
 	}
 

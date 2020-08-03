@@ -1,8 +1,9 @@
 
 /**
- * Reloads all files
- * This ensures that a command will not be loaded more than once
- * @param path Path to be reloaded
+ * Under the hood this function will delete an already imported/required file from the cache and reimport it.<br>
+ * It is ensured that registered commands that are part of a reloaded file file replace the old commands.<br>
+ * If the file you are trying to reload is not found, a friendly promise rejection with an error message will be sent back.
+ * @param path Path to be reloaded. Optimally, you should be using `path.join`
  */
 export function reload(path: string): Promise<{message: string}>
 {
@@ -11,7 +12,7 @@ export function reload(path: string): Promise<{message: string}>
 		try
 		{
 			delete require.cache[require.resolve(path)];
-			
+
 			require(path);
 			resolve();
 		}

@@ -8,12 +8,12 @@ export class inMemProv extends baseProv
 	}
 
 	protected database: Record<string, Record<string, ttype>> = {  };
-	
+
 	//#region Get and Set
 	public getContainerById<T extends ttype>(
 		tableName: string)
 	{
-		let item = this.database[tableName];
+		const item = this.database[tableName];
 		if (item) return item as Record<string, T>;
 		else return undefined;
 	}
@@ -22,7 +22,7 @@ export class inMemProv extends baseProv
 		tableName: string,
 		documentId: string)
 	{
-		let item = this.database[tableName][documentId];
+		const item = this.database[tableName][documentId];
 		if (item) return item as T;
 		else return undefined;
 	}
@@ -30,7 +30,7 @@ export class inMemProv extends baseProv
 	public createContainer(containerId: string)
 	{
 		if (!this.database[containerId])
-			this.database[containerId] = {  };
+			this.database[containerId] = { };
 	}
 
 	public setDocument(

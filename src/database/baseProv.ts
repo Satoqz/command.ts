@@ -1,8 +1,9 @@
 
 export abstract class baseProv
 {
-	constructor(options: any) { }
-	
+	constructor(options: any)
+	{ }
+
 	public createContainer(containerId: string)
 	{
 		throw notImplementedError;
@@ -14,7 +15,7 @@ export abstract class baseProv
 	{
 		throw notImplementedError;
 	}
-	
+
 	public getDocumentById<T extends ttype>(
 		containerId: string,
 		documentId: string)
@@ -22,7 +23,7 @@ export abstract class baseProv
 	{
 		throw notImplementedError;
 	}
-	
+
 	public setDocument(container: string,
 		documentId: string,
 		item: ttype)
@@ -30,7 +31,7 @@ export abstract class baseProv
 	{
 		throw notImplementedError;
 	}
-	
+
 	public saveChanges()
 		: Promise<void>
 	{

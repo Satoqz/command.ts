@@ -4,23 +4,32 @@ import { commands, commandGroups } from "../storage/commands";
 
 
 /**
- * Declare a class member to be a command
- * @param options options (aliases, description, prefixRequired)
+ * Use this method decorator to declare a class method a command
+ * ```
+ * class MyCommands {
+ * 		@command()
+ * 		ping(ctx: Context) {
+ * 	 		ctx.send("pong");
+ * 		}
+ * }
+ * ```
+ * Using this decorator will automatically register your command function in {@link commands}
+ * @param options Here you can declare some metadata like the description or usage of your command
  */
 export function command(options?: commandOptions): Function
 {
 	return async function(parent: Object, name: string, executor: PropertyDescriptor)
 	{
 		const duplicateCommand: registeredCommand | undefined = commands.find((command: registeredCommand) => command.name == name);
-		
-		if(duplicateCommand) commands.splice(commands.indexOf(duplicateCommand), 1);
-		
+
+		if (duplicateCommand) commands.splice(commands.indexOf(duplicateCommand), 1);
+
 		const alreadyPushedGroup = commandGroups.find((group: string) => group == parent.constructor.name);
-		
-		if(!alreadyPushedGroup) commandGroups.push(parent.constructor.name);
-		
+
+		if (!alreadyPushedGroup) commandGroups.push(parent.constructor.name);
+
 		const hasOptions: boolean = options ? true : false;
-		
+
 		commands.push({
 			group: parent.constructor.name,
 			name: name,
@@ -29,7 +38,7 @@ export function command(options?: commandOptions): Function
 			aliases: hasOptions && options?.aliases ? options.aliases.concat([name]) : [name],
 			execute: executor.value,
 			prefixRequired: options?.prefixRequired ?? "require",
-			argsTypes: ["context"]
+			argsTypes: []
 		});
 	};
 }

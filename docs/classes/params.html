@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>params | command.ts</title>
-	<meta name="description" content="Documentation for command.ts">
+	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -40,8 +40,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -81,6 +79,10 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="params.html#guildmember" class="tsd-kind-icon">Guild<wbr>Member</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="params.html#role" class="tsd-kind-icon">Role</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="params.html#textchannel" class="tsd-kind-icon">Text<wbr>Channel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="params.html#user" class="tsd-kind-icon">User</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="params.html#boolean" class="tsd-kind-icon">boolean</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="params.html#number" class="tsd-kind-icon">number</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="params.html#string" class="tsd-kind-icon">string</a></li>
@@ -92,21 +94,21 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="boolean" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> boolean</h3>
+					<a name="guildmember" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Guild<wbr>Member</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">boolean<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">Guild<wbr>Member<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f553791/src/decorators/paramDecorators.ts#L19">src/decorators/paramDecorators.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/dc0da70/src/decorators/paramDecorators.ts#L38">src/decorators/paramDecorators.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Declare a parameter to be parsed a boolean</p>
+									<p>Declare a command argument to be parsed to your comamnd function as a discord.js GuildMember.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -122,7 +124,147 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-							<p>&quot;true&quot; or &quot;false&quot; as boolean, everything else will be undefined</p>
+							<p>Passes a discord.js GuildMember class or undefined if no member could be parsed.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="role" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Role</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">Role<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/dc0da70/src/decorators/paramDecorators.ts#L65">src/decorators/paramDecorators.ts:65</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Declare a command argument to be parsed to your comamnd function as a discord.js Role.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>target: <span class="tsd-signature-type">Object</span></h5>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<p>Passes a discord.js Role class or undefined if no role could be parsed.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="textchannel" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Text<wbr>Channel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">Text<wbr>Channel<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/dc0da70/src/decorators/paramDecorators.ts#L56">src/decorators/paramDecorators.ts:56</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Declare a command argument to be parsed to your comamnd function as a discord.js TextChannel.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>target: <span class="tsd-signature-type">Object</span></h5>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<p>Passes a discord.js TextChannel class or undefined if no channel could be parsed.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="user" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> User</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">User<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/dc0da70/src/decorators/paramDecorators.ts#L47">src/decorators/paramDecorators.ts:47</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Declare a command argument to be parsed to your comamnd function as a discord.js User.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>target: <span class="tsd-signature-type">Object</span></h5>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<p>Passes a discord.js User class or undefined if no user could be parsed.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="boolean" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> boolean</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">boolean<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Object</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/dc0da70/src/decorators/paramDecorators.ts#L19">src/decorators/paramDecorators.ts:19</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Declare a command argument to be parsed to your comamnd function as a boolean.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>target: <span class="tsd-signature-type">Object</span></h5>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<p>&quot;true&quot; or &quot;false&quot; as boolean, everything else will be undefined.</p>
 						</li>
 					</ul>
 				</section>
@@ -136,12 +278,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f553791/src/decorators/paramDecorators.ts#L10">src/decorators/paramDecorators.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/dc0da70/src/decorators/paramDecorators.ts#L10">src/decorators/paramDecorators.ts:10</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Declare a parameter to be parsed a number</p>
+									<p>Declare a command argument to parsed to your command as function a number.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -157,7 +299,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-							<p>number, or NaN if it could not be parsed</p>
+							<p>number, or NaN if it could not be parsed.</p>
 						</li>
 					</ul>
 				</section>
@@ -171,12 +313,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/f553791/src/decorators/paramDecorators.ts#L28">src/decorators/paramDecorators.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/dc0da70/src/decorators/paramDecorators.ts#L29">src/decorators/paramDecorators.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Declare a parameter to be parsed a string</p>
+									<p>Declare a command argument to be parsed to your comamnd function as a string.<br>
+									Technically, this is completely redundant because the default argument type is a string, but you might aswell want to use this to write cleaner code. It is up to you.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -192,7 +335,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-							<p>argument as a string</p>
+							<p>Passes as a string.</p>
 						</li>
 					</ul>
 				</section>
@@ -212,7 +355,7 @@
 						<a href="client.html" class="tsd-kind-icon">Client</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="logger.html" class="tsd-kind-icon">Logger</a>
+						<a href="convert.html" class="tsd-kind-icon">Convert</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="permissioncheck.html" class="tsd-kind-icon">Permission<wbr>Check</a>
@@ -220,11 +363,32 @@
 					<li class=" tsd-kind-class">
 						<a href="rolecheck.html" class="tsd-kind-icon">Role<wbr>Check</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="baseprov.html" class="tsd-kind-icon">base<wbr>Prov</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="fileprov.html" class="tsd-kind-icon">file<wbr>Prov</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="inmemprov.html" class="tsd-kind-icon">in<wbr>Mem<wbr>Prov</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
 						<a href="params.html" class="tsd-kind-icon">params</a>
 						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="params.html#guildmember" class="tsd-kind-icon">Guild<wbr>Member</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="params.html#role" class="tsd-kind-icon">Role</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="params.html#textchannel" class="tsd-kind-icon">Text<wbr>Channel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="params.html#user" class="tsd-kind-icon">User</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="params.html#boolean" class="tsd-kind-icon">boolean</a>
 							</li>
@@ -248,25 +412,7 @@
 						<a href="../interfaces/commandoptions.html" class="tsd-kind-icon">command<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/loggeroptions.html" class="tsd-kind-icon">logger<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="../interfaces/registeredcommand.html" class="tsd-kind-icon">registered<wbr>Command</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/registeredcommandoptions.html" class="tsd-kind-icon">registered<wbr>Command<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#stringresolvable" class="tsd-kind-icon">String<wbr>Resolvable</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#argtype" class="tsd-kind-icon">arg<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#commandarg" class="tsd-kind-icon">command<wbr>Arg</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#logurgencytype" class="tsd-kind-icon">log<wbr>Urgency<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#commandgroups" class="tsd-kind-icon">command<wbr>Groups</a>
@@ -280,62 +426,79 @@
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#command" class="tsd-kind-icon">command</a>
 					</li>
-					<li class=" tsd-kind-function tsd-is-external">
-						<a href="../globals.html#commandhandler" class="tsd-kind-icon">command<wbr>Handler</a>
-					</li>
 					<li class=" tsd-kind-function">
-						<a href="../globals.html#convertcommandargs" class="tsd-kind-icon">convert<wbr>Command<wbr>Args</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#guildonly" class="tsd-kind-icon">guildonly</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#permissioncheckhelper" class="tsd-kind-icon">permission<wbr>Check<wbr>Helper</a>
+						<a href="../globals.html#guildonly" class="tsd-kind-icon">guild<wbr>Only</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#reload" class="tsd-kind-icon">reload</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#rolecheckhelper" class="tsd-kind-icon">role<wbr>Check<wbr>Helper</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#setargumenttype" class="tsd-kind-icon">set<wbr>Argument<wbr>Type</a>
 					</li>
 				</ul>
 			</nav>
 		</div>
 	</div>
 </div>
-<footer class="with-border-bottom">
+<footer>
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
 </footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
