@@ -1,7 +1,7 @@
 import * as DJS from "discord.js";
-import { commandContext } from "../interfaces/commandContext";
+import { commandContext } from "../../interfaces/commandContext";
 import { isArray } from "util";
-import { commandArg } from "../interfaces/registeredCommand";
+import { commandArg } from "../../interfaces/registeredCommand";
 
 /**
  * @alias roleCheck

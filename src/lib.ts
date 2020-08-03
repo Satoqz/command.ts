@@ -1,12 +1,12 @@
 import { Client } from "./client";
 import { reload } from "./reload";
-import { PermissionCheck } from "./decorators/permissionCheck";
-import { guildonly } from "./decorators/guildonly";
+import { PermissionCheck } from "./decorators/checks/permissionCheck";
+import { guildOnly } from "./decorators/checks/guildOnly";
 import { commandContext } from "./interfaces/commandContext";
 import { commands, commandGroups } from "./storage/commands";
 import { command } from "./decorators/command";
-import { check } from "./decorators/check";
-import { RoleCheck } from "./decorators/roleCheck";
+import { check } from "./decorators/checks/check";
+import { RoleCheck } from "./decorators/checks/roleCheck";
 import { params } from "./decorators/paramDecorators";
 import { Convert } from "./helpers/discordConverters";
 import { clientOptions } from "./interfaces/clientOptions";
@@ -26,7 +26,7 @@ export {
 	commandGroups,
 	command,
 	reload,
-	guildonly,
+	guildOnly,
 	check,
 	Convert,
 	clientOptions,

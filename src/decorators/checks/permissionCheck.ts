@@ -1,6 +1,6 @@
 import * as DJS from "discord.js";
-import { commandContext } from "../interfaces/commandContext";
-import { commandArg } from "../interfaces/registeredCommand";
+import { commandContext } from "../../interfaces/commandContext";
+import { commandArg } from "../../interfaces/registeredCommand";
 
 /**
  * @alias permission
