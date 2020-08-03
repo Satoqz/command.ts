@@ -43,7 +43,7 @@
 		"@typescript-eslint/parser": "^3.7.1",
 		"eslint": "^7.6.0",
 		"eslint-config-subaru": "^1.0.5",
-		"typedoc": "0.17.8",
+		"typedoc": "0.17.0-3",
 		"typescript": "^3.9.7"
 	},
 	"eslintConfig": {
