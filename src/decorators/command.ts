@@ -2,7 +2,6 @@ import { commandOptions } from "../interfaces/commandOptions";
 import { registeredCommand } from "../interfaces/registeredCommand";
 import { commands, commandGroups } from "../storage/commands";
 
-
 /**
  * Use this method decorator to declare a class method a command
  * ```

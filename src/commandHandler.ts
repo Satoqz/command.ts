@@ -1,6 +1,6 @@
 import { Message, MessageEmbed, MessageAttachment } from "discord.js";
 import { Client } from "./client";
-import { registeredCommand, commandArg } from "./interfaces/registeredCommand";
+import { registeredCommand } from "./interfaces/registeredCommand";
 import { commandContext, StringResolvable } from "./interfaces/commandContext";
 import { commands } from "./storage/commands";
 import { convertCommandArgs } from "./helpers/convertArgs";
