@@ -37,8 +37,8 @@
 	"devDependencies": {
 		"@types/node": "^14.0.27",
 		"@types/ws": "^7.2.6",
-		"eslint": "^7.5.0",
-		"eslint-config-typescript-satoqz": "0.0.4",
+		"eslint": "^7.6.0",
+		"eslint-config-typescript-satoqz": "^0.0.4",
 		"typedoc": "^0.17.8",
 		"typescript": "^3.9.7"
 	},
