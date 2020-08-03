@@ -21,15 +21,15 @@ export function command(options?: commandOptions): Function
 	return async function(parent: Object, name: string, executor: PropertyDescriptor)
 	{
 		const duplicateCommand: registeredCommand | undefined = commands.find((command: registeredCommand) => command.name == name);
-		
+
 		if(duplicateCommand) commands.splice(commands.indexOf(duplicateCommand), 1);
-		
+
 		const alreadyPushedGroup = commandGroups.find((group: string) => group == parent.constructor.name);
-		
+
 		if(!alreadyPushedGroup) commandGroups.push(parent.constructor.name);
-		
+
 		const hasOptions: boolean = options ? true : false;
-		
+
 		commands.push({
 			group: parent.constructor.name,
 			name: name,

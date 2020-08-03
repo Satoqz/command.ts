@@ -11,7 +11,7 @@ export class Convert
 		let user: User | undefined = client.users.cache.get(input.replace(/\!\<\>\@/, ""));
 		if(!user) user = client.users.cache.find((user: User) => user.tag.toLowerCase() == input);
 		if(!user) user = client.users.cache.find((user: User) => user.username.toLowerCase() == input);
-		
+
 		return user;
 	}
 	public static toMember(input: string, guild: Guild | null): GuildMember | undefined

@@ -17,7 +17,7 @@ export async function commandHandler(client: Client, message: Message)
 	const context = message as commandContext;
 	let hasPrefix = false;
 	let usedPrefix = "";
-	
+
 	client.prefixes.forEach((prefix: string) =>
 	{
 		if(message.content.startsWith(prefix))
@@ -26,22 +26,23 @@ export async function commandHandler(client: Client, message: Message)
 			usedPrefix = prefix;
 		}
 	});
-	
+
 	context.args = split(context.content.replace(usedPrefix, ""));
 	context.c = client;
 	context.send = (
 		content: StringResolvable,
 		options?: MessageEmbed | MessageAttachment | (MessageEmbed | MessageAttachment)[] | undefined,
-	) => {
+	) =>
+	{
 		return context.channel.send(content, options);
 	};
-	
+
 	const command = commands.find((command: registeredCommand) =>
 		command.aliases!.includes(String(context.args[0])) && command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
-	
+
 	if(!command) return;
 
 	context.args = context.args.slice(1, context.args.length);
-	
+
 	command.execute(context, ...convertCommandArgs(context, command, context.args));	// dont ask why, it works
 }

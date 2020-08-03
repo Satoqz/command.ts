@@ -12,7 +12,7 @@ export function reload(path: string): Promise<{message: string}>
 		try
 		{
 			delete require.cache[require.resolve(path)];
-			
+
 			require(path);
 			resolve();
 		}

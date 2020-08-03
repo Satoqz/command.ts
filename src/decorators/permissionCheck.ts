@@ -20,7 +20,7 @@ export class PermissionCheck
 	{
 		return permissionCheckHelper("client", permission, lackingPermissionAction);
 	}
-	
+
 	/**
 	 * Check for users/authors permissions
 	 * @param permission Which permissions are to be verified
@@ -58,13 +58,13 @@ function permissionCheckHelper(
 			const user =  who == "client"
 				? context.client.user!
 				: context.author!;
-			
+
 			const allowed = context.channel.type == "dm"
 				|| context.guild!.member(user)!.hasPermission(permission);
-			
-			if (!allowed && lackingPermissionAction != undefined)
+
+			if(!allowed && lackingPermissionAction != undefined)
 				lackingPermissionAction(context);
-			
+
 			return allowed
 				? original.apply(this, [context, ...args])
 				: null;

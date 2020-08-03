@@ -13,7 +13,7 @@ export function convertCommandArgs(context: commandContext, command: registeredC
 {
 	command.argsTypes.forEach((type: commandArg, index: number) =>
 	{
-		switch(type)
+		switch (type)
 		{
 		case "number":
 			args[index] = Number(args[index]);
