@@ -1,19 +1,18 @@
 // Import from the libary
-import { Client } from "command.ts";
+import { Client, providers } from "command.ts";
 import { join } from "path";
-import { fileProv } from "command.ts";
 
 //#region Load config
 // Load config from your ".env" file, remember to gitignore it
 // This is fine for development, for production you should consider to use another method to get your token
 import { config } from "dotenv";
-import { baseProv } from "../build/database/baseProv";
+
 config({ path: "./.env" });
 //#endregion
 
-let dbProvider: baseProv = new fileProv(join(__dirname, "cfg.json"));
+const dbProvider: providers.file = new providers.file(join(__dirname, "cfg.json"));
 
-// Initialize a new client/bot instance 
+// Initialize a new client/bot instance
 const client = new Client({	// When you use dotenv
 	defaultPrefix: "!",	// Prefixes for your bot, specify as many as you want to. Default is "!".
 	database: dbProvider

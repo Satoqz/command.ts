@@ -1,6 +1,6 @@
 import { commandOptions } from "../interfaces/commandOptions";
 import { registeredCommand } from "../interfaces/registeredCommand";
-import { commands, commandGroups } from "../storage/commands";
+import { commands } from "../storage/commands";
 
 /**
  * Use this method decorator to declare a class method a command
@@ -19,17 +19,17 @@ export function command(options?: commandOptions): Function
 {
 	return async function(parent: Object, name: string, executor: PropertyDescriptor)
 	{
-		const duplicateCommand: registeredCommand | undefined = commands.find((command: registeredCommand) => command.name == name);
+		const duplicateCommand: registeredCommand | undefined = commands.list.find((command: registeredCommand) => command.name == name);
 
-		if (duplicateCommand) commands.splice(commands.indexOf(duplicateCommand), 1);
+		if (duplicateCommand) commands.list.splice(commands.list.indexOf(duplicateCommand), 1);
 
-		const alreadyPushedGroup = commandGroups.find((group: string) => group == parent.constructor.name);
+		const alreadyPushedGroup = commands.groups.find((group: string) => group == parent.constructor.name);
 
-		if (!alreadyPushedGroup) commandGroups.push(parent.constructor.name);
+		if (!alreadyPushedGroup) commands.groups.push(parent.constructor.name);
 
 		const hasOptions: boolean = options ? true : false;
 
-		commands.push({
+		commands.list.push({
 			group: parent.constructor.name,
 			name: name,
 			description: hasOptions && options?.description ? options.description : undefined,

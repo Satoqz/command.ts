@@ -7,34 +7,34 @@ import { RoleCheck } from "./decorators/checks/roleCheck";
 import { params } from "./decorators/paramDecorators";
 import { PermissionCheck } from "./decorators/checks/permissionCheck";
 import { commandContext } from "./interfaces/commandContext";
-import { commands, commandGroups } from "./storage/commands";
+import { commands } from "./storage/commands";
 import { Convert } from "./helpers/discordConverters";
-import { fileProv } from "./database/fileProv";
-import { baseProv } from "./database/baseProv";
-import { inMemProv } from "./database/inMemProv";
+import { providers } from "./database/providers";
 import { clientOptions } from "./interfaces/clientOptions";
 import { commandOptions } from "./interfaces/commandOptions";
 import { registeredCommand } from "./interfaces/registeredCommand";
 
 export {
+
+	// main classes and methods
+
 	Client,
+	command,
 	params,
 	params as p,
 	RoleCheck as roleCheck,
-	PermissionCheck,
 	PermissionCheck as permission,
-	commandContext,
 	commandContext as Context,
 	commands,
-	commandGroups,
-	command,
+
+	// utility classes and methods
 	reload,
 	guildOnly,
 	check,
-	baseProv,
-	inMemProv,
-	fileProv,
+	providers,
 	Convert,
+	// interfaces, types and interface-like classes
+
 	clientOptions,
 	commandOptions,
 	registeredCommand

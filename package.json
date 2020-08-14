@@ -47,15 +47,6 @@
 		"typescript": "^3.9.7"
 	},
 	"eslintConfig": {
-		"extends": "eslint-config-subaru",
-		"rules": {
-			"keyword-spacing": [
-				"warn",
-				{
-					"before": true,
-					"after": true
-				}
-			]
-		}
+		"extends": "eslint-config-subaru"
 	}
 }
