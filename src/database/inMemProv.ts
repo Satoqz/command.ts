@@ -38,7 +38,6 @@ export class inMemProv extends baseProv
 		documentId: string,
 		item: object)
 	{
-		console.log(this.database[container]);
 		this.database[container]![documentId]! = item;
 	}
 	//#endregion

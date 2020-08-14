@@ -14,36 +14,41 @@ import { split } from "./helpers/split";
  */
 export async function commandHandler(client: Client, message: Message)
 {
-	const context = message as commandContext;
 	let hasPrefix = false;
 	let usedPrefix = "";
 
 	// If there is no guild, it is probably a DM channel
 	const guildId = message.guild?.id ?? "dms";
-	context.dbContext = client.dbContext;
 	const guildPref = client.dbContext.getDocumentById<string>("PrefixConfig", guildId)
 		?? client.dbContext.getDocumentById<string>("PrefixConfig", "defaultPrefix")!;
 
-	console.log(client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!);
 	if (message.content.startsWith(guildPref))
 	{
 		hasPrefix = true;
-		usedPrefix = client.dbContext.getDocumentById<string>("PrefixConfig", guildId)!;
+		usedPrefix = guildPref;
 	}
 
-	context.args = split(context.content.replace(usedPrefix, ""));
+	if (!message.content.startsWith(usedPrefix))
+		return;
+
+	const context = message as commandContext;
+	context.dbContext = client.dbContext;
 	context.c = client;
 	context.send = (
 		content: StringResolvable,
 		options?: MessageEmbed | MessageAttachment | (MessageEmbed | MessageAttachment)[] | undefined
 	) => context.channel.send(content, options);
 
-	const command = commands.find((command: registeredCommand) =>
+	// create args with command keyword kept
+	context.args = split(context.content.replace(usedPrefix, ""));
+
+	const command = commands.list.find((command: registeredCommand) =>
 		command.aliases!.includes(String(context.args[0])) && command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
 
 	if (!command) return;
 
+	// remove command keyword
 	context.args = context.args.slice(1, context.args.length);
 
-	command.execute(context, ...convertCommandArgs(context, command, context.args));	// dont ask why, it works
+	command.execute(context, ...convertCommandArgs(context, command));
 }

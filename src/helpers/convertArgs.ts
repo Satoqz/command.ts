@@ -9,35 +9,35 @@ import { Convert } from "./discordConverters";
  * @returns The transformed command arguments
  * @internal
  */
-export function convertCommandArgs(context: commandContext, command: registeredCommand, args: commandArg[]): commandArg[]
+export function convertCommandArgs(context: commandContext, command: registeredCommand): commandArg[]
 {
 	command.argsTypes.forEach((type: commandArg, index: number) =>
 	{
 		switch (type)
 		{
 		case "number":
-			args[index] = Number(args[index]);
+			context.args[index] = Number(context.args[index]);
 			break;
 		case "boolean":
-			const lower = String(args[index]).toLowerCase();
+			const lower = String(context.args[index]).toLowerCase();
 			const bool = lower == "true" ? true : lower == "false" ? false : undefined;
-			args[index] = bool;
+			context.args[index] = bool;
 			break;
 		case "string":
 			break;
 		case "user":
-			args[index] = Convert.toUser(args[index] as string, context.c);
+			context.args[index] = Convert.toUser(context.args[index] as string, context.c);
 			break;
 		case "guildmember":
-			args[index] = Convert.toMember(args[index] as string, context.guild);
+			context.args[index] = Convert.toMember(context.args[index] as string, context.guild);
 			break;
 		case "textchannel":
-			args[index] = Convert.toChannel(args[index] as string, context.guild);
+			context.args[index] = Convert.toChannel(context.args[index] as string, context.guild);
 			break;
 		case "role":
-			args[index] = Convert.toRole(args[index] as string, context.guild);
+			context.args[index] = Convert.toRole(context.args[index] as string, context.guild);
 			break;
 		}
 	});
-	return args;
+	return context.args;
 }

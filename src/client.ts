@@ -14,7 +14,6 @@ import { join } from "path";
 export class Client extends DJS.Client
 {
 	public commandGroups: string[] = [];
-	public commands: registeredCommand[] = [];
 	public loggers: Logger[] = [];
 	public dbContext: baseProv;
 

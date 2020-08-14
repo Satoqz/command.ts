@@ -12,14 +12,15 @@
 		"start": "ts-node ./index.ts"
 	},
 	"dependencies": {
-		"command.ts": "file:../"
+		"command.ts": "file:../",
+		"ts-node": "^8.10.2"
 	},
 	"devDependencies": {
 		"eslint": "^7.5.0",
-		"eslint-config-typescript-satoqz": "0.0.4",
+		"eslint-config-subaru": "^1.1.0",
 		"typescript": "^3.9.7"
 	},
 	"eslintConfig": {
-		"extends": "eslint-config-typescript-satoqz"
+		"extends": "subaru"
 	}
 }
