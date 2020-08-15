@@ -1,6 +1,6 @@
 {
 	"name": "command.ts",
-	"version": "1.5.0",
+	"version": "1.5.1",
 	"description": "A modern discord.js command framework making use of experimental TypeScript decorators",
 	"license": "MIT",
 	"author": "satoqz",
