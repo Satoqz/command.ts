@@ -1,10 +1,10 @@
 import { Message, MessageEmbed, MessageAttachment } from "discord.js";
-import { Client } from "./client";
-import { registeredCommand } from "./interfaces/registeredCommand";
-import { commandContext, StringResolvable } from "./interfaces/commandContext";
-import { commands } from "./storage/commands";
-import { convertCommandArgs } from "./helpers/internal/convertArgs";
-import { split } from "./helpers/internal/split";
+import { Client } from "./Client";
+import { RegisteredCommand } from "./interfaces/RegisteredCommand";
+import { CommandContext, StringResolvable } from "./interfaces/CommandContext";
+import { commands } from "./storage/Commands";
+import { convertCommandArgs } from "./helpers/internal/ConvertArgs";
+import { split } from "./helpers/internal/Split";
 
 /**
  * This is executed every time a command is called
@@ -31,7 +31,7 @@ export async function commandHandler(client: Client, message: Message)
 	if (!message.content.startsWith(usedPrefix))
 		return;
 
-	const context = message as commandContext;
+	const context = message as CommandContext;
 	context.dbContext = client.dbContext;
 	context.c = client;
 	context.send = (
@@ -42,7 +42,7 @@ export async function commandHandler(client: Client, message: Message)
 	// create args with command keyword kept
 	context.args = split(context.content.replace(usedPrefix, ""));
 
-	const command = commands.list.find((command: registeredCommand) =>
+	const command = commands.list.find((command: RegisteredCommand) =>
 		command.aliases!.includes(String(context.args[0])) && command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
 
 	if (!command) return;

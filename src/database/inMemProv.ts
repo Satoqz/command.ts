@@ -1,6 +1,6 @@
-import { baseProv, ttype } from "./baseProv";
+import { BaseProv, ttype } from "./BaseProv";
 
-export class inMemProv extends baseProv
+export class InMemProv extends BaseProv
 {
 	constructor(options?: void)
 	{

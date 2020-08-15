@@ -1,7 +1,7 @@
-import { registeredCommand } from "./registeredCommand";
+import { RegisteredCommand } from "./RegisteredCommand";
 
 export interface CommandCollection
 {
-	list: registeredCommand[],
+	list: RegisteredCommand[],
 	groups: string[]
 }

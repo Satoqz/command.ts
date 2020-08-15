@@ -1,6 +1,6 @@
-import { commandOptions } from "../interfaces/commandOptions";
-import { registeredCommand } from "../interfaces/registeredCommand";
-import { commands } from "../storage/commands";
+import { CommandOptions } from "../interfaces/CommandOptions";
+import { RegisteredCommand } from "../interfaces/RegisteredCommand";
+import { commands } from "../storage/Commands";
 
 /**
  * Use this method decorator to declare a class method a command
@@ -15,11 +15,11 @@ import { commands } from "../storage/commands";
  * Using this decorator will automatically register your command function in {@link commands}
  * @param options Here you can declare some metadata like the description or usage of your command
  */
-export function command(options?: commandOptions): Function
+export function Command(options?: CommandOptions): Function
 {
 	return async function(parent: Object, name: string, executor: PropertyDescriptor)
 	{
-		const duplicateCommand: registeredCommand | undefined = commands.list.find((command: registeredCommand) => command.name == name);
+		const duplicateCommand: RegisteredCommand | undefined = commands.list.find((command: RegisteredCommand) => command.name == name);
 
 		if (duplicateCommand) commands.list.splice(commands.list.indexOf(duplicateCommand), 1);
 

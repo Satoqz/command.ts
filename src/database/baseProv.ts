@@ -1,4 +1,4 @@
-export abstract class baseProv
+export abstract class BaseProv
 {
 	constructor(options: any)
 	{ }

@@ -1,4 +1,4 @@
-import { CommandCollection } from "../interfaces/commandCollection";
+import { CommandCollection } from "../interfaces/CommandCollection";
 
 export const commands: CommandCollection =
 {
