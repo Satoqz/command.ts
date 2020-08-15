@@ -11,9 +11,7 @@ export function split(input: string): string[]
 	if (matches)
 	{
 		for (let i = 0; i < matches.length; i++)
-		{
 			astr.push(matches[i].replace(/"/g, ""));
-		}
 	}
 	return astr;
 }
