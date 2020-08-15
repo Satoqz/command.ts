@@ -26,7 +26,7 @@
 		"commando"
 	],
 	"main": "./build/Library.js",
-	"typings": "./build/Library.d.ts",
+	"typings": "./src/Library.ts",
 	"scripts": {
 		"build": "tsc",
 		"docgen": "typedoc --out ./docs/ ./src/lib.ts --mode library --excludeNotExported --excludePrivate --stripInternal --hideGenerator",
