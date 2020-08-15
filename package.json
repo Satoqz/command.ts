@@ -29,7 +29,7 @@
 	"typings": "./src/Library.ts",
 	"scripts": {
 		"build": "tsc",
-		"docgen": "typedoc --out ./docs/ ./src/lib.ts --mode library --excludeNotExported --excludePrivate --stripInternal --hideGenerator",
+		"docgen": "typedoc --out ./docs/ ./src/Library.ts --mode library --excludeNotExported --excludePrivate --stripInternal --hideGenerator",
 		"lint": "eslint src/**/*.ts",
 		"lint:fix": "eslint src/**/*.ts --fix"
 	},
