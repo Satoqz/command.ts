@@ -4,10 +4,10 @@ import { InMemProv } from "./InMemProv";
 
 export namespace Providers
 {
-	export class base extends BaseProv
+	export class Base extends BaseProv
 	{}
-	export class file extends FileProv
+	export class File extends FileProv
 	{}
-	export class memory extends InMemProv
+	export class Memory extends InMemProv
 	{}
 }

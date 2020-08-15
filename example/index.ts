@@ -1,5 +1,5 @@
 // Import from the libary
-import { Client, providers, importAll } from "command.ts";
+import { Client, Providers, importAll } from "command.ts";
 import { join } from "path";
 
 //#region Load config
@@ -10,7 +10,7 @@ import { config } from "dotenv";
 config({ path: "./.env" });
 //#endregion
 
-const dbProvider: providers.file = new providers.file(join(__dirname, "cfg.json"));
+const dbProvider: Providers.File = new Providers.File(join(__dirname, "cfg.json"));
 
 // Initialize a new client/bot instance
 const client = new Client({	// When you use dotenv

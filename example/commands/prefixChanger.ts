@@ -1,8 +1,8 @@
-import { command, params, Context } from "command.ts";
+import { Command, Args, Context } from "command.ts";
 
 class PrefixCommands
 {
-	@command({
+	@Command({
 		prefixRequired: "optional"
 	})
 	get(ctx: Context)
@@ -10,10 +10,10 @@ class PrefixCommands
 		ctx.send("prefix: " + ctx.dbContext.getDocumentById<string>("PrefixConfig", ctx.guild?.id ?? "dms"));
 	}
 
-	@command({
+	@Command({
 		prefixRequired: "optional"
 	})
-	set(ctx: Context, @params.string prefix: string)
+	set(ctx: Context, @Args.String prefix: string)
 	{
 		console.log(ctx.content);
 		ctx.dbContext.setDocument("PrefixConfig", ctx.guild?.id ?? "dms", prefix);
