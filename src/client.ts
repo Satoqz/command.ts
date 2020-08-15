@@ -1,20 +1,14 @@
 import * as DJS from "discord.js";
-import { readdirSync } from "fs";
 import { commandHandler } from "./commandHandler";
 import { commandContext } from "./interfaces/commandContext";
 import { clientOptions } from "./interfaces/clientOptions";
-import { registeredCommand, commandArg } from "./interfaces/registeredCommand";
-import { loggerOptions } from "./interfaces/loggerOptions";
-import { Logger } from "./logger";
-import { logUrgencyType } from "./interfaces/logType";
+import { commandArg } from "./interfaces/registeredCommand";
 import { baseProv } from "./database/baseProv";
 import { inMemProv } from "./database/inMemProv";
-import { join } from "path";
 
 export class Client extends DJS.Client
 {
 	public commandGroups: string[] = [];
-	public loggers: Logger[] = [];
 	public dbContext: baseProv;
 
 	constructor(options: clientOptions)
@@ -40,27 +34,6 @@ export class Client extends DJS.Client
 	private register()
 	{
 		this.on("message", async(message: DJS.Message) => commandHandler(this, message));
-		this.on("ready", () => this.log("Client has logged into discord", "info"));
-		this.on("error", (error) => this.log(error.message, "error"));
-		this.on("rateLimit", (data: DJS.RateLimitData) => this.log(JSON.stringify(data, null, 1), "error"));
-	}
-
-	/**
-	 * Automatically imports all commands/files inside a specified directory
-	 * @param dir Directory, e.g. path.join(__dirname, "/commands/")
-	 */
-	public autoImport(dir: string)
-	{
-		const files = readdirSync(dir);
-
-		files.forEach((filename: string) =>
-		{
-			if (filename.endsWith(".ts") || filename.endsWith(".js"))
-			{
-				console.log("Autoimporting " + join(dir, filename));
-				require(join(dir, filename));
-			}
-		});
 	}
 
 	/**
@@ -89,26 +62,6 @@ export class Client extends DJS.Client
 			};
 			return executor;
 		};
-	}
-
-	/**
-	 * Adds a logger service to your bot/client
-	 * @param options Logs can be sent to DMs, channels, and the console
-	 */
-	public addLogger(options: loggerOptions)
-	{
-		this.loggers.push(new Logger(options));
-	}
-
-	/**
-	 * Allows you to log a message to registered loggers
-	 * @param message message
-	 * @param type Urgency
-	 */
-	public log(message: string, type: logUrgencyType)
-	{
-		this.loggers.forEach((logger: Logger) =>
-			logger.log(message, type, this));
 	}
 
 	public setPrefixForGuild(guildId: string, prefix: string)

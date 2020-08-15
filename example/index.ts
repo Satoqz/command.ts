@@ -1,5 +1,5 @@
 // Import from the libary
-import { Client, providers } from "command.ts";
+import { Client, providers, importAll } from "command.ts";
 import { join } from "path";
 
 //#region Load config
@@ -19,7 +19,7 @@ const client = new Client({	// When you use dotenv
 });
 
 // This automatically imports all files/commands in the commands folder
-client.autoImport(join(__dirname, "commands"));
+importAll(join(__dirname, "commands"));
 
 // If you want to, you can load/import files/commands like this, too
 // Also, you can mix normal imports with the automatic one

@@ -1,5 +1,5 @@
 import { TextChannel, User, GuildMember, Guild, Channel, GuildChannel, Role } from "discord.js";
-import { Client } from "../client";
+import { Client } from "../../client";
 import { isNull } from "util";
 
 export class Convert
