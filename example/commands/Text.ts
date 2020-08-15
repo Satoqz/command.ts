@@ -1,4 +1,5 @@
-import { Command, Context, Args } from "command.ts";
+import { Command, Context, Args, Convert } from "command.ts";
+import { User } from "discord.js";
 
 class TextCommands
 {
@@ -7,5 +8,11 @@ class TextCommands
 	{
 		console.log(amount);
 		ctx.send(text);
+	}
+
+	@Command()
+	con(ctx: Context, user: string)
+	{
+		console.log(Convert.toUser(user, ctx.c));
 	}
 }

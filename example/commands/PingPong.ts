@@ -17,4 +17,11 @@ class PingPongCommands
 		// Send a message back. This is a shortcut to "ctx.channel.send"
 		ctx.send("pong");
 	}
+	@Command()
+	gg(ctx: Context)
+	{
+		ctx.send(cum);
+	}
 }
+
+const cum = "lol";
