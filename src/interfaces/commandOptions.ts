@@ -1,5 +1,5 @@
 
-export interface commandOptions
+export interface CommandOptions
 {
 	prefixRequired?: "optional" | "require" | "notallowed",
 	aliases?: string[],

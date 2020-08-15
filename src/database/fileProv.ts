@@ -1,7 +1,7 @@
 import { writeFile, readFileSync } from "fs";
-import { inMemProv } from "./inMemProv";
+import { InMemProv } from "./InMemProv";
 
-export class fileProv extends inMemProv
+export class FileProv extends InMemProv
 {
 	constructor(options: string)
 	{

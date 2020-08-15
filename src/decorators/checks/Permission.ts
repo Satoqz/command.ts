@@ -1,11 +1,11 @@
 import * as DJS from "discord.js";
-import { commandContext } from "../../interfaces/commandContext";
-import { commandArg } from "../../interfaces/registeredCommand";
+import { CommandContext } from "../../interfaces/CommandContext";
+import { CommandArg } from "../../interfaces/RegisteredCommand";
 
 /**
  * @alias permission
  */
-export class PermissionCheck
+export class Permission
 {
 	/**
 	 * Check for clients/bots permissions
@@ -13,12 +13,12 @@ export class PermissionCheck
 	 * @param lackingPermissionAction [obsolete] Action on lacking permission
 	 * @returns Forwarded decorator
 	 */
-	public static client(
+	public static Client(
 		permission: DJS.PermissionString | DJS.PermissionString[],
 		lackingPermissionAction?: Function
 	): Function
 	{
-		return permissionCheckHelper("client", permission, lackingPermissionAction);
+		return permissionHelper("client", permission, lackingPermissionAction);
 	}
 
 	/**
@@ -27,12 +27,12 @@ export class PermissionCheck
 	 * @param lackingPermissionAction [obsolete] Action on lacking permission
 	 * @returns Forwarded decorator
 	 */
-	public static user(
+	public static User(
 		permission: DJS.PermissionString | DJS.PermissionString[],
 		lackingPermissionAction?: Function
 	): Function
 	{
-		return permissionCheckHelper("user", permission, lackingPermissionAction);
+		return permissionHelper("user", permission, lackingPermissionAction);
 	}
 }
 
@@ -45,7 +45,7 @@ export class PermissionCheck
  * @returns Decorator
  * @internal
  */
-function permissionCheckHelper(
+function permissionHelper(
 	who: "client" | "user",
 	permission: DJS.PermissionString | DJS.PermissionString[],
 	lackingPermissionAction?: Function) : Function
@@ -53,7 +53,7 @@ function permissionCheckHelper(
 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor): PropertyDescriptor
 	{
 		const original = executor.value;
-		executor.value = function(context: commandContext, ...args: commandArg[])
+		executor.value = function(context: CommandContext, ...args: CommandArg[])
 		{
 			const user =  who == "client"
 				? context.client.user!

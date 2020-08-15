@@ -1,5 +1,5 @@
-import { commandContext } from "../../interfaces/commandContext";
-import { commandArg } from "../../interfaces/registeredCommand";
+import { CommandContext } from "../../interfaces/CommandContext";
+import { CommandArg } from "../../interfaces/RegisteredCommand";
 
 /**
  * Declares a {@link command} as guild-only<br><br>
@@ -10,13 +10,13 @@ import { commandArg } from "../../interfaces/registeredCommand";
  * ```
  * This can be extremely useful when your command depends on guild functionality and you want to avoid errors caused by direct messages.
  */
-export function guildOnly(): Function
+export function GuildOnly(): Function
 {
 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
 	{
 		const original = executor.value;
 
-		executor.value = async function(context: commandContext, ...args: commandArg[])
+		executor.value = async function(context: CommandContext, ...args: CommandArg[])
 		{
 			if (context.channel.type == "dm") return null;
 

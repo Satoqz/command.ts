@@ -1,13 +1,13 @@
-import { baseProv } from "./baseProv";
-import { fileProv } from "./fileProv";
-import { inMemProv } from "./inMemProv";
+import { BaseProv } from "./BaseProv";
+import { FileProv } from "./FileProv";
+import { InMemProv } from "./InMemProv";
 
-export namespace providers
+export namespace Providers
 {
-	export class base extends baseProv
+	export class base extends BaseProv
 	{}
-	export class file extends fileProv
+	export class file extends FileProv
 	{}
-	export class memory extends inMemProv
+	export class memory extends InMemProv
 	{}
 }

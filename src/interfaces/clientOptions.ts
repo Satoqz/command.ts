@@ -1,8 +1,8 @@
-import { baseProv } from "../database/baseProv";
+import { BaseProv } from "../database/BaseProv";
 
-export interface clientOptions
+export interface ClientOptions
 {
 	defaultPrefix?: string,
 	ownerId?: string,
-	database?: baseProv
+	database?: BaseProv
 }

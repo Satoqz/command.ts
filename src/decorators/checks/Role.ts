@@ -1,19 +1,16 @@
 import * as DJS from "discord.js";
-import { commandContext } from "../../interfaces/commandContext";
+import { CommandContext } from "../../interfaces/CommandContext";
 import { isArray } from "util";
-import { commandArg } from "../../interfaces/registeredCommand";
+import { CommandArg } from "../../interfaces/RegisteredCommand";
 
-/**
- * @alias roleCheck
- */
-export class RoleCheck
+export class Role
 {
 	/**
 	 * Check for clients/bots permissions
 	 * @param roles ID(s) or role object(s) of roles to be verified
 	 * @returns Forwarded decorator
 	 */
-	public static client(
+	public static Client(
 		roles:
 			| DJS.Role
 			| string
@@ -21,7 +18,7 @@ export class RoleCheck
 		lackingPermissionAction?: Function
 	): Function
 	{
-		return roleCheckHelper("client", roles);
+		return roleHelper("client", roles);
 	}
 
 	/**
@@ -29,7 +26,7 @@ export class RoleCheck
 	 * @param roles ID(s) or role object(s) of roles to be verified
 	 * @returns Forwarded decorator
 	 */
-	public static user(
+	public static User(
 		roles:
 			| DJS.Role
 			| string
@@ -37,7 +34,7 @@ export class RoleCheck
 		lackingPermissionAction?: Function
 	): Function
 	{
-		return roleCheckHelper("user", roles);
+		return roleHelper("user", roles);
 	}
 }
 
@@ -49,7 +46,7 @@ export class RoleCheck
  * @returns Decorator
  * @internal
  */
-function roleCheckHelper(
+function roleHelper(
 	who: "client" | "user",
 	roles:
 		| DJS.Role
@@ -60,7 +57,7 @@ function roleCheckHelper(
 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor): PropertyDescriptor
 	{
 		const original = executor.value;
-		executor.value = function(context: commandContext, ...args: commandArg[])
+		executor.value = function(context: CommandContext, ...args: CommandArg[])
 		{
 			const user = who == "client"
 				? context.client.user!

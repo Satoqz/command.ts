@@ -1,8 +1,8 @@
 import { Message, ClientUser, MessageEmbed, MessageAttachment } from "discord.js";
 import { MessageOptions } from "child_process";
-import { commandArg } from "./registeredCommand";
-import { baseProv } from "../database/baseProv";
-import { Client } from "../client";
+import { CommandArg } from "./RegisteredCommand";
+import { BaseProv } from "../database/BaseProv";
+import { Client } from "../Client";
 
 /**
  * @internal
@@ -12,11 +12,11 @@ export type StringResolvable = string | string[] | any;
 /**
  * @alias Context
  */
-export interface commandContext extends Message
+export interface CommandContext extends Message
 {
-	args: commandArg[],
+	args: CommandArg[],
 	me: ClientUser,
-	dbContext: baseProv,
+	dbContext: BaseProv,
 	c: Client
 	send(
 		content: StringResolvable,

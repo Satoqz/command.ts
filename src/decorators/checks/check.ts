@@ -1,5 +1,5 @@
-import { commandContext } from "../../interfaces/commandContext";
-import { commandArg } from "../../interfaces/registeredCommand";
+import { CommandContext } from "../../interfaces/CommandContext";
+import { CommandArg } from "../../interfaces/RegisteredCommand";
 
 /**
  * Allows you to make your own custom check function for a {@link command}<br><br>
@@ -10,13 +10,13 @@ import { commandArg } from "../../interfaces/registeredCommand";
  * ```
  * @param checkFunction a custom checking function, can take Context as an argument
  */
-export function check(checkFunction: Function): Function
+export function Check(checkFunction: Function): Function
 {
 	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor): PropertyDescriptor
 	{
 		const original = executor.value;
 
-		executor.value = async function(context: commandContext, ...args: commandArg[])
+		executor.value = async function(context: CommandContext, ...args: CommandArg[])
 		{
 			if (checkFunction(context))
 				return original.apply(this, [context, ...args]);

@@ -1,21 +1,21 @@
 import * as DJS from "discord.js";
-import { commandHandler } from "./commandHandler";
-import { commandContext } from "./interfaces/commandContext";
-import { clientOptions } from "./interfaces/clientOptions";
-import { commandArg } from "./interfaces/registeredCommand";
-import { baseProv } from "./database/baseProv";
-import { inMemProv } from "./database/inMemProv";
+import { commandHandler } from "./CommandHandler";
+import { CommandContext } from "./interfaces/CommandContext";
+import { ClientOptions } from "./interfaces/ClientOptions";
+import { CommandArg } from "./interfaces/RegisteredCommand";
+import { BaseProv } from "./database/BaseProv";
+import { InMemProv } from "./database/InMemProv";
 
 export class Client extends DJS.Client
 {
 	public commandGroups: string[] = [];
-	public dbContext: baseProv;
+	public dbContext: BaseProv;
 
-	constructor(options: clientOptions)
+	constructor(options: ClientOptions)
 	{
 		super();
 
-		this.dbContext = options.database ?? new inMemProv();
+		this.dbContext = options.database ?? new InMemProv();
 
 		this.dbContext.createContainer("PrefixConfig");
 		this.dbContext.setDocument("PrefixConfig", "defaultPrefix", options.defaultPrefix ?? "!");
@@ -47,7 +47,7 @@ export class Client extends DJS.Client
 		return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
 		{
 			const original = executor.value;
-			executor.value = function(context: commandContext, ...args: commandArg[])
+			executor.value = function(context: CommandContext, ...args: CommandArg[])
 			{
 				if (!ownerId)
 				{

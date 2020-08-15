@@ -25,8 +25,8 @@
 		"typescript",
 		"commando"
 	],
-	"main": "./build/lib.js",
-	"typings": "./src/lib.ts",
+	"main": "./build/Library.js",
+	"typings": "./src/Library.ts",
 	"scripts": {
 		"build": "tsc",
 		"docgen": "typedoc --out ./docs/ ./src/lib.ts --mode library --excludeNotExported --excludePrivate --stripInternal --hideGenerator",
