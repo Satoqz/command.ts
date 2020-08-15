@@ -1,7 +1,7 @@
 import * as DJS from "discord.js";
-import { CommandContext } from "../../interfaces/CommandContext";
+import { CommandContext } from "../../Interfaces/CommandContext";
 import { isArray } from "util";
-import { CommandArg } from "../../interfaces/RegisteredCommand";
+import { CommandArg } from "../../Interfaces/RegisteredCommand";
 
 export class Role
 {

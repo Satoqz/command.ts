@@ -1,22 +1,22 @@
 import { Client } from "./Client";
-import { reload } from "./helpers/exported/Reload";
-import { Check } from "./decorators/checks/Check";
-import { Command } from "./decorators/Command";
-import { GuildOnly } from "./decorators/checks/GuildOnly";
-import { Role } from "./decorators/checks/Role";
-import { Args } from "./decorators/Args";
-import { Permission } from "./decorators/checks/Permission";
-import { CommandContext } from "./interfaces/CommandContext";
-import { commands } from "./storage/Commands";
-import { Convert } from "./helpers/exported/Convert";
-import { Providers } from "./database/Providers";
-import { ClientOptions } from "./interfaces/ClientOptions";
-import { CommandOptions } from "./interfaces/CommandOptions";
-import { RegisteredCommand } from "./interfaces/RegisteredCommand";
-import { importAll } from "./helpers/exported/ImportAll";
+import { reload } from "./Helpers/Exported/Reload";
+import { Check } from "./Decorators/Checks/check";
+import { Command } from "./Decorators/command";
+import { GuildOnly } from "./Decorators/Checks/guildOnly";
+import { Role } from "./Decorators/Checks/Role";
+import { Args } from "./Decorators/Args";
+import { Permission } from "./Decorators/Checks/Permission";
+import { CommandContext } from "./Interfaces/CommandContext";
+import { commands } from "./Storage/Commands";
+import { Convert } from "./Helpers/Exported/Convert";
+import { Providers } from "./Database/Providers";
+import { ClientOptions } from "./Interfaces/ClientOptions";
+import { CommandOptions } from "./Interfaces/CommandOptions";
+import { RegisteredCommand } from "./Interfaces/RegisteredCommand";
+import { importAll } from "./Helpers/Exported/ImportAll";
 
-export {
-
+export
+{
 	Client,
 	Providers,
 

@@ -1,10 +1,10 @@
 import { Message, MessageEmbed, MessageAttachment } from "discord.js";
 import { Client } from "./Client";
-import { RegisteredCommand } from "./interfaces/RegisteredCommand";
-import { CommandContext, StringResolvable } from "./interfaces/CommandContext";
-import { commands } from "./storage/Commands";
-import { convertCommandArgs } from "./helpers/internal/ConvertArgs";
-import { split } from "./helpers/internal/Split";
+import { RegisteredCommand } from "./Interfaces/RegisteredCommand";
+import { CommandContext, StringResolvable } from "./Interfaces/CommandContext";
+import { commands } from "./Storage/Commands";
+import { convertArgs } from "./Helpers/Internal/ConvertArgs";
+import { split } from "./Helpers/Internal/Split";
 
 /**
  * This is executed every time a command is called
@@ -50,5 +50,5 @@ export async function commandHandler(client: Client, message: Message)
 	// remove command keyword
 	context.args = context.args.slice(1, context.args.length);
 
-	command.execute(context, ...convertCommandArgs(context, command));
+	command.execute(context, ...convertArgs(context, command));
 }

@@ -1,10 +1,10 @@
 import * as DJS from "discord.js";
 import { commandHandler } from "./CommandHandler";
-import { CommandContext } from "./interfaces/CommandContext";
-import { ClientOptions } from "./interfaces/ClientOptions";
-import { CommandArg } from "./interfaces/RegisteredCommand";
-import { BaseProv } from "./database/BaseProv";
-import { InMemProv } from "./database/InMemProv";
+import { CommandContext } from "./Interfaces/CommandContext";
+import { ClientOptions } from "./Interfaces/ClientOptions";
+import { CommandArg } from "./Interfaces/RegisteredCommand";
+import { BaseProv } from "./Database/BaseProv";
+import { InMemProv } from "./Database/InMemProv";
 
 /**
  * A modified verson of the discord.js Client implementing a command handler and much more

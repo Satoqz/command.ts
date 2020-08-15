@@ -1,5 +1,5 @@
-import { CommandContext } from "../../interfaces/CommandContext";
-import { CommandArg } from "../../interfaces/RegisteredCommand";
+import { CommandContext } from "../../Interfaces/CommandContext";
+import { CommandArg } from "../../Interfaces/RegisteredCommand";
 
 /**
  * Allows you to make your own custom check function for a {@link command}<br><br>

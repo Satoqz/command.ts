@@ -1,6 +1,6 @@
-import { CommandContext } from "../../interfaces/CommandContext";
-import { RegisteredCommand, CommandArg } from "../../interfaces/RegisteredCommand";
-import { Convert } from "../exported/Convert";
+import { CommandContext } from "../../Interfaces/CommandContext";
+import { RegisteredCommand, CommandArg } from "../../Interfaces/RegisteredCommand";
+import { Convert } from "../Exported/Convert";
 /**
  * Transforms arguments from strings to their real type
  * @param context The context to be passed to the command
@@ -9,7 +9,7 @@ import { Convert } from "../exported/Convert";
  * @returns The transformed command arguments
  * @internal
  */
-export function convertCommandArgs(context: CommandContext, command: RegisteredCommand): CommandArg[]
+export function convertArgs(context: CommandContext, command: RegisteredCommand): CommandArg[]
 {
 	command.argsTypes.forEach((type: CommandArg, index: number) =>
 	{

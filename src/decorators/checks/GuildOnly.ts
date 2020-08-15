@@ -1,5 +1,5 @@
-import { CommandContext } from "../../interfaces/CommandContext";
-import { CommandArg } from "../../interfaces/RegisteredCommand";
+import { CommandContext } from "../../Interfaces/CommandContext";
+import { CommandArg } from "../../Interfaces/RegisteredCommand";
 
 /**
  * Declares a {@link command} as guild-only<br><br>

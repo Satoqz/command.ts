@@ -1,6 +1,6 @@
-import { CommandOptions } from "../interfaces/CommandOptions";
-import { RegisteredCommand } from "../interfaces/RegisteredCommand";
-import { commands } from "../storage/Commands";
+import { CommandOptions } from "../Interfaces/CommandOptions";
+import { RegisteredCommand } from "../Interfaces/RegisteredCommand";
+import { commands } from "../Storage/Commands";
 
 /**
  * Use this method decorator to declare a class method a command

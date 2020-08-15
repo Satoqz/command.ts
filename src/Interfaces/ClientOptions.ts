@@ -1,4 +1,4 @@
-import { BaseProv } from "../database/BaseProv";
+import { BaseProv } from "../Database/BaseProv";
 
 export interface ClientOptions
 {
