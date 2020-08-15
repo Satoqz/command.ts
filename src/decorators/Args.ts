@@ -66,6 +66,11 @@ export class Args
 	{
 		setArgumentType(name, index, "role");
 	}
+
+	public static Infinite(target: Object, name: string, index: number)
+	{
+		setArgumentType(name, index, "infinite");
+	}
 }
 
 /**
