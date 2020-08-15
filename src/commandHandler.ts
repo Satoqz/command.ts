@@ -3,8 +3,8 @@ import { Client } from "./client";
 import { registeredCommand } from "./interfaces/registeredCommand";
 import { commandContext, StringResolvable } from "./interfaces/commandContext";
 import { commands } from "./storage/commands";
-import { convertCommandArgs } from "./helpers/convertArgs";
-import { split } from "./helpers/split";
+import { convertCommandArgs } from "./helpers/internal/convertArgs";
+import { split } from "./helpers/internal/split";
 
 /**
  * This is executed every time a command is called

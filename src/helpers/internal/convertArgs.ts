@@ -1,6 +1,6 @@
-import { commandContext } from "../interfaces/commandContext";
-import { registeredCommand, commandArg } from "../interfaces/registeredCommand";
-import { Convert } from "./discordConverters";
+import { commandContext } from "../../interfaces/commandContext";
+import { registeredCommand, commandArg } from "../../interfaces/registeredCommand";
+import { Convert } from "../exported/discordConverters";
 /**
  * Transforms arguments from strings to their real type
  * @param context The context to be passed to the command
