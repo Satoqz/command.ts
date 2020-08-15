@@ -1,6 +1,6 @@
 import { CommandContext } from "../../Interfaces/CommandContext";
 import { RegisteredCommand, CommandArg } from "../../Interfaces/RegisteredCommand";
-import { Convert } from "../Exported/Convert";
+import { Convert } from "../exported/Convert";
 /**
  * Transforms arguments from strings to their real type
  * @param context The context to be passed to the command
