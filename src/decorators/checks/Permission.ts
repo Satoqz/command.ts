@@ -1,6 +1,6 @@
 import * as DJS from "discord.js";
-import { CommandContext } from "../../interfaces/CommandContext";
-import { CommandArg } from "../../interfaces/RegisteredCommand";
+import { CommandContext } from "../../Interfaces/CommandContext";
+import { CommandArg } from "../../Interfaces/RegisteredCommand";
 
 export class Permission
 {

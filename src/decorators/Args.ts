@@ -1,5 +1,5 @@
-import { commands } from "../storage/Commands";
-import { RegisteredCommand, ArgType } from "../interfaces/RegisteredCommand";
+import { commands } from "../Storage/Commands";
+import { RegisteredCommand, ArgType } from "../Interfaces/RegisteredCommand";
 
 export class Args
 {
