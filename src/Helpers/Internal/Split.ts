@@ -5,13 +5,42 @@
  */
 export function split(input: string): string[]
 {
-	const matches = /".+?"/.exec(input);
-	input = input.replace(/".+?"/, "").replace(/^\s+|\s+$/g, "");
-	const astr = input.split(" ");
-	if (matches)
+	const out: string[] = [];
+
+	let inParens = false;
+	let current = "";
+	let i = 0;
+
+	for (const c of input)
 	{
-		for (let i = 0; i < matches.length; i++)
-			astr.push(matches[i].replace(/"/g, ""));
+		if (c == "\"")
+		{
+			if (!inParens)
+			{
+				if ((input[i-1] == undefined || input[i-1] == " ") && !input.includes("`"))
+					inParens = true;
+				else
+					current += c;
+			}
+			else if (inParens)
+			{
+				if (input[i+1] == undefined || input[i+1] == " ")
+					inParens = false;
+				else
+					current += c;
+			}
+		}
+		else if (c == " " && !inParens)
+		{
+			out.push(current);
+			current = "";
+		}
+		else
+			current += c;
+
+		i++;
 	}
-	return astr;
+	out.push(current);
+
+	return out;
 }
