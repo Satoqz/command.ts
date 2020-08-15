@@ -5,6 +5,10 @@
  */
 export function split(input: string): string[]
 {
+
+	if (input.includes("`"))
+		return input.split(" ");
+
 	const out: string[] = [];
 
 	let inParens = false;
@@ -17,7 +21,7 @@ export function split(input: string): string[]
 		{
 			if (!inParens)
 			{
-				if ((input[i-1] == undefined || input[i-1] == " ") && !input.includes("`"))
+				if ((input[i-1] == undefined || input[i-1] == " "))
 					inParens = true;
 				else
 					current += c;
