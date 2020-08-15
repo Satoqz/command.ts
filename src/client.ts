@@ -6,6 +6,9 @@ import { CommandArg } from "./interfaces/RegisteredCommand";
 import { BaseProv } from "./database/BaseProv";
 import { InMemProv } from "./database/InMemProv";
 
+/**
+ * A modified verson of the discord.js Client implementing a command handler and much more
+ */
 export class Client extends DJS.Client
 {
 	public commandGroups: string[] = [];
@@ -39,7 +42,6 @@ export class Client extends DJS.Client
 	/**
 	 * Only allows one specific person (client/bot-wide) to use this command
 	 * Great for private bots
-	 * @category Decorators
 	 */
 	public owner()
 	{

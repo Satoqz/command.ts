@@ -23,12 +23,21 @@ npm install -D typescript @types/node ts-node dotenv
 ```
 **We highly recommend using ts-node, but you might aswell manually compile your typescript**
 
+The last setup step would be enabling decorators in your `tsconfig.json` as following:
+```
+{
+	"compilerOptions": {
+		"experimentalDecorators": true,
+	}
+}
+```
+
 ## Creating a command
-Let's get to the code
+Let's finally get to the code!
 
 First, let's import everything we need from the library to make a basic bot and initialize a client:
 ```
-import { Client, command, Context } from "command.ts";
+import { Client, Command, Context } from "command.ts";
 
 const client = new Client();
 ```
@@ -46,14 +55,14 @@ The class name will be the group name of your command. Commands must be wrapped 
 ### Create the command function
 ```
 class MyCommands {
-	@command()
+	@Command()
 	ping(ctx: Context) {
 		ctx.send("pong");
 	}
 }
 ```
 ### Let's take a look at what is happening here:
-- The `@command()` decorator will register your function as a command.
+- The `@Command()` decorator will register your function as a command.
 - `ctx` is an argument that will be passed to every command. It contains the usual `Message` class from `discord.js` including useful shortcuts like `ctx.send()` which is an alias to `message.channel.send()`.
 
 The last step to set up the ping command is logging into discord with your [api token](https://discord.com/developers). This works the same is in `discord.js`.
@@ -70,18 +79,14 @@ const client = new Client({
 	defaultPrefix = "!"
 });
 ```
-or
-```
-client.prefixes = "!";
-```
 
 ## Configuring your command / Use of decorators
 
 ### Configure a command
-There are plenty of other decorators available than can stack with the `@command()` decorator. Just make sure that the `@command()` decorator stays at the top. Let's use the `guildOnly()` decorator as an example:
+There are plenty of other decorators available than can stack with the `@Command()` decorator. Just make sure that the `@Command()` decorator stays at the top. Let's use the `GuildOnly()` decorator as an example:
 ```
-@command()
-@guildonly()
+@Command()
+@Guildonly()
 ping(ctx: Context)
 {
 	ctx.send("pong");
@@ -94,18 +99,18 @@ Now, the bot will only respond if the the ping command was sent in a guild/serve
 To make your life easier, you can request converted argument types in your command definition.
 #### Here's a full example to get a user by name:
 ```
-import { Client, Context, params, command } from "command.ts";
+import { Client, Context, Args, Command } from "command.ts";
 import { User } from "discord.js";
 
 // declare client etc
 
 class CommandsWithCustomAguments {
 
-	username(ctx: Context, @params.User user: User) {
+	username(ctx: Context, @Args.User user: User) {
 		ctx.send(user.username);
 	}
 
-	square(ctx: Context, @params.number base: number) {
+	square(ctx: Context, @Args.Number base: number) {
 		ctx.send(Math.pow(base, 2))
 	}
 }
@@ -126,11 +131,11 @@ Because we got the input "8" passed as a number instead of a string, we were abl
 
 #### Let's break down the syntax of these parameter annotations:
 ```
-square(ctx: Context, @params.number base: number)
-	   ^^^			 ^^^^^^^^^^^^^^       ^^^^^^
+square(ctx: Context, @Args.Number base: number)
+	   ^^^			 ^^^^^^^^^^^^       ^^^^^^
 		|					|			 // The classic TypeScript type annotation
 		|					|
-		|	// The annotation that tells the command handler what type to pass
+		|	// The annotation that tells the command handler what type to pass to your method
 		|
-// The evocation context that will always be passed'
+// The invocation context of the command which will always be passed as the first argument
 ```

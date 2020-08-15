@@ -5,8 +5,8 @@ import { CommandArg } from "../../interfaces/RegisteredCommand";
  * Declares a {@link command} as guild-only<br><br>
  * Example:
  * ```
- * @command()
- * @guildonly()
+ * @Command()
+ * @Guildonly()
  * ```
  * This can be extremely useful when your command depends on guild functionality and you want to avoid errors caused by direct messages.
  */

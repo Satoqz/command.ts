@@ -6,7 +6,7 @@ import { commands } from "../storage/Commands";
  * Use this method decorator to declare a class method a command
  * ```
  * class MyCommands {
- * 		@command()
+ * 		@Command()
  * 		ping(ctx: Context) {
  * 	 		ctx.send("pong");
  * 		}

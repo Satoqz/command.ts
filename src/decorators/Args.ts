@@ -66,7 +66,10 @@ export class Args
 	{
 		setArgumentType(name, index, "role");
 	}
-
+	/**
+	 * Declare a command argument to be parsed to your comamnd function as a discord.js Role.
+	 * @returns Passes the part of the message that invocated a command where the infinite argument begins.
+	 */
 	public static Infinite(target: Object, name: string, index: number)
 	{
 		setArgumentType(name, index, "infinite");

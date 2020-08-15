@@ -2,9 +2,6 @@ import * as DJS from "discord.js";
 import { CommandContext } from "../../interfaces/CommandContext";
 import { CommandArg } from "../../interfaces/RegisteredCommand";
 
-/**
- * @alias permission
- */
 export class Permission
 {
 	/**
