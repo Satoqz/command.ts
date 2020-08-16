@@ -54,7 +54,8 @@ function roleHelper(
 		| (string | DJS.Role)[]
 ) : Function
 {
-	return function(parent: Object,
+	return function(
+		parent: Object,
 		name: string | symbol,
 		executor: PropertyDescriptor
 	): PropertyDescriptor
