@@ -12,7 +12,11 @@ import { CommandArg } from "../../Interfaces/RegisteredCommand";
  */
 export function Check(checkFunction: Function): Function
 {
-	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor): PropertyDescriptor
+	return function(
+		parent: Object,
+		name: string | symbol,
+		executor: PropertyDescriptor
+	): PropertyDescriptor
 	{
 		const original = executor.value;
 

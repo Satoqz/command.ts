@@ -12,7 +12,10 @@ import { CommandArg } from "../../Interfaces/RegisteredCommand";
  */
 export function GuildOnly(): Function
 {
-	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
+	return function(
+		parent: Object,
+		name: string | symbol,
+		executor: PropertyDescriptor)
 	{
 		const original = executor.value;
 

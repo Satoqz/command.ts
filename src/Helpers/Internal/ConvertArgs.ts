@@ -1,5 +1,8 @@
+import {
+	RegisteredCommand,
+	CommandArg
+} from "../../Interfaces/RegisteredCommand";
 import { CommandContext } from "../../Interfaces/CommandContext";
-import { RegisteredCommand, CommandArg } from "../../Interfaces/RegisteredCommand";
 import { Convert } from "../Exported/Convert";
 /**
  * Transforms arguments from strings to their real type
@@ -9,7 +12,10 @@ import { Convert } from "../Exported/Convert";
  * @returns The transformed command arguments
  * @internal
  */
-export function convertArgs(context: CommandContext, command: RegisteredCommand): CommandArg[]
+export function convertArgs(
+	context: CommandContext,
+	command: RegisteredCommand
+) : CommandArg[]
 {
 	command.argsTypes.forEach((type: CommandArg, index: number) =>
 	{
@@ -23,7 +29,8 @@ export function convertArgs(context: CommandContext, command: RegisteredCommand)
 
 			case "boolean":
 				const lower = String(context.args[index]).toLowerCase();
-				const bool = ["true", "yes", "y"].includes(lower) ? true : ["false", "no", "n"].includes(lower) ? false : undefined;
+				const bool = ["true", "yes", "y"].includes(lower) ? true
+					: ["false", "no", "n"].includes(lower) ? false : undefined;
 				context.args[index] = bool;
 				break;
 
@@ -35,15 +42,18 @@ export function convertArgs(context: CommandContext, command: RegisteredCommand)
 				break;
 
 			case "guildmember":
-				context.args[index] = Convert.toMember(context.args[index] as string, context.guild);
+				context.args[index] = Convert.toMember(
+					context.args[index] as string, context.guild);
 				break;
 
 			case "textchannel":
-				context.args[index] = Convert.toChannel(context.args[index] as string, context.guild);
+				context.args[index] = Convert.toChannel(
+					context.args[index] as string, context.guild);
 				break;
 
 			case "role":
-				context.args[index] = Convert.toRole(context.args[index] as string, context.guild);
+				context.args[index] = Convert.toRole(
+					context.args[index] as string, context.guild);
 				break;
 
 			case "infinite":

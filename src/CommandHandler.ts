@@ -19,8 +19,9 @@ export async function commandHandler(client: Client, message: Message)
 
 	// If there is no guild, it is probably a DM channel
 	const guildId = message.guild?.id ?? "dms";
-	const guildPref = client.dbContext.getDocumentById<string>("PrefixConfig", guildId)
-		?? client.dbContext.getDocumentById<string>("PrefixConfig", "defaultPrefix")!;
+	const guildPref =
+		client.dbContext.getDocumentById<string>("PrefixConfig", guildId) ??
+		client.dbContext.getDocumentById<string>("PrefixConfig", "defaultPrefix")!;
 
 	if (message.content.startsWith(guildPref))
 	{
@@ -36,14 +37,19 @@ export async function commandHandler(client: Client, message: Message)
 	context.c = client;
 	context.send = (
 		content: StringResolvable,
-		options?: MessageEmbed | MessageAttachment | (MessageEmbed | MessageAttachment)[] | undefined
+		options?:
+			| MessageEmbed
+			| MessageAttachment
+			| (MessageEmbed | MessageAttachment)[]
 	) => context.channel.send(content, options);
 
 	// create args with command keyword kept
 	context.args = split(context.content.replace(usedPrefix, ""));
 
 	const command = commands.list.find((command: RegisteredCommand) =>
-		command.aliases!.includes(String(context.args[0])) && command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
+		command.aliases!.includes(
+			String(context.args[0])) &&
+			command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
 
 	if (!command) return;
 

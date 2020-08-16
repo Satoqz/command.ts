@@ -1,4 +1,9 @@
-import { Message, ClientUser, MessageEmbed, MessageAttachment } from "discord.js";
+import {
+	Message,
+	ClientUser,
+	MessageEmbed,
+	MessageAttachment
+} from "discord.js";
 import { MessageOptions } from "child_process";
 import { CommandArg } from "./RegisteredCommand";
 import { BaseProv } from "../Database/BaseProv";

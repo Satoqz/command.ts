@@ -47,7 +47,11 @@ function permissionHelper(
 	permission: DJS.PermissionString | DJS.PermissionString[],
 	lackingPermissionAction?: Function) : Function
 {
-	return function(parent: Object, name: string | symbol, executor: PropertyDescriptor): PropertyDescriptor
+	return function(
+		parent: Object,
+		name: string | symbol,
+		executor: PropertyDescriptor
+	): PropertyDescriptor
 	{
 		const original = executor.value;
 		executor.value = function(context: CommandContext, ...args: CommandArg[])

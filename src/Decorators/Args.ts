@@ -84,7 +84,8 @@ function setArgumentType(name: string, index: number, type: ArgType)
 {
 	const interval = setInterval(() =>
 	{
-		const command: RegisteredCommand | undefined = commands.list.find((command: RegisteredCommand) => command.name == name);
+		const command: RegisteredCommand | undefined =
+			commands.list.find((command: RegisteredCommand) => command.name == name);
 
 		if (command)
 		{

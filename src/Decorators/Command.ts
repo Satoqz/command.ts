@@ -8,7 +8,7 @@ import { commands } from "../Storage/Commands";
  * class MyCommands {
  * 		@Command()
  * 		ping(ctx: Context) {
- * 	 		ctx.send("pong");
+ * 			ctx.send("pong");
  * 		}
  * }
  * ```
@@ -17,13 +17,19 @@ import { commands } from "../Storage/Commands";
  */
 export function Command(options?: CommandOptions): Function
 {
-	return async function(parent: Object, name: string, executor: PropertyDescriptor)
+	return async function(
+		parent: Object,
+		name: string,
+		executor: PropertyDescriptor)
 	{
-		const duplicateCommand: RegisteredCommand | undefined = commands.list.find((command: RegisteredCommand) => command.name == name);
+		const duplicateCommand: RegisteredCommand | undefined =
+			commands.list.find((command: RegisteredCommand) => command.name == name);
 
-		if (duplicateCommand) commands.list.splice(commands.list.indexOf(duplicateCommand), 1);
+		if (duplicateCommand)
+			commands.list.splice(commands.list.indexOf(duplicateCommand), 1);
 
-		const alreadyPushedGroup = commands.groups.find((group: string) => group == parent.constructor.name);
+		const alreadyPushedGroup =
+			commands.groups.find((group: string) => group == parent.constructor.name);
 
 		if (!alreadyPushedGroup) commands.groups.push(parent.constructor.name);
 
@@ -32,9 +38,11 @@ export function Command(options?: CommandOptions): Function
 		commands.list.push({
 			group: parent.constructor.name,
 			name: name,
-			description: hasOptions && options?.description ? options.description : undefined,
+			description: hasOptions && options?.description ?
+				options.description : undefined,
 			usage: hasOptions && options?.usage ? options.usage : undefined,
-			aliases: hasOptions && options?.aliases ? options.aliases.concat([name]) : [name],
+			aliases: hasOptions && options?.aliases ?
+				options.aliases.concat([name]) : [name],
 			execute: executor.value,
 			prefixRequired: options?.prefixRequired ?? "require",
 			argsTypes: []

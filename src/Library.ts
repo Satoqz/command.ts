@@ -14,11 +14,13 @@ import { ClientOptions } from "./Interfaces/ClientOptions";
 import { CommandOptions } from "./Interfaces/CommandOptions";
 import { RegisteredCommand } from "./Interfaces/RegisteredCommand";
 import { importAll } from "./Helpers/Exported/ImportAll";
+import { ModuleBase } from "./ModuleBase";
 
 export
 {
 	Client,
 	Providers,
+	ModuleBase,
 
 	// decorators
 	Command,

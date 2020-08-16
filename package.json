@@ -47,6 +47,16 @@
 		"typescript": "^3.9.7"
 	},
 	"eslintConfig": {
-		"extends": "eslint-config-subaru"
+		"extends": "eslint-config-subaru",
+		"rules": {
+			"max-len": [
+				1,
+				{
+					"code": 80,
+					"tabWidth": 0,
+					"ignoreComments": true
+				}
+			]
+		}
 	}
 }
