@@ -10,6 +10,22 @@ export interface RegisteredCommand extends CommandOptions
 	argsTypes: ArgType[]
 }
 
-export type CommandArg = string | number | boolean | User | GuildMember | TextChannel | Role | undefined;
+export type CommandArg =
+	| string
+	| number
+	| boolean
+	| User
+	| GuildMember
+	| TextChannel
+	| Role
+	| undefined;
 
-export type ArgType = "string" | "number" | "boolean" | "user" | "guildmember" | "textchannel" | "role" | "infinite";
+export type ArgType =
+	| "string"
+	| "number"
+	| "boolean"
+	| "user"
+	| "guildmember"
+	| "textchannel"
+	| "role"
+	| "infinite";

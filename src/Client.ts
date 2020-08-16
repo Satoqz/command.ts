@@ -21,7 +21,9 @@ export class Client extends DJS.Client
 		this.dbContext = options.database ?? new InMemProv();
 
 		this.dbContext.createContainer("PrefixConfig");
-		this.dbContext.setDocument("PrefixConfig", "defaultPrefix", options.defaultPrefix ?? "!");
+		this.dbContext.setDocument("PrefixConfig", "defaultPrefix",
+			options.defaultPrefix ?? "!");
+
 		if (options.ownerId)
 		{
 			this.dbContext.createContainer("Config");
@@ -36,7 +38,8 @@ export class Client extends DJS.Client
 	 */
 	private register()
 	{
-		this.on("message", async(message: DJS.Message) => commandHandler(this, message));
+		this.on("message", async(message: DJS.Message) =>
+			commandHandler(this, message));
 	}
 
 	/**
@@ -45,16 +48,22 @@ export class Client extends DJS.Client
 	 */
 	public owner()
 	{
-		const ownerId = this.dbContext.getDocumentById<string>("Config", "clientOwnerId");
-		return function(parent: Object, name: string | symbol, executor: PropertyDescriptor)
+		const ownerId =
+			this.dbContext.getDocumentById<string>("Config", "clientOwnerId");
+		return function(
+			parent: Object,
+			name: string | symbol,
+			executor: PropertyDescriptor)
 		{
 			const original = executor.value;
 			executor.value = function(context: CommandContext, ...args: CommandArg[])
 			{
 				if (!ownerId)
 				{
-					console.log("INFO: To use the client#owner decorator, please provide your discord id as ownerId when initializing the client!");
-					return null;
+					throw new Error("ERROR: \
+						To use the client#owner decorator, \
+						please provide your discord id as \
+						ownerId when initializing the client!");
 				}
 
 				if (context.author.id == ownerId)
