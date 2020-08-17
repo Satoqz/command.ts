@@ -1,4 +1,8 @@
-import { Message, MessageEmbed, MessageAttachment } from "discord.js";
+import { Message,
+	MessageEmbed,
+	MessageAttachment,
+	ClientUser
+} from "discord.js";
 import { Client } from "./Client";
 import { RegisteredCommand } from "./Interfaces/RegisteredCommand";
 import { CommandContext, StringResolvable } from "./Interfaces/CommandContext";
@@ -35,6 +39,7 @@ export async function commandHandler(client: Client, message: Message)
 	const context = message as CommandContext;
 	context.dbContext = client.dbContext;
 	context.c = client;
+	context.me = client.user as ClientUser;
 	context.send = (
 		content: StringResolvable,
 		options?:
