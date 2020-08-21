@@ -21,6 +21,8 @@ export interface CommandContext extends Message
 {
 	args: CommandArg[],
 	me: ClientUser,
+	usedAlias: string,
+	usedPrefix: string,
 	dbContext: BaseProv,
 	c: Client
 	send(

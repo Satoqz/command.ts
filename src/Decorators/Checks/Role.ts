@@ -14,8 +14,7 @@ export class Role
 		roles:
 			| DJS.Role
 			| string
-			| (string | DJS.Role)[],
-		lackingPermissionAction?: Function
+			| (string | DJS.Role)[]
 	): Function
 	{
 		return roleHelper("client", roles);
@@ -30,8 +29,7 @@ export class Role
 		roles:
 			| DJS.Role
 			| string
-			| (string | DJS.Role)[],
-		lackingPermissionAction?: Function
+			| (string | DJS.Role)[]
 	): Function
 	{
 		return roleHelper("user", roles);

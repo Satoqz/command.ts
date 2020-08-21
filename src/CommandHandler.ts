@@ -39,16 +39,6 @@ export async function commandHandler(client: Client, message: Message)
 		return;
 
 	const context = message as CommandContext;
-	context.dbContext = client.dbContext;
-	context.c = client;
-	context.me = client.user as ClientUser;
-	context.send = (
-		content: StringResolvable,
-		options?:
-			| MessageEmbed
-			| MessageAttachment
-			| (MessageEmbed | MessageAttachment)[]
-	) => context.channel.send(content, options);
 
 	// create args with command keyword kept
 	context.args = split(context.content.replace(usedPrefix, ""));
@@ -60,8 +50,22 @@ export async function commandHandler(client: Client, message: Message)
 
 	if (!command) return;
 
-	// remove command keyword
+	// we are now sure that the command will be executed: finish composing the context object
+
+	context.usedAlias = String(context.args[0]);
+	// remove command keyword / alias
 	context.args = context.args.slice(1, context.args.length);
+	context.usedPrefix = usedPrefix;
+	context.dbContext = client.dbContext;
+	context.c = client;
+	context.me = client.user as ClientUser;
+	context.send = (
+		content: StringResolvable,
+		options?:
+			| MessageEmbed
+			| MessageAttachment
+			| (MessageEmbed | MessageAttachment)[]
+	) => context.channel.send(content, options);
 
 	command.execute(context, ...convertArgs(context, command));
 }
