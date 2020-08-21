@@ -10,7 +10,7 @@ import { config } from "dotenv";
 config({ path: "./.env" });
 //#endregion
 
-const dbProvider: Providers.File = new Providers.File(join(__dirname, "cfg.json"));
+const dbProvider = new Providers.File(join(__dirname, "cfg.json"));
 
 // Initialize a new client/bot instance
 const client = new Client({	// When you use dotenv

@@ -18,6 +18,8 @@ import { split } from "./Helpers/Internal/Split";
  */
 export async function commandHandler(client: Client, message: Message)
 {
+	if (message.author.bot) return;
+
 	let hasPrefix = false;
 	let usedPrefix = "";
 

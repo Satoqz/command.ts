@@ -2,7 +2,7 @@ import { CommandContext } from "../../Interfaces/CommandContext";
 import { CommandArg } from "../../Interfaces/RegisteredCommand";
 
 /**
- * Allows you to make your own custom check function for a {@link command}<br><br>
+ * Allows you to make your own custom check function for a {@link Command}<br><br>
  * Example:
  * ```
  * @Command()
@@ -10,7 +10,7 @@ import { CommandArg } from "../../Interfaces/RegisteredCommand";
  * ```
  * @param checkFunction a custom checking function, can take Context as an argument
  */
-export function Check(checkFunction: Function): Function
+export function Check(condition: Function, expect?: any): Function
 {
 	return function(
 		parent: Object,
@@ -22,7 +22,7 @@ export function Check(checkFunction: Function): Function
 
 		executor.value = async function(context: CommandContext, ...args: CommandArg[])
 		{
-			if (checkFunction(context))
+			if (condition(context, ...args) == expect ?? true)
 				return original.apply(this, [context, ...args]);
 			else return null;
 		};

@@ -7,7 +7,11 @@ class PrefixCommands
 	})
 	get(ctx: Context)
 	{
-		ctx.send("prefix: " + ctx.dbContext.getDocumentById<string>("PrefixConfig", ctx.guild?.id ?? "dms"));
+		ctx.send(
+			"prefix: " + ctx.dbContext.getDocumentById<string>(
+				"PrefixConfig", ctx.guild?.id ?? "dms"
+			)
+		);
 	}
 
 	@Command({
@@ -15,7 +19,8 @@ class PrefixCommands
 	})
 	set(ctx: Context, @Args.String prefix: string)
 	{
-		console.log(ctx.content);
+		if (!prefix) return;
+
 		ctx.dbContext.setDocument("PrefixConfig", ctx.guild?.id ?? "dms", prefix);
 		ctx.dbContext.saveChanges();
 	}
