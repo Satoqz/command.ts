@@ -131,8 +131,7 @@ export class Panel extends MessageEmbed
 	}
 	private on(name: PanelEvent, callback: Function)
 	{
-		if (typeof callback == "function" && typeof name == "string")
-			this.listeners.push({ name, callback });
+		this.listeners.push({ name, callback });
 	}
 }
 
