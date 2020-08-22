@@ -13,9 +13,9 @@ import { Client } from "../Client";
 
 export class Panel extends MessageEmbed
 {
-	constructor(options: PanelOptions, embedOptions: MessageEmbed | Object)
+	constructor(options: PanelOptions)
 	{
-		super(embedOptions);
+		super(options.embed);
 
 		this.removeReactions = options.removeReactions ?? false;
 
@@ -62,23 +62,17 @@ export class Panel extends MessageEmbed
 
 	public removeReactions: boolean
 
-	public addReactions(handlers: ReactionHandler | ReactionHandler[])
+	public addReaction(emoji: string, callback: ReactionCallback)
 	{
 		function run(panel: Panel)
 		{
-			if (isArray(handlers))
-			{
-				handlers.forEach((handler: ReactionHandler) =>
+			panel.message?.react(emoji);
+			panel.reactionHandlers.push(
 				{
-					panel.message?.react(handler.emoji);
-					panel.reactionHandlers.push(handler);
-				});
-			}
-			else
-			{
-				panel.message?.react(handlers.emoji);
-				panel.reactionHandlers.push(handlers);
-			}
+					emoji: emoji,
+					execute: callback
+				}
+			);
 		}
 
 		if (this.ready)
@@ -131,7 +125,9 @@ export class Panel extends MessageEmbed
 
 	private emit(eventName: PanelEvent)
 	{
-		this.listeners.find(({ name }) => name == eventName)?.callback();
+		this.listeners
+			.filter(({ name }) => name == eventName)
+			.forEach(listener => listener.callback());
 	}
 	private on(name: PanelEvent, callback: Function)
 	{
@@ -145,7 +141,8 @@ export interface PanelOptions
 	channel: TextChannel | GuildChannel | string,
 	message?: Message | string,
 	removeReactions?: boolean,
-	client: Client
+	client: Client,
+	embed: MessageEmbed | Object
 }
 
 export type PanelEvent = "ready"
@@ -155,3 +152,5 @@ export interface ReactionHandler
 	emoji: string,
 	execute: (reaction: MessageReaction, user: User) => any
 }
+
+export type ReactionCallback =  (reaction: MessageReaction, user: User) => any

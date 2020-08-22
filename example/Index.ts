@@ -42,35 +42,26 @@ function createPanel()
 			channel: "741824711888994425",
 			message: "746513377408319629",
 			client: client,
-			removeReactions: true
-		},
-		embed
+			removeReactions: true,
+			embed: embed
+		}
 	);
 
-	panel.addReactions(
-		[
-			{
-				emoji: "🐳",
-				execute: (r, u) =>
-				{
-					const guild = panel.channel.guild;
-					guild.member(u).roles.add(
-						guild.roles.cache.find(role => role.name == "Whale")
-					);
-				}
-			},
-			{
-				emoji: "🐬",
-				execute: (r, u) =>
-				{
-					const guild = panel.channel.guild;
-					guild.member(u).roles.add(
-						guild.roles.cache.find(role => role.name == "Dolphin")
-					);
-				}
-			}
-		]
-	);
+	panel.addReaction("🐳", (r, u) =>
+	{
+		const guild = panel.channel.guild;
+		guild.member(u).roles.add(
+			guild.roles.cache.find(role => role.name == "Whale")
+		);
+	});
+
+	panel.addReaction("🐬", (r, u) =>
+	{
+		const guild = panel.channel.guild;
+		guild.member(u).roles.add(
+			guild.roles.cache.find(role => role.name == "Dolphin")
+		);
+	});
 }
 
 
