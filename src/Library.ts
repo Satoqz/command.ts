@@ -1,6 +1,5 @@
 import { Client } 				from "./Client";
 import { Panel }				from "./Panel/Panel";
-import { PanelMessage }			from "./Panel/PanelMessage";
 import { Providers } 			from "./Database/Providers";
 import { Command } 				from "./Decorators/Command";
 import { fancify } 				from "./Decorators/Fancify";
@@ -23,7 +22,6 @@ export
 	Client,
 	Providers,
 	Panel,
-	PanelMessage,
 
 	// decorators
 	Command,

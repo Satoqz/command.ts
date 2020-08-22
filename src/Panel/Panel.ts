@@ -1,97 +1,130 @@
-import { TextChannel, GuildChannel, MessageEmbed, Message } from "discord.js";
-
-import { Client } from "../Client";
-import { PanelMessage } from "./PanelMessage";
+import {
+	TextChannel,
+	GuildChannel,
+	MessageEmbed,
+	Message,
+	Channel,
+	User,
+	MessageReaction
+} from "discord.js";
 import { isArray } from "util";
 
-export class Panel
+import { Client } from "../Client";
+
+export class Panel extends MessageEmbed
 {
-	constructor(channel: TextChannel | GuildChannel | string, client: Client)
+	constructor(options: PanelOptions, embedOptions: MessageEmbed | Object)
 	{
-		this.client = client;
+		super(embedOptions);
 
-		if (typeof channel == "string")
-		{
-			const tmp = client.channels.cache.get(channel) as TextChannel;
-			if (!tmp)
-			{
-				throw new Error("Invalid channel id: Could not instantiate panel");
-			}
-			this.channel = tmp;
-		}
-		else
-			this.channel = channel as TextChannel;
+		this.removeReactions = options.removeReactions ?? false;
+
+		this.client = options.client;
+
+		this.fetchChannel(options.channel);
+
+		this.fetchMessage(options.message);
+
+		this.handleReactions();
 	}
-	public channel: TextChannel;
+	public channel?: TextChannel
+	public message?: Message
+	public client: Client
 
-	public addReactions(handlers: ReactionHandler[] | ReactionHandler, key?: string)
+	public render()
 	{
-		const embed = this.findEmbed(key);
+		this.message?.edit({ embed: this });
+	}
 
+	private handleReactions()
+	{
+		const filter = (reaction: MessageReaction, user: User) =>
+			user.id != this.message?.client!.user!.id;
+
+		const collector = this.message?.createReactionCollector(filter);
+
+		collector?.on("collect", (reaction: MessageReaction, user: User) =>
+		{
+			const handler = this.reactionHandlers.find((handler: ReactionHandler) =>
+				handler.emoji == reaction.emoji.name
+			);
+			if (!handler)
+			{
+				reaction.users.remove(user).catch();
+				return;
+			}
+			handler.execute(reaction, user);
+			if (this.removeReactions)
+				reaction.users.remove(user).catch();
+		});
+	}
+
+	public removeReactions: boolean
+
+	public addReactions(handlers: ReactionHandler | ReactionHandler[])
+	{
 		if (isArray(handlers))
 		{
 			handlers.forEach((handler: ReactionHandler) =>
 			{
-				embed?.message.react(handler.emoji);
-				embed?.reactionHandlers.push(handler);
+				this.message?.react(handler.emoji);
+				this.reactionHandlers.push(handler);
 			});
 		}
 		else
 		{
-			embed?.message.react(handlers.emoji);
-			embed?.reactionHandlers.push(handlers);
+			this.message?.react(handlers.emoji);
+			this.reactionHandlers.push(handlers);
 		}
 	}
 
-	public async addEmbed(embedOrId: MessageEmbed | string, key?: string)
-	{
-		let message: Message;
-		if (typeof embedOrId == "string")
-		{
-			message = await this.channel.messages.fetch(embedOrId) as Message;
+	public reactionHandlers: ReactionHandler[] = []
 
-			if (!message)
-				throw new Error("Required message not found in specified channel");
+	private async fetchMessage(identifier: Message | string | undefined)
+	{
+		if (!identifier)
+		{
+			this.message = await this.channel?.send({ embed: this });
+			return;
+		}
+
+		else if (typeof identifier == "string")
+			this.message = await this.channel?.messages.fetch(identifier);
+		else
+			this.message = identifier;
+
+		if (this.message?.author.id != this.client.user?.id)
+			throw new Error(
+				"A fetched panel message must have been sent by the client, not another user"
+			);
+
+		this.message?.edit({ embed: this });
+	}
+	private async fetchChannel(
+		identifier: TextChannel | GuildChannel | Channel | string
+	)
+	{
+		if (typeof identifier == "string")
+		{
+			this.channel = this.client.channels.cache.get(identifier) as TextChannel;
+			if (!this.channel)
+				throw new Error("Invalid channel id: Could not instantiate panel");
 		}
 		else
-			message = await this.channel.send({ embed: embedOrId });
-
-		this.embeds.push(
-			new PanelMessage(message, key ?? String(this.embeds.length - 1))
-		);
+			this.channel = identifier as TextChannel;
 	}
+}
 
-	private findEmbed(key: string | undefined): PanelMessage | undefined
-	{
-		let embed: PanelMessage | undefined = undefined;
-		if (key)
-			embed = this.embeds.find((embed: PanelMessage) => embed.key == key);
-
-		else if (!key || !embed)
-			embed = this.embeds[0];
-
-		return embed;
-	}
-
-	public embeds: PanelMessage[] = []
-
-	public destroy()
-	{
-		this.embeds.forEach((embed: PanelMessage) =>
-		{
-			if (embed.message.deletable)
-				embed.message.delete();
-		});
-		this.destroyed = true;
-	}
-
-	public destroyed: boolean = false;
-
-	public client: Client
+export interface PanelOptions
+{
+	channel: TextChannel | GuildChannel | string,
+	message?: Message | string,
+	removeReactions?: boolean,
+	client: Client
 }
 
 export interface ReactionHandler
 {
 	emoji: string,
-	execute: Function
+	execute: (reaction: MessageReaction, user: User) => any
 }
