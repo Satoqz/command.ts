@@ -5,11 +5,15 @@ import {
 	Message,
 	Channel,
 	User,
-	MessageReaction
+	MessageReaction,
+	Client
 } from "discord.js";
-import { isArray } from "util";
 
-import { Client } from "../Client";
+import {
+	PanelOptions,
+	ReactionCallback,
+	ReactionHandler
+} from "../Interfaces/PanelInterfaces";
 
 export class Panel extends MessageEmbed
 {
@@ -25,14 +29,38 @@ export class Panel extends MessageEmbed
 			.then(() => this.fetchMessage(options.message))
 			.then(() => this.handleReactions());
 	}
+
 	public channel?: TextChannel
 	public message?: Message
 	public client: Client
+	public removeReactions: boolean
+	public reactionHandlers: ReactionHandler[] = []
+
+	public addReaction(emoji: string, callback: ReactionCallback)
+	{
+		function run(panel: Panel)
+		{
+			panel.message?.react(emoji);
+			panel.reactionHandlers.push(
+				{
+					emoji: emoji,
+					execute: callback
+				}
+			);
+		}
+
+		if (this.ready)
+			run(this);
+		else
+			this.on("ready", () => run(this));
+	}
 
 	public render()
 	{
 		this.message?.edit({ embed: this });
 	}
+
+	private ready = false
 
 	private handleReactions()
 	{
@@ -59,29 +87,6 @@ export class Panel extends MessageEmbed
 		this.ready = true;
 		this.emit("ready");
 	}
-
-	public removeReactions: boolean
-
-	public addReaction(emoji: string, callback: ReactionCallback)
-	{
-		function run(panel: Panel)
-		{
-			panel.message?.react(emoji);
-			panel.reactionHandlers.push(
-				{
-					emoji: emoji,
-					execute: callback
-				}
-			);
-		}
-
-		if (this.ready)
-			run(this);
-		else
-			this.on("ready", () => run(this));
-	}
-
-	public reactionHandlers: ReactionHandler[] = []
 
 	private async fetchMessage(identifier: Message | string | undefined)
 	{
@@ -117,39 +122,18 @@ export class Panel extends MessageEmbed
 			this.channel = identifier as TextChannel;
 	}
 
-	private ready = false
-
 	// very  simple event emitter implementation to internally communicate
 
-	private listeners: {name: PanelEvent, callback: Function}[] = [];
+	private listeners: {name: string, callback: Function}[] = [];
 
-	private emit(eventName: PanelEvent)
+	private emit(eventName: string)
 	{
 		this.listeners
 			.filter(({ name }) => name == eventName)
 			.forEach(listener => listener.callback());
 	}
-	private on(name: PanelEvent, callback: Function)
+	private on(name: string, callback: Function)
 	{
 		this.listeners.push({ name, callback });
 	}
 }
-
-export interface PanelOptions
-{
-	channel: TextChannel | GuildChannel | string,
-	message?: Message | string,
-	removeReactions?: boolean,
-	client: Client,
-	embed: MessageEmbed | Object
-}
-
-export type PanelEvent = "ready"
-
-export interface ReactionHandler
-{
-	emoji: string,
-	execute: (reaction: MessageReaction, user: User) => any
-}
-
-export type ReactionCallback =  (reaction: MessageReaction, user: User) => any
