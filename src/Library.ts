@@ -1,4 +1,5 @@
 import { Client } 				from "./Client";
+import { Panel }				from "./Panel/Panel";
 import { Providers } 			from "./Database/Providers";
 import { Command } 				from "./Decorators/Command";
 import { fancify } 				from "./Decorators/Fancify";
@@ -11,6 +12,7 @@ import { CommandContext } 		from "./Interfaces/CommandContext";
 import { ClientOptions } 		from "./Interfaces/ClientOptions";
 import { CommandOptions } 		from "./Interfaces/CommandOptions";
 import { RegisteredCommand } 	from "./Interfaces/RegisteredCommand";
+import { PanelOptions }			from "./Interfaces/PanelInterfaces";
 import { Convert } 				from "./Helpers/Exported/Convert";
 import { importAll } 			from "./Helpers/Exported/ImportAll";
 import { reload } 				from "./Helpers/Exported/Reload";
@@ -20,6 +22,7 @@ export
 {
 	Client,
 	Providers,
+	Panel,
 
 	// decorators
 	Command,
@@ -41,5 +44,6 @@ export
 	CommandContext as Context,
 	ClientOptions,
 	CommandOptions,
-	RegisteredCommand
+	RegisteredCommand,
+	PanelOptions
 };

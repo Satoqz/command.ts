@@ -1,11 +1,12 @@
 // Import from the libary
-import { Client, Providers, importAll } from "command.ts";
+import { Client, Providers, importAll, Panel } from "command.ts";
 import { join } from "path";
 
 //#region Load config
 // Load config from your ".env" file, remember to gitignore it
 // This is fine for development, for production you should consider to use another method to get your token
 import { config } from "dotenv";
+import { MessageEmbed, Message } from "discord.js";
 
 config({ path: "./.env" });
 //#endregion
