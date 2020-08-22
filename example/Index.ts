@@ -31,32 +31,46 @@ client.login(process.env.TOKEN);
 
 client.on("ready", () => createPanel());
 
-async function createPanel()
+function createPanel()
 {
-	const embed = new MessageEmbed().setTitle("hey :D");
+	const embed = new MessageEmbed()
+		.setColor("GREEN")
+		.setDescription("Click the reactions to select your favourite animal!");
 
 	const panel = new Panel(
 		{
 			channel: "741824711888994425",
 			message: "746513377408319629",
-			client: client
+			client: client,
+			removeReactions: true
 		},
 		embed
 	);
 
-	setTimeout(() =>
-	{
-		panel
-			.setTitle("test")
-			.render();
-	}, 10000);
-
-	setTimeout(() =>
-	{
-		panel
-			.setDescription("OMG THIS IS WORKING")
-			.render();
-	}, 20000);
+	panel.addReactions(
+		[
+			{
+				emoji: "🐳",
+				execute: (r, u) =>
+				{
+					const guild = panel.channel.guild;
+					guild.member(u).roles.add(
+						guild.roles.cache.find(role => role.name == "Whale")
+					);
+				}
+			},
+			{
+				emoji: "🐬",
+				execute: (r, u) =>
+				{
+					const guild = panel.channel.guild;
+					guild.member(u).roles.add(
+						guild.roles.cache.find(role => role.name == "Dolphin")
+					);
+				}
+			}
+		]
+	);
 }
 
 

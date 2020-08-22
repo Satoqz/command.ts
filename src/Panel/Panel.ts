@@ -21,11 +21,9 @@ export class Panel extends MessageEmbed
 
 		this.client = options.client;
 
-		this.fetchChannel(options.channel);
-
-		this.fetchMessage(options.message);
-
-		this.handleReactions();
+		this.fetchChannel(options.channel)
+			.then(() => this.fetchMessage(options.message))
+			.then(() => this.handleReactions());
 	}
 	public channel?: TextChannel
 	public message?: Message
@@ -57,25 +55,36 @@ export class Panel extends MessageEmbed
 			if (this.removeReactions)
 				reaction.users.remove(user).catch();
 		});
+
+		this.ready = true;
+		this.emit("ready");
 	}
 
 	public removeReactions: boolean
 
 	public addReactions(handlers: ReactionHandler | ReactionHandler[])
 	{
-		if (isArray(handlers))
+		function run(panel: Panel)
 		{
-			handlers.forEach((handler: ReactionHandler) =>
+			if (isArray(handlers))
 			{
-				this.message?.react(handler.emoji);
-				this.reactionHandlers.push(handler);
-			});
+				handlers.forEach((handler: ReactionHandler) =>
+				{
+					panel.message?.react(handler.emoji);
+					panel.reactionHandlers.push(handler);
+				});
+			}
+			else
+			{
+				panel.message?.react(handlers.emoji);
+				panel.reactionHandlers.push(handlers);
+			}
 		}
+
+		if (this.ready)
+			run(this);
 		else
-		{
-			this.message?.react(handlers.emoji);
-			this.reactionHandlers.push(handlers);
-		}
+			this.on("ready", () => run(this));
 	}
 
 	public reactionHandlers: ReactionHandler[] = []
@@ -113,6 +122,22 @@ export class Panel extends MessageEmbed
 		else
 			this.channel = identifier as TextChannel;
 	}
+
+	private ready = false
+
+	// very  simple event emitter implementation to internally communicate
+
+	private listeners: {name: PanelEvent, callback: Function}[] = [];
+
+	private emit(eventName: PanelEvent)
+	{
+		this.listeners.find(({ name }) => name == eventName)?.callback();
+	}
+	private on(name: PanelEvent, callback: Function)
+	{
+		if (typeof callback == "function" && typeof name == "string")
+			this.listeners.push({ name, callback });
+	}
 }
 
 export interface PanelOptions
@@ -122,6 +147,8 @@ export interface PanelOptions
 	removeReactions?: boolean,
 	client: Client
 }
+
+export type PanelEvent = "ready"
 
 export interface ReactionHandler
 {
