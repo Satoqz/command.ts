@@ -17,7 +17,7 @@ class PrefixCommands
 	@Command({
 		prefixRequired: "optional"
 	})
-	set(ctx: Context, @Args.String prefix: string)
+	set(ctx: Context, @Args.String("Prefix") prefix: string)
 	{
 		if (!prefix) return;
 

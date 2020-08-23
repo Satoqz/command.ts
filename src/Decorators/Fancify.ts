@@ -1,13 +1,13 @@
 import { CommandContext } from "../Interfaces/CommandContext";
 import { CommandArg } from "../Interfaces/RegisteredCommand";
 
-export function fancify(condition: Function, expect?: any): Function
+export function fancify(condition: Function, expect: any = true): Function
 {
 	return function()
 	{
 		return function(
 			parent: Object,
-			name: string | symbol,
+			name: string,
 			executor: PropertyDescriptor
 		): PropertyDescriptor
 		{
@@ -15,7 +15,7 @@ export function fancify(condition: Function, expect?: any): Function
 
 			executor.value = async function(context: CommandContext, ...args: CommandArg[])
 			{
-				if (condition(context, ...args) == expect ?? true)
+				if (condition(context, ...args) == expect)
 					return original.apply(this, [context, ...args]);
 				else return null;
 			};
