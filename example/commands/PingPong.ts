@@ -1,4 +1,4 @@
-import { Context, Command } from "command.ts";
+import { Context, Command, Args } from "command.ts";
 
 // Your editor might suggest removing this class, but it's fine :)
 class PingPongCommands

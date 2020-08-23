@@ -12,15 +12,21 @@ export class Client extends DJS.Client
 	public commandGroups: string[] = [];
 	public dbContext: BaseProv;
 
-	constructor(options: ClientOptions, djsOptions?: DJS.ClientOptions | undefined)
+	constructor(
+		options: ClientOptions = {},
+		djsOptions?: DJS.ClientOptions
+	)
 	{
 		super(djsOptions);
 
 		this.dbContext = options.database ?? new InMemProv();
 
 		this.dbContext.createContainer("PrefixConfig");
-		this.dbContext.setDocument("PrefixConfig", "defaultPrefix",
-			options.defaultPrefix ?? "!");
+		this.dbContext.setDocument(
+			"PrefixConfig",
+			"defaultPrefix",
+			options.defaultPrefix ?? "!"
+		);
 
 		this.register();
 	}
