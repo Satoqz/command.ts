@@ -1,6 +1,7 @@
 import { CommandOptions } from "../Interfaces/CommandOptions";
 import { RegisteredCommand } from "../Interfaces/RegisteredCommand";
 import { commands } from "../Storage/Commands";
+import { getParamNames } from "../Helpers/Internal/GetParamNames";
 
 /**
  * Use this method decorator to declare a class method a command
@@ -45,7 +46,8 @@ export function Command(options?: CommandOptions): Function
 				options.aliases.concat([name]) : [name],
 			execute: executor.value,
 			prefixRequired: options?.prefixRequired ?? "require",
-			argsTypes: []
+			argsTypes: [],
+			argsNames: getParamNames(executor.value).slice(1)
 		});
 	};
 }

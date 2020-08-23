@@ -59,6 +59,7 @@ export async function commandHandler(client: Client, message: Message)
 	context.dbContext = client.dbContext;
 	context.c = client;
 	context.me = client.user as ClientUser;
+	context.command = command;
 	context.send = (
 		content: StringResolvable,
 		options?:

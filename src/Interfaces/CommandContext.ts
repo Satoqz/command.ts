@@ -8,6 +8,7 @@ import { MessageOptions } from "child_process";
 import { CommandArg } from "./RegisteredCommand";
 import { BaseProv } from "../Database/BaseProv";
 import { Client } from "../Client";
+import { RegisteredCommand } from "./RegisteredCommand";
 
 /**
  * @internal
@@ -24,6 +25,7 @@ export interface CommandContext extends Message
 	usedAlias: string,
 	usedPrefix: string,
 	dbContext: BaseProv,
+	command: RegisteredCommand,
 	c: Client
 	send(
 		content: StringResolvable,

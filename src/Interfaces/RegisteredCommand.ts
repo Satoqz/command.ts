@@ -7,7 +7,8 @@ export interface RegisteredCommand extends CommandOptions
 	group: string,
 	name: string,
 	prefixRequired: "optional" | "require" | "notallowed",
-	argsTypes: ArgType[]
+	argsTypes: ArgType[],
+	argsNames: string[]
 }
 
 export type CommandArg =
