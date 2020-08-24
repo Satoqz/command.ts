@@ -114,6 +114,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="commandcontext.html#channel" class="tsd-kind-icon">channel</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="commandcontext.html#cleancontent" class="tsd-kind-icon">clean<wbr>Content</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="commandcontext.html#client" class="tsd-kind-icon">client</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandcontext.html#command" class="tsd-kind-icon">command</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="commandcontext.html#content" class="tsd-kind-icon">content</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="commandcontext.html#createdat" class="tsd-kind-icon">created<wbr>At</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="commandcontext.html#createdtimestamp" class="tsd-kind-icon">created<wbr>Timestamp</a></li>
@@ -141,6 +142,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="commandcontext.html#tts" class="tsd-kind-icon">tts</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="commandcontext.html#type" class="tsd-kind-icon">type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="commandcontext.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandcontext.html#usedalias" class="tsd-kind-icon">used<wbr>Alias</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="commandcontext.html#usedprefix" class="tsd-kind-icon">used<wbr>Prefix</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited"><a href="commandcontext.html#webhookid" class="tsd-kind-icon">webhookID</a></li>
 							</ul>
 						</section>
@@ -174,7 +177,7 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Command<wbr>Context<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Client</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, channel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DMChannel</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="commandcontext.html" class="tsd-signature-type">CommandContext</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Command<wbr>Context<span class="tsd-signature-symbol">(</span>client<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Client</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, channel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DMChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NewsChannel</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="commandcontext.html" class="tsd-signature-type">CommandContext</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -182,7 +185,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#constructor">constructor</a></p>
 								<p>Overrides Base.__constructor</p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:907</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:944</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -194,7 +197,7 @@
 									<h5>data: <span class="tsd-signature-type">object</span></h5>
 								</li>
 								<li>
-									<h5>channel: <span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DMChannel</span></h5>
+									<h5>channel: <span class="tsd-signature-type">TextChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DMChannel</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NewsChannel</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="commandcontext.html" class="tsd-signature-type">CommandContext</a></h4>
@@ -212,7 +215,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#activity">activity</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#activity">activity</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:912</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:949</li>
 						</ul>
 					</aside>
 				</section>
@@ -224,18 +227,18 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#application">application</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#application">application</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:913</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:950</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="args" class="tsd-anchor"></a>
 					<h3>args</h3>
-					<div class="tsd-signature tsd-kind-icon">args<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CommandArg</span><span class="tsd-signature-symbol">[]</span></div>
+					<div class="tsd-signature tsd-kind-icon">args<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CommandParam</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandContext.ts#L17">src/Interfaces/CommandContext.ts:17</a></li>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandContext.ts#L17">src/Interfaces/CommandContext.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L23">src/Interfaces/CommandContext.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L23">src/Interfaces/CommandContext.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +250,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#attachments">attachments</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#attachments">attachments</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:914</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:951</li>
 						</ul>
 					</aside>
 				</section>
@@ -259,7 +262,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#author">author</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#author">author</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:915</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:952</li>
 						</ul>
 					</aside>
 				</section>
@@ -269,8 +272,8 @@
 					<div class="tsd-signature tsd-kind-icon">c<span class="tsd-signature-symbol">:</span> <a href="../classes/client.html" class="tsd-signature-type">Client</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandContext.ts#L20">src/Interfaces/CommandContext.ts:20</a></li>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandContext.ts#L20">src/Interfaces/CommandContext.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L29">src/Interfaces/CommandContext.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L29">src/Interfaces/CommandContext.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -282,7 +285,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#channel">channel</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#channel">channel</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:916</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:953</li>
 						</ul>
 					</aside>
 				</section>
@@ -294,7 +297,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#cleancontent">cleanContent</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#cleancontent">cleanContent</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:917</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:954</li>
 						</ul>
 					</aside>
 				</section>
@@ -310,6 +313,17 @@
 						</ul>
 					</aside>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="command" class="tsd-anchor"></a>
+					<h3>command</h3>
+					<div class="tsd-signature tsd-kind-icon">command<span class="tsd-signature-symbol">:</span> <a href="command.html" class="tsd-signature-type">Command</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L28">src/Interfaces/CommandContext.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L28">src/Interfaces/CommandContext.ts:28</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
 					<a name="content" class="tsd-anchor"></a>
 					<h3>content</h3>
@@ -318,7 +332,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#content">content</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#content">content</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:918</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:955</li>
 						</ul>
 					</aside>
 				</section>
@@ -330,7 +344,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#createdat">createdAt</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#createdat">createdAt</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:919</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:956</li>
 						</ul>
 					</aside>
 				</section>
@@ -342,7 +356,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#createdtimestamp">createdTimestamp</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#createdtimestamp">createdTimestamp</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:920</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:957</li>
 						</ul>
 					</aside>
 				</section>
@@ -352,8 +366,8 @@
 					<div class="tsd-signature tsd-kind-icon">db<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BaseProv</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandContext.ts#L19">src/Interfaces/CommandContext.ts:19</a></li>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandContext.ts#L19">src/Interfaces/CommandContext.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L27">src/Interfaces/CommandContext.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L27">src/Interfaces/CommandContext.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -365,7 +379,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#deletable">deletable</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#deletable">deletable</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:921</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:958</li>
 						</ul>
 					</aside>
 				</section>
@@ -377,7 +391,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#deleted">deleted</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#deleted">deleted</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:922</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:959</li>
 						</ul>
 					</aside>
 				</section>
@@ -389,7 +403,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#editable">editable</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#editable">editable</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:923</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:960</li>
 						</ul>
 					</aside>
 				</section>
@@ -401,7 +415,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#editedat">editedAt</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#editedat">editedAt</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:924</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:961</li>
 						</ul>
 					</aside>
 				</section>
@@ -413,7 +427,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#editedtimestamp">editedTimestamp</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#editedtimestamp">editedTimestamp</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:925</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:962</li>
 						</ul>
 					</aside>
 				</section>
@@ -425,7 +439,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#edits">edits</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#edits">edits</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:926</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:963</li>
 						</ul>
 					</aside>
 				</section>
@@ -437,7 +451,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#embeds">embeds</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#embeds">embeds</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:927</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:964</li>
 						</ul>
 					</aside>
 				</section>
@@ -449,7 +463,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#flags">flags</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#flags">flags</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:942</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:979</li>
 						</ul>
 					</aside>
 				</section>
@@ -461,7 +475,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#guild">guild</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#guild">guild</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:928</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:965</li>
 						</ul>
 					</aside>
 				</section>
@@ -473,7 +487,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#id">id</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#id">id</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:929</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:966</li>
 						</ul>
 					</aside>
 				</section>
@@ -483,8 +497,8 @@
 					<div class="tsd-signature tsd-kind-icon">me<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClientUser</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandContext.ts#L18">src/Interfaces/CommandContext.ts:18</a></li>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandContext.ts#L18">src/Interfaces/CommandContext.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L24">src/Interfaces/CommandContext.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L24">src/Interfaces/CommandContext.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -496,7 +510,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#member">member</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#member">member</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:930</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:967</li>
 						</ul>
 					</aside>
 				</section>
@@ -508,7 +522,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#mentions">mentions</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#mentions">mentions</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:931</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:968</li>
 						</ul>
 					</aside>
 				</section>
@@ -520,7 +534,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#nonce">nonce</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#nonce">nonce</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:932</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:969</li>
 						</ul>
 					</aside>
 				</section>
@@ -532,7 +546,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#partial">partial</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#partial">partial</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:933</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:970</li>
 						</ul>
 					</aside>
 				</section>
@@ -544,7 +558,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#pinnable">pinnable</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#pinnable">pinnable</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:934</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:971</li>
 						</ul>
 					</aside>
 				</section>
@@ -556,7 +570,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#pinned">pinned</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#pinned">pinned</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:935</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:972</li>
 						</ul>
 					</aside>
 				</section>
@@ -568,7 +582,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reactions">reactions</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reactions">reactions</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:936</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:973</li>
 						</ul>
 					</aside>
 				</section>
@@ -580,7 +594,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reference">reference</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reference">reference</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:943</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:980</li>
 						</ul>
 					</aside>
 				</section>
@@ -592,7 +606,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#system">system</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#system">system</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:937</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:974</li>
 						</ul>
 					</aside>
 				</section>
@@ -604,7 +618,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#tts">tts</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#tts">tts</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:938</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:975</li>
 						</ul>
 					</aside>
 				</section>
@@ -616,7 +630,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#type">type</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#type">type</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:939</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:976</li>
 						</ul>
 					</aside>
 				</section>
@@ -628,7 +642,29 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#url">url</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#url">url</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:940</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:977</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="usedalias" class="tsd-anchor"></a>
+					<h3>used<wbr>Alias</h3>
+					<div class="tsd-signature tsd-kind-icon">used<wbr>Alias<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L25">src/Interfaces/CommandContext.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L25">src/Interfaces/CommandContext.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="usedprefix" class="tsd-anchor"></a>
+					<h3>used<wbr>Prefix</h3>
+					<div class="tsd-signature tsd-kind-icon">used<wbr>Prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L26">src/Interfaces/CommandContext.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L26">src/Interfaces/CommandContext.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -640,7 +676,7 @@
 						<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#webhookid">webhookID</a></p>
 						<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#webhookid">webhookID</a></p>
 						<ul>
-							<li>Defined in node_modules/discord.js/typings/index.d.ts:941</li>
+							<li>Defined in node_modules/discord.js/typings/index.d.ts:978</li>
 						</ul>
 					</aside>
 				</section>
@@ -659,7 +695,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#awaitreactions">awaitReactions</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#awaitreactions">awaitReactions</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:944</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:981</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -687,7 +723,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#createreactioncollector">createReactionCollector</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#createreactioncollector">createReactionCollector</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:948</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:985</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -715,7 +751,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#delete">delete</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:949</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:986</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -741,7 +777,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#edit">edit</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#edit">edit</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:950</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:987</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -760,7 +796,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#edit">edit</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#edit">edit</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:951</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:988</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -785,7 +821,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#equals">equals</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#equals">equals</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:952</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:989</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -805,7 +841,7 @@
 					<a name="fetch" class="tsd-anchor"></a>
 					<h3>fetch</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">fetch<span class="tsd-signature-symbol">(</span>force<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -813,9 +849,15 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#fetch">fetch</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#fetch">fetch</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:954</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:991</li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> force: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -832,7 +874,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#fetchwebhook">fetchWebhook</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#fetchwebhook">fetchWebhook</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:953</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:990</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Webhook</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -843,7 +885,7 @@
 					<a name="pin" class="tsd-anchor"></a>
 					<h3>pin</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">pin<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">pin<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>reason<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -851,9 +893,15 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#pin">pin</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#pin">pin</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:955</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:992</li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>reason<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -870,7 +918,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#react">react</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#react">react</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:956</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:993</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -898,7 +946,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reply">reply</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reply">reply</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:957</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:994</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -917,7 +965,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reply">reply</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reply">reply</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:961</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:998</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -936,7 +984,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reply">reply</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reply">reply</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:965</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:1002</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -952,7 +1000,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reply">reply</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#reply">reply</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:974</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:1011</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -976,7 +1024,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandContext.ts#L21">src/Interfaces/CommandContext.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L30">src/Interfaces/CommandContext.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -993,7 +1041,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandContext.ts#L21">src/Interfaces/CommandContext.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandContext.ts#L30">src/Interfaces/CommandContext.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1021,7 +1069,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#suppressembeds">suppressEmbeds</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#suppressembeds">suppressEmbeds</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:977</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:1014</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1046,7 +1094,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#tojson">toJSON</a></p>
 								<p>Overrides Base.toJSON</p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:978</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:1015</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -1065,7 +1113,7 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#tostring">toString</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:979</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:1016</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1076,7 +1124,7 @@
 					<a name="unpin" class="tsd-anchor"></a>
 					<h3>unpin</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">unpin<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">unpin<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>reason<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1084,9 +1132,15 @@
 								<p>Inherited from <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#unpin">unpin</a></p>
 								<p>Overrides <a href="commandcontext.html">CommandContext</a>.<a href="commandcontext.html#unpin">unpin</a></p>
 								<ul>
-									<li>Defined in node_modules/discord.js/typings/index.d.ts:980</li>
+									<li>Defined in node_modules/discord.js/typings/index.d.ts:1017</li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>reason<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Message</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -1129,16 +1183,16 @@
 						<a href="../classes/client.html" class="tsd-kind-icon">Client</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="../classes/commands.html" class="tsd-kind-icon">Commands</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="../classes/convert.html" class="tsd-kind-icon">Convert</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/permission.html" class="tsd-kind-icon">Permission</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/role.html" class="tsd-kind-icon">Role</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="clientoptions.html" class="tsd-kind-icon">Client<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="command.html" class="tsd-kind-icon">Command</a>
 					</li>
 				</ul>
 				<ul class="current">
@@ -1174,6 +1228,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
 								<a href="commandcontext.html#client" class="tsd-kind-icon">client</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="commandcontext.html#command" class="tsd-kind-icon">command</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
 								<a href="commandcontext.html#content" class="tsd-kind-icon">content</a>
@@ -1256,6 +1313,12 @@
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
 								<a href="commandcontext.html#url" class="tsd-kind-icon">url</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="commandcontext.html#usedalias" class="tsd-kind-icon">used<wbr>Alias</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="commandcontext.html#usedprefix" class="tsd-kind-icon">used<wbr>Prefix</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-inherited">
 								<a href="commandcontext.html#webhookid" class="tsd-kind-icon">webhookID</a>
 							</li>
@@ -1314,26 +1377,20 @@
 					<li class=" tsd-kind-interface">
 						<a href="commandoptions.html" class="tsd-kind-icon">Command<wbr>Options</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="registeredcommand.html" class="tsd-kind-icon">Registered<wbr>Command</a>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#group" class="tsd-kind-icon">Group</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#meta" class="tsd-kind-icon">Meta</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../globals.html#check" class="tsd-kind-icon">Check</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#command" class="tsd-kind-icon">Command</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#guildonly" class="tsd-kind-icon">Guild<wbr>Only</a>
+						<a href="../globals.html#fancify" class="tsd-kind-icon">fancify</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#importall" class="tsd-kind-icon">import<wbr>All</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#reload" class="tsd-kind-icon">reload</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
-						<a href="../globals.html#commands" class="tsd-kind-icon">commands</a>
 					</li>
 				</ul>
 			</nav>
