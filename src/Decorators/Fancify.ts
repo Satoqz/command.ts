@@ -1,5 +1,6 @@
 import { CommandContext } from "../Interfaces/CommandContext";
 import { CommandParam } from "../Interfaces/Command";
+import { isConstructor } from "../Helpers/Internal/IsConstructor";
 
 export function fancify(condition: Function, expect?: any): Function
 {
@@ -38,13 +39,12 @@ export function fancify(condition: Function, expect?: any): Function
 				Object.getOwnPropertyNames(parent.prototype).forEach((key: string) =>
 				{
 					const descriptor = Object.getOwnPropertyDescriptor(parent.prototype, key);
-					// sort out constructor (constructor function is not enumerable)
-					if (!descriptor?.enumerable)
+					if (isConstructor(descriptor?.value))
 						return;
 
-					const original = descriptor.value;
+					const original = descriptor?.value;
 
-					descriptor.value = async function(
+					descriptor!.value = async function(
 						context: CommandContext,
 						...args: CommandParam[]
 					)
@@ -57,7 +57,7 @@ export function fancify(condition: Function, expect?: any): Function
 							return original.apply(this, [context, ...args]);
 						else return null;
 					};
-					Object.defineProperty(parent.prototype, key, descriptor);
+					Object.defineProperty(parent.prototype, key, descriptor!);
 				});
 			}
 		};

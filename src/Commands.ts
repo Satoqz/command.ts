@@ -1,5 +1,6 @@
 import { Command } from "./Interfaces/Command";
 import { CommandOptions } from "./Interfaces/CommandOptions";
+import { isConstructor } from "./Helpers/Internal/IsConstructor";
 
 export class Commands
 {
@@ -14,8 +15,8 @@ export class Commands
 			Object.getOwnPropertyNames(parent.prototype).forEach((key: string) =>
 			{
 				const descriptor = Object.getOwnPropertyDescriptor(parent.prototype, key);
-				// sort out constructor (constructor function is not enumerable)
-				if (!descriptor?.enumerable)
+
+				if (isConstructor(descriptor?.value))
 					return;
 
 				const duplicateCommand: Command | undefined =
@@ -28,14 +29,13 @@ export class Commands
 					Commands.groups.find((group: string) => group == name);
 
 				if (!alreadyPushedGroup) Commands.groups.push(name);
-
 				Commands.store.push({
 					group: name,
 					name: key,
 					description: "No description",
 					usage: "No information",
 					aliases: [key],
-					execute: descriptor.value,
+					execute: descriptor?.value,
 					prefix: "require",
 					paramTypes: [],
 					paramNames: []
@@ -82,3 +82,4 @@ export class Commands
 
 export const Group = Commands.Group;
 export const Meta = Commands.Meta;
+
