@@ -1,17 +1,18 @@
 import { CommandOptions } from "./CommandOptions";
 import { User, GuildMember, TextChannel, Role } from "discord.js";
 
-export interface RegisteredCommand extends CommandOptions
+export interface Command extends CommandOptions
 {
 	execute: Function,
 	group: string,
 	name: string,
-	prefixRequired: "optional" | "require" | "notallowed",
-	argsTypes: ArgType[],
-	argsNames: string[]
+	aliases: string[],
+	prefix: "optional" | "require" | "notallowed",
+	paramTypes: ParamType[],
+	paramNames: string[]
 }
 
-export type CommandArg =
+export type CommandParam =
 	| string
 	| number
 	| boolean
@@ -21,7 +22,7 @@ export type CommandArg =
 	| Role
 	| undefined;
 
-export type ArgType =
+export type ParamType =
 	| "string"
 	| "number"
 	| "boolean"

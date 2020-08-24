@@ -1,26 +1,65 @@
 import { CommandContext } from "../Interfaces/CommandContext";
-import { CommandArg } from "../Interfaces/RegisteredCommand";
+import { CommandParam } from "../Interfaces/Command";
+import { isConstructor } from "../Helpers/Internal/IsConstructor";
 
-export function fancify(condition: Function, expect: any = true): Function
+export function fancify(condition: Function, expect?: any): Function
 {
 	return function()
 	{
 		return function(
-			parent: Object,
+			parent: Object | Function,
 			name: string,
 			executor: PropertyDescriptor
-		): PropertyDescriptor
+		)
 		{
-			const original = executor.value;
-
-			executor.value = async function(context: CommandContext, ...args: CommandArg[])
+			// is a method
+			if (typeof parent == "object")
 			{
-				if (condition(context, ...args) == expect)
-					return original.apply(this, [context, ...args]);
-				else return null;
-			};
+				const original = executor.value;
 
-			return executor;
+				executor.value = async function(
+					context: CommandContext,
+					...args: CommandParam[]
+				)
+				{
+					if (
+						expect
+							? condition(context, ...args) == expect
+							: condition(context, ...args)
+					)
+						return original.apply(this, [context, ...args]);
+					else return null;
+				};
+
+				return executor;
+			}
+			// is a class
+			else if (typeof parent == "function")
+			{
+				Object.getOwnPropertyNames(parent.prototype).forEach((key: string) =>
+				{
+					const descriptor = Object.getOwnPropertyDescriptor(parent.prototype, key);
+					if (isConstructor(descriptor?.value))
+						return;
+
+					const original = descriptor?.value;
+
+					descriptor!.value = async function(
+						context: CommandContext,
+						...args: CommandParam[]
+					)
+					{
+						if (
+							expect
+								? condition(context, ...args) == expect
+								: condition(context, ...args)
+						)
+							return original.apply(this, [context, ...args]);
+						else return null;
+					};
+					Object.defineProperty(parent.prototype, key, descriptor!);
+				});
+			}
 		};
 	};
 }

@@ -1,5 +1,5 @@
 // Import from the libary
-import { Client, Providers, importAll, Panel } from "command.ts";
+import { Client, importAll  } from "command.ts";
 import { join } from "path";
 
 //#region Load config
@@ -11,12 +11,9 @@ import { MessageEmbed, Message } from "discord.js";
 config({ path: "./.env" });
 //#endregion
 
-const dbProvider = new Providers.File(join(__dirname, "cfg.json"));
-
 // Initialize a new client/bot instance
 const client = new Client({	// When you use dotenv
 	defaultPrefix: "!",	// Prefixes for your bot, specify as many as you want to. Default is "!".
-	database: dbProvider
 });
 
 // This automatically imports all files/commands in the commands folder

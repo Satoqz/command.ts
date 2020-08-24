@@ -76,133 +76,84 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class"><a href="classes/args.html" class="tsd-kind-icon">Args</a></li>
 								<li class="tsd-kind-class"><a href="classes/client.html" class="tsd-kind-icon">Client</a></li>
+								<li class="tsd-kind-class"><a href="classes/commands.html" class="tsd-kind-icon">Commands</a></li>
 								<li class="tsd-kind-class"><a href="classes/convert.html" class="tsd-kind-icon">Convert</a></li>
-								<li class="tsd-kind-class"><a href="classes/permission.html" class="tsd-kind-icon">Permission</a></li>
-								<li class="tsd-kind-class"><a href="classes/role.html" class="tsd-kind-icon">Role</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface"><a href="interfaces/clientoptions.html" class="tsd-kind-icon">Client<wbr>Options</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/command.html" class="tsd-kind-icon">Command</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/commandcontext.html" class="tsd-kind-icon">Command<wbr>Context</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/commandoptions.html" class="tsd-kind-icon">Command<wbr>Options</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/registeredcommand.html" class="tsd-kind-icon">Registered<wbr>Command</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#group" class="tsd-kind-icon">Group</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#meta" class="tsd-kind-icon">Meta</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function"><a href="globals.html#check" class="tsd-kind-icon">Check</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#command" class="tsd-kind-icon">Command</a></li>
-								<li class="tsd-kind-function"><a href="globals.html#guildonly" class="tsd-kind-icon">Guild<wbr>Only</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#fancify" class="tsd-kind-icon">fancify</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#importall" class="tsd-kind-icon">import<wbr>All</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#reload" class="tsd-kind-icon">reload</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Object literals</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-object-literal"><a href="globals.html#commands" class="tsd-kind-icon">commands</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="group" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Group</h3>
+					<div class="tsd-signature tsd-kind-icon">Group<span class="tsd-signature-symbol">:</span> <a href="classes/commands.html#group" class="tsd-signature-type">Group</a><span class="tsd-signature-symbol"> = Commands.Group</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Commands.ts#L83">src/Commands.ts:83</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="meta" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Meta</h3>
+					<div class="tsd-signature tsd-kind-icon">Meta<span class="tsd-signature-symbol">:</span> <a href="classes/commands.html#meta" class="tsd-signature-type">Meta</a><span class="tsd-signature-symbol"> = Commands.Meta</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Commands.ts#L84">src/Commands.ts:84</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="check" class="tsd-anchor"></a>
-					<h3>Check</h3>
+					<a name="fancify" class="tsd-anchor"></a>
+					<h3>fancify</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">Check<span class="tsd-signature-symbol">(</span>checkFunction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></li>
+						<li class="tsd-signature tsd-kind-icon">fancify<span class="tsd-signature-symbol">(</span>condition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span>, expect<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/Decorators/Checks/check.ts:13</li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Decorators/Fancify.ts#L4">src/Decorators/Fancify.ts:4</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Allows you to make your own custom check function for a {@link command}<br><br>
-									Example:</p>
-									<pre><code><span class="hljs-variable">@Command</span>()
-<span class="hljs-variable">@Check</span>((<span class="hljs-attribute">ctx</span>: Context) =&gt; ctx.guild.id == <span class="hljs-string">"527932145273143306"</span>)</code></pre>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>checkFunction: <span class="tsd-signature-type">Function</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>a custom checking function, can take Context as an argument</p>
-									</div>
+									<h5>condition: <span class="tsd-signature-type">Function</span></h5>
 								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Function</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="command" class="tsd-anchor"></a>
-					<h3>Command</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">Command<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="interfaces/commandoptions.html" class="tsd-signature-type">CommandOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/Decorators/command.ts:18</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Use this method decorator to declare a class method a command</p>
-									<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCommands</span> {</span>
-        <span class="hljs-meta">@Command</span>()
-        ping(<span class="hljs-string">ctx:</span> Context) {
-             ctx.send(<span class="hljs-string">"pong"</span>);
-        }
-}</code></pre><p>Using this decorator will automatically register your command function in <a href="globals.html#commands">commands</a></p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="interfaces/commandoptions.html" class="tsd-signature-type">CommandOptions</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Here you can declare some metadata like the description or usage of your command</p>
-									</div>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> expect: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Function</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="guildonly" class="tsd-anchor"></a>
-					<h3>Guild<wbr>Only</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">Guild<wbr>Only<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in src/Decorators/Checks/guildOnly.ts:13</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Declares a {@link command} as guild-only<br><br>
-									Example:</p>
-									<pre><code><span class="hljs-variable">@Command</span>()
-<span class="hljs-variable">@Guildonly</span>()</code></pre><p>This can be extremely useful when your command depends on guild functionality and you want to avoid errors caused by direct messages.</p>
-								</div>
-							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Function</span></h4>
 						</li>
 					</ul>
@@ -217,7 +168,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/Helpers/Exported/ImportAll.ts:4</li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Helpers/Exported/ImportAll.ts#L4">src/Helpers/Exported/ImportAll.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -240,7 +191,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/Helpers/Exported/Reload.ts:8</li>
+									<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Helpers/Exported/Reload.ts#L8">src/Helpers/Exported/Reload.ts:8</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -264,39 +215,6 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Object literals</h2>
-				<section class="tsd-panel tsd-member tsd-kind-object-literal">
-					<a name="commands" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> commands</h3>
-					<div class="tsd-signature tsd-kind-icon">commands<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Storage/Commands.ts#L3">src/Storage/Commands.ts:3</a></li>
-						</ul>
-					</aside>
-					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="commands.groups" class="tsd-anchor"></a>
-						<h3>groups</h3>
-						<div class="tsd-signature tsd-kind-icon">groups<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Storage/Commands.ts#L6">src/Storage/Commands.ts:6</a></li>
-							</ul>
-						</aside>
-					</section>
-					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="commands.list" class="tsd-anchor"></a>
-						<h3>list</h3>
-						<div class="tsd-signature tsd-kind-icon">list<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Storage/Commands.ts#L5">src/Storage/Commands.ts:5</a></li>
-							</ul>
-						</aside>
-					</section>
-				</section>
-			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
@@ -318,16 +236,16 @@
 						<a href="classes/client.html" class="tsd-kind-icon">Client</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/commands.html" class="tsd-kind-icon">Commands</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/convert.html" class="tsd-kind-icon">Convert</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/permission.html" class="tsd-kind-icon">Permission</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/role.html" class="tsd-kind-icon">Role</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/clientoptions.html" class="tsd-kind-icon">Client<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/command.html" class="tsd-kind-icon">Command</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/commandcontext.html" class="tsd-kind-icon">Command<wbr>Context</a>
@@ -335,26 +253,20 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/commandoptions.html" class="tsd-kind-icon">Command<wbr>Options</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/registeredcommand.html" class="tsd-kind-icon">Registered<wbr>Command</a>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#group" class="tsd-kind-icon">Group</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#meta" class="tsd-kind-icon">Meta</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#check" class="tsd-kind-icon">Check</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#command" class="tsd-kind-icon">Command</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#guildonly" class="tsd-kind-icon">Guild<wbr>Only</a>
+						<a href="globals.html#fancify" class="tsd-kind-icon">fancify</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#importall" class="tsd-kind-icon">import<wbr>All</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#reload" class="tsd-kind-icon">reload</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
-						<a href="globals.html#commands" class="tsd-kind-icon">commands</a>
 					</li>
 				</ul>
 			</nav>

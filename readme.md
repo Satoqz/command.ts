@@ -19,9 +19,8 @@ npm install command.ts discord.js
 ```
 TypeScript related and other packages for development
 ```
-npm install -D typescript @types/node ts-node dotenv
+npm install -D typescript @types/node dotenv
 ```
-**We highly recommend using ts-node, but you might aswell manually compile your typescript**
 
 The last setup step would be enabling decorators in your `tsconfig.json` as following:
 ```
@@ -37,33 +36,37 @@ Let's finally get to the code!
 
 First, let's import everything we need from the library to make a basic bot and initialize a client:
 ```
-import { Client, Command, Context } from "command.ts";
+import { Client, Commands, Context } from "command.ts";
 
-const client = new Client();
+const client = new Client({ defaultPrefix: "!" });
 ```
 Next, let's set up a basic ping command.
 
-Create a class do contain your command:
+Create a class do contain your command and decorate it with the command group decorator as following:
 ```
+@Commands.Group()
 class MyCommands
 {
 
 }
 ```
-The class name will be the group name of your command. Commands must be wrapped in a class to make use of decorators, as we will see in the next step.
+You can also import `Group` directly and use it like so:
+```
+@Group()
+class MyCommands
+{
+
+}
+```
 
 ### Create the command function
 ```
 class MyCommands {
-	@Command()
 	ping(ctx: Context) {
 		ctx.send("pong");
 	}
 }
 ```
-### Let's take a look at what is happening here:
-- The `@Command()` decorator will register your function as a command.
-- `ctx` is an argument that will be passed to every command. It contains the usual `Message` class from `discord.js` including useful shortcuts like `ctx.send()` which is an alias to `message.channel.send()`.
 
 The last step to set up the ping command is logging into discord with your [api token](https://discord.com/developers). This works the same is in `discord.js`.
 ```
@@ -72,70 +75,3 @@ client.login("<YOUR_TOKEN_HERE>");
 **To avoid having to put your token into your code, you should setup an external file to load it from. If you use git, you should probably add that file to your `.gitignore`. Libraries like [dotenv](https://www.npmjs.com/package/dotenv) can be very useful here.**
 
 If you now run your code and send `!ping` in a channel that the bot has access to, it should respond with `pong`.
-
-### How to change the default command prefix:
-```
-const client = new Client({
-	defaultPrefix = "!"
-});
-```
-
-## Configuring your command / Use of decorators
-
-### Configure a command
-There are plenty of other decorators available than can stack with the `@Command()` decorator. Just make sure that the `@Command()` decorator stays at the top. Let's use the `GuildOnly()` decorator as an example:
-```
-@Command()
-@Guildonly()
-ping(ctx: Context)
-{
-	ctx.send("pong");
-}
-```
-Now, the bot will only respond if the the ping command was sent in a guild/server and ignore dms.
-
-### Requesting arguments
-
-To make your life easier, you can request converted argument types in your command definition.
-#### Here's a full example to get a user by name:
-```
-import { Client, Context, Args, Command } from "command.ts";
-import { User } from "discord.js";
-
-// declare client etc
-
-class CommandsWithCustomAguments {
-
-	username(ctx: Context, @Args.User user: User) {
-		ctx.send(user.username);
-	}
-
-	square(ctx: Context, @Args.Number base: number) {
-		ctx.send(Math.pow(base, 2))
-	}
-}
-```
-As you can see, we've declarated 2 commands. Let's check their output:
-```
-!username coffee
->>> Coffee
-```
-This does not look like much, but under the hood the client looked for a user who can somehow be parsed having the information "coffee" entered as a string. It found the user called "Coffee" whose lowercase name is "coffee" and returned the resolved User class that we could then get the username property from. This also works with mentioning the user or just sending their discord ID.
-
-#### Let's see how the second command works:
-```
-!square 8
->>> 64
-```
-Because we got the input "8" passed as a number instead of a string, we were able to instantly square it without any typeconversion.
-
-#### Let's break down the syntax of these parameter annotations:
-```
-square(ctx: Context, @Args.Number base: number)
-	   ^^^			 ^^^^^^^^^^^^       ^^^^^^
-		|					|			 // The classic TypeScript type annotation
-		|					|
-		|	// The annotation that tells the command handler what type to pass to your method
-		|
-// The invocation context of the command which will always be passed as the first argument
-```

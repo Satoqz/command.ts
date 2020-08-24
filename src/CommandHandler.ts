@@ -4,9 +4,9 @@ import { Message,
 	ClientUser
 } from "discord.js";
 import { Client } from "./Client";
-import { RegisteredCommand } from "./Interfaces/RegisteredCommand";
+import { Command } from "./Interfaces/Command";
 import { CommandContext, StringResolvable } from "./Interfaces/CommandContext";
-import { commands } from "./Storage/Commands";
+import { Commands } from "./Commands";
 import { convertArgs } from "./Helpers/Internal/ConvertArgs";
 import { split } from "./Helpers/Internal/Split";
 
@@ -43,10 +43,10 @@ export async function commandHandler(client: Client, message: Message)
 	// create args with command keyword kept
 	context.args = split(context.content.replace(usedPrefix, ""));
 
-	const command = commands.list.find((command: RegisteredCommand) =>
+	const command = Commands.store.find((command: Command) =>
 		command.aliases!.includes(
 			String(context.args[0])) &&
-			command.prefixRequired != (hasPrefix ? "notallowed" : "require"));
+			command.prefix != (hasPrefix ? "notallowed" : "require"));
 
 	if (!command) return;
 

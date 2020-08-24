@@ -1,20 +1,25 @@
-import { Context, Command } from "command.ts";
+import { Context, Commands, Args, fancify } from "command.ts";
 
 // Your editor might suggest removing this class, but it's fine :)
+
+// make your own simple decorator
+const GuildOnly = fancify((ctx: Context) => ctx.channel.type != "dm");
+
+// give your command group a name
+@Commands.Group("Ping Pong")
+@GuildOnly()
 class PingPongCommands
 {
-	// Use "@Command()" to declare a command function
-	// The default name is the functions name
-	// You can pass additional options as you can see here
-	@Command({
-		aliases: ["pingpong"],	// command function name will always be the default alias
-		description: "play pingpong with the bot",
-		usage: "prefix + ping",
-		prefixRequired: "notallowed"
-	})
+	// specify additional data for your command
+	@Commands.Meta({ aliases: ["pingpong"], prefix: "optional" })
 	ping(ctx: Context)
 	{
-		// Send a message back. This is a shortcut to "ctx.channel.send"
+		// send back a message
 		ctx.send("pong");
+	}
+	// request an argument that takes all the text after the command keyword
+	echo(ctx: Context, @Args.Infinite("Text") text: string)
+	{
+		ctx.send(text);
 	}
 }

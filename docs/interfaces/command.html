@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RegisteredCommand | command.ts</title>
+	<title>Command | command.ts</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="registeredcommand.html">RegisteredCommand</a>
+					<a href="command.html">Command</a>
 				</li>
 			</ul>
-			<h1>Interface RegisteredCommand</h1>
+			<h1>Interface Command</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 						<a href="commandoptions.html" class="tsd-signature-type">CommandOptions</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">RegisteredCommand</span>
+								<span class="target">Command</span>
 							</li>
 						</ul>
 					</li>
@@ -84,14 +84,16 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="registeredcommand.html#aliases" class="tsd-kind-icon">aliases</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="registeredcommand.html#argstypes" class="tsd-kind-icon">args<wbr>Types</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="registeredcommand.html#description" class="tsd-kind-icon">description</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="registeredcommand.html#execute" class="tsd-kind-icon">execute</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="registeredcommand.html#group" class="tsd-kind-icon">group</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="registeredcommand.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="registeredcommand.html#prefixrequired" class="tsd-kind-icon">prefix<wbr>Required</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="registeredcommand.html#usage" class="tsd-kind-icon">usage</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="command.html#aliases" class="tsd-kind-icon">aliases</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="command.html#description" class="tsd-kind-icon">description</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="command.html#disabled" class="tsd-kind-icon">disabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="command.html#execute" class="tsd-kind-icon">execute</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="command.html#group" class="tsd-kind-icon">group</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="command.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="command.html#paramnames" class="tsd-kind-icon">param<wbr>Names</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="command.html#paramtypes" class="tsd-kind-icon">param<wbr>Types</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="command.html#prefix" class="tsd-kind-icon">prefix</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="command.html#usage" class="tsd-kind-icon">usage</a></li>
 							</ul>
 						</section>
 					</div>
@@ -99,24 +101,14 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 					<a name="aliases" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> aliases</h3>
+					<h3>aliases</h3>
 					<div class="tsd-signature tsd-kind-icon">aliases<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="commandoptions.html">CommandOptions</a>.<a href="commandoptions.html#aliases">aliases</a></p>
+						<p>Overrides <a href="commandoptions.html">CommandOptions</a>.<a href="commandoptions.html#aliases">aliases</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandOptions.ts#L5">src/Interfaces/CommandOptions.ts:5</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="argstypes" class="tsd-anchor"></a>
-					<h3>args<wbr>Types</h3>
-					<div class="tsd-signature tsd-kind-icon">args<wbr>Types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ArgType</span><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/RegisteredCommand.ts#L10">src/Interfaces/RegisteredCommand.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/Command.ts#L9">src/Interfaces/Command.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -127,7 +119,18 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="commandoptions.html">CommandOptions</a>.<a href="commandoptions.html#description">description</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandOptions.ts#L6">src/Interfaces/CommandOptions.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandOptions.ts#L6">src/Interfaces/CommandOptions.ts:6</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="disabled" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> disabled</h3>
+					<div class="tsd-signature tsd-kind-icon">disabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="commandoptions.html">CommandOptions</a>.<a href="commandoptions.html#disabled">disabled</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandOptions.ts#L8">src/Interfaces/CommandOptions.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -137,7 +140,7 @@
 					<div class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/RegisteredCommand.ts#L6">src/Interfaces/RegisteredCommand.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/Command.ts#L6">src/Interfaces/Command.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -147,7 +150,7 @@
 					<div class="tsd-signature tsd-kind-icon">group<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/RegisteredCommand.ts#L7">src/Interfaces/RegisteredCommand.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/Command.ts#L7">src/Interfaces/Command.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -157,18 +160,38 @@
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/RegisteredCommand.ts#L8">src/Interfaces/RegisteredCommand.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/Command.ts#L8">src/Interfaces/Command.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="paramnames" class="tsd-anchor"></a>
+					<h3>param<wbr>Names</h3>
+					<div class="tsd-signature tsd-kind-icon">param<wbr>Names<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/Command.ts#L12">src/Interfaces/Command.ts:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="paramtypes" class="tsd-anchor"></a>
+					<h3>param<wbr>Types</h3>
+					<div class="tsd-signature tsd-kind-icon">param<wbr>Types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ParamType</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/Command.ts#L11">src/Interfaces/Command.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-					<a name="prefixrequired" class="tsd-anchor"></a>
-					<h3>prefix<wbr>Required</h3>
-					<div class="tsd-signature tsd-kind-icon">prefix<wbr>Required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"optional"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"require"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"notallowed"</span></div>
+					<a name="prefix" class="tsd-anchor"></a>
+					<h3>prefix</h3>
+					<div class="tsd-signature tsd-kind-icon">prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"optional"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"require"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"notallowed"</span></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="commandoptions.html">CommandOptions</a>.<a href="commandoptions.html#prefixrequired">prefixRequired</a></p>
+						<p>Overrides <a href="commandoptions.html">CommandOptions</a>.<a href="commandoptions.html#prefix">prefix</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/RegisteredCommand.ts#L9">src/Interfaces/RegisteredCommand.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/Command.ts#L10">src/Interfaces/Command.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -179,7 +202,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="commandoptions.html">CommandOptions</a>.<a href="commandoptions.html#usage">usage</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/d61db8c/src/Interfaces/CommandOptions.ts#L7">src/Interfaces/CommandOptions.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Satoqz/command.ts/blob/7dbcf27/src/Interfaces/CommandOptions.ts#L7">src/Interfaces/CommandOptions.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -202,73 +225,73 @@
 						<a href="../classes/client.html" class="tsd-kind-icon">Client</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="../classes/commands.html" class="tsd-kind-icon">Commands</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="../classes/convert.html" class="tsd-kind-icon">Convert</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/permission.html" class="tsd-kind-icon">Permission</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/role.html" class="tsd-kind-icon">Role</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="clientoptions.html" class="tsd-kind-icon">Client<wbr>Options</a>
 					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="command.html" class="tsd-kind-icon">Command</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+								<a href="command.html#aliases" class="tsd-kind-icon">aliases</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="command.html#description" class="tsd-kind-icon">description</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="command.html#disabled" class="tsd-kind-icon">disabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="command.html#execute" class="tsd-kind-icon">execute</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="command.html#group" class="tsd-kind-icon">group</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="command.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="command.html#paramnames" class="tsd-kind-icon">param<wbr>Names</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="command.html#paramtypes" class="tsd-kind-icon">param<wbr>Types</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+								<a href="command.html#prefix" class="tsd-kind-icon">prefix</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="command.html#usage" class="tsd-kind-icon">usage</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="commandcontext.html" class="tsd-kind-icon">Command<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="commandoptions.html" class="tsd-kind-icon">Command<wbr>Options</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="registeredcommand.html" class="tsd-kind-icon">Registered<wbr>Command</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="registeredcommand.html#aliases" class="tsd-kind-icon">aliases</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="registeredcommand.html#argstypes" class="tsd-kind-icon">args<wbr>Types</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="registeredcommand.html#description" class="tsd-kind-icon">description</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="registeredcommand.html#execute" class="tsd-kind-icon">execute</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="registeredcommand.html#group" class="tsd-kind-icon">group</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="registeredcommand.html#name" class="tsd-kind-icon">name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-								<a href="registeredcommand.html#prefixrequired" class="tsd-kind-icon">prefix<wbr>Required</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="registeredcommand.html#usage" class="tsd-kind-icon">usage</a>
-							</li>
-						</ul>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#group" class="tsd-kind-icon">Group</a>
 					</li>
-				</ul>
-				<ul class="after-current">
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#check" class="tsd-kind-icon">Check</a>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#meta" class="tsd-kind-icon">Meta</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../globals.html#command" class="tsd-kind-icon">Command</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#guildonly" class="tsd-kind-icon">Guild<wbr>Only</a>
+						<a href="../globals.html#fancify" class="tsd-kind-icon">fancify</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#importall" class="tsd-kind-icon">import<wbr>All</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#reload" class="tsd-kind-icon">reload</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
-						<a href="../globals.html#commands" class="tsd-kind-icon">commands</a>
 					</li>
 				</ul>
 			</nav>

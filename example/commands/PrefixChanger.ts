@@ -1,10 +1,8 @@
-import { Command, Args, Context } from "command.ts";
+import { Group, Args, Context } from "command.ts";
 
-class PrefixCommands
+@Group("Prefix commands")
+class PingPong
 {
-	@Command({
-		prefixRequired: "optional"
-	})
 	get(ctx: Context)
 	{
 		ctx.send(
@@ -13,10 +11,6 @@ class PrefixCommands
 			)
 		);
 	}
-
-	@Command({
-		prefixRequired: "optional"
-	})
 	set(ctx: Context, @Args.String("Prefix") prefix: string)
 	{
 		if (!prefix) return;
