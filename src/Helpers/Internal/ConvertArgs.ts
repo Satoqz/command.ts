@@ -1,7 +1,7 @@
 import {
-	RegisteredCommand,
-	CommandArg
-} from "../../Interfaces/RegisteredCommand";
+	Command,
+	CommandParam
+} from "../../Interfaces/Command";
 import { CommandContext } from "../../Interfaces/CommandContext";
 import { Convert } from "../Exported/Convert";
 /**
@@ -14,10 +14,10 @@ import { Convert } from "../Exported/Convert";
  */
 export function convertArgs(
 	context: CommandContext,
-	command: RegisteredCommand
-) : CommandArg[]
+	command: Command
+) : CommandParam[]
 {
-	command.argsTypes.forEach((type: CommandArg, index: number) =>
+	command.paramTypes.forEach((type: CommandParam, index: number) =>
 	{
 		if (context.args[index] != undefined)
 		{

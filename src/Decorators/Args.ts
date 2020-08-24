@@ -1,5 +1,5 @@
-import { commands } from "../Storage/Commands";
-import { RegisteredCommand, ArgType } from "../Interfaces/RegisteredCommand";
+import { Commands } from "../Commands";
+import { Command, ParamType } from "../Interfaces/Command";
 
 export class Args
 {
@@ -42,7 +42,7 @@ export class Args
 
 	/**
 	 * Declare a command argument to be parsed to your comamnd function as a discord.js GuildMember.
-	 * @returns Passes a discord.js GuildMember class or undefined if no member could be parsed.
+	 * @returns Passes a discord.js GuildMember objector undefined if no member could be parsed.
 	 */
 	public static GuildMember(name: string = "Argument")
 	{
@@ -54,7 +54,7 @@ export class Args
 
 	/**
 	 * Declare a command argument to be parsed to your comamnd function as a discord.js User.
-	 * @returns Passes a discord.js User class or undefined if no user could be parsed.
+	 * @returns Passes a discord.js User object or undefined if no user could be parsed.
 	 */
 	public static User(name: string = "Argument")
 	{
@@ -66,9 +66,9 @@ export class Args
 
 	/**
 	 * Declare a command argument to be parsed to your comamnd function as a discord.js TextChannel.
-	 * @returns Passes a discord.js TextChannel class or undefined if no channel could be parsed.
+	 * @returns Passes a discord.js TextChannel object or undefined if no channel could be parsed.
 	 */
-	public static TextChannel(name: string = "Argument")
+	public static Channel(name: string = "Argument")
 	{
 		return function(target: Object, functionName: string, index: number)
 		{
@@ -78,7 +78,7 @@ export class Args
 
 	/**
 	 * Declare a command argument to be parsed to your comamnd function as a discord.js Role.
-	 * @returns Passes a discord.js Role class or undefined if no role could be parsed.
+	 * @returns Passes a discord.js Role object or undefined if no role could be parsed.
 	 */
 	public static Role(name: string = "Argument")
 	{
@@ -108,20 +108,20 @@ function setArgumentType(
 	paramName: string,
 	functionName: string,
 	index: number,
-	type: ArgType
+	type: ParamType
 )
 {
 	const interval = setInterval(() =>
 	{
-		const command: RegisteredCommand | undefined =
-			commands.list.find((command: RegisteredCommand) =>
+		const command: Command | undefined =
+			Commands.store.find((command: Command) =>
 				command.name == functionName);
 
 		if (command)
 		{
 			clearInterval(interval);
-			command.argsTypes[index - 1] = type;
-			command.argsNames[index - 1] = paramName;
+			command.paramTypes[index - 1] = type;
+			command.paramNames[index - 1] = paramName;
 		}
 	}, 0);
 }

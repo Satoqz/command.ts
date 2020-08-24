@@ -5,10 +5,10 @@ import {
 	MessageAttachment
 } from "discord.js";
 import { MessageOptions } from "child_process";
-import { CommandArg } from "./RegisteredCommand";
+import { CommandParam } from "./Command";
 import { BaseProv } from "../Database/BaseProv";
 import { Client } from "../Client";
-import { RegisteredCommand } from "./RegisteredCommand";
+import { Command } from "./Command";
 
 /**
  * @internal
@@ -20,12 +20,12 @@ export type StringResolvable = string | string[] | any;
  */
 export interface CommandContext extends Message
 {
-	args: CommandArg[],
+	args: CommandParam[],
 	me: ClientUser,
 	usedAlias: string,
 	usedPrefix: string,
 	dbContext: BaseProv,
-	command: RegisteredCommand,
+	command: Command,
 	c: Client
 	send(
 		content: StringResolvable,
