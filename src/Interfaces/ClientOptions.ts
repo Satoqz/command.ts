@@ -4,5 +4,6 @@ export interface ClientOptions
 {
 	defaultPrefix?: string,
 	ownerId?: string,
-	database?: BaseProv
+	database?: BaseProv,
+	loadDirs?: string | string[]
 }

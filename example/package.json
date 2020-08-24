@@ -7,9 +7,9 @@
 		"C0ffeeCode"
 	],
 	"homepage": "https://satoqz.github.io/command.ts",
-	"main": "./index.ts",
+	"main": "./src/index.ts",
 	"scripts": {
-		"start": "ts-node ./index.ts"
+		"start": "ts-node ./src/index.ts"
 	},
 	"dependencies": {
 		"command.ts": "file:../",

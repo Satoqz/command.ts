@@ -6,7 +6,7 @@ import { Message,
 import { Client } from "./Client";
 import { Command } from "./Interfaces/Command";
 import { CommandContext, StringResolvable } from "./Interfaces/CommandContext";
-import { Commands } from "./Commands";
+import { Commands } from "./Decorators/Commands";
 import { convertArgs } from "./Helpers/Internal/ConvertArgs";
 import { split } from "./Helpers/Internal/Split";
 

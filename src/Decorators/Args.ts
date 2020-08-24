@@ -1,4 +1,4 @@
-import { Commands } from "../Commands";
+import { Commands } from "./Commands";
 import { Command, ParamType } from "../Interfaces/Command";
 
 export class Args
