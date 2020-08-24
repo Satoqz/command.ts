@@ -8,9 +8,8 @@ export class Commands
 	{
 		return function(parent: Object | Function)
 		{
-			// is not a class
 			if (typeof parent != "function")
-				return;
+				throw new Error("Use the Group decorator on classes only");
 
 			Object.getOwnPropertyNames(parent.prototype).forEach((key: string) =>
 			{
@@ -51,7 +50,7 @@ export class Commands
 		)
 		{
 			if (typeof parent != "object")
-				throw new Error("Use the Command decorator on methods only");
+				throw new Error("Use the Meta decorator on methods only");
 			const interval = setInterval(() =>
 			{
 				const command: Command | undefined =
