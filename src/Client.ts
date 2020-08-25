@@ -1,11 +1,13 @@
 import * as DJS from "discord.js";
+import { isArray } from "util";
+
 import { commandHandler } from "./CommandHandler";
 import { importAll } from "./Helpers/Internal/ImportAll";
 import { ClientOptions } from "./Interfaces/ClientOptions";
 import { BaseProv } from "./Database/BaseProv";
 import { InMemProv } from "./Database/InMemProv";
-import { isArray } from "util";
 import { Events } from "./Decorators/Events";
+import { eventList } from "./Helpers/Internal/EventList";
 
 /**
  * A modified verson of the discord.js Client implementing the command.ts command handler
@@ -45,34 +47,34 @@ export class Client extends DJS.Client
 
 	}
 
+	public handleCommand(message: DJS.Message)
+	{
+		commandHandler(this, message);
+	}
+
 	/**
 	 * Set up standard event handlers
 	 * @internal
 	 */
 	private register()
 	{
-		this.on("message", async(message: DJS.Message) =>
-		{
-			Events.store
-				.filter(event => event.name == "message")
-				.forEach(event => event.execute(message));
+		this.on("message", data => this.handleCommand(data));
 
-			commandHandler(this, message);
-		});
+		eventList.forEach(event =>
+			this.on(event, (...args) =>
+				this.runListeners(event, ...args)
+			)
+		);
+	}
 
-		this.on("ready", () =>
-		{
-			Events.store
-				.filter(event => event.name == "ready")
-				.forEach(event => event.execute(this));
-		});
-
-		this.on("guildMemberAdd", async(member: DJS.GuildMember | DJS.PartialGuildMember) =>
-		{
-			Events.store
-				.filter(event => event.name == "guildMemberAdd")
-				.forEach(event => event.execute(member));
-		});
+	/**
+	 * @internal
+	 */
+	private runListeners(name: keyof DJS.ClientEvents, ...args: any[])
+	{
+		Events.store
+			.filter(event => event.name == name)
+			.forEach(event => event.execute(...args));
 	}
 
 	public setPrefixForGuild(guildId: string, prefix: string)

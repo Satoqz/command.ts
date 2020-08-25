@@ -6,18 +6,17 @@ import { Context, Commands, Args, fancify } from "command.ts";
 const GuildOnly = fancify((ctx: Context) => ctx.channel.type != "dm");
 
 // give your command group a name
-@Commands.Group("Ping Pong")
+@Commands.Group("Basic Commands")
 @GuildOnly()
-class PingPongCommands
+class BasicCommands
 {
 	// specify additional data for your command
-	@Commands.Meta({ aliases: ["pingpong"], prefix: "optional" })
+	@Commands.Meta({ aliases: ["pong"], prefix: "optional" })
 	ping(ctx: Context)
 	{
-		// send back a message
-		ctx.send("pong");
+		ctx.send(ctx.usedAlias == "ping" ? "pong": "ping");
 	}
-	// request an argument that takes all the text after the command keyword
+
 	echo(ctx: Context, @Args.Infinite("Text") text: string)
 	{
 		ctx.send(text);
