@@ -27,6 +27,7 @@ The last setup step would be enabling decorators in your `tsconfig.json` as foll
 {
 	"compilerOptions": {
 		"experimentalDecorators": true,
+		"target": "ESNext"
 	}
 }
 ```
