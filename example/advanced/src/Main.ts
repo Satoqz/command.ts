@@ -6,7 +6,7 @@ import { config } from "dotenv";
 config({ path: "./.env" });
 
 const client = new Client({
-	defaultPrefix: "!",
+	prefixes: ["!", "?"],
 	loadDirs: [
 		join(__dirname, "commands"),
 		join(__dirname, "events")

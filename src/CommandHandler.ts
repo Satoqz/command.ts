@@ -25,18 +25,30 @@ export async function commandHandler(client: Client, message: Message)
 
 	// If there is no guild, it is probably a DM channel
 	const guildId = message.guild?.id ?? "dms";
-	const guildPref =
-		client.dbContext.getDocumentById<string>("PrefixConfig", guildId) ??
-		client.dbContext.getDocumentById<string>("PrefixConfig", "defaultPrefix")!;
+	const guildPref = client.dbContext.getDocumentById<string>("PrefixConfig", guildId);
 
-	if (message.content.startsWith(guildPref))
+	if (guildPref)
 	{
-		hasPrefix = true;
-		usedPrefix = guildPref;
+		if (message.content.startsWith(guildPref))
+		{
+			hasPrefix = true;
+			usedPrefix = guildPref;
+		}
 	}
+	else
+	{
+		const defaultPrefixes = client.dbContext.getDocumentById<string[]>("PrefixConfig", "defaultPrefixes");
 
-	if (!message.content.startsWith(usedPrefix))
-		return;
+		for (const prefix of defaultPrefixes!)
+		{
+			if (message.content.startsWith(prefix))
+			{
+				usedPrefix = prefix;
+				hasPrefix = true;
+				break;
+			}
+		}
+	}
 
 	const context = message as CommandContext;
 

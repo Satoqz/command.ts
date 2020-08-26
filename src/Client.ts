@@ -29,8 +29,8 @@ export class Client extends DJS.Client
 		this.dbContext.createContainer("PrefixConfig");
 		this.dbContext.setDocument(
 			"PrefixConfig",
-			"defaultPrefix",
-			options.defaultPrefix ?? "!"
+			"defaultPrefixes",
+			options.prefixes ?? ["!"]
 		);
 
 		if (options.loadDirs)

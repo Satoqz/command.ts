@@ -2,7 +2,7 @@ import { BaseProv } from "../Database/BaseProv";
 
 export interface ClientOptions
 {
-	defaultPrefix?: string,
+	prefixes?: string[],
 	ownerId?: string,
 	database?: BaseProv,
 	loadDirs?: string | string[]
