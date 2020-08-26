@@ -7,7 +7,7 @@ const GuildOnly = fancify((ctx: Context) => ctx.channel.type != "dm");
 
 // give your command group a name
 @Commands.Group("Basic Commands")
-@GuildOnly()
+@GuildOnly
 class BasicCommands
 {
 	// specify additional data for your command
