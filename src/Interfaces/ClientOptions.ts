@@ -1,9 +1,9 @@
-import { BaseProv } from "../Database/BaseProv";
-
 export interface ClientOptions
 {
 	prefixes?: string[],
 	ownerId?: string,
-	database?: BaseProv,
-	loadDirs?: string | string[]
+	loadDirs?: string | string[],
+	autoHandleCommands?: boolean,
+	listenToBots?: boolean,
+	listenToSelf?: boolean
 }

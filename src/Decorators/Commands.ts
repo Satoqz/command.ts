@@ -2,8 +2,17 @@ import { Command } from "../Interfaces/Command";
 import { CommandOptions } from "../Interfaces/CommandOptions";
 import { isConstructor } from "../Helpers/Internal/IsConstructor";
 
+/**
+ * @description Class containing static methods to register command groups and command meta info.
+ * You can also access all registered commands using the `store` property or list all command group names using `groups`
+ */
 export class Commands
 {
+	/**
+	 * @description Use this **class decorator** to register a class and its member methods
+	 * as a command group with its method as commands
+	 * @param name The name of your command group (optional)
+	 */
 	static Group(name: string = "Groupless")
 	{
 		return function(parent: Object | Function)
@@ -43,6 +52,11 @@ export class Commands
 			});
 		};
 	}
+	/**
+	 * @description Use this **method decorator** to define additional information
+	 * for your command methods (e.g. aliases, description)
+	 * @param options Additional data to add to your command method
+	 */
 	static Meta(options?: CommandOptions)
 	{
 		return function(
@@ -76,10 +90,26 @@ export class Commands
 		};
 	}
 
+	/**
+	 * @description Main storage of all registered commands.
+	 * This is the property to use in otder to generate dynamic help commands
+	*/
 	static store: Command[] = [];
+	/**
+	 * @description Main storage of all registered group names.
+	 * This is useful if you want to provide a list of command groups/categories
+	*/
 	static groups: string[] = [];
 }
 
+/**
+ * @description Shorthand alias for `Commands.Group`
+ * @alias Commands.Group
+ */
 export const Group = Commands.Group;
+/**
+ * @description Shorthand alias for `Commands.Meta`
+ * @alias Commands.Meta
+ */
 export const Meta = Commands.Meta;
 

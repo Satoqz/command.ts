@@ -1,11 +1,22 @@
 import { Commands } from "./Commands";
 import { Command, ParamType } from "../Interfaces/Command";
 
+/**
+ * @description Class containing static methods (parameter decorators).
+ * Use these decorator methods to decorate the parameters of you command methods
+ * for automatic argument parsing from a string to your desired type.
+ * In most cases, if an argument cannot be parsed into the specified type or doesnt exist,
+ * undefined will be returned.
+ */
 export class Args
 {
 	/**
-	 * Declare a command argument to parsed to your command as function a number.
-	 * @returns number, or NaN if it could not be parsed.
+	 * @description Declare a command argument to be parsed to your command function as a number.
+	 * If the input argument cannot be parsed, NaN will be passed as an indicator.
+	 * This is a `parameter decorator`.
+	 * If the argument does not exist, it will be undefined.
+	 * @returns number, NaN or undefined
+	 * @param name (optional) the name to register for the parameter
 	 */
 	public static Number(name: string = "Argument")
 	{
@@ -16,8 +27,12 @@ export class Args
 	}
 
 	/**
-	 * Declare a command argument to be parsed to your comamnd function as a boolean.
-	 * @returns "true" or "false" as boolean, everything else will be undefined.
+	 * @description Declare a command argument to be parsed to your command function as a boolean.
+	 * Strings such as "yes", "true" or "y" will return true, "no", "n", "false" return false and any other
+	 * input will be parsed as undefined.
+	 * This is a `parameter decorator`.
+	 * @returns boolean or undefined
+	 * @param name (optional) the name to register for the parameter
 	 */
 	public static Boolean(name: string = "Argument")
 	{
@@ -28,9 +43,10 @@ export class Args
 	}
 
 	/**
-	 * Declare a command argument to be parsed to your comamnd function as a string.<br>
-	 * Technically, this is completely redundant because the default argument type is a string, but you might aswell want to use this to write cleaner code. It is up to you.
-	 * @returns Passes as a string.
+	 * @description Declare a command argument to be parsed to your command function as a string.
+	 * This is a `parameter decorator`.
+	 * @returns string or undefined
+	 * @param name (optional) the name to register for the parameter
 	 */
 	public static String(name: string = "Argument")
 	{
@@ -41,8 +57,10 @@ export class Args
 	}
 
 	/**
-	 * Declare a command argument to be parsed to your comamnd function as a discord.js GuildMember.
-	 * @returns Passes a discord.js GuildMember objector undefined if no member could be parsed.
+	 * @description Declare a command argument to be parsed to your command function as a discord.js GuildMember object.
+	 * This is a `parameter decorator`.
+	 * @returns discord.js GuildMember object or undefined
+	 * @param name (optional) the name to register for the parameter
 	 */
 	public static GuildMember(name: string = "Argument")
 	{
@@ -53,8 +71,10 @@ export class Args
 	}
 
 	/**
-	 * Declare a command argument to be parsed to your comamnd function as a discord.js User.
-	 * @returns Passes a discord.js User object or undefined if no user could be parsed.
+	 * @description Declare a command argument to be parsed to your command function as a discord.js User object.
+	 * This is a `parameter decorator`.
+	 * @returns discord.js User object or undefined
+	 * @param name (optional) the name to register for the parameter
 	 */
 	public static User(name: string = "Argument")
 	{
@@ -65,8 +85,10 @@ export class Args
 	}
 
 	/**
-	 * Declare a command argument to be parsed to your comamnd function as a discord.js TextChannel.
-	 * @returns Passes a discord.js TextChannel object or undefined if no channel could be parsed.
+	 * @description Declare a command argument to be parsed to your command function as a discord.js TextChannel object.
+	 * This is a `parameter decorator`.
+	 * @returns discord.js TextChannel object or undefined
+	 * @param name (optional) the name to register for the parameter
 	 */
 	public static Channel(name: string = "Argument")
 	{
@@ -77,8 +99,10 @@ export class Args
 	}
 
 	/**
-	 * Declare a command argument to be parsed to your comamnd function as a discord.js Role.
-	 * @returns Passes a discord.js Role object or undefined if no role could be parsed.
+	 * @description Declare a command argument to be parsed to your command function as a discord.js Role object.
+	 * This is a `parameter decorator`.
+	 * @returns discord.js Role object or undefined
+	 * @param name (optional) the name to register for the parameter
 	 */
 	public static Role(name: string = "Argument")
 	{
@@ -88,8 +112,11 @@ export class Args
 		};
 	}
 	/**
-	 * Declare a command argument to be parsed to your comamnd function as a discord.js Role.
-	 * @returns Passes the part of the message that invocated a command where the infinite argument begins.
+	 * @description Declare a command argument to be parsed from the argument position
+	 * until the end of the original message content.
+	 * This will also keep the original spacing and linebreaks.
+	 * @returns string or undefined
+	 * @param name (optional) the name to register for the parameter
 	 */
 	public static Infinite(name: string = "Argument")
 	{
@@ -101,7 +128,7 @@ export class Args
 }
 
 /**
- * Tells a command which type to expect on a specific index
+ * Tells the argument type converter which type to parse on which argument
  * @internal
  */
 function setArgumentType(

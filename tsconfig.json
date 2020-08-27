@@ -5,11 +5,11 @@
 		"sourceMap": false,
 		"outDir": "build",
 		"target": "ES2019",
-		"declaration": true,
 		"strict": true,
 		"baseUrl": ".",
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
+		"removeComments": true,
 		"paths": {
 			"*": ["node_modules/*"]
 		},

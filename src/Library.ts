@@ -5,7 +5,6 @@ import {
 } from "./Decorators/Commands";
 import { Client } 			from "./Client";
 import { Events }			from "./Decorators/Events";
-import { Providers } 		from "./Database/Providers";
 import { fancify } 			from "./Decorators/Fancify";
 import { Args } 			from "./Decorators/Args";
 import { CommandContext } 	from "./Interfaces/CommandContext";
@@ -18,24 +17,18 @@ import { reload } 			from "./Helpers/Exported/Reload";
 export
 {
 	Client,
-	Providers,
-	Commands,
-
-	// decorators
-	Group,
 	Events,
-	Meta,
 	Args,
+	Convert,
+	Commands,
+	Meta,
+	Group,
+	reload,
 	fancify,
 
-	// utility
-	reload,
-	Convert,
-
-	// interfaces, types and interface-like classes
-	CommandContext,
-	CommandContext as Context,
 	ClientOptions,
 	CommandOptions,
 	Command,
+	CommandContext,
+	CommandContext as Context,
 };

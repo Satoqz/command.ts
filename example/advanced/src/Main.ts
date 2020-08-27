@@ -5,12 +5,12 @@ import { config } from "dotenv";
 
 config({ path: "./.env" });
 
-const client = new Client({
-	prefixes: ["!", "?"],
+export const client = new Client({
 	loadDirs: [
 		join(__dirname, "commands"),
 		join(__dirname, "events")
-	]
+	],
+	autoHandleCommands: false
 });
 
 client.login(process.env.TOKEN);

@@ -6,7 +6,6 @@ import {
 } from "discord.js";
 import { MessageOptions } from "child_process";
 import { CommandParam } from "./Command";
-import { BaseProv } from "../Database/BaseProv";
 import { Client } from "../Client";
 import { Command } from "./Command";
 
@@ -24,7 +23,6 @@ export interface CommandContext extends Message
 	me: ClientUser,
 	usedAlias: string,
 	usedPrefix: string,
-	dbContext: BaseProv,
 	command: Command,
 	c: Client
 	send(

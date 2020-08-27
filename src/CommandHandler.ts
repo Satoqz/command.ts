@@ -3,12 +3,14 @@ import { Message,
 	MessageAttachment,
 	ClientUser
 } from "discord.js";
+
 import { Client } from "./Client";
 import { Command } from "./Interfaces/Command";
 import { CommandContext, StringResolvable } from "./Interfaces/CommandContext";
 import { Commands } from "./Decorators/Commands";
 import { convertArgs } from "./Helpers/Internal/ConvertArgs";
 import { split } from "./Helpers/Internal/Split";
+import { isArray } from "util";
 
 /**
  * This is executed every time a command is called
@@ -16,30 +18,25 @@ import { split } from "./Helpers/Internal/Split";
  * @param message The mesage recived
  * @internal
  */
-export async function commandHandler(client: Client, message: Message)
+export async function commandHandler(client: Client, message: Message, prefixes: string | string[])
 {
-	if (message.author.bot) return;
+	if (
+		message.author.bot
+		&& (
+			(
+				message.author.id == client.user!.id && !client.listenToSelf
+			)
+			|| !client.listenToBots && !client.listenToSelf
+		)
+	)
+		return;
 
 	let hasPrefix = false;
 	let usedPrefix = "";
 
-	// If there is no guild, it is probably a DM channel
-	const guildId = message.guild?.id ?? "dms";
-	const guildPref = client.dbContext.getDocumentById<string>("PrefixConfig", guildId);
-
-	if (guildPref)
+	if (isArray(prefixes))
 	{
-		if (message.content.startsWith(guildPref))
-		{
-			hasPrefix = true;
-			usedPrefix = guildPref;
-		}
-	}
-	else
-	{
-		const defaultPrefixes = client.dbContext.getDocumentById<string[]>("PrefixConfig", "defaultPrefixes");
-
-		for (const prefix of defaultPrefixes!)
+		for (const prefix of prefixes)
 		{
 			if (message.content.startsWith(prefix))
 			{
@@ -47,6 +44,14 @@ export async function commandHandler(client: Client, message: Message)
 				hasPrefix = true;
 				break;
 			}
+		}
+	}
+	else
+	{
+		if (message.content.startsWith(prefixes))
+		{
+			hasPrefix = true;
+			usedPrefix = prefixes;
 		}
 	}
 
@@ -58,7 +63,8 @@ export async function commandHandler(client: Client, message: Message)
 	const command = Commands.store.find((command: Command) =>
 		command.aliases!.includes(
 			String(context.args[0])) &&
-			command.prefix != (hasPrefix ? "notallowed" : "require"));
+			command.prefix != (hasPrefix ? "notallowed" : "require")
+	);
 
 	if (!command) return;
 
@@ -68,7 +74,6 @@ export async function commandHandler(client: Client, message: Message)
 	// remove command keyword / alias
 	context.args = context.args.slice(1, context.args.length);
 	context.usedPrefix = usedPrefix;
-	context.dbContext = client.dbContext;
 	context.c = client;
 	context.me = client.user as ClientUser;
 	context.command = command;

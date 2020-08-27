@@ -4,19 +4,14 @@ import { isArray } from "util";
 import { commandHandler } from "./CommandHandler";
 import { importAll } from "./Helpers/Internal/ImportAll";
 import { ClientOptions } from "./Interfaces/ClientOptions";
-import { BaseProv } from "./Database/BaseProv";
-import { InMemProv } from "./Database/InMemProv";
 import { Events } from "./Decorators/Events";
 import { eventList } from "./Helpers/Internal/EventList";
 
 /**
- * A modified verson of the discord.js Client implementing the command.ts command handler
+ * @description A modified verson of the discord.js Client implementing the command.ts command and event handler
  */
 export class Client extends DJS.Client
 {
-	public commandGroups: string[] = [];
-	public dbContext: BaseProv;
-
 	constructor(
 		options: ClientOptions = {},
 		djsOptions?: DJS.ClientOptions
@@ -24,14 +19,11 @@ export class Client extends DJS.Client
 	{
 		super(djsOptions);
 
-		this.dbContext = options.database ?? new InMemProv();
+		this.listenToBots = options.listenToBots ?? false;
+		this.listenToSelf = options.listenToSelf ?? false;
+		this.autoHandleCommands = options.autoHandleCommands ?? true;
 
-		this.dbContext.createContainer("PrefixConfig");
-		this.dbContext.setDocument(
-			"PrefixConfig",
-			"defaultPrefixes",
-			options.prefixes ?? ["!"]
-		);
+		this.prefixes = options.prefixes ?? ["!"];
 
 		if (options.loadDirs)
 		{
@@ -44,43 +36,62 @@ export class Client extends DJS.Client
 		}
 
 		this.register();
-
-	}
-
-	public handleCommand(message: DJS.Message)
-	{
-		commandHandler(this, message);
 	}
 
 	/**
-	 * Set up standard event handlers
+	 * @description Whether or not to automatically run the command handler on every received message.
+	 * If set to false, commands can be ran on message using the `<Client>#handleCommand` method
+	 */
+	public autoHandleCommands: boolean;
+	/**
+	 * @description Whether or not to run a command if it was invoked by a bot user
+	 */
+	public listenToBots: boolean;
+	/**
+	 * @description Whether or not to run a command if it was invoked by the client user itself
+	 */
+	public listenToSelf: boolean;
+
+	/**
+	 * @description Default prefixes to use if no specific prefix is specified in the `<Client>#handleCommand` method
+	 */
+	public prefixes: string[]
+
+	/**
+	 * @description Manually make a message go through the command handling process
+	 * @param message
+	 */
+	public handleCommand(message: DJS.Message, prefixes: string | string[])
+	{
+		commandHandler(this, message, prefixes);
+	}
+
+	/**
+	 * @description Sets up the command handler to listen to the
+	 * `message` event and registers most other client events
 	 * @internal
 	 */
 	private register()
 	{
-		this.on("message", data => this.handleCommand(data));
+		if (this.autoHandleCommands)
+			this.on("message", data => this.handleCommand(data, this.prefixes));
 
 		eventList.forEach(event =>
 			this.on(event, (...args) =>
-				this.runListeners(event, ...args)
+				this.dispatchEvents(event, ...args)
 			)
 		);
 	}
 
 	/**
+	 * @description dispatched all methods that were registered using the `Event` decorators
+	 * if they match the name of the emitted event
 	 * @internal
 	 */
-	private runListeners(name: keyof DJS.ClientEvents, ...args: any[])
+	private dispatchEvents(name: keyof DJS.ClientEvents, ...args: any[])
 	{
 		Events.store
 			.filter(event => event.name == name)
 			.forEach(event => event.execute(...args));
-	}
-
-	public setPrefixForGuild(guildId: string, prefix: string)
-	{
-		this.dbContext.setDocument("Command", guildId, {
-			prefix: prefix
-		});
 	}
 }
