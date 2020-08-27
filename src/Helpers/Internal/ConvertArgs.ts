@@ -17,6 +17,8 @@ export function convertArgs(
 	command: Command
 ) : CommandParam[]
 {
+	const stringArgs = context.args as string[];
+
 	command.paramTypes.forEach((type: CommandParam, index: number) =>
 	{
 		if (context.args[index] != undefined)
@@ -38,26 +40,40 @@ export function convertArgs(
 				break;
 
 			case "user":
-				context.args[index] = Convert.toUser(context.args[index] as string, context.c);
+				context.args[index] = Convert.toUser(
+					context.args[index] as string, context.c
+				);
 				break;
 
 			case "guildmember":
 				context.args[index] = Convert.toMember(
-					context.args[index] as string, context.guild);
+					context.args[index] as string, context.guild
+				);
 				break;
 
 			case "textchannel":
 				context.args[index] = Convert.toChannel(
-					context.args[index] as string, context.guild);
+					context.args[index] as string, context.guild
+				);
 				break;
 
 			case "role":
 				context.args[index] = Convert.toRole(
-					context.args[index] as string, context.guild);
+					context.args[index] as string, context.guild
+				);
 				break;
 
 			case "infinite":
-				context.args[index] = context.args.slice(index).join(" ");
+				//context.args[index] = context.args.slice(index).join(" ");
+				let content = context.content
+					.replace(context.usedPrefix, "")
+					.replace(context.usedAlias, "")
+					.trim();
+				for (let i = 0; i < index; i++)
+				{
+					content = content.slice(content.indexOf(stringArgs[i]));
+				}
+				context.args[index] = content;
 				break;
 			}
 		}

@@ -1,7 +1,5 @@
 import { Context, Commands, Args, fancify } from "command.ts";
 
-// Your editor might suggest removing this class, but it's fine :)
-
 // make your own simple decorator
 const GuildOnly = fancify((ctx: Context) => ctx.channel.type != "dm");
 
