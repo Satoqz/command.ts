@@ -14,7 +14,7 @@ import { ClientEvents } from "discord.js";
  * ```
  * // examples
  *
- *‏‏‎ ‎@Events.Message
+ *‏‏‎ @Events.Message
  * class MessageEvent {
  * 		ping(msg: Message) {
  * 			msg.reply("pong!")

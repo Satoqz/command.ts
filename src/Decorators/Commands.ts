@@ -17,14 +17,14 @@ export class Commands
 	 * ```
 	 * // example
 	 *
-	 *‏‏‎ ‎@Commands.Group("Simple commands")
+	 *‏‏‎ @Commands.Group("Simple commands")
 	 * class SimpleCommands {
 	 * 		ping(ctx: Context) {
 	 * 			ctx.send("pong!");
 	 *		}
 	 * }
 	 * ```
-	 * @alias Group
+	 * @alias {@link Group}
 	 */
 	static Group(name: string = "Groupless")
 	{
@@ -75,7 +75,7 @@ export class Commands
 	 *
 	 * // let's define additional properties for our ping command
 	 *
-	 *‏‏‎ ‎@Commands.Group("Simple commands")
+	 *‏‏‎ @Commands.Group("Simple commands")
 	 * class SimpleCommands {
 	 *
 	 * 	‏‏‎	  ‏‏‎ ‎‎@Commands.Meta({ description: "Play ping pong", aliases: ["pingpong"] })
@@ -85,6 +85,8 @@ export class Commands
 	 * }
 	 * ```
 	 * Commands.Meta can be shortcutted by importing the alias `Meta`.
+	 *
+	 * @alias {@link Meta}
 	 */
 	static Meta(options?: CommandOptions)
 	{
