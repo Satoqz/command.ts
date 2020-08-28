@@ -10,8 +10,30 @@ import {
 import { Client } from "../../Client";
 import { isNull } from "util";
 
+/**
+ * Use the methods contained in the Convert class to resolve discord.js objects like GuildMembers from strings.
+ * The wanted result will be attempted to be resolved in the following order:
+ * - Id or mention
+ * - Lowercase tag (if a GuildMember or User)
+ * - Lowercase name
+ * If nothing can be resolved from the input string, `undefined` will be returned.
+ *
+ * ```
+ * // examples
+ *
+ * const user = Convert.toUser("Satoqz", client);
+ *
+ * const user = Convert.toUser("satoqz#9674", client);
+ *
+ * const user = Convert.toUser("287204567236739073", client)
+ * ```
+ * The methods take a {@link Client} argument to access its user/channel etc. cache.
+ */
 export class Convert
 {
+	/**
+	 * Converts string to [User](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/User).
+	 */
 	public static toUser(input: string, client: Client): User | undefined
 	{
 		input = input.toLowerCase();
@@ -24,6 +46,10 @@ export class Convert
 
 		return user;
 	}
+
+	/**
+	 * Converts string to [GuildMember](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/GuildMember).
+	 */
 	public static toMember(
 		input: string,
 		guild: Guild | null
@@ -45,6 +71,10 @@ export class Convert
 
 		return member;
 	}
+
+	/**
+	 * Converts string to [TextChannel](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/TextChannel).
+	 */
 	public static toChannel(
 		input: string,
 		guild: Guild | null
@@ -62,6 +92,10 @@ export class Convert
 
 		return channel as TextChannel;
 	}
+
+	/**
+	 * Converts string to [Role](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/Role).
+	 */
 	public static toRole(input: string, guild: Guild | null): Role | undefined
 	{
 		if (isNull(guild)) return undefined;

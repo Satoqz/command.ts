@@ -5,21 +5,17 @@ import {
 import { CommandContext } from "../../Interfaces/CommandContext";
 import { Convert } from "../Exported/Convert";
 /**
- * Transforms arguments from strings to their real type
- * @param context The context to be passed to the command
- * @param command The registered Command, to check the wanted arguments
- * @param args The arguments specified by the user
- * @returns The transformed command arguments
+ * Transforms arguments from strings to their requested type
+ * @param context The invocation context of a command
+ * including the input arguments and the destination types.
+ * @returns The type-transformed command arguments.
  * @internal
  */
-export function convertArgs(
-	context: CommandContext,
-	command: Command
-) : CommandParam[]
+export function convertArgs(context: CommandContext) : CommandParam[]
 {
 	const stringArgs = context.args as string[];
 
-	command.paramTypes.forEach((type: CommandParam, index: number) =>
+	context.command.paramTypes.forEach((type: CommandParam, index: number) =>
 	{
 		if (context.args[index] != undefined)
 		{
@@ -64,7 +60,6 @@ export function convertArgs(
 				break;
 
 			case "infinite":
-				//context.args[index] = context.args.slice(index).join(" ");
 				let content = context.content
 					.replace(context.usedPrefix, "")
 					.replace(context.usedAlias, "")

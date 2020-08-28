@@ -2,127 +2,122 @@ import { Commands } from "./Commands";
 import { Command, ParamType } from "../Interfaces/Command";
 
 /**
- * @description Class containing static methods (parameter decorators).
- * Use these decorator methods to decorate the parameters of you command methods
- * for automatic argument parsing from a string to your desired type.
- * In most cases, if an argument cannot be parsed into the specified type or doesnt exist,
- * undefined will be returned.
+ * Class containing decorator factories for command parameters.
+ * Used to automatically parse to a different type from a string command argument to the command method, e.g. a `number` or a
+ * [User](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/User).
+ *
+ * ```
+ * // example ban command
+ * @Group("Admin commands")
+ * class AdminCommands {
+ * 		ban(
+ * 			ctx: Context,
+ * 			@Args.Member("Member to be banned") member: Member,
+ * 			@Args.Infinite("Ban reason") reason: string
+ * 		) {
+ * 			// ban command implementation
+ * 		}
+ * }
+ * ```
  */
 export class Args
 {
 	/**
-	 * @description Declare a command argument to be parsed to your command function as a number.
-	 * If the input argument cannot be parsed, NaN will be passed as an indicator.
-	 * This is a `parameter decorator`.
-	 * If the argument does not exist, it will be undefined.
-	 * @returns number, NaN or undefined
-	 * @param name (optional) the name to register for the parameter
+	 * Tries to convert a command argument into a `number`.
+	 * If no `number` could be parsed, the argument will be `NaN` or `undefined` if the argument didnt exist in the first place
 	 */
-	public static Number(name: string = "Argument")
+	public static Number(name?: string)
 	{
 		return function(target: Object, functionName: string, index: number)
 		{
-			setArgumentType(name, functionName, index, "number");
+			setArgumentType(name ?? "Unnamed Argument", functionName, index, "number", target);
 		};
 	}
 
 	/**
-	 * @description Declare a command argument to be parsed to your command function as a boolean.
-	 * Strings such as "yes", "true" or "y" will return true, "no", "n", "false" return false and any other
-	 * input will be parsed as undefined.
-	 * This is a `parameter decorator`.
-	 * @returns boolean or undefined
-	 * @param name (optional) the name to register for the parameter
+	 * Tries to convert a command argument into a `boolean`.
+	 * Resolves `"true", "yes", "y"` into `true` and `"false", "no", "n"` into `false`.
+	 * If no "boolean indication" could be parsed, the argument will be `undefined`.
 	 */
-	public static Boolean(name: string = "Argument")
+	public static Boolean(name?: string)
 	{
 		return function(target: Object, functionName: string, index: number)
 		{
-			setArgumentType(name, functionName, index, "boolean");
+			setArgumentType(name ?? "Unnamed Argument", functionName, index, "boolean", target);
 		};
 	}
 
 	/**
-	 * @description Declare a command argument to be parsed to your command function as a string.
-	 * This is a `parameter decorator`.
-	 * @returns string or undefined
-	 * @param name (optional) the name to register for the parameter
+	 * Parses a command argument into a `string`.
 	 */
-	public static String(name: string = "Argument")
+	public static String(name?: string)
 	{
 		return function(target: Object, functionName: string, index: number)
 		{
-			setArgumentType(name, functionName, index, "string");
+			setArgumentType(name ?? "Unnamed Argument", functionName, index, "string", target);
 		};
 	}
 
 	/**
-	 * @description Declare a command argument to be parsed to your command function as a discord.js GuildMember object.
-	 * This is a `parameter decorator`.
-	 * @returns discord.js GuildMember object or undefined
-	 * @param name (optional) the name to register for the parameter
+	 * Uses {@link Convert.toMember} internally to resolve a
+	 * [GuildMember](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/GuildMember)
+	 * argument or `undefined`.
 	 */
-	public static GuildMember(name: string = "Argument")
+	public static GuildMember(name?: string)
 	{
 		return function(target: Object, functionName: string, index: number)
 		{
-			setArgumentType(name, functionName, index, "guildmember");
+			setArgumentType(name ?? "Unnamed Argument", functionName, index, "guildmember", target);
 		};
 	}
 
 	/**
-	 * @description Declare a command argument to be parsed to your command function as a discord.js User object.
-	 * This is a `parameter decorator`.
-	 * @returns discord.js User object or undefined
-	 * @param name (optional) the name to register for the parameter
+	 * Uses {@link Convert.toUser} internally to resolve a
+	 * [User](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/User)
+	 * argument or `undefined`.
 	 */
-	public static User(name: string = "Argument")
+	public static User(name?: string)
 	{
 		return function(target: Object, functionName: string, index: number)
 		{
-			setArgumentType(name, functionName, index, "user");
+			setArgumentType(name ?? "Unnamed Argument", functionName, index, "user", target);
 		};
 	}
 
 	/**
-	 * @description Declare a command argument to be parsed to your command function as a discord.js TextChannel object.
-	 * This is a `parameter decorator`.
-	 * @returns discord.js TextChannel object or undefined
-	 * @param name (optional) the name to register for the parameter
+	 * Uses {@link Convert.toChannel} internally to resolve a
+	 * [TextChannel](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/TextChannel)
+	 * argument or `undefined`.
 	 */
-	public static Channel(name: string = "Argument")
+	public static Channel(name?: string)
 	{
 		return function(target: Object, functionName: string, index: number)
 		{
-			setArgumentType(name, functionName, index, "textchannel");
+			setArgumentType(name ?? "Unnamed Argument", functionName, index, "textchannel", target);
 		};
 	}
 
 	/**
-	 * @description Declare a command argument to be parsed to your command function as a discord.js Role object.
-	 * This is a `parameter decorator`.
-	 * @returns discord.js Role object or undefined
-	 * @param name (optional) the name to register for the parameter
+	 * Uses {@link Convert.toRole} internally to resolve a
+	 * [Role](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/Role)
+	 * argument or `undefined`.
 	 */
-	public static Role(name: string = "Argument")
+	public static Role(name?: string)
 	{
 		return function(target: Object, functionName: string, index: number)
 		{
-			setArgumentType(name, functionName, index, "role");
+			setArgumentType(name ?? "Unnamed Argument", functionName, index, "role", target);
 		};
 	}
 	/**
-	 * @description Declare a command argument to be parsed from the argument position
-	 * until the end of the original message content.
-	 * This will also keep the original spacing and linebreaks.
-	 * @returns string or undefined
-	 * @param name (optional) the name to register for the parameter
+	 * Get all the remaining text relative to the argument position. Useful to easily capture a text input with unpredictable size.
+	 * Also preserves original spacing and linebreaks.
 	 */
-	public static Infinite(name: string = "Argument")
+	public static Infinite(name?: string)
 	{
 		return function(target: Object, functionName: string, index: number)
 		{
-			setArgumentType(name, functionName, index, "infinite");
+			setArgumentType(name ?? "Unnamed Argument", functionName, index, "infinite", target);
 		};
 	}
 }
@@ -135,9 +130,13 @@ function setArgumentType(
 	paramName: string,
 	functionName: string,
 	index: number,
-	type: ParamType
+	type: ParamType,
+	target: Object
 )
 {
+	if (typeof target != "object" || typeof index != "number")
+		throw new Error("Argument parsing decorators can be applied to parameters only");
+
 	const interval = setInterval(() =>
 	{
 		const command: Command | undefined =

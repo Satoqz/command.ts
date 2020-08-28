@@ -1,5 +1,5 @@
 /**
- *
+ * The command argument splitting method. Splits by spaces/whitespace, quoted arguments and code blocks.
  * @param input string to be splitted
  * @internal
  */
@@ -7,7 +7,7 @@ export function split(input: string): string[]
 {
 	const out: string[] = [];
 
-	let inParentheses = false;
+	let inQuotes = false;
 	let inCodeblock = false;
 	let current: string[] = [];
 
@@ -15,15 +15,15 @@ export function split(input: string): string[]
 
 	for (let item of simple)
 	{
-		if (item.startsWith("\"") && !inCodeblock && !inParentheses)
+		if (item.startsWith("\"") && !inCodeblock && !inQuotes)
 		{
 			item = item.slice(1);
-			inParentheses = true;
+			inQuotes = true;
 		}
-		if (item.endsWith("\"") && !inCodeblock && inParentheses)
+		if (item.endsWith("\"") && !inCodeblock && inQuotes)
 		{
 			item = item.slice(0, item.length - 1);
-			inParentheses = false;
+			inQuotes = false;
 		}
 		if (!inCodeblock && item.startsWith("```"))
 		{
@@ -38,7 +38,7 @@ export function split(input: string): string[]
 
 		current.push(item);
 
-		if (!inParentheses && !inCodeblock)
+		if (!inQuotes && !inCodeblock)
 		{
 			out.push(current.join(" ").trim());
 			current = [];

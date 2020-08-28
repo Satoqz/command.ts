@@ -1,4 +1,4 @@
-import * as DJS from "discord.js";
+import discordjs, { Message } from "discord.js";
 import { isArray } from "util";
 
 import { commandHandler } from "./CommandHandler";
@@ -8,13 +8,15 @@ import { Events } from "./Decorators/Events";
 import { eventList } from "./Helpers/Internal/EventList";
 
 /**
- * @description A modified verson of the discord.js Client implementing the command.ts command and event handler
+ * An extended verson of the
+ * discord.js [Client](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/Client)
+ * class implementing the command.ts command and event handlers.
  */
-export class Client extends DJS.Client
+export class Client extends discordjs.Client
 {
 	constructor(
 		options: ClientOptions = {},
-		djsOptions?: DJS.ClientOptions
+		djsOptions?: discordjs.ClientOptions
 	)
 	{
 		super(djsOptions);
@@ -39,35 +41,37 @@ export class Client extends DJS.Client
 	}
 
 	/**
-	 * @description Whether or not to automatically run the command handler on every received message.
-	 * If set to false, commands can be ran on message using the `<Client>#handleCommand` method
+	 * {@link ClientOptions.autoHandleCommands}
 	 */
-	public autoHandleCommands: boolean;
+	private autoHandleCommands: boolean;
+
 	/**
-	 * @description Whether or not to run a command if it was invoked by a bot user
+	 * {@link ClientOptions.listenToBots}
 	 */
 	public listenToBots: boolean;
+
 	/**
-	 * @description Whether or not to run a command if it was invoked by the client user itself
+	 * {@link ClientOptions.listenToSelf}
 	 */
 	public listenToSelf: boolean;
 
 	/**
-	 * @description Default prefixes to use if no specific prefix is specified in the `<Client>#handleCommand` method
+	 * {@link ClientOptions.prefixes}
 	 */
 	public prefixes: string[]
 
 	/**
-	 * @description Manually make a message go through the command handling process
-	 * @param message
+	 * Manually run a message through the command handling process.<br>
+	 * The method takes a prefix or an array of prefixes for the command handler to accept as a second parameter<br>
+	 * This is useful if you are loading custom prefixes per guild.
 	 */
-	public handleCommand(message: DJS.Message, prefixes: string | string[])
+	public handleCommand(message: Message, prefixes: string | string[])
 	{
-		commandHandler(this, message, prefixes);
+		commandHandler(message, prefixes);
 	}
 
 	/**
-	 * @description Sets up the command handler to listen to the
+	 * Sets up the command handler to listen to the
 	 * `message` event and registers most other client events
 	 * @internal
 	 */
@@ -84,14 +88,14 @@ export class Client extends DJS.Client
 	}
 
 	/**
-	 * @description dispatched all methods that were registered using the `Event` decorators
+	 * dispatches all methods that were registered using the `Event` decorators
 	 * if they match the name of the emitted event
 	 * @internal
 	 */
-	private dispatchEvents(name: keyof DJS.ClientEvents, ...args: any[])
+	private dispatchEvents(name: keyof discordjs.ClientEvents, ...args: any[])
 	{
 		Events.store
 			.filter(event => event.name == name)
-			.forEach(event => event.execute(...args));
+			.forEach(event => event.run(...args));
 	}
 }

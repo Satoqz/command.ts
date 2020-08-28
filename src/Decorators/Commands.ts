@@ -3,15 +3,28 @@ import { CommandOptions } from "../Interfaces/CommandOptions";
 import { isConstructor } from "../Helpers/Internal/IsConstructor";
 
 /**
- * @description Class containing static methods to register command groups and command meta info.
- * You can also access all registered commands using the `store` property or list all command group names using `groups`
+ * The methods in this class are decorator factories used to define command groups and further properties for command methods.
+ * It also allows you to read all registered commands and command groups using the {@link Commands.store} or {@linkCommands.groups} properties.
  */
 export class Commands
 {
 	/**
-	 * @description Use this **class decorator** to register a class and its member methods
-	 * as a command group with its method as commands
-	 * @param name The name of your command group (optional)
+	 * Use this decorator factory on a class to register a command group.
+	 * All member methods of the class will be registered as commands, naming them after the method name.<br>
+	 * Group takes an optional argument to give your group a name.
+	 * Command groups are extensible over multiple files by giving them the same name
+	 *
+	 * ```
+	 * // example
+	 *
+	 *‏‏‎ ‎@Commands.Group("Simple commands")
+	 * class SimpleCommands {
+	 * 		ping(ctx: Context) {
+	 * 			ctx.send("pong!");
+	 *		}
+	 * }
+	 * ```
+	 * @alias Group
 	 */
 	static Group(name: string = "Groupless")
 	{
@@ -44,18 +57,34 @@ export class Commands
 					description: "No description",
 					usage: "No information",
 					aliases: [key],
-					execute: descriptor?.value,
+					run: descriptor?.value,
 					prefix: "require",
 					paramTypes: [],
-					paramNames: []
+					paramNames: [],
+					defaultName: true
 				});
 			});
 		};
 	}
 	/**
-	 * @description Use this **method decorator** to define additional information
-	 * for your command methods (e.g. aliases, description)
-	 * @param options Additional data to add to your command method
+	 * Use this decorator factory on a method within a command group class to define additional properties for the command.
+	 * All available options can be found here: {@link CommandOptions}
+	 *
+	 * ```
+	 * // example
+	 *
+	 * // let's define additional properties for our ping command
+	 *
+	 *‏‏‎ ‎@Commands.Group("Simple commands")
+	 * class SimpleCommands {
+	 *
+	 * 	‏‏‎	  ‏‏‎ ‎‎@Commands.Meta({ description: "Play ping pong", aliases: ["pingpong"] })
+	 * 		ping(ctx: Context) {
+	 * 			ctx.send("pong!");
+	 *		}
+	 * }
+	 * ```
+	 * Commands.Meta can be shortcutted by importing the alias `Meta`.
 	 */
 	static Meta(options?: CommandOptions)
 	{
@@ -84,6 +113,11 @@ export class Commands
 						command.description = options.description;
 					if (options?.prefix)
 						command.prefix = options?.prefix;
+					if (options?.defaultName)
+					{
+						command.aliases.shift();
+						command.name = command.aliases[0];
+					}
 					Commands.store[index] = command;
 				}
 			}, 0);
@@ -91,25 +125,23 @@ export class Commands
 	}
 
 	/**
-	 * @description Main storage of all registered commands.
-	 * This is the property to use in otder to generate dynamic help commands
+	 * Central storage of all registered commands.
+	 * This is the property to use in order to generate dynamic help commands.
 	*/
 	static store: Command[] = [];
 	/**
-	 * @description Main storage of all registered group names.
-	 * This is useful if you want to provide a list of command groups/categories
+	 * Central storage of all registered group names.
+	 * This is useful if you want to provide a list of command groups/categories.
 	*/
 	static groups: string[] = [];
 }
 
 /**
- * @description Shorthand alias for `Commands.Group`
- * @alias Commands.Group
+ * @alias {@link Commands.Group}
  */
 export const Group = Commands.Group;
 /**
- * @description Shorthand alias for `Commands.Meta`
- * @alias Commands.Meta
+ * @alias {@link Commands.Meta}
  */
 export const Meta = Commands.Meta;
 

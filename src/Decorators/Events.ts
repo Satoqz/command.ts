@@ -2,224 +2,131 @@ import { isConstructor } from "../Helpers/Internal/IsConstructor";
 import { ClientEvents } from "discord.js";
 
 /**
- * @description Class containing static methods (class decorators).
- * All methods of a class decorated with one of these methods will run
- * if the discord.js client event with the same name is emitted.
+ * This class allows you to convert
+ * [discord.js client events](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/Client)
+ * like
+ * ```
+ * client.on("ready", () => ...)
+ * ```
+ * into classes using the `Events` decorators allowing you to organize your event handlers in a more readably and fancy way.
+ *
+ *
+ * ```
+ * // examples
+ *
+ *‏‏‎ ‎@Events.Message
+ * class MessageEvent {
+ * 		ping(msg: Message) {
+ * 			msg.reply("pong!")
+ * 		}
+ * }
+ *
+ *‏‏‎ ‎‎@Events.Ready
+ * class ReadyEvent {
+ * 		logReady() {
+ * 			console.log("Client is ready!")
+ * 		}
+ * }
+ * ```
+ *
+ * All methods defined in a decorated class will be run on their respective events receiving the arguments according to it, in order of their registration.
+ * Below you can find a list of all available event decorators. You can also access the storage of your event callbacks using {@link Events.store}.
  */
 export class Events
 {
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static Message(parent: Function)
 	{
 		Events.addEvent("message", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static Ready(parent: Function)
 	{
 		Events.addEvent("ready", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
+
 	static GuildCreate(parent: Function)
 	{
 		Events.addEvent("guildCreate", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static GuildDelete(parent: Function)
 	{
 		Events.addEvent("guildDelete", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static GuildMemberAdd(parent: Function)
 	{
 		Events.addEvent("guildMemberAdd", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static GuildMemberRemove(parent: Function)
 	{
 		Events.addEvent("guildMemberRemove", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static GuildMemberUpdate(parent: Function)
 	{
 		Events.addEvent("guildMemberUpdate", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static GuildUpdate(parent: Function)
 	{
 		Events.addEvent("guildUpdate", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static Invalidated(parent: Function)
 	{
 		Events.addEvent("invalidated", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static MessageDelete(parent: Function)
 	{
 		Events.addEvent("messageDelete", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static MessageUpdate(parent: Function)
 	{
 		Events.addEvent("messageUpdate", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static MessageReactionAdd(parent: Function)
 	{
 		Events.addEvent("messageReactionAdd", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static MessageReactionRemove(parent: Function)
 	{
 		Events.addEvent("messageReactionRemove", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static MessageReactionRemoveAll(parent: Function)
 	{
 		Events.addEvent("messageReactionRemoveAll", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static MessageReactionRemoveEmoji(parent: Function)
 	{
 		Events.addEvent("messageReactionRemoveEmoji", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static RateLimit(parent: Function)
 	{
 		Events.addEvent("rateLimit", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static ShardDisconnect(parent: Function)
 	{
 		Events.addEvent("shardDisconnect", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static ShardError(parent: Function)
 	{
 		Events.addEvent("shardError", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static ShardReady(parent: Function)
 	{
 		Events.addEvent("shardReady", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static ShardReconnecting(parent: Function)
 	{
 		Events.addEvent("shardReconnecting", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static ShardResume(parent: Function)
 	{
 		Events.addEvent("shardResume", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static TypingStart(parent: Function)
 	{
 		Events.addEvent("typingStart", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static UserUpdate(parent: Function)
 	{
 		Events.addEvent("userUpdate", parent);
 	}
-	/**
-	 * @description Registers all class member methods to be run on the
-	 * <Client>#on("message")` event in discord.js and receive the according arguments
-	 * This is a `class decorator`.
-	 */
 	static Warn(parent: Function)
 	{
 		Events.addEvent("warn", parent);
@@ -234,11 +141,9 @@ export class Events
 			if (isConstructor(descriptor?.value))
 				return;
 
-			Events.store.push({ name: name, execute: descriptor?.value });
+			Events.store.push({ name: name, run: descriptor?.value });
 		});
 	}
-	/**
-	 * @description Storage of all registered discord.js `<Client>` events with their event name and method
-	 */
-	static store: { name: string, execute: Function }[] = []
+
+	static store: { name: string, run: Function }[] = []
 }

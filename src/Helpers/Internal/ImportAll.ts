@@ -1,6 +1,10 @@
 import { join } from "path";
 import { readdirSync, readFileSync } from "fs";
 
+/**
+ * Recursively imports all source files found in a directory and its subdirectories
+ * @param dir Directory to import
+ */
 export function importAll(dir: string)
 {
 	const found = readdirSync(dir);

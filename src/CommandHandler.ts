@@ -13,13 +13,13 @@ import { split } from "./Helpers/Internal/Split";
 import { isArray } from "util";
 
 /**
- * This is executed every time a command is called
- * @param client The client to be used
- * @param message The mesage recived
+ * The main command handler logic, validates input, finds command, creates context object.
  * @internal
  */
-export async function commandHandler(client: Client, message: Message, prefixes: string | string[])
+export async function commandHandler(message: Message, prefixes: string | string[])
 {
+	const client = message.client as Client;
+
 	if (
 		message.author.bot
 		&& (
@@ -68,7 +68,7 @@ export async function commandHandler(client: Client, message: Message, prefixes:
 
 	if (!command) return;
 
-	// we are now sure that the command will be executed: finish composing the context object
+	// we are now sure that the command will be rund: finish composing the context object
 
 	context.usedAlias = String(context.args[0]);
 	// remove command keyword / alias
@@ -85,5 +85,5 @@ export async function commandHandler(client: Client, message: Message, prefixes:
 			| (MessageEmbed | MessageAttachment)[]
 	) => context.channel.send(content, options);
 
-	command.execute(context, ...convertArgs(context, command));
+	command.run(context, ...convertArgs(context));
 }
