@@ -1,5 +1,4 @@
 import discordjs, { Message } from "discord.js";
-import { isArray } from "util";
 
 import { commandHandler } from "./CommandHandler";
 import { importAll } from "./Helpers/Internal/ImportAll";
@@ -29,7 +28,7 @@ export class Client extends discordjs.Client
 
 		if (options.loadDirs)
 		{
-			if (isArray(options.loadDirs))
+			if (Array.isArray(options.loadDirs))
 				options.loadDirs.forEach((dir: string) =>
 					importAll(dir)
 				);

@@ -10,7 +10,6 @@ import { CommandContext, StringResolvable } from "./Interfaces/CommandContext";
 import { Commands } from "./Decorators/Commands";
 import { convertArgs } from "./Helpers/Internal/ConvertArgs";
 import { split } from "./Helpers/Internal/Split";
-import { isArray } from "util";
 
 /**
  * The main command handler logic, validates input, finds command, creates context object.
@@ -34,7 +33,7 @@ export async function commandHandler(message: Message, prefixes: string | string
 	let hasPrefix = false;
 	let usedPrefix = "";
 
-	if (isArray(prefixes))
+	if (Array.isArray(prefixes))
 	{
 		for (const prefix of prefixes)
 		{
