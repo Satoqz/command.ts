@@ -6,9 +6,8 @@ import {
 	MessageAttachment
 } from "discord.js";
 
-import { CommandParam } from "./Command";
+import { CommandParam, Command } from "./Command";
 import { Client } from "../Client";
-import { Command } from "./Command";
 
 /**
  * @internal
