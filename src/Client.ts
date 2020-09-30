@@ -5,6 +5,7 @@ import { importAll } from "./Helpers/Internal/ImportAll";
 import { ClientOptions } from "./Interfaces/ClientOptions";
 import { Events } from "./Decorators/Events";
 import { eventList } from "./Helpers/Internal/EventList";
+import { Converter } from "./Helpers/Exported/Converter";
 
 /**
  * An extended verson of the
@@ -68,6 +69,8 @@ export class Client extends discordjs.Client
 	{
 		commandHandler(message, prefixes);
 	}
+
+	public convert = new Converter(this)
 
 	/**
 	 * Sets up the command handler to listen to the

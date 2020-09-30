@@ -1,9 +1,5 @@
-import {
-	Command,
-	CommandParam
-} from "../../Interfaces/Command";
+import { CommandParam } from "../../Interfaces/Command";
 import { CommandContext } from "../../Interfaces/CommandContext";
-import { Convert } from "../Exported/Convert";
 /**
  * Transforms arguments from strings to their requested type
  * @param context The invocation context of a command
@@ -36,25 +32,25 @@ export function convertArgs(context: CommandContext) : CommandParam[]
 				break;
 
 			case "user":
-				context.args[index] = Convert.toUser(
-					context.args[index] as string, context.c
+				context.args[index] = context.client.convert.toUser(
+					context.args[index] as string
 				);
 				break;
 
 			case "guildmember":
-				context.args[index] = Convert.toMember(
+				context.args[index] = context.client.convert.toMember(
 					context.args[index] as string, context.guild
 				);
 				break;
 
 			case "textchannel":
-				context.args[index] = Convert.toChannel(
+				context.args[index] = context.client.convert.toChannel(
 					context.args[index] as string, context.guild
 				);
 				break;
 
 			case "role":
-				context.args[index] = Convert.toRole(
+				context.args[index] = context.client.convert.toRole(
 					context.args[index] as string, context.guild
 				);
 				break;

@@ -44,11 +44,11 @@ import { isConstructor } from "../Helpers/Internal/IsConstructor";
  */
 export function fancify(condition: Function, expected?: any): Function
 {
-	return function(
+	return (
 		parent: Object | Function,
-		name: string,
+		___: string,
 		executor: PropertyDescriptor
-	)
+	) =>
 	{
 		// is a method
 		if (typeof parent == "object")

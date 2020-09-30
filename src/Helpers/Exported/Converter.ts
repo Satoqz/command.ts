@@ -8,7 +8,6 @@ import {
 	Role
 } from "discord.js";
 import { Client } from "../../Client";
-import { isNull } from "util";
 
 /**
  * Use the methods contained in the Convert class to resolve discord.js objects like GuildMembers from strings.
@@ -29,19 +28,21 @@ import { isNull } from "util";
  * ```
  * The methods take a {@link Client} argument to access its user/channel etc. cache.
  */
-export class Convert
+export class Converter
 {
+	constructor(public client: Client)
+	{}
 	/**
 	 * Converts string to [User](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/User).
 	 */
-	public static toUser(input: string, client: Client): User | undefined
+	public toUser(input: string): User | undefined
 	{
 		input = input.toLowerCase();
 		let user: User | undefined =
-			client.users.cache.get(input.replace(/\!|\<|\>|\@/g, ""));
-		if (!user) user = client.users.cache.find((user: User)=>
+			this.client.users.cache.get(input.replace(/\!|\<|\>|\@/g, ""));
+		if (!user) user = this.client.users.cache.find((user: User)=>
 			user.tag.toLowerCase() == input);
-		if (!user) user = client.users.cache.find((user: User) =>
+		if (!user) user = this.client.users.cache.find((user: User) =>
 			user.username.toLowerCase() == input);
 
 		return user;
@@ -50,12 +51,12 @@ export class Convert
 	/**
 	 * Converts string to [GuildMember](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/GuildMember).
 	 */
-	public static toMember(
+	public toMember(
 		input: string,
 		guild: Guild | null
 	) : GuildMember | undefined
 	{
-		if (isNull(guild))
+		if (guild == null)
 			return undefined;
 
 		input = input.toLowerCase();
@@ -75,12 +76,13 @@ export class Convert
 	/**
 	 * Converts string to [TextChannel](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/TextChannel).
 	 */
-	public static toChannel(
+	public toChannel(
 		input: string,
 		guild: Guild | null
 	): TextChannel | undefined
 	{
-		if (isNull(guild)) return undefined;
+		if (guild == null)
+			return undefined;
 
 		input = input.toLowerCase();
 
@@ -96,9 +98,10 @@ export class Convert
 	/**
 	 * Converts string to [Role](https://discord.js.org/?source=post_page---------------------------#/docs/main/stable/class/Role).
 	 */
-	public static toRole(input: string, guild: Guild | null): Role | undefined
+	public toRole(input: string, guild: Guild | null): Role | undefined
 	{
-		if (isNull(guild)) return undefined;
+		if (guild == null)
+			return undefined;
 
 		input = input.toLowerCase();
 

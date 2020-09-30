@@ -28,7 +28,7 @@ export class Args
 	 */
 	public static Number(name?: string)
 	{
-		return function(target: Object, functionName: string, index: number)
+		return (target: Object, functionName: string, index: number) =>
 		{
 			setArgumentType(name ?? "Unnamed Argument", functionName, index, "number", target);
 		};
@@ -41,7 +41,7 @@ export class Args
 	 */
 	public static Boolean(name?: string)
 	{
-		return function(target: Object, functionName: string, index: number)
+		return (target: Object, functionName: string, index: number) =>
 		{
 			setArgumentType(name ?? "Unnamed Argument", functionName, index, "boolean", target);
 		};
@@ -52,7 +52,7 @@ export class Args
 	 */
 	public static String(name?: string)
 	{
-		return function(target: Object, functionName: string, index: number)
+		return (target: Object, functionName: string, index: number) =>
 		{
 			setArgumentType(name ?? "Unnamed Argument", functionName, index, "string", target);
 		};
@@ -65,7 +65,7 @@ export class Args
 	 */
 	public static GuildMember(name?: string)
 	{
-		return function(target: Object, functionName: string, index: number)
+		return (target: Object, functionName: string, index: number) =>
 		{
 			setArgumentType(name ?? "Unnamed Argument", functionName, index, "guildmember", target);
 		};
@@ -78,7 +78,7 @@ export class Args
 	 */
 	public static User(name?: string)
 	{
-		return function(target: Object, functionName: string, index: number)
+		return (target: Object, functionName: string, index: number) =>
 		{
 			setArgumentType(name ?? "Unnamed Argument", functionName, index, "user", target);
 		};
@@ -91,7 +91,7 @@ export class Args
 	 */
 	public static Channel(name?: string)
 	{
-		return function(target: Object, functionName: string, index: number)
+		return (target: Object, functionName: string, index: number) =>
 		{
 			setArgumentType(name ?? "Unnamed Argument", functionName, index, "textchannel", target);
 		};
@@ -104,7 +104,7 @@ export class Args
 	 */
 	public static Role(name?: string)
 	{
-		return function(target: Object, functionName: string, index: number)
+		return (target: Object, functionName: string, index: number) =>
 		{
 			setArgumentType(name ?? "Unnamed Argument", functionName, index, "role", target);
 		};
@@ -115,7 +115,7 @@ export class Args
 	 */
 	public static Infinite(name?: string)
 	{
-		return function(target: Object, functionName: string, index: number)
+		return (target: Object, functionName: string, index: number) =>
 		{
 			setArgumentType(name ?? "Unnamed Argument", functionName, index, "infinite", target);
 		};
