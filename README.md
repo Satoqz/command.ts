@@ -2,7 +2,7 @@
 
 Reference:
 
-- **[Documentation and Guide](https://command.js.org)**
+- **[Guide](https://command.js.org)**
 
 - **[Repository](https://github.com/Satoqz/command.ts)**
 

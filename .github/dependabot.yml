@@ -4,6 +4,4 @@ updates:
   directory: "/"
   schedule:
     interval: daily
-  ignore:
-    - dependency-name: "typedoc"
   open-pull-requests-limit: 10
