@@ -78,17 +78,17 @@ export class Commands
 	 *‏‏‎ @Commands.Group("Simple commands")
 	 * class SimpleCommands {
 	 *
-	 * 	‏‏‎	  ‏‏‎ ‎‎@Commands.Summary({ description: "Play ping pong", aliases: ["pingpong"] })
+	 * 	‏‏‎	  ‏‏‎ ‎‎@Commands.Describe({ description: "Play ping pong", aliases: ["pingpong"] })
 	 * 		ping(ctx: Context) {
 	 * 			ctx.send("pong!");
 	 *		}
 	 * }
 	 * ```
-	 * Commands.Summary can be cut short by importing the alias `Summary`.
+	 * Commands.Describe can be cut short by importing the alias `Describe`.
 	 *
-	 * @alias {@link Summary}
+	 * @alias {@link Describe}
 	 */
-	static Summary(options?: CommandOptions)
+	static Describe(options?: CommandOptions)
 	{
 		return (
 			parent: Object,
@@ -143,7 +143,7 @@ export class Commands
  */
 export const Group = Commands.Group;
 /**
- * @alias {@link Commands.Summary}
+ * @alias {@link Commands.Describe}
  */
-export const Summary = Commands.Summary;
+export const Describe = Commands.Describe;
 

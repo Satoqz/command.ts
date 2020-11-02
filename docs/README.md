@@ -41,15 +41,15 @@ import { Command, Context } from "command.ts";
 
 ## Customizing commands
 
-Lets improve this command logic a bit using the `Meta` decorator.<br>
-Also, there are shortcuts available for `Group` and `Meta`:
+Lets improve this command logic a bit using the `Describe` decorator to describe its configuration.<br>
+Also, there are shortcuts available for `Group` and `Describe`:
 
 ```ts
-import { Group, Meta, Context } from "command.ts";
+import { Group, Describe, Context } from "command.ts";
 
 @Group("First commands") {
 
-    @Meta({
+    @Describe({
         aliases: ["pong"]
     })
     ping(ctx: Context) {

@@ -1,4 +1,4 @@
-import { Commands, Summary, Group } from "./Decorators/Commands";
+import { Commands, Describe, Group } from "./Decorators/Commands";
 import { Client } from "./Client";
 import { Events } from "./Decorators/Events";
 import { fancify } from "./Decorators/Fancify";
@@ -14,7 +14,7 @@ export
 	Events,
 	Args,
 	Commands,
-	Summary,
+	Describe,
 	Group,
 	fancify,
 
