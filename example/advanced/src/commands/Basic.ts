@@ -9,7 +9,7 @@ const GuildOnly = fancify((ctx: Context) => ctx.channel.type != "dm");
 class BasicCommands
 {
 	// specify additional data for your command
-	@Commands.Meta({ aliases: ["pong"], prefix: "optional" })
+	@Commands.Summary({ aliases: ["pong"], prefix: "optional" })
 	ping(ctx: Context)
 	{
 		ctx.send(ctx.usedAlias == "ping" ? "pong": "ping");

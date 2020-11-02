@@ -28,7 +28,7 @@ export class Commands
 	 */
 	static Group(name: string = "Groupless")
 	{
-		return function(parent: Object | Function)
+		return (parent: Object | Function) =>
 		{
 			// is not a class
 			if (typeof parent != "function")
@@ -78,22 +78,22 @@ export class Commands
 	 *‏‏‎ @Commands.Group("Simple commands")
 	 * class SimpleCommands {
 	 *
-	 * 	‏‏‎	  ‏‏‎ ‎‎@Commands.Meta({ description: "Play ping pong", aliases: ["pingpong"] })
+	 * 	‏‏‎	  ‏‏‎ ‎‎@Commands.Summary({ description: "Play ping pong", aliases: ["pingpong"] })
 	 * 		ping(ctx: Context) {
 	 * 			ctx.send("pong!");
 	 *		}
 	 * }
 	 * ```
-	 * Commands.Meta can be shortcutted by importing the alias `Meta`.
+	 * Commands.Summary can be cut short by importing the alias `Summary`.
 	 *
-	 * @alias {@link Meta}
+	 * @alias {@link Summary}
 	 */
-	static Meta(options?: CommandOptions)
+	static Summary(options?: CommandOptions)
 	{
-		return function(
+		return (
 			parent: Object,
 			name: string,
-		)
+		) =>
 		{
 			if (typeof parent != "object")
 				throw new Error("Use the Command decorator on methods only");
@@ -143,7 +143,7 @@ export class Commands
  */
 export const Group = Commands.Group;
 /**
- * @alias {@link Commands.Meta}
+ * @alias {@link Commands.Summary}
  */
-export const Meta = Commands.Meta;
+export const Summary = Commands.Summary;
 

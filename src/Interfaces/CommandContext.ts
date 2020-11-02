@@ -43,6 +43,7 @@ export interface CommandContext extends Message
 	 * Shortcut to `<CommandContext>.client.user`.
 	 */
 	c: Client
+	client: Client
 	/**
 	 * Shortcut to `<CommandContext>.channel.send`.
 	 */

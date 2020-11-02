@@ -1,4 +1,4 @@
-import { Events, Client } from "command.ts";
+import { Events } from "command.ts";
 
 @Events.Ready
 class ReadyEvent
