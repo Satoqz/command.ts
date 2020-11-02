@@ -1,14 +1,16 @@
-## ❯ **command.ts** is a modern *[discord.js](https://discord.js.org)* command framework <small><p>making use of TypeScript decorators to enhance controllability and readability of commands.</p></small>
+## command.ts
 
-Reference:
+### Want to implement your **discord.js** bot in a stylish **TypeScript** way? You've come to the right place!
 
-- **[Guide](https://command.js.org)**
+<br>
 
-- **[Repository](https://github.com/Satoqz/command.ts)**
+### **[Guide](https://command.js.org)**
 
-- **[NPM](https://npmjs.com/package/command.ts)**
+### **[Repository](https://github.com/Satoqz/command.ts)**
 
-Package info:
+### **[Package](https://npmjs.com/package/command.ts)**
+
+<br>
 
 <a href="https://www.npmjs.com/package/command.ts">
 	<img alt="npm (tag)" src="https://img.shields.io/npm/v/command.ts/latest?style=for-the-badge">
