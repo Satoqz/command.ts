@@ -1,4 +1,4 @@
-import { isConstructor } from "../Helpers/Internal/IsConstructor";
+import { isConstructor } from "../Helpers/IsConstructor";
 import { ClientEvents } from "discord.js";
 
 /**

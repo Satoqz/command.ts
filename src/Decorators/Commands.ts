@@ -1,6 +1,6 @@
 import { Command } from "../Interfaces/Command";
 import { CommandOptions } from "../Interfaces/CommandOptions";
-import { isConstructor } from "../Helpers/Internal/IsConstructor";
+import { isConstructor } from "../Helpers/IsConstructor";
 
 /**
  * The methods in this class are decorator factories used to define command groups and further properties for command methods.

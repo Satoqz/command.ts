@@ -2,8 +2,8 @@ import {
 	Message,
 	ClientUser,
 	MessageOptions,
-	MessageEmbed,
-	MessageAttachment
+	APIMessage,
+	MessageAdditions
 } from "discord.js";
 
 import { CommandParam, Command } from "./Command";
@@ -48,11 +48,21 @@ export interface CommandContext extends Message
 	 * Shortcut to `<CommandContext>.channel.send`.
 	 */
 	send(
+		options: MessageOptions
+		): Promise<Message[]>;
+	send(
+		options: MessageOptions | APIMessage
+		): Promise<Message | Message[]>;
+	send(
 		content: StringResolvable,
-		options?:
-			| MessageEmbed
-			| MessageAttachment
-			| MessageOptions
-			| (MessageEmbed | MessageAttachment)[],
-	): Promise<Message>;
+		options?: (MessageOptions & { split?: false }) | MessageAdditions
+		): Promise<Message>;
+	send(
+		content: StringResolvable,
+		options?: MessageOptions
+		): Promise<Message[]>;
+	send(
+		content: StringResolvable,
+		options?: MessageOptions
+		): Promise<Message | Message[]>;
 }

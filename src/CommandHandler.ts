@@ -76,13 +76,9 @@ export async function commandHandler(message: Message, prefixes: string | string
 	context.c = client;
 	context.me = client.user as ClientUser;
 	context.command = command;
-	context.send = (
-		content: StringResolvable,
-		options?:
-			| MessageEmbed
-			| MessageAttachment
-			| (MessageEmbed | MessageAttachment)[]
-	) => context.channel.send(content, options);
+	// @ts-ignore
+	// this is impossible to get the typings right for here
+	context.send = (a, b) => context.channel.send(a, b);
 
 	command.run(context, ...convertArgs(context));
 }

@@ -1,6 +1,6 @@
 import { CommandContext } from "../Interfaces/CommandContext";
 import { CommandParam } from "../Interfaces/Command";
-import { isConstructor } from "../Helpers/Internal/IsConstructor";
+import { isConstructor } from "../Helpers/IsConstructor";
 
 /**
  * The `fancify` method is used to create command execution middleware decorators.<br>
