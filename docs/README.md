@@ -68,7 +68,7 @@ import { Commands } from "command.ts";
 
 Commands.store // all commands as objects, stored in an array
 
-Commands.groups // all command group names, stores in an array
+Commands.groups // all command group names, stored in an array
 ```
 
 This is extremely helpful to create a dynamic help command.
