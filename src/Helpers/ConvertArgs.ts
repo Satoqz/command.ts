@@ -1,5 +1,5 @@
-import { CommandParam } from "../../Interfaces/Command";
-import { CommandContext } from "../../Interfaces/CommandContext";
+import { CommandParam } from "../Interfaces/Command";
+import { CommandContext } from "../Interfaces/CommandContext";
 /**
  * Transforms arguments from strings to their requested type
  * @param context The invocation context of a command

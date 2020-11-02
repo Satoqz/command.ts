@@ -7,27 +7,8 @@ import {
 	GuildChannel,
 	Role
 } from "discord.js";
-import { Client } from "../../Client";
+import { Client } from "../Client";
 
-/**
- * Use the methods contained in the Convert class to resolve discord.js objects like GuildMembers from strings.
- * The wanted result will be attempted to be resolved in the following order:
- * - Id or mention
- * - Lowercase tag (if a GuildMember or User)
- * - Lowercase name
- * If nothing can be resolved from the input string, `undefined` will be returned.
- *
- * ```
- * // examples
- *
- * const user = Convert.toUser("Satoqz", client);
- *
- * const user = Convert.toUser("satoqz#9674", client);
- *
- * const user = Convert.toUser("287204567236739073", client)
- * ```
- * The methods take a {@link Client} argument to access its user/channel etc. cache.
- */
 export class Converter
 {
 	constructor(public client: Client)

@@ -1,11 +1,11 @@
 import discordjs, { Message } from "discord.js";
 
 import { commandHandler } from "./CommandHandler";
-import { importAll } from "./Helpers/Internal/ImportAll";
+import { importAll } from "./Helpers/ImportAll";
 import { ClientOptions } from "./Interfaces/ClientOptions";
 import { Events } from "./Decorators/Events";
-import { eventList } from "./Helpers/Internal/EventList";
-import { Converter } from "./Helpers/Exported/Converter";
+import { eventList } from "./Helpers/EventList";
+import { Converter } from "./Helpers/Converter";
 
 /**
  * An extended verson of the
