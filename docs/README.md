@@ -25,9 +25,10 @@ This client class extends the discord.js client and preserves all its features. 
 ## Creating a command
 
 ```ts
-import { Command, Context } from "command.ts";
+import { Commands, Context } from "command.ts";
 
-@Command.Group("First commands") {
+@Commands.Group("First commands")
+class MyCommands {
 
     ping(ctx: Context) {
         ctx.send("pong!");
@@ -47,7 +48,8 @@ Also, there are shortcuts available for `Group` and `Describe`:
 ```ts
 import { Group, Describe, Context } from "command.ts";
 
-@Group("First commands") {
+@Group("First commands")
+class MyCommands {
 
     @Describe({
         aliases: ["pong"]
@@ -78,8 +80,8 @@ This is extremely helpful to create a dynamic help command.
 import { Group, Context, Args } from "command.ts";
 import type { User } from "discord.js";
 
-@Group("First commands") {
-
+@Group("First commands")
+class Commands {
     ping(ctx: Context, @Args.User("user to be pinged") user: User) {
         // if no user could be parsed, the argument will be undefined
         if (!user)
